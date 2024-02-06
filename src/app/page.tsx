@@ -11,8 +11,6 @@ export default function Home() {
 
      <div className="fixed top-0 h-screen w-screen -z-[100] bg-gradient-to-bl from-gray-400 via-gray-200 to-gray-100"></div>
 
-      {/*<img src="leds.jpeg" width={1000} height={1000} className="fixed top-0 h-screen w-screen -z-[100] bg-white" />*/}
-
       <div>
         <Flechaup />
       </div>

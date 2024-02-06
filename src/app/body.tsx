@@ -17,7 +17,7 @@ const Body = () => {
         <ul className="flex grid grid-cols-1 p-10 rounded-[40px] z-0 list-disc bg-gradient-to-tl from-gray-800 to-gray-500 md:h-full">
         
             <h3 className='flex items-center gap-4 p-2 text-gray-200 text-2xl md:text-3xl font-bold'>From $150.-</h3> 
-            <li className="text-l text-white p-2 md:text-xl text-gray-300">Designed to capture the visitor's attention and turn them into a customer.</li>
+            <li className="text-l text-white p-2 md:text-xl text-gray-300">Designed to capture the visitor attention and turn them into a customer.</li>
             <li className="text-l text-white p-2 md:text-xl text-gray-300">Ideal complement for campaigns on Google Ads and social media. </li>
             <li className="text-l text-white p-2 md:text-xl text-gray-300">IA designed logo, host and domain* included. </li>
 

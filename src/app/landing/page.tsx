@@ -8,8 +8,8 @@ export default function Home() {
              <h3 className="text-4xl text-center font-extrabold uppercase bg-gradient-to-br from-green-400 via-sky-600 to-blue-300 dark:bg-gradient-to-r from-blue-400 via-green-200 to-purple-900 text-transparent bg-clip-text p-2 md:text-4xl">Landing Page:</h3>
   
           <ul className="flex grid grid-cols-1 p-10 z-0 list-disc bg-gradient-to-br from-blue-600 via-sky-600 to-blue-300 md:h-full">
-              <a href="/"><img src="home.png" className="w-10 absolute right-5"></img></a>
-              <h3 className='flex items-center gap-4 p-2 text-gray-900 text-2xl md:text-3xl'>What's included?</h3> 
+              <a href="/"><img src="home.png" alt="homeico" className="w-10 absolute right-5"></img></a>
+              <h3 className='flex items-center gap-4 p-2 text-gray-900 text-2xl md:text-3xl'>Whats included?</h3> 
               <li className="text-l text-white p-2 md:text-xl text-gray-300">Design and develop.</li>
               <li className="text-l text-white p-2 md:text-xl text-gray-300">IA designed logo. </li>
               <li className="text-l text-white p-2 md:text-xl text-gray-300">Host and domain* (1 year runs on domains.com). </li>

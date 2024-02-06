@@ -31,7 +31,7 @@ const [menuOpen, setMenuOpen] = useState (false)
 
 <div className={
 menuOpen
-? 'absolute top-0 left-0 w-screen bg-gray-400 transition ease-in-out delay-150 duration-300 z-[100]'
+? 'absolute top-0 left-0 w-screen bg-gray-700 transition ease-in-out delay-150 duration-300 z-[100]'
 : 'absolute top-[-100%] h-screen w-full left-0 transition ease-in-out delay-150 duration-300 '
 }>
 
@@ -48,16 +48,16 @@ menuOpen
 <h1 className='text-l absolute -translate-x-2 translate-y-20 text-gray-300 shadow-xl md:text-xl'>GuidoLl</h1>
 
 <a href="landing" target='_blank'>     
-<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-20 md:text-l text-gray-100'>Landing page</p></a>
+<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Landing page</p></a>
 <a href="basicweb" target='_blank'>
-<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-20 md:text-l text-gray-100'>Basic web</p></a>           
+<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Basic web</p></a>           
 <a href="premiumweb" target='_blank'>
-<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-20 md:text-l text-gray-100'>Premium web</p>
+<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Premium web</p>
 </a>
 
 <a href='#containercontact'> 
 
-<p className='text-blue-800 text-l text-end -translate-x-5 md:-translate-x-20 md:text-2xl text-gray-200 animate-[pulse_2s_ease-in-out_infinite] '>Contact</p>
+<p className='text-blue-800 text-l text-end -translate-x-5 md:-translate-x-10 md:text-2xl text-purple-400 animate-[pulse_2s_ease-in-out_infinite] '>Contact</p>
 </a>
 
 </div>

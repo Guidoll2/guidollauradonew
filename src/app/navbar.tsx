@@ -48,9 +48,9 @@ menuOpen
 
 <a href="landing" target='_blank'>     
 <p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Landing page</p></a>
-<a href="basicweb" target='_blank'>
+<a href="basic" target='_blank'>
 <p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Basic web</p></a>           
-<a href="premiumweb" target='_blank'>
+<a href="premium" target='_blank'>
 <p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Premium web</p>
 </a>
 

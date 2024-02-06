@@ -3,8 +3,7 @@ const Body = () => {
     return (
 
         <div className="flex grid grid-cols-1 w-screen">
-          
-          
+                   
           
         <h1 className="text-5xl h-screen translate-y-32 text-center font-extrabold uppercase bg-gradient-to-br from-green-400 via-sky-600 to-blue-300 text-transparent bg-clip-text dark:bg-gradient-to-br from-blue-400 via-purple-400 to-blue-600 text-transparent bg-clip-text text-transparent bg-clip-text p-10 md:text-8xl md:p-10 md:indent-5">I craft your website. You achieve your goals.</h1>
 
@@ -65,13 +64,13 @@ const Body = () => {
         <ul className="flex grid grid-cols-1 p-10 border-[1px] rounded-[60px] z-0 bg-gradient-to-tl from-gray-800 to-gray-500">
         
         <li className='flex items-center gap-4 p-2 animate-[pulse_3s_ease-in-out_infinite]  mb-4'>
-        <img src="calendario.png" className="w-1/12"></img>
+        <img src="calendario.png" alt="calendarico" className="w-1/12"></img>
         <a href="https://calendly.com/guido-llaurado/appointment-for-landinpage"  target='_blank' className="text-gray-200 text-2xl md:text-3xl">Book a free appointment.</a>
         </li>  
 
         
         <li className='flex items-center justify-start gap-4 p-2'>
-        <img src="gmaili.png" className="w-6"></img>
+        <img src="gmaili.png" alt="mailico" className="w-6"></img>
         <a href="mailto:guido.llaurado@gmail.com"  target='_blank' className="text-gray-200 text-2xl md:text-2xl">
          Email.</a>    
         </li>
@@ -79,14 +78,14 @@ const Body = () => {
         
         
         <li className='flex items-center gap-4 p-2 '>
-        <img src="phonei.png" className="w-6"></img>
+        <img src="phonei.png" alt="phoneico" className="w-6"></img>
         <a className="flex items-center text-gray-200 text-2xl md:text-2xl" href='https://wa.me/+' target='_blank'>
         Whatsapp.</a>
         </li>
 
        
         <li className='flex justify-start items-center gap-4 p-2'>
-        <img src="igblack.png" className="w-6"></img>
+        <img src="igblack.png" alt="instagramico" className="w-6"></img>
         <a href="https://www.instagram.com/guidollaurado/"  target='_blank' className="text-gray-200 text-2xl md:text-2xl">
         Instagram.</a>
         </li>  
@@ -123,7 +122,7 @@ const Body = () => {
             
             
             <li className='flex items-center p-4 gap-4 text-gray-900 text-2xl md:text-2xl'>
-            <img src="star.png" className="w-8"></img>
+            <img src="star.png" alt="starico" className="w-8"></img>
             Your project, my sole priority:</li> 
             
             <li className="text-l text-white p-2 md:text-xl text-gray-300">Websites tailored to your specific needs.</li>
@@ -132,7 +131,7 @@ const Body = () => {
             <li className="text-l text-white p-2 md:text-xl text-gray-300">SEO positioning.</li>
         
             <li className='flex items-center p-4 gap-4 text-gray-900 text-2xl md:text-2xl '>
-            <img src="next-js.svg" className=""></img>
+            <img src="next-js.svg" alt="next-jsico" className=""></img>
             High-performance technology           
             </li> 
             
@@ -141,7 +140,7 @@ const Body = () => {
             <li className="text-l text-white p-2 md:text-xl">Superior performance and a more optimized user experience compared to conventional solutions. </li>
 
             <li className='flex items-center p-4 gap-4 text-gray-900 text-2xl md:text-2xl'>
-            <img src="vercel.svg" className="w-8"></img>
+            <img src="vercel.svg" alt="vercelico" className="w-8"></img>
             Vercel deploy
             </li>
 

@@ -43,7 +43,7 @@ menuOpen
 <div id='MENUDESPLEGABLE' className='flex grid grid-cols-1 p-6 text-center'>
 
 
-<img src='Ialogo3.png' className='absolute opacity-90 bottom-1 left-0 rounded-r-[100px] w-36 h-36'></img>
+<img src='Ialogo3.png' alt='logocraft' className='absolute opacity-90 bottom-1 left-0 rounded-r-[100px] w-36 h-36'></img>
 
 <h1 className='text-l absolute -translate-x-2 translate-y-20 text-gray-300 shadow-xl md:text-xl'>GuidoLl</h1>
 

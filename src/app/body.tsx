@@ -5,7 +5,7 @@ const Body = () => {
         <div className="flex grid grid-cols-1 w-screen">
                    
           
-        <h1 className="text-5xl h-screen translate-y-32 text-center font-extrabold uppercase bg-gradient-to-br from-green-400 via-sky-600 to-blue-300 text-transparent bg-clip-text dark:bg-gradient-to-br from-blue-400 via-purple-400 to-blue-600 text-transparent bg-clip-text text-transparent bg-clip-text p-10 md:text-8xl md:p-10 md:indent-5">I craft your website. You achieve your goals.</h1>
+        <h1 className="text-5xl h-screen text-center font-extrabold uppercase bg-gradient-to-br from-green-400 via-sky-600 to-blue-300 text-transparent bg-clip-text dark:bg-gradient-to-br from-blue-400 via-purple-400 to-blue-600 text-transparent bg-clip-text text-transparent bg-clip-text p-10 md:text-8xl md:p-10 md:indent-5">I craft your website. You achieve your goals.</h1>
 
           
         <div id="containeroptions" className="flex grid grid-cols-1 md:grid md:grid-cols-3 p-10 gap-8">
@@ -55,9 +55,9 @@ const Body = () => {
         </div>
 </div>
 
-<div className="invisible md:visible mx-auto w-screen max-w-6xl h-1 px-10 bg-gradient-to-tl from-blue-400 to-blue-700 mt-32 rounded-[100] dark:bg-purple-200"></div>
+<div className="mx-auto w-screen max-w-md md:max-w-6xl h-1 px-10 bg-gradient-to-tl from-blue-400 to-blue-700 mt-20 md:mt-32 rounded-[100] dark:bg-purple-200"></div>
 
-<div className="relative flex flex-col justify-center mx-auto md:w-1/2 md:mt-20 p-10 items-center" id="containercontact">
+<div className="relative flex flex-col justify-center mx-auto md:w-1/2 mt-10 md:mt-20 p-10 items-center" id="containercontact">
 
 <button className="absolute top-4 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl"><span className="bg-gradient-to-br from-green-400 via-sky-600 to-blue-300 dark:bg-gradient-to-r from-blue-400 via-green-200 to-purple-900 text-transparent bg-clip-text font-bold ">Ready to contact?</span></button>
     
@@ -93,7 +93,7 @@ const Body = () => {
         </ul>
         </div>
 
-        <div className="invisible md:visible mx-auto w-screen max-w-3xl h-1 px-10 bg-gradient-to-tl from-blue-400 to-blue-700 mt-32 rounded-[100] dark:bg-purple-200"></div>
+        <div className="mx-auto w-screen max-w-xs md:max-w-3xl h-1 px-10 bg-gradient-to-tl from-blue-400 to-blue-700 md:mt-32 rounded-[100] dark:bg-purple-200"></div>
 
 
 <div className="relative mx-auto mt-20 p-5 group" id="containerportfolio">

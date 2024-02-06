@@ -19,7 +19,8 @@ const [menuOpen, setMenuOpen] = useState (false)
 
 
 <nav className='flex grid grid-cols-1 w-full '> 
-<img src='Ialogo3.png' alt='logocraft' className='absolute opacity-80 left-0 rounded-r-[100px] rounded-b-[100px] w-20 h-20 md:w-24 md:h-24'></img>
+
+<h1 className='text-l p-5 font-bold bg-gradient-to-tl from-blue-500 to-purple-800 text-transparent bg-clip-text md:text-xl'>GuidoLl</h1>
 
 
 <button onClick={handleNav} id="BOTONMENU" className="absolute top-6 right-4 cursor-pointer hover:opacity-30 hover:animate-bounce">
@@ -44,7 +45,6 @@ menuOpen
 
 
 
-<h1 className='text-l absolute -translate-x-2 translate-y-20 text-gray-300 shadow-xl md:text-xl'>GuidoLl</h1>
 
 <a href="landing" target='_blank'>     
 <p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Landing page</p></a>

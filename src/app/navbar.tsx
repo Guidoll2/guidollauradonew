@@ -20,19 +20,19 @@ const [menuOpen, setMenuOpen] = useState (false)
 
 <nav className='flex grid grid-cols-1 w-full '> 
 
-<h1 className='text-l p-5 font-bold bg-gradient-to-tl from-blue-500 to-purple-800 text-transparent bg-clip-text md:text-xl'>GuidoLl</h1>
+<h1 className='text-l p-5 font-bold bg-gradient-to-tr from-blue-800 via-cyan-400 to-blue-800 text-transparent bg-clip-text md:text-xl'>GuidoLl</h1>
 
 
-<button onClick={handleNav} id="BOTONMENU" className="absolute top-6 right-4 cursor-pointer hover:opacity-30 hover:animate-bounce">
+<button onClick={handleNav} id="BOTONMENU" className="absolute top-6 right-4 cursor-pointer hover:opacity-30 hover:animate-bounce z-">
 
-  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-purple-900 md:w-10 md:mr-5 dark:bg-purple-200"></div>
-  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-purple-900 md:w-10 md:mr-5 dark:bg-purple-200"></div> 
-  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-purple-900 md:w-10 md:mr-5 dark:bg-purple-200"></div>
+  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div>
+  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div> 
+  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div>
   </button>
 
 <div className={
 menuOpen
-? 'absolute top-0 left-0 w-screen bg-gray-700 transition ease-in-out delay-150 duration-300 z-[100]'
+? 'absolute top-0 left-0 w-screen bg-gray-700 transition ease-in-out delay-150 duration-300 '
 : 'absolute top-[-100%] h-screen w-full left-0 transition ease-in-out delay-150 duration-300 '
 }>
 
@@ -47,16 +47,16 @@ menuOpen
 
 
 <a href="landing" target='_blank'>     
-<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Landing page</p></a>
+<p className='text-start text-l text-blue-800 md:text-l text-gray-200'>Landing page</p></a>
 <a href="basic" target='_blank'>
-<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Basic web</p></a>           
+<p className='text-start text-l text-blue-800 md:text-l text-gray-200'>Basic web</p></a>           
 <a href="premium" target='_blank'>
-<p className='text-end text-l text-blue-800 -translate-x-5 md:-translate-x-10 md:text-l text-gray-200'>Premium web</p>
+<p className='text-start text-l text-blue-800 md:text-l text-gray-200'>Premium web</p>
 </a>
 
 <a href='#containercontact'> 
 
-<p className='text-blue-800 text-l text-end -translate-x-5 md:-translate-x-10 md:text-2xl text-purple-400 animate-[pulse_2s_ease-in-out_infinite] '>Contact</p>
+<p className='text-blue-800 text-l text-start  md:text-2xl text-cyan-400 animate-[pulse_2s_ease-in-out_infinite] '>Contact</p>
 </a>
 
 </div>

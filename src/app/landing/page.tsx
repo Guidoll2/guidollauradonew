@@ -4,7 +4,7 @@ import Image from "next/image";
          
       <div className="flex grid grid-cols-1 h-screen w-screen bg-gradient-to-tl from-orange-100 via-orange-100 to-orange-200" id="">
       
-      <a href="/"><Image src="home.png" width={1000} height={1000} alt="homeico" className="w-16 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-8 right-5 z-[100]"></Image></a>
+      <a href="/"><Image src="/home.png" width={1000} height={1000} alt="homeico" className="w-16 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-8 right-5 z-[100]"></Image></a>
       
       <h3 className="text-5xl text-center font-extrabold uppercase bg-gradient-to-tl from-blue-800 via-cyan-400 to-blue-800 text-transparent bg-clip-text p-2 md:text-6xl">Landing page</h3>
       

@@ -15,10 +15,6 @@ export default function Home() {
           <Flechaup />
         </div>
 
-        <div id="nav" className="flex bg-transparent">
-          <Navbar />
-        </div>
-
         <div className="flex mt-5">
           <Body />
         </div>

@@ -56,6 +56,7 @@ const Body = () => {
 </div>
 
 <div id="containercs" className="flex grid grid-cols-1 md:grid-cols-1 bg-gradient-to-br from-blue-950 via-sky-600 to-blue-600 border-t-[2px] border-blue-900">
+
 <div className="relative flex flex-col justify-center mx-auto md:w-1/2 mt-10 md:mt-20 items-center" id="containercontact">
 
 <h3 className="flex text-3xl text-center text-gray-200 p-2 md:text-4xl">Contact me:</h3>
@@ -107,13 +108,13 @@ const Body = () => {
         </div>
         
            
-        
-           <h3 className="text-3xl text-center text-gray-700 p-2 md:text-4xl">Features:</h3>
+        <div id="containerfeatures" className="p-5">
+           <h3 className="text-3xl text-center text-gray-200 md:text-4xl md:mt-10">Features:</h3>
          
-        <ul className="md:h-full flex grid grid-cols-1 p-10  rounded-[60px] z-0 bg-gradient-to-bl from-blue-600 via-sky-600 to-blue-300">
+        <ul className="md:h-full flex grid grid-cols-1 p-10 rounded-[10px] z-0 bg-gradient-to-br from-gray-900 via-gray-500 to-gray-700">
             
             
-            <li className='flex items-center p-4 gap-4 text-gray-900 text-xl md:text-2xl'>
+            <li className='flex items-center p-4 gap-4 text-gray-200 text-xl md:text-2xl'>
             <img src="star.png" alt="starico" className="w-6"></img>
             Your project, my sole priority:</li> 
             
@@ -122,7 +123,7 @@ const Body = () => {
             <li className="text-l text-white p-2 md:text-xl text-gray-300">User experience improved.</li>
             <li className="text-l text-white p-2 md:text-xl text-gray-300">SEO positioning.</li>
         
-            <li className='flex items-center p-4 gap-4 text-gray-900 text-xl md:text-2xl '>
+            <li className='flex items-center p-4 gap-4 text-gray-200 text-xl md:text-2xl '>
             <img src="next-js.svg" alt="next-jsico" className="w-6"></img>
             High-performance technology           
             </li> 
@@ -131,7 +132,7 @@ const Body = () => {
             <li className="text-l text-white p-2 md:text-xl">Customized and highly efficient web solutions.</li>
             <li className="text-l text-white p-2 md:text-xl">Superior performance and a more optimized user experience compared to conventional solutions. </li>
 
-            <li className='flex items-center p-4 gap-4 text-gray-900 text-xl md:text-2xl'>
+            <li className='flex items-center p-4 gap-4 text-gray-200 text-xl md:text-2xl'>
             <img src="vercel.svg" alt="vercelico" className="w-6"></img>
             Vercel deploy
             </li>
@@ -141,18 +142,18 @@ const Body = () => {
             <li className="text-l text-white p-2 md:text-xl">Websites always guarded against potential risks. </li>
 
         </ul>
-       
+        </div>
        </div>
 
 
-<footer className="flex flex-col items-center p-5 bg-gradient-to-r from-blue-200 to-blue-600 mt-54 md:mt-64 text-center">
+<footer className="flex flex-col items-center p-5 bg-gradient-to-tl from-orange-100 via-orange-100 to-orange-200 mt-54 md:mt-64 text-center">
     <h1 className="text-xl text-gray-900 md:text-3xl font-bold">Guido Llaurado</h1>
-    <p className="text-sm md:text-lg">
+    <p className="text-sm md:text-lg text-gray-900">
         Design and Development | All rights reserved | Built with Tailwind CSS 
     </p>
     
     <div className="flex flex-col items-center mt-4">
-        <p className="p-4 text-black">
+        <p className="p-4 text-gray-900">
             Open to new opportunities. Ready to contribute to your team or company.
         </p>
         <a href="mailto:guido.llaurado@gmail.com">

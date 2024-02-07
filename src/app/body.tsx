@@ -4,7 +4,7 @@ import Navbar from "./navbar";
 const Body = () => {
     return (
 
-        <><div>
+        <><div id="nav">
             <Navbar></Navbar>
 
         </div><div className="flex grid grid-cols-1 w-screen h-screen">
@@ -13,7 +13,7 @@ const Body = () => {
                 <h1 className="flex items-center h-screen -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-tl from-blue-800 via-cyan-400 to-blue-800 text-transparent bg-clip-text md:text-8xl  md:indent-5">I create your website to help you achieve your goals.</h1>
 
 
-                <div id="containeroptions" className="flex grid grid-cols-1 md:grid md:grid-cols-3 md:p-0 gap-8 bg-gradient-to-tr from-gray-500 to-gray-600">
+                <div id="containeroptions" className="flex grid grid-cols-1 md:grid md:grid-cols-3 md:p-0  bg-gradient-to-tr from-gray-500 to-gray-600">
 
                     <div className="relative group p-10 order-2" id="containerlanding">
 
@@ -26,7 +26,7 @@ const Body = () => {
                             <li className="text-l text-white p-2 md:text-xl text-gray-900">Ideal complement for campaigns on Google Ads and social media. </li>
                             <li className="text-l text-white p-2 md:text-xl text-gray-900">IA designed logo, host and domain* included. </li>
 
-                            <a href="landing"> <button className="absolute bottom-4 md:bottom-24 left-1/2 transform -translate-x-1/2 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-700 ">More details</span></button></a>
+                            <a href="landing"> <button className="absolute bottom-4 md:bottom-10 left-1/2 transform -translate-x-1/2 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-700 ">More details</span></button></a>
                         </ul>
                     </div>
 
@@ -41,7 +41,7 @@ const Body = () => {
                             <li className="text-l text-white p-2 md:text-xl text-gray-300">Includes a professional design, optimized for mobile devices. </li>
                             <li className="text-l text-white p-2 md:text-xl text-gray-300">8 Sections, host and domain* included. </li>
 
-                            <a href="basic" > <button className="absolute bottom-4 md:bottom-32 left-1/2 transform -translate-x-1/2 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-700 ">More details</span></button></a>
+                            <a href="basic" > <button className="absolute bottom-4 md:bottom-24 left-1/2 transform -translate-x-1/2 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-700 ">More details</span></button></a>
                         </ul>
                     </div>
 
@@ -60,40 +60,40 @@ const Body = () => {
                     </div>
                 </div>
 
-                <div id="containercs" className="flex grid grid-cols-1 md:grid-cols-1 bg-gradient-to-br from-blue-950 via-sky-600 to-blue-600 border-t-[2px] border-blue-900">
+                <div id="containercs" className="flex grid grid-cols-1 md:grid-cols-1 bg-gradient-to-bl from-blue-950 via-sky-600 to-blue-600 border-t-[2px] border-blue-900">
 
 
-                    <div className="relative flex flex-col w-full justify-center mx-auto md:w-1/2 mt-10 md:mt-20 items-center p-2" id="containercontact">
+                    <div className="relative flex flex-col w-full justify-center mx-auto md:w-1/2 mt-10 md:mt-20 items-center p-2 " id="containercontact">
 
                         <h3 className="flex text-3xl text-center text-gray-200 p-2 md:text-4xl">Contact me:</h3>
 
-                        <ul className="flex grid grid-cols-1 p-10 w-full rounded-[5px] z-0 bg-gradient-to-br from-gray-900 via-gray-600 to-gray-700 gap-2">
+                        <ul className="flex grid grid-cols-1 p-10 w-full rounded-[5px] z-0 bg-gradient-to-tl from-gray-900 via-gray-600 to-gray-600 gap-2">
 
-                            <li className='flex items-center gap-4 p-2 animate-[pulse_3s_ease-in-out_infinite]  mb-4'>
-                                <Image src="/calendario.png" width={1000} height={1000} alt="calendarico" className="w-8" />
-                                <a href="https://calendly.com/guido-llaurado/appointment-for-landinpage" target='_blank' className="text-gray-200 text-2xl md:text-3xl">Free appointment.</a>
+                            <li className='flex items-center justify-center gap-4 p-2 animate-[pulse_2s_ease-in-out_infinite]  mb-4'>
+                                <Image src="/calendariogray200.png" width={1000} height={1000} alt="calendarico" className="w-8" />
+                                <a href="https://calendly.com/guido-llaurado/appointment-for-landinpage" target='_blank' className="bg-gradient-to-bl from-blue-800 to-cyan-400 text-transparent bg-clip-text text-3xl md:text-3xl">Free appointment</a>
                             </li>
 
 
-                            <li className='flex items-center justify-start gap-4 p-2'>
-                                <Image src="/gmaili.png" width={1000} height={1000} alt="mailico" className="w-8" />
-                                <a href="mailto:guido.llaurado@gmail.com" target='_blank' className="text-gray-200 text-2xl md:text-2xl">
+                            <li className='flex items-center justify-start gap-4 p-2 mb-4'>
+                                <Image src="/mailgray200bold.png" width={1000} height={1000} alt="mailico" className="w-8" />
+                                <a href="mailto:guido.llaurado@gmail.com" target='_blank' className="text-gray-200 text-xl md:text-2xl">
                                     Email</a>
                             </li>
 
 
 
-                            <li className='flex items-center gap-4 p-2 '>
-                                <Image src="/phonei.png" width={1000} height={1000} alt="phoneico" className="w-8" />
-                                <a className="flex items-center text-gray-200 text-2xl md:text-2xl" href='https://wa.me/+' target='_blank'>
+                            <li className='flex items-center gap-4 p-2 mb-4'>
+                                <Image src="/wpgray200.png" width={1000} height={1000} alt="phoneico" className="w-8" />
+                                <a className="flex items-center text-gray-200 text-xl md:text-2xl" href='https://wa.me/+' target='_blank'>
                                     Whatsapp</a>
                             </li>
 
 
-                            <li className='flex justify-start items-center gap-4 p-2'>
-                                <Image src="/igblack.png" width={1000} height={1000} alt="instagramico" className="w-8" />
-                                <a href="https://www.instagram.com/guidollaurado/" target='_blank' className="text-gray-200 text-2xl md:text-2xl">
-                                    Instagram.</a>
+                            <li className='flex justify-start items-center gap-4 p-2 mb-4'>
+                                <Image src="/instagramgray200.png" width={1000} height={1000} alt="instagramico" className="w-8" />
+                                <a href="https://www.instagram.com/guidollaurado/" target='_blank' className="text-gray-200 text-xl md:text-2xl">
+                                    Instagram</a>
                             </li>
 
                         </ul>
@@ -101,11 +101,11 @@ const Body = () => {
 
 
 
-                    <div className="relative mx-auto w-full p-2 group" id="containerportfolio">
+                    <div className="relative mx-auto w-full md:w-1/2 p-2 group mb-5" id="containerportfolio">
 
                         <h3 className="text-3xl text-center text-gray-200 p-2 md:text-4xl">My work:</h3>
 
-                        <ul className="md:h-full flex grid grid-cols-1 p-10 w-full rounded-[5px] w-full z-0 list-disc bg-gradient-to-br from-gray-900 via-gray-500 to-gray-700">
+                        <ul className="md:h-full flex grid grid-cols-1 p-10 w-full rounded-[5px] w-full z-0 list-disc bg-gradient-to-tl from-gray-900 via-gray-600 to-gray-600">
 
                             <li className='flex items-center gap-4 p-2 text-gray-200 text-l md:text-2xl'>Basic web for electronic security company:</li>
                             <a href="https://www.alarmascmm.com/" target="_blank"><h3 className="text-l text-center text-white p-2 md:text-xl text-gray-300">www.alarmascmm.com</h3></a>
@@ -114,10 +114,10 @@ const Body = () => {
                     </div>
 
 
-                    <div id="containerfeatures" className="p-2 w-full mb-24">
+                    <div id="containerfeatures" className="relative mx-auto w-full md:w-1/2 p-2 group mb-24">
                         <h3 className="text-3xl text-center text-gray-200 md:text-4xl md:mt-10 ">Features:</h3>
 
-                        <ul className="md:h-full flex grid grid-cols-1 p-10 w-full rounded-[5px] z-0 bg-gradient-to-br from-gray-900 via-gray-500 to-gray-700">
+                        <ul className="md:h-full flex grid grid-cols-1 p-10 w-full rounded-[5px] z-0 bg-gradient-to-tl from-gray-900 via-gray-600 to-gray-600">
 
 
                             <li className='flex items-center p-4 gap-4 text-gray-200 text-xl md:text-2xl'>
@@ -165,6 +165,9 @@ const Body = () => {
                         <a href="mailto:guido.llaurado@gmail.com">
                             <Image className="w-8" src="/gmaili.png" width={1000} height={1000} alt="gmailicon" />
                         </a>
+                       
+                        <a href="https://www.flaticon.es/iconos-gratis/instagram" title="iconos" className="mt-5">Iconos creados por Freepik - Flaticon</a>
+
                     </div>
                 </footer>
 

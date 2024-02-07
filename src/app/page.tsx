@@ -9,7 +9,7 @@ export default function Home() {
 
    
 
-      <main className="flex grid grid-cols-1 bg-gradient-to-tl from-orange-100 via-orange-100 to-orange-200">
+      <main className="flex grid grid-cols-1 bg-orange-100">
 
         <div>
           <Flechaup />

@@ -9,7 +9,7 @@ export default function Home() {
 
    
 
-      <main className="flex grid grid-cols-1 bg-orange-100">
+      <main className="flex grid grid-cols-1 bg-orange-200">
 
         <div>
           <Flechaup />

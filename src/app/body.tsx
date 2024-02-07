@@ -9,9 +9,9 @@ const Body = () => {
 
         </div><div className="flex grid grid-cols-1 w-screen h-screen">
 
-
-                <h1 className="flex items-center h-screen -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-tl from-blue-800 via-cyan-400 to-blue-800 text-transparent bg-clip-text md:text-8xl  md:indent-5">I create your website to help you achieve your goals.</h1>
-
+<div className="h-screen">
+                <h1 className="flex items-center h-4/5 -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-tl from-blue-800 via-cyan-400 to-blue-800 text-transparent bg-clip-text md:text-8xl  md:indent-5">I create your website to help you achieve your goals.</h1>
+                </div>
 
                 <div id="containeroptions" className="flex grid grid-cols-1 md:grid md:grid-cols-3 md:p-0  bg-gradient-to-tr from-gray-500 to-gray-600">
 
@@ -166,7 +166,7 @@ const Body = () => {
                             <Image className="w-8" src="/gmaili.png" width={1000} height={1000} alt="gmailicon" />
                         </a>
                        
-                        <a href="https://www.flaticon.es/iconos-gratis/instagram" title="iconos" className="mt-5">Iconos creados por Freepik - Flaticon</a>
+                        <a href="https://www.flaticon.es/iconos-gratis/instagram" title="iconos" className="mt-5">Icons created by Freepik - Flaticon</a>
 
                     </div>
                 </footer>

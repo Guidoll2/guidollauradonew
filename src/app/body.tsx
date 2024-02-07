@@ -109,8 +109,8 @@ const Body = () => {
         </div>
         
            
-        <div id="containerfeatures" className="p-5">
-           <h3 className="text-3xl text-center text-gray-200 md:text-4xl md:mt-10">Features:</h3>
+        <div id="containerfeatures" className="p-5 mb-24">
+           <h3 className="text-3xl text-center text-gray-200 md:text-4xl md:mt-10 ">Features:</h3>
          
         <ul className="md:h-full flex grid grid-cols-1 p-10 rounded-[10px] z-0 bg-gradient-to-br from-gray-900 via-gray-500 to-gray-700">
             

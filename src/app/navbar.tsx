@@ -22,11 +22,11 @@ const [menuOpen, setMenuOpen] = useState (false)
 <h1 className='text-l p-5 font-bold bg-gradient-to-tr from-blue-800 via-cyan-400 to-blue-800 text-transparent bg-clip-text md:text-xl'>GuidoLl</h1>
 
 
-<button onClick={handleNav} id="BOTONMENU" className="absolute top-6 right-4 cursor-pointer hover:opacity-30 hover:animate-bounce">
+<button onClick={handleNav} id="BOTONMENU" className="absolute top-6 right-4 cursor-pointer">
 
   <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div>
   <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div> 
-  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div>
+  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div> 
   </button>
 
 <div className={

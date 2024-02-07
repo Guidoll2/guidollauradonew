@@ -42,15 +42,15 @@ menuOpen
 
 <div id='MENUDESPLEGABLE' className='flex space-x-6 items-center justify-center py-6 ml-4 md:space-x-24'>
 
-  <a href="landing" target='_blank' className='text-gray-200 text-xs md:text-lg'>
+  <a href="landing" className='text-gray-200 text-xs md:text-lg'>
     <p>Landing page</p>
   </a>
 
-  <a href="basic" target='_blank' className='text-gray-200 text-xs md:text-lg'>
+  <a href="basic" className='text-gray-200 text-xs md:text-lg'>
     <p>Basic web</p>
   </a>
 
-  <a href="premium" target='_blank' className='text-gray-200 text-xs md:text-lg'>
+  <a href="premium"  className='text-gray-200 text-xs md:text-lg'>
     <p>Premium web</p>
   </a>
 

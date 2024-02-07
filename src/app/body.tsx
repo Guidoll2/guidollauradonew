@@ -58,11 +58,12 @@ const Body = () => {
 
 <div id="containercs" className="flex grid grid-cols-1 md:grid-cols-1 bg-gradient-to-br from-blue-950 via-sky-600 to-blue-600 border-t-[2px] border-blue-900">
 
+
 <div className="relative flex flex-col justify-center mx-auto md:w-1/2 mt-10 md:mt-20 items-center" id="containercontact">
 
 <h3 className="flex text-3xl text-center text-gray-200 p-2 md:text-4xl">Contact me:</h3>
     
-        <ul className="flex grid grid-cols-1 p-10 border-[1px] rounded-[5px] z-0 bg-gradient-to-br from-gray-900 via-gray-500 to-gray-700 gap-2">
+        <ul className="flex grid grid-cols-1 p-10  rounded-[5px] z-0 bg-gradient-to-br from-gray-900 via-gray-600 to-gray-700 gap-2">
         
         <li className='flex items-center gap-4 p-2 animate-[pulse_3s_ease-in-out_infinite]  mb-4'>
         <Image src="/calendario.png" width={1000} height={1000} alt="calendarico" className="w-8"/>
@@ -100,7 +101,7 @@ const Body = () => {
            
            <h3 className="text-3xl text-center text-gray-200 p-2 md:text-4xl">My work:</h3>
          
-        <ul className="md:h-full flex grid grid-cols-1 p-10 border-[1px] rounded-[10px] z-0 list-disc bg-gradient-to-br from-gray-900 via-gray-500 to-gray-700">
+        <ul className="md:h-full flex grid grid-cols-1 p-10  rounded-[10px] z-0 list-disc bg-gradient-to-br from-gray-900 via-gray-500 to-gray-700">
         
             <li className='flex items-center gap-4 p-2 text-gray-200 text-l md:text-2xl'>Basic web for electronic security company:</li> 
             <a href="https://www.alarmascmm.com/" target="_blank"><h3 className="text-l text-center text-white p-2 md:text-xl text-gray-300">www.alarmascmm.com</h3></a>

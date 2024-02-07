@@ -26,7 +26,7 @@ const Body = () => {
                             <li className="text-l text-white p-2 md:text-xl text-gray-900">Ideal complement for campaigns on Google Ads and social media. </li>
                             <li className="text-l text-white p-2 md:text-xl text-gray-900">IA designed logo, host and domain* included. </li>
 
-                            <a href="landing"> <button className="absolute bottom-4 md:bottom-10 left-1/2 transform -translate-x-1/2 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-700 ">More details</span></button></a>
+                            <a href="landing"> <button className="absolute bottom-4 md:bottom-24 left-1/2 transform -translate-x-1/2 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-700 ">More details</span></button></a>
                         </ul>
                     </div>
 
@@ -41,7 +41,7 @@ const Body = () => {
                             <li className="text-l text-white p-2 md:text-xl text-gray-300">Includes a professional design, optimized for mobile devices. </li>
                             <li className="text-l text-white p-2 md:text-xl text-gray-300">8 Sections, host and domain* included. </li>
 
-                            <a href="basic" > <button className="absolute bottom-4 md:bottom-24 left-1/2 transform -translate-x-1/2 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-700 ">More details</span></button></a>
+                            <a href="basic" > <button className="absolute bottom-4 md:bottom-32 left-1/2 transform -translate-x-1/2 text-xl bg-gray-200 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-700 ">More details</span></button></a>
                         </ul>
                     </div>
 

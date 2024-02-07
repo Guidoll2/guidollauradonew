@@ -40,7 +40,7 @@ menuOpen
 <h1 className='mr-2 text-2xl text-gray-200 md:mr-10 md:text-2xl font-light z-[100]'>x</h1>
 </div>
 
-<div id='MENUDESPLEGABLE' className='flex space-x-6 items-center justify-center py-6 ml-4'>
+<div id='MENUDESPLEGABLE' className='flex space-x-6 items-center justify-center py-6 ml-4 md:space-x-24'>
 
   <a href="landing" target='_blank' className='text-gray-200 text-xs md:text-lg'>
     <p>Landing page</p>

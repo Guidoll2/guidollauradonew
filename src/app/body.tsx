@@ -12,7 +12,7 @@ const Body = () => {
         </div>
 
          <div className="h-screen bg-gradient-to-tl from-orange-400 to-orange-300">
-                <h1 className="flex items-center h-4/5 -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-10">I craft your website to help you achieve your goals.</h1>
+                <h1 className="flex items-center h-4/5 -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-br from-cyan-700 via-cyan-500 to-blue-600 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-10">I craft your website to help you achieve your goals.</h1>
                 </div>
 
 
@@ -28,7 +28,7 @@ const Body = () => {
                         <p className="text-4xl text-gray-900 font-bold p-2 md:text-4xl hidden md:block"><span className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Landing</span> Page</p>
     
     <p className="text-4xl text-gray-900 font-bold p-2 md:hidden">
-    <span className="block bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Landing</span>
+    <span className="block bg-gradient-to-br from-cyan-700 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Landing</span>
     <span className="block">Page</span>
     </p>
 </div>
@@ -51,7 +51,7 @@ const Body = () => {
                         <p className="text-4xl text-gray-900 font-bold p-2 md:text-4xl hidden md:block"><span className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Basic</span> Website</p>
     
   <p className="text-4xl text-gray-900 font-bold p-2 md:text-4xl md:hidden">
-    <span className="block bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Basic</span>
+    <span className="block bg-gradient-to-br from-cyan-700 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Basic</span>
     <span className="block">Website</span>
   </p>
 </div>
@@ -68,7 +68,7 @@ const Body = () => {
              
 
                         <ul className="flex grid grid-cols-1 p-10 rounded-[5px] z-0 list-disc bg-gradient-to-tl from-orange-400 to-orange-300">
-                        <p className="text-4xl text-center text-gray-900 font-bold p-2 md:text-4xl"><span className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Premium</span> Website</p>
+                        <p className="text-4xl text-center text-gray-900 font-bold p-2 md:text-4xl"><span className="bg-gradient-to-br from-cyan-700 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Premium</span> Website</p>
                             <p className='flex items-center gap-4 p-2 text-gray-900 text-2xl md:text-2xl font-bold'>From $500</p>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Website with customized features, such as online payment options, booking systems, real-time chat, among many other functionalities.</li>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Includes a professional design, optimized for mobile devices. </li>

@@ -104,8 +104,8 @@ const Body = () => {
 
                             <li className='flex items-center gap-4 p-2 mb-4'>
                                 <Image src="/wpgray200.png" width={1000} height={1000} alt="phoneico" className="w-8" />
-                                <a className="flex items-center text-gray-200 text-2xl md:text-2xl" href='https://wa.me/+' target='_blank'>
-                                    Whatsapp</a>
+                                <a className="flex items-center text-gray-200 text-2xl md:text-2xl" href='https://wa.me/15109600432' target='_blank'>
+                                 Whatsapp</a>
                             </li>
 
 

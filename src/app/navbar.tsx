@@ -56,7 +56,7 @@ menuOpen
 : 'absolute top-[-100%] h-screen w-full left-0 transition ease-in-out delay-150 duration-300 '
 }>
 
-<Image src="/ialogo3.png" width={1000} height={1000} alt="vercelico" className="absolute h-16 w-16 top-0 rounded-r-[100px] z-0"/>
+
 
 <div id='MENUDESPLEGABLE' className='flex space-x-6  justify-center h-16 py-6 md:py-3 ml-10 md:space-x-24'>
 

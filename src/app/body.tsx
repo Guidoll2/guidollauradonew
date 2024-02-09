@@ -12,7 +12,7 @@ const Body = () => {
         </div>
 
          <div className="h-screen bg-gradient-to-tl from-orange-400 to-orange-300">
-                <h1 className="flex items-center h-4/5 -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-br from-cyan-700 via-cyan-500 to-blue-600 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-10">I craft your website to help you achieve your goals.</h1>
+                <h1 className="flex items-center h-4/5 -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-br from-cyan-400 via-neutral-500 to-cyan-400 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-10">I craft your website to help you achieve your goals.</h1>
                 </div>
 
 

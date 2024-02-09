@@ -11,7 +11,7 @@ const Body = () => {
         <Navbar></Navbar>
         </div>
 
-         <div className="h-screen bg-gradient-to-tl from-orange-400 to-orange-200">
+         <div className="h-screen bg-gradient-to-tl from-orange-400 to-orange-300">
                 <h1 className="flex items-center h-4/5 -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-10">I craft your website to help you achieve your goals.</h1>
                 </div>
 
@@ -23,7 +23,7 @@ const Body = () => {
     </div>
        
                     <div className="relative group p-10 " id="containerlanding">                        
-                        <ul className="flex grid grid-cols-1 p-10 rounded-[5px] list-disc bg-gradient-to-tl from-orange-400 to-orange-200 shadow-xl">
+                        <ul className="flex grid grid-cols-1 p-10 rounded-[5px] list-disc bg-gradient-to-tl from-orange-400 to-orange-300 shadow-xl">
                         <div className="text-center">
                         <p className="text-4xl text-gray-900 font-bold p-2 md:text-4xl hidden md:block"><span className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Landing</span> Page</p>
     
@@ -46,7 +46,7 @@ const Body = () => {
                     <div className="relative group p-10 md:order-2 " id="containerwebbasic">
                        
 
-                        <ul className="flex grid grid-cols-1 p-10 rounded-[5px] list-disc md:h-full z-0 bg-gradient-to-tl from-orange-400 to-orange-200">
+                        <ul className="flex grid grid-cols-1 p-10 rounded-[5px] list-disc md:h-full z-0 bg-gradient-to-tl from-orange-400 to-orange-300">
                         <div className="text-center">
                         <p className="text-4xl text-gray-900 font-bold p-2 md:text-4xl hidden md:block"><span className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Basic</span> Website</p>
     
@@ -67,7 +67,7 @@ const Body = () => {
                     <div className="relative group p-10" id="containerwebpremium">
              
 
-                        <ul className="flex grid grid-cols-1 p-10 rounded-[5px] z-0 list-disc bg-gradient-to-tl from-orange-400 to-orange-200">
+                        <ul className="flex grid grid-cols-1 p-10 rounded-[5px] z-0 list-disc bg-gradient-to-tl from-orange-400 to-orange-300">
                         <p className="text-4xl text-center text-gray-900 font-bold p-2 md:text-4xl"><span className="bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent bg-clip-text">Premium</span> Website</p>
                             <p className='flex items-center gap-4 p-2 text-gray-900 text-2xl md:text-2xl font-bold'>From $500</p>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Website with customized features, such as online payment options, booking systems, real-time chat, among many other functionalities.</li>
@@ -79,7 +79,7 @@ const Body = () => {
                     </div>
                 </div>  
 
-                <div id="containercs" className="flex grid grid-cols-1 md:grid-cols-1 bg-gradient-to-tl from-orange-400 to-orange-200 border-t-[2px] border-blue-900">
+                <div id="containercs" className="flex grid grid-cols-1 md:grid-cols-1 bg-gradient-to-tl from-orange-400 to-orange-300 border-t-[2px] border-blue-900">
 
 
                     <div className="relative flex flex-col w-full justify-center mx-auto md:w-1/2 mt-10 md:mt-20 items-center p-2 " id="containercontact">

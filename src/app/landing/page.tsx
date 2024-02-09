@@ -2,7 +2,7 @@ import Image from "next/image";
       export default function Home() {
         return (
          
-      <div className="flex grid grid-cols-1 h-screen w-screen bg-gradient-to-tl from-orange-400 to-orange-200" id="">
+      <div className="flex grid grid-cols-1 h-screen w-screen bg-gradient-to-tl from-orange-400 to-orange-300" id="">
       
       <a href="/"><Image src="/flecha.png" width={1000} height={1000} alt="flechaico" className="w-10 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-0 right-1 z-[100]"></Image></a>
       

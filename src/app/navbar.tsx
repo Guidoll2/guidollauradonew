@@ -1,17 +1,39 @@
 'use client'
-
-import React from 'react';
-import { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const Navbar = () => {
-
-const [menuOpen, setMenuOpen] = useState (false)
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const handleNav = () => {
         setMenuOpen(!menuOpen);
+    };
 
-    } 
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const menu = document.getElementById('MENUDESPLEGABLE');
+            const button = document.getElementById('BOTONMENU');
+
+            if (
+                menuOpen &&
+                menu &&
+                button &&
+                !(menu.contains(event.target as Node) || button.contains(event.target as Node))
+            ) {
+                closeMenu();
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [menuOpen]);
 
     return (
 
@@ -19,7 +41,6 @@ const [menuOpen, setMenuOpen] = useState (false)
 
 <nav className='flex grid grid-cols-1 w-full '> 
 
-<h1 className='absolute text-l left-4 top-6 font-bold bg-gradient-to-tr from-blue-800 via-cyan-400 to-blue-800 text-transparent bg-clip-text md:text-xl'>GuidoLl</h1>
 
 
 <button onClick={handleNav} id="BOTONMENU" className="absolute top-6 right-4 cursor-pointer z-[90]">
@@ -35,12 +56,9 @@ menuOpen
 : 'absolute top-[-100%] h-screen w-full left-0 transition ease-in-out delay-150 duration-300 '
 }>
 
+<Image src="/ialogo3.png" width={1000} height={1000} alt="vercelico" className="absolute h-16 w-16 top-0 rounded-r-[100px] z-0"/>
 
-<div onClick={handleNav} className='absolute cursor-pointer right-0 top-0'>
-<h1 className='mr-2 text-2xl text-gray-200 md:mr-10 md:text-2xl font-light z-[100]'>x</h1>
-</div>
-
-<div id='MENUDESPLEGABLE' className='flex space-x-6 items-center justify-center py-6 ml-4 md:space-x-24'>
+<div id='MENUDESPLEGABLE' className='flex space-x-6  justify-center h-16 py-6 md:py-3 ml-10 md:space-x-24'>
 
   <a href="landing" className='text-gray-200 text-xs md:text-lg'>
     <p>Landing page</p>
@@ -54,7 +72,7 @@ menuOpen
     <p>Premium web</p>
   </a>
 
-  <a href='#containercontact' className='text-blue-800 text-lg md:text-2xl text-cyan-400 animate-[pulse_2s_ease-in-out_infinite]'>
+  <a href='#containercontact' className='text-blue-800 text-xs md:text-lg text-cyan-400 animate-[pulse_2s_ease-in-out_infinite]'>
     <p>Contact</p>
   </a>
 

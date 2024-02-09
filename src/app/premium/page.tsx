@@ -3,17 +3,17 @@ import Image from "next/image";
 export default function Home() {
    return (
          
-      <div className="flex grid grid-cols-1 h-screen w-screen bg-orange-100" id="">
+      <div className="flex grid grid-cols-1 h-screen w-screen bg-gradient-to-tl from-orange-400 to-orange-200" id="">
       
       <a href="/"><Image src="/flecha.png" width={1000} height={1000} alt="flechaico" className="w-10 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-0 right-1 z-[100]"></Image></a>
       
-      <h3 className="text-4xl text-center font-extrabold uppercase bg-gradient-to-tl from-blue-800 via-cyan-400 to-blue-800 text-transparent p-2 bg-clip-text md:text-6xl">Premium Website</h3>
-      
-            <div className="flex grid grid-cols-1 w-auto m-10 md:m-20 md:-translate-y-20 -translate-y-10  bg-gradient-to-tl from-gray-900 via-gray-600 to-gray-600 rounded-[5px]">
+   
+            <div className="flex grid grid-cols-1 w-auto m-10 md:m-20  bg-gradient-to-tl from-gray-900 via-gray-600 to-gray-600 rounded-[5px]">
             
-              <ul className="p-5">
-              
-                  <h3 className='flex items-center gap-4 p-2 text-gray-300 text-2xl md:text-3xl'>What&apos;s included?</h3> 
+              <ul className="text-center">
+              <p className="text-4xl text-center font-extrabold uppercase bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent p-2 bg-clip-text md:text-6xl">Premium <span className="text-gray-200">Website</span></p>
+      
+                  <p className='text-center gap-4 p-2 text-gray-300 text-3xl md:text-3xl'>What&apos;s included?</p> 
                   <li className="text-l text-white p-2 md:text-xl text-gray-300">Design and develop.</li>
                   <li className="text-l text-white p-2 md:text-xl text-gray-300">IA designed logo. </li>
                   <li className="text-l text-white p-2 md:text-xl text-gray-300">Host and domain* (1 year runs on domains.com). </li>

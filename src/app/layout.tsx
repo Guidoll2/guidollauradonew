@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Head from 'next/head'
+import { HTMLAttributes } from 'react';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,7 +25,7 @@ export default function RootLayout({
   return (
     <html>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="UTF-8" />
         <meta name="language" content="en" />
       </Head>

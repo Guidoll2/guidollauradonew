@@ -58,7 +58,7 @@ menuOpen
 
 
 
-<div id='MENUDESPLEGABLE' className='flex space-x-6  justify-center h-16 py-6 md:py-3 ml-10 md:space-x-24'>
+<div id='MENUDESPLEGABLE' className='flex space-x-6 justify-center items-center h-16 md:py-3 md:space-x-24'>
 
   <a href="landing" className='text-gray-200 text-xs md:text-lg'>
     <p>Landing page</p>

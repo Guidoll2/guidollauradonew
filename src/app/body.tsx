@@ -11,18 +11,32 @@ const Body = () => {
         <Navbar></Navbar>
         </div>
 
-         <div className="h-screen bg-gradient-to-tl from-orange-100 to-orange-200">
-                <h1 className="flex items-center h-4/5 -translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-br from-blue-900 via-sky-400 to-blue-900 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-10">I craft your website to help you achieve your goals.</h1>
+         <div className="h-screen bg-gradient-to-br from-orange-200 to-orange-100">
+                
+
+
+                <div id="containerhero" className="flex grid grid-cols-1">
+                <h1 className="flex translate-y-7 md:translate-y-7 md:translate-x-6 md:text-2xl translate-x-3 bg-gradient-to-r from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text">G-webs</h1>
+                <h1 className="flex items-center p-1 translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-r from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-32 mt-24">Do what you love</h1> {/**I craft your website to help you achieve your goals. */}
+                <p className="bg-gradient-to-tl p-1 from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text uppercase md:text-3xl text-xl text-center md:text-start md:ml-6 mt-16">I craft your online presence</p>
+                <p></p>
+                </div>
+               
+                <div id="Hook" className="flex flex-col-2 gap-2 items-center justify-center translate-y-32">
+                <p className=" md:bottom-4 w-fit p-2 text-xl bg-gradient-to-r from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text z-10  md:text-2xl">Season sale!</p>
+                <Image src="/flecha-abajo.png" width={1000} height={1000} alt="calendarico" className="w-8 animate-[bounce_1s_ease-in-out_infinite] opacity-40" /></div>
+                        
                 </div>
 
 
  <div id="containeroptions" className="flex grid grid-cols-1 md:grid-cols-2 md:py-5 bg-gradient-to-br from-gray-900 via-gray-600 to-gray-700">
 
 <div className="flex grid grid-cols-1">
-      <p className="text-5xl z-10 md:translate-x-15 text-center font-bold mt-5 bg-gradient-to-br from-cyan-500 via-cyan-400 to-blue-600 text-transparent bg-clip-text md:text-8xl">Services</p>
+      <p className="text-5xl z-10 md:translate-x-15 text-center font-bold mt-5 bg-gradient-to-r  from-cyan-500 via-cyan-400 to-blue-600 text-transparent bg-clip-text md:text-8xl">Services</p>
     </div>
        
-                    <div className="relative group p-10 " id="containerlanding">                        
+                    <div className="relative group p-10 " id="containerlanding">     
+                         
                         <ul className="flex grid grid-cols-1 p-10 rounded-[5px] list-disc bg-gradient-to-br from-orange-400 to-orange-300 shadow-xl">
                         <div className="text-center">
                         <p className="text-4xl text-gray-900 font-bold p-2 md:text-4xl hidden md:block"><span className="text-black">Landing</span> Page</p>
@@ -33,13 +47,15 @@ const Body = () => {
     </p>
 </div>
 
-                            <p className='flex items-center gap-4 p-2 text-gray-900 text-2xl md:text-2xl font-bold'>From $150</p>
+                            <p className='flex items-center gap-1 p-2 text-gray-900 text-2xl md:text-2xl font-bold '>From <span className="line-through decoration-gray-300">$150</span>$100</p><p></p>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Designed to capture the visitor attention and turn them into a customer.</li>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Ideal complement for campaigns on Google Ads and social media. </li>
                             <li className="text-xl p-2 md:text-xl text-gray-900">IA designed logo, host and domain* included. </li>
 
                             <a href="landing"> <button className="absolute bottom-4 md:bottom-4 left-1/2 transform -translate-x-1/2 text-xl bg-gradient-to-br from-gray-900 to-gray-700 px-4 py-2 rounded-full text-black z-10 border-[1px] border-gray-400 md:text-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"><span className="text-gray-200 ">More details</span></button></a>
+                        
                         </ul>
+
                     </div>
                     
 
@@ -55,7 +71,7 @@ const Body = () => {
     <span className="block">Website</span>
   </p>
 </div>
-                            <p className='flex items-center gap-4 p-2 text-gray-900 text-2xl md:text-2xl font-bold'>From $250</p>
+                            <p className='flex items-center gap-1 p-2 text-gray-900 text-2xl md:text-2xl font-bold'>From <span className="line-through decoration-gray-300">$250</span>$200</p><p></p>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Enjoy an attractive and functional web presence.</li>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Includes a professional design, optimized for mobile devices. </li>
                             <li className="text-xl p-2 md:text-xl text-gray-900">8 Sections, host and domain* included. </li>
@@ -69,7 +85,7 @@ const Body = () => {
 
                         <ul className="flex grid grid-cols-1 p-10 rounded-[5px] z-0 list-disc bg-gradient-to-tl from-orange-400 to-orange-300">
                         <p className="text-4xl text-center text-gray-900 font-bold p-2 md:text-4xl">Premium Website</p>
-                            <p className='flex items-center gap-4 p-2 text-gray-900 text-2xl md:text-2xl font-bold'>From $500</p>
+                            <p className='flex items-center gap-1 p-2 text-gray-900 text-2xl md:text-2xl font-bold'>From <span className="line-through decoration-gray-300">$500</span>$450</p><p></p>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Website with customized features, such as online payment options, booking systems, real-time chat, among many other functionalities.</li>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Includes a professional design, optimized for mobile devices. </li>
                             <li className="text-xl p-2 md:text-xl text-gray-900">8 Sections, host and domain* included. </li>
@@ -90,6 +106,7 @@ const Body = () => {
                         <p className="text-4xl text-center text-gray-200 p-2 md:text-5xl">Contact me</p>
                             <li className='flex items-center justify-center gap-4 p-2 animate-[pulse_2s_ease-in-out_infinite]  mb-4'>
                                 <Image src="/calendariogray200.png" width={1000} height={1000} alt="calendarico" className="w-8" />
+                            
                                 <a href="https://calendly.com/guido-llaurado/appointment-for-landinpage" target='_blank' className="bg-gradient-to-tl from-blue-600 to-cyan-400 text-transparent bg-clip-text text-4xl font-bold md:text-5xl">Free appointment</a>
                             </li>
 

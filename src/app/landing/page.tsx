@@ -4,7 +4,7 @@ import Image from "next/image";
          
       <div className="flex grid grid-cols-1 h-screen w-screen bg-gradient-to-tl from-orange-400 to-orange-300" id="">
       
-      <a href="/"><Image src="/flecha.png" width={1000} height={1000} alt="flechaico" className="w-10 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-10 right-1 z-[100]"></Image></a>
+      <a href="/"><Image src="/flecha.png" width={1000} height={1000} alt="flechaico" className="w-10 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-20 right-4 z-[100]"></Image></a>
       
     
       

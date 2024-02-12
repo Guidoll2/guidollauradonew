@@ -5,7 +5,7 @@ export default function Home() {
          
       <div className="flex grid grid-cols-1 h-screen w-screen bg-gradient-to-tl from-orange-400 to-orange-300" id="">
       
-      <a href="/"><Image src="/flecha.png" width={1000} height={1000} alt="flechaico" className="w-10 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-10 right-1 z-[100]"></Image></a>
+      <a href="/"><Image src="/flecha.png" width={1000} height={1000} alt="flechaico" className="w-10 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-20 right-4  z-[100]"></Image></a>
       
    
             <div className="flex grid grid-cols-1 w-auto h-fit m-10 xs:-translate-y-40 -translate-y-10 md:m-20  bg-gradient-to-tl from-gray-900 via-gray-600 to-gray-600 rounded-[5px]">

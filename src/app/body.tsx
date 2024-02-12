@@ -16,13 +16,13 @@ const Body = () => {
 
 
                 <div id="containerhero" className="flex grid grid-cols-1">
-                <h1 className="flex translate-y-7 md:translate-y-7 md:translate-x-6 md:text-2xl translate-x-3 bg-gradient-to-r from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text">G-webs</h1>
-                <h1 className="flex items-center p-1 translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-r from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-32 mt-24">Do what you love</h1> {/**I craft your website to help you achieve your goals. */}
-                <p className="bg-gradient-to-tl p-1 from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text uppercase md:text-3xl text-xl text-center md:text-start md:ml-6 mt-16">I craft your online presence</p>
+                <h1 className="flex translate-y-7 md:translate-y-7 md:translate-x-6 md:text-2xl translate-x-3 bg-gradient-to-r from-blue-900 via-sky-500 to-blue-950 text-transparent bg-clip-text">Websites</h1>
+                <h1 className="xs:text-9xl text-8xl  flex items-center p-1 xs:translate-y-10 text-5xl text-center font-extrabold uppercase bg-gradient-to-r from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text md:text-8xl md:indent-5 md:mt-32 mt-24">Do what you love</h1> {/**I craft your website to help you achieve your goals. */}
+                <p className="xs:text-2xl bg-gradient-to-tl p-1 from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text uppercase md:text-3xl text-xl text-center md:text-start md:ml-6 xs:mt-16">I craft your online presence</p>
                 <p></p>
                 </div>
                
-                <div id="Hook" className="flex flex-col-2 gap-2 items-center justify-center translate-y-32">
+                <div id="Hook" className="flex flex-col-2 gap-2 items-center justify-center translate-y-14 xs:translate-y-32">
                 <p className=" md:bottom-4 w-fit p-2 text-xl bg-gradient-to-r from-gray-900 via-sky-600 to-blue-950 text-transparent bg-clip-text z-10  md:text-2xl">Season sale!</p>
                 <Image src="/flecha-abajo.png" width={1000} height={1000} alt="calendarico" className="w-8 animate-[bounce_1s_ease-in-out_infinite] opacity-40" /></div>
                         
@@ -31,21 +31,19 @@ const Body = () => {
 
  <div id="containeroptions" className="flex grid grid-cols-1 md:grid-cols-2 md:py-5 bg-gradient-to-br from-gray-900 via-gray-600 to-gray-700">
 
-<div className="flex grid grid-cols-1">
-      <p className="text-5xl z-10 md:translate-x-15 text-center font-bold mt-5 bg-gradient-to-r  from-cyan-500 via-cyan-400 to-blue-600 text-transparent bg-clip-text md:text-8xl">Services</p>
-    </div>
+      <div className="flex grid grid-cols-1">
+      <p className="text-5xl z-10 md:translate-x-15 text-center font-bold mt-5 bg-gradient-to-l from-gray-500 via-sky-500 to-blue-700 text-transparent bg-clip-text md:text-8xl">Services</p>
+      </div>
        
                     <div className="relative group p-10 " id="containerlanding">     
-                         
                         <ul className="flex grid grid-cols-1 p-10 rounded-[5px] list-disc bg-gradient-to-br from-orange-400 to-orange-300 shadow-xl">
                         <div className="text-center">
                         <p className="text-4xl text-gray-900 font-bold p-2 md:text-4xl hidden md:block"><span className="text-black">Landing</span> Page</p>
-    
-    <p className="text-4xl text-gray-900 font-bold p-2 md:hidden">
-    <span className="block text-black ">Landing </span>
-    <span className="block">Page</span>
-    </p>
-</div>
+                        <p className="text-4xl text-gray-900 font-bold p-2 md:hidden">
+                        <span className="block text-black ">Landing </span>
+                        <span className="block">Page</span>
+                        </p>
+                        </div>
 
                             <p className='flex items-center gap-1 p-2 text-gray-900 text-2xl md:text-2xl font-bold '>From <span className="line-through decoration-gray-300">$150</span>$100</p><p></p>
                             <li className="text-xl p-2 md:text-xl text-gray-900">Designed to capture the visitor attention and turn them into a customer.</li>

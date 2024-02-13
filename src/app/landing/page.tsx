@@ -4,11 +4,11 @@ import Image from "next/image";
          
       <div className="flex grid grid-cols-1 h-screen w-screen bg-gradient-to-tl from-orange-400 to-orange-300" id="">
       
-      <a href="/"><Image src="/flecha.png" width={1000} height={1000} alt="flechaico" className="w-10 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-20 right-4 z-[100]"></Image></a>
+      <a href="/"><Image src="/flecha.png" width={1000} height={1000} alt="flechaico" className="w-10 animate-[bounce_2s_ease-in-out_infinite] absolute bottom-20 right-4 z-[100] md:right-20"></Image></a>
       
     
       
-            <div className="flex grid grid-cols-1 w-auto h-fit xs:-translate-y-40 -translate-y-20 m-10 bg-gradient-to-tl from-gray-900 via-gray-600 to-gray-600 rounded-[5px]">
+            <div className="flex grid grid-cols-1 w-auto h-fit xs:-translate-y-40 -translate-y-20 md:-translate-y-0 m-10 bg-gradient-to-tl from-gray-900 via-gray-600 to-gray-600 rounded-[5px]">
             <p className="text-4xl text-center font-extrabold uppercase bg-gradient-to-br from-cyan-400 via-cyan-500 to-blue-600 text-transparent p-2 bg-clip-text md:text-6xl">Landing <span className="text-gray-200">Page</span></p>
       
               <ul className="text-center">

@@ -16,7 +16,7 @@ const ServiciosContainer = () => {
     
     
     <div id="containerservicios" className={`relative ${expanded ?  'h-auto' : 'h-auto overflow-hidden'}`}>
-      <div className="flex flex-col justify-center items-center p-5 bg-orange-300 rounded-xl">
+      <div className="flex flex-col justify-center items-center p-5 bg-orange-400 rounded-xl">
       <div className="flex grid grid-cols-1">
  
       </div>

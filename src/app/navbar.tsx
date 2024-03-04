@@ -68,7 +68,7 @@ menuOpen
     <p>Premium website</p>
   </a>
 
-  <a href='#containercontact' className='text-blue-800 text-xs md:text-lg text-blue-400 animate-[pulse_2s_ease-in-out_infinite]'>
+  <a href='#containercontact' className='text-blue-300 text-xs md:text-lg text-blue-400 animate-[pulse_2s_ease-in-out_infinite]'>
     <p>Contact</p>
   </a>
 

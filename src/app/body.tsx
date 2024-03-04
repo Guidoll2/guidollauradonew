@@ -24,9 +24,9 @@ const Body = () => {
 
                 <div className="mt-14 p-5">              
                 <h1 className="text-center uppercase bg-gradient-to-br from-sky-600 to-blue-800 text-transparent bg-clip-text text-4xl">Do what you love</h1> {/**I craft your website to help you achieve your goals. */}
-                <Image src="/trailp.gif" width={1000} height={1000} alt="trailroadpicture" className="flex rounded-[60px] -translate-y-5 opacity-70 p-8" />
+                <Image src="/trailp.gif" priority={true} width={1000} height={1000} alt="trailroadpicture" className="flex rounded-[60px] -translate-y-5 opacity-70 p-8" />
                 </div>            
-                <p className="text-xl text-center uppercase  bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text -translate-y-14">I craft your website for you</p>
+                <p className="text-xl text-center uppercase bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text -translate-y-14">I craft your website for you</p>
                 <p className="text-s text-center bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text -translate-y-14 md:order-">(It's what I love)</p>
                 </div>
                 
@@ -44,7 +44,7 @@ const Body = () => {
                   <p className="text-4xl text-center uppercase  bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text">I craft your website for you</p>
                   <p className="text-2xl text-center bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text">(It's what I love)</p>
                   </div>
-                  <Image src="/trailp.gif" width={1000} height={1000} alt="trailroadpicture" className="flex rounded-[60px] -translate-y-5 opacity-70 p-8" />
+                  <Image src="/trailp.gif" priority={true} width={1000} height={1000} alt="trailroadpicture" className="flex rounded-[60px] -translate-y-5 opacity-70 p-8" />
                 
                   </div>
                   

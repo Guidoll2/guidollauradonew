@@ -45,7 +45,7 @@ const Navbar = () => {
 
 <button onClick={handleNav} id="BOTONMENU" className="absolute top-0.5 right-0.5 cursor-pointer z-[90]">
 
-  <div className="w-3 h-3 md:w-8 md:h-8 rounded-bl-full bg-blue-800 "></div>
+  <div className="w-3 h-3 md:w-8 md:h-8 rounded-bl-full bg-gradient-to-br from-sky-600 to-blue-800 "></div>
 
  
   </button>

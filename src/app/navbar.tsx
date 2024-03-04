@@ -43,11 +43,11 @@ const Navbar = () => {
 
 
 
-<button onClick={handleNav} id="BOTONMENU" className="absolute top-6 right-4 cursor-pointer z-[90]">
+<button onClick={handleNav} id="BOTONMENU" className="absolute top-0.5 right-0.5 cursor-pointer z-[90]">
 
-  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div>
-  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div> 
-  <div className="bar w-7 h-0.5 mb-1 mt-1 bg-cyan-600 md:w-10 md:mr-5"></div> 
+  <div className="w-3 h-3 md:w-8 md:h-8 rounded-bl-full bg-blue-800 "></div>
+
+ 
   </button>
 
 <div className={
@@ -60,19 +60,15 @@ menuOpen
 
 <div id='MENUDESPLEGABLE' className='flex space-x-6 justify-center items-center h-16 md:py-3 md:space-x-24'>
 
-  <a href="landing" className='text-gray-200 text-xs md:text-lg'>
-    <p>Landing page</p>
+  <a href="#lite" className='text-gray-200 text-xs md:text-lg'>
+    <p>Lite website</p>
   </a>
 
-  <a href="basic" className='text-gray-200 text-xs md:text-lg'>
-    <p>Basic web</p>
+  <a href="#premium"  className='text-gray-200 text-xs md:text-lg'>
+    <p>Premium website</p>
   </a>
 
-  <a href="premium"  className='text-gray-200 text-xs md:text-lg'>
-    <p>Premium web</p>
-  </a>
-
-  <a href='#containercontact' className='text-blue-800 text-xs md:text-lg text-cyan-400 animate-[pulse_2s_ease-in-out_infinite]'>
+  <a href='#containercontact' className='text-blue-800 text-xs md:text-lg text-blue-400 animate-[pulse_2s_ease-in-out_infinite]'>
     <p>Contact</p>
   </a>
 

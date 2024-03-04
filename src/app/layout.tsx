@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Inter, Open_Sans } from 'next/font/google'
 import './globals.css'
 import Head from 'next/head'
 import { HTMLAttributes } from 'react';
@@ -7,9 +7,9 @@ import { HTMLAttributes } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
-const poppins = Poppins({
+const open_sans = Open_Sans({
   subsets: ['latin'],
-  weight: ['100', '400' , '700' ,]
+  weight: ['400' , '700' ,]
 })
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="language" content="en" />
       </Head>
-      <body className={`${inter.className} ${poppins.className}`}>{children}</body>
+      <body className={`${inter.className} ${open_sans.className}`}>{children}</body>
     </html>
   )
 }

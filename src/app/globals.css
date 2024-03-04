@@ -4,6 +4,8 @@
 
 
 :root {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
@@ -40,8 +42,8 @@ html {
 .list-disc li:before {
   content: "";
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background-color: #1D4ED8;
   margin-right: 10px;

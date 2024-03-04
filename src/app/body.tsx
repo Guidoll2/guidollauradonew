@@ -27,7 +27,7 @@ const Body = () => {
                 <Image src="/trailp.gif" priority={true} width={1000} height={1000} alt="trailroadpicture" className="flex rounded-[60px] -translate-y-5 opacity-70 p-8" />
                 </div>            
                 <p className="text-xl text-center uppercase bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text -translate-y-14">I craft your website for you</p>
-                <p className="text-s text-center bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text -translate-y-14 md:order-">(It's what I love)</p>
+                <p className="text-s text-center bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text -translate-y-14 md:order-">(It&apos;s what I love)</p>
                 </div>
                 
                 </div>
@@ -42,7 +42,7 @@ const Body = () => {
                   <h1 className="text-7xl text-center uppercase bg-gradient-to-br from-sky-600 to-blue-800 text-transparent bg-clip-text">Do what you love</h1> {/**I craft your website to help you achieve your goals. */}
                             
                   <p className="text-4xl text-center uppercase  bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text">I craft your website for you</p>
-                  <p className="text-2xl text-center bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text">(It's what I love)</p>
+                  <p className="text-2xl text-center bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text">(It&apos;s what I love)</p>
                   </div>
                   <Image src="/trailp.gif" priority={true} width={1000} height={1000} alt="trailroadpicture" className="flex rounded-[60px] -translate-y-5 opacity-70 p-8" />
                 
@@ -136,8 +136,8 @@ const Body = () => {
                             </li>
 
                             <li className="text-l text-white p-2 md:text-xl">I develop websites carried out using Next.js.</li>
-                            <li className="text-l text-white p-2 md:text-xl">That's mean customized and highly efficient web solutions, superior performance and a more optimized user experience compared to conventional solutions.</li>
-                            <li className="text-l text-white p-2 md:text-xl">It's harder than pre-tailored web development, but it's worth the effort.</li>
+                            <li className="text-l text-white p-2 md:text-xl">That&apos;s mean customized and highly efficient web solutions, superior performance and a more optimized user experience compared to conventional solutions.</li>
+                            <li className="text-l text-white p-2 md:text-xl">It&apos;s harder than pre-tailored web development, but it&apos;s worth the effort.</li>
 
                             <li className='flex items-center p-4 gap-4 text-gray-200 text-xl md:text-2xl'>
                                 <Image src="/vercel.svg" width={1000} height={1000} alt="vercelico" className="w-14 bg-white rounded-full p-2 "></Image>

@@ -43,16 +43,16 @@ const Navbar = () => {
 
 
 
-<button onClick={handleNav} id="BOTONMENU" className="absolute top-0.5 right-0.5 cursor-pointer z-[90]">
+<button onClick={handleNav} id="BOTONMENU" className="flex cursor-pointer z-[90]">
 
-  <div className="w-3 h-3 md:w-8 md:h-8 rounded-bl-full bg-gradient-to-br from-sky-600 to-blue-800 "></div>
+  <div className="h-[3px] bg-gradient-to-tl from-blue-900 from-20%  to-gray-800 w-screen hover:h-[4vw] ease-in-out duration-700"></div>
 
  
   </button>
 
 <div className={
 menuOpen
-? 'absolute top-0 left-0 w-screen bg-gradient-to-br from-gray-900 via-gray-600 to-gray-700 transition ease-in-out delay-150 duration-300 z-[100]'
+? 'absolute top-0 left-0 w-screen bg-gradient-to-br from-sky-600 to-green-300 transition ease-in-out delay-150 duration-300 z-[100]'
 : 'absolute top-[-100%] h-screen w-full left-0 transition ease-in-out delay-150 duration-300 '
 }>
 

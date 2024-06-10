@@ -24,7 +24,20 @@ const Body = () => {
 
                 <div className="mt-14 p-5">              
                 <h1 className="text-center uppercase bg-gradient-to-br from-sky-600 to-blue-800 text-transparent bg-clip-text text-4xl">Do what you love</h1> {/**I craft your website to help you achieve your goals. */}
-                <Image src="/trailp.gif" priority={true} width={1000} height={1000} alt="trailroadpicture" className="flex rounded-[60px] -translate-y-5 opacity-70 p-8" />
+                
+                <video 
+    className="absolute inset-0 w-screen h-screen object-cover" 
+    autoPlay 
+    muted 
+    loop
+    playsInline 
+    >
+    
+    <source 
+    src="/Hobbies.mp4" 
+    type="video/mp4" />
+
+    </video>
                 </div>            
                 <p className="text-xl text-center uppercase bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text -translate-y-14">I craft your website for you</p>
                 <p className="text-s text-center bg-gradient-to-tl from-gray-600 to-blue-700 text-transparent bg-clip-text -translate-y-14 md:order-">(It&apos;s what I love)</p>

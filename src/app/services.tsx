@@ -15,34 +15,41 @@ const ServiciosContainer = () => {
   return (
     
     
-    <div id="containerservicios" className={`relative ${expanded ?  'h-auto' : 'h-auto overflow-hidden'}`}>
-      <div className="flex flex-col justify-center items-center p-5 bg-orange-400 rounded-xl">
-      <div className="flex grid grid-cols-1">
- 
-      </div>
-
-        <div className="flex flex-col items-center md:gap-8 p-5 -translate-y-5 md:flex-row md:items-start md:justify-center">
-  
-
-  <div className="flex flex-col items-center">
-    
-    
-    <p className="mt-4 text-center bg-gradient-to-l  from-gray-950 to-blue-950 text-transparent bg-clip-text text-4xl md:text-6xl">Lite Websites</p>
+    <div id="containerservicios" className={`flex flex-col ${expanded ?  'h-auto' : 'h-auto overflow-hidden'}`}>
+      
+      <div className="flex flex-col bg-pink-100 rounded-r-full w-[75vw] h-[75vw] md:w-[35vw] md:h-[35vw] justify-center items-center hover:w-screen hover:h-[35vw] ease-in-out duration-700">
+          
+          
+           <div className="flex flex-col p-4">
+   
+    <p className="mt-4 text-pink-100 text-4xl md:text-6xl">Lite Websites</p>
     <p className="mt-4 text-center bg-gradient-to-tr from-blue-800 to-blue-950 text-transparent bg-clip-text text-xl md:text-3xl">From us$90*</p>
     <p className="mt-4 text-center bg-gradient-to-tl from-gray-950 to-blue-950 text-transparent bg-clip-text text-l md:text-2xl">Powerfull, simple & elegant.</p>
 
-  </div>
+
 
         </div>
-
+        <div className="hidden hover:flex hover:flex-col justify-center items-center text-blue-300 hover:text-gray-100">
+           <ul className="md:text-xl space-y-4 ">
+              <li className="text-start justify-center">Homepage with customizable navbar.</li>
+              <li className="text-start justify-center">Links to social media.</li>
+              <li className="text-start justify-center">From 2 up to 8 sections.</li>
+              <li className="text-start justify-center">Host and domain (1 year).</li>
+              <li className="text-start justify-center">Responsive design and development.</li>
+              <li className="text-start justify-center">SSL security.</li>
+             
+            </ul>
+           </div>
+       
+        
+        {/*
         {expanded && (
-          
-          
-          <div className="rounded-l w-full bg-gradient-to-tl from-gray-900 to-zinc-700 flex grid grid-cols-1 md:grid-cols-1 items-center gap-5 md:gap-20 md:p-10 md:flex-row md:items-start md:justify-center expandable-container">
+                   
+          <div className="flex flex-col mx-auto p-5 bg-orange-400 rounded-full w-[50vw] h-[50vw] -translate-x-24 items-center  bg-gradient-to-tl from-gray-900 to-zinc-700 expandable-container">
             
 
 
-            <p className="text-4xl mt-4 text-center bg-gradient-to-l from-blue-500 to-blue-400 text-transparent bg-clip-text md:text-5xl">What´s included?</p>
+            <p className="text-4xl mt-4 text-center bg-gradient-to-l from-blue-500 to-blue-400 text-transparent bg-clip-text md:text-5xl">What&apos;s included?</p>
             <ul className="list-disc md:text-xl">
               <li className="text-center text-gray-200 p-5">Homepage with customizable navbar.</li>
               <li className="text-center text-gray-200 p-5">Links to social media.</li>
@@ -75,18 +82,15 @@ Connect with me
           </div> 
 
           
-        )}
+        )}*/}
 
-        <button
-          onClick={handleExpandClick}
-          className="bg-gradient-to-l from-blue-950 to-blue-900 text-white rounded-3xl p-0.5 mt-2"
-        >
-          <span className="flex w-full text-gray-300 rounded-3xl p-1 md:text-l text-xs md:text-2xl">
-            {expanded ? "Close" : "More info"}
-          </span>
-        </button>
-      </div>
+            </div> 
+           
+          
+
     </div>
+
+    
   );
 };
 

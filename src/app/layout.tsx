@@ -1,16 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter, Open_Sans } from 'next/font/google'
+import { Lato } from 'next/font/google'
 import './globals.css'
 import Head from 'next/head'
 import { HTMLAttributes } from 'react';
 
 
-const inter = Inter({ subsets: ['latin'] })
-
-const open_sans = Open_Sans({
+const lato = Lato({
   subsets: ['latin'],
-  weight: ['400' , '700' ,]
+  weight: ['100', '300', '400', '700']
 })
+
 
 export const metadata: Metadata = {
   title: 'Web develop',
@@ -29,7 +28,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="language" content="en" />
       </Head>
-      <body className={`${inter.className} ${open_sans.className}`}>{children}</body>
+      <body className={`${lato.className}`}>{children}</body>
     </html>
   )
 }

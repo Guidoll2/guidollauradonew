@@ -134,7 +134,7 @@ export default function Home() {
        <h2 className="p-8 text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">Premium websites from $700</h2>
           <p className="text-black text-2xl mb-12">Complete, functional & escalable</p>
         
-        <div className="z-[10] flex flex-col mb-12 items-center h-24 w-24 gap-4 bg-orange-100 rounded-full hover:rounded-[1px] hover:w-fit hover:h-fit hover:p-8 ease-in-out duration-700 text-transparent hover:text-black text-nowrap">
+        <div className="z-[10] flex flex-col mb-12 items-center h-24 w-24 gap-4 bg-orange-100 rounded-full hover:rounded-[1px] hover:w-fit hover:h-fit hover:p-8 ease-in duration-700 text-transparent hover:text-black text-nowrap">
           <p className="text-3xl -translate-y-2 font-extrabold text-black p-3">+</p>
           <p className=" text-l font-bold">Customized functions: E-commerce, Users/Customers portal, Etc</p>
           <p className=" text-l">Homepage and from 1 up to 8 sections</p>
@@ -152,7 +152,7 @@ export default function Home() {
           <h2 className="p-8 text-center text-4xl text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">Basic websites from $500</h2>
           <p className="text-2xl text-black mb-12">Powerfull, simple & elegant.</p>
       
-       <div className="z-[10] flex flex-col mb-12 items-center h-24 w-24 gap-4 bg-orange-100 rounded-full hover:rounded-[1px] hover:w-fit hover:h-fit hover:p-8 ease-in-out duration-700 text-transparent hover:text-black text-nowrap">
+       <div className="z-[10] flex flex-col mb-12 items-center h-24 w-24 gap-4 bg-orange-100 rounded-full hover:rounded-[1px] hover:w-fit hover:h-fit hover:p-8 ease-in duration-700 text-transparent hover:text-black text-nowrap">
           <p className="text-3xl -translate-y-2 font-extrabold text-black p-3">+</p>
           <p className=" text-l">Homepage and from 1 up to 8 sections</p>
           <p className=" text-l">Responsive Design (Adaptive layout to different screens)</p>

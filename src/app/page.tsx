@@ -11,6 +11,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
 
 
 export default function Home() {
@@ -68,9 +78,8 @@ export default function Home() {
 
         <div
           id="nav"
-          className="z-0 flex flex-row justify-end pr-12 gap-8 h-[5px] bg-gradient-to-l from-blue-600 to-blue-300 w-screen hover:h-[4vw] ease-in-out duration-700 hover:items-center hover:text-black text-orange-100 items-start "
+          className="z-0 flex flex-row p-4 justify-end md:justify-start md:p-0 pr-12 gap-8 h-[5px] bg-gradient-to-l from-blue-600 to-blue-300 w-screen hover:h-[4vw] ease-in-out duration-700 hover: hover:text-gray-700 text-transparent items-center"
         >
-          <div className="absolute  h-1 w-1 bg-gradient-to-br from-orange-300 to-blue-700 to-20% rounded-b-full rounded-l-lg left-0 top-0"></div>
           <a href="#services">
             <p className="text-extralight ml-2">Services</p>
           </a>

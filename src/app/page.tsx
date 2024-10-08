@@ -603,11 +603,11 @@ className="flex flex-col items-center justify-center">
 <div className="flex flex-col p-4  bg-gradient-to-tl from-blue-400 to-blue-300 mb-12">
   <h1 className="text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700 mb-4">About me</h1>
   <p className="text-l md:text-2xl text-gray-700 p-4 ">
-  I'm a full-stack developer from Argentina with over 3 years of experience in web development. 
+  I&apos;m a full-stack developer from Argentina with over 3 years of experience in web development. 
   
   <br className="md:hidden"></br>I bring a unique blend of skills to my projects, drawing on my background in customer service to not only deliver top-notch websites but also to ensure seamless communication with clients.
    <br></br>
-   I handle all aspects of web development, so don't hesitate and share with me your ideas, I will put it online!. 
+   I handle all aspects of web development, so don&apos;t hesitate and share with me your ideas, I will put it online!. 
   </p>
 </div>
         <footer

@@ -66,15 +66,12 @@ export default function Home() {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       <main className="flex-grow bg-gradient-to-b from-orange-100 to-pink-100 z-10">
         <Flechaup />
-        <video
-          className="invisible md:visible absolute -z-[10] top-24 md:top-0 md:w-4/5 w-full md:rounded-l-full right-0 opacity-70 md:transform md:translate-x-1/3 md:translate-y-0 translate-y-1/2 mt-0 md:mt-5"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/Hobbies2.mp4" type="video/mp4" />
-        </video>
+ 
+        <Image 
+         className="invisible md:visible absolute -z-[10] top-24 md:top-0 md:w-4/5 w-full md:rounded-l-full right-0 opacity-70 md:transform md:translate-x-1/3 md:translate-y-0 translate-y-1/2 mt-0 md:mt-5"
+          
+        src={'/profesiones.webp'} alt="" width={1000} height={1000}></Image>
+
 
         <div
           id="nav"
@@ -117,19 +114,13 @@ export default function Home() {
           className="md:hidden flex flex-cols-1 w-screen bg-gray-100 bg-opacity-80 transform md:translate-y-1/2 items-center justify-start  gap-4 z-10 mb-48 md:mt-0 mt-8"
         >
           <div>
-            <h1 className="text-4xl text-center font-normal text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-400 p-4 transalate-y-4">
+            <h1 className="text-3xl text-center font-normal text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-400 p-4 transalate-y-4">
               Do what you love
             </h1>
-
-        <video
-              className="opacity-70 w-full "
-              autoPlay
-              muted
-              loop
-              playsInline
-            >
-              <source src="/Hobbies2.mp4" type="video/mp4" />
-            </video> 
+            <Image 
+        className="opacity-70 w-full rounded-l-full "
+        src={'/profesiones.webp'} alt="" width={1000} height={1000}></Image>
+    
             <p className="text-2xl text-center bg-gradient-to-tl from-gray-800 from-20% to-gray-800 text-transparent bg-clip-text">
               I craft your{" "}
               <span className="text-3xl  font-light bg-gradient-to-tl from-blue-600 text-transparent bg-clip-text">

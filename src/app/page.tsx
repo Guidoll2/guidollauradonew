@@ -10,7 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -20,8 +20,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
-
+} from "@/components/ui/navigation-menu";
 
 export default function Home() {
   const divRefs = [
@@ -61,17 +60,18 @@ export default function Home() {
     };
   }, []);
 
-
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       <main className="flex-grow bg-gradient-to-b from-orange-100 to-pink-100 z-10">
         <Flechaup />
- 
-        <Image 
-         className="invisible md:visible absolute -z-[10] top-24 md:top-0 md:w-4/5 w-full md:rounded-l-full right-0 opacity-70 md:transform md:translate-x-1/3 md:translate-y-0 translate-y-1/2 mt-0 md:mt-5"
-          
-        src={'/profesiones.webp'} alt="" width={1000} height={1000}></Image>
 
+        <Image
+          className="invisible md:visible absolute -z-[10] top-24 md:top-0 md:w-4/5 w-full md:rounded-l-full right-0 opacity-70 md:transform md:translate-x-1/3 md:translate-y-0 translate-y-1/2 mt-0 md:mt-5"
+          src={"/profesiones.webp"}
+          alt=""
+          width={1000}
+          height={1000}
+        ></Image>
 
         <div
           id="nav"
@@ -117,10 +117,14 @@ export default function Home() {
             <h1 className="text-3xl text-center font-normal text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-400 p-4 transalate-y-4">
               Do what you love
             </h1>
-            <Image 
-        className="opacity-70 w-full rounded-l-full "
-        src={'/profesiones.webp'} alt="" width={1000} height={1000}></Image>
-    
+            <Image
+              className="opacity-70 w-full rounded-l-full "
+              src={"/profesiones.webp"}
+              alt=""
+              width={1000}
+              height={1000}
+            ></Image>
+
             <p className="text-2xl text-center bg-gradient-to-tl from-gray-800 from-20% to-gray-800 text-transparent bg-clip-text">
               I craft your{" "}
               <span className="text-3xl  font-light bg-gradient-to-tl from-blue-600 text-transparent bg-clip-text">
@@ -206,131 +210,107 @@ export default function Home() {
           <div className="h-24"></div>
         </div>
 
-    
-
         <div
-  ref={divRefs[1]}
-  className={`hidden md:flex flex-col justify-center transition-transform duration-1000 ease-in-out transform ${
-    isVisible[3] ? "translate-x-0" : "-translate-x-full"
-  }`}
->
-  <p className="text-4xl p-12 text-center font-normal text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-blue-700">
-    From a simple landing page or a complex web application, I bring your vision to life to meet your needs.
-  </p>
-</div>
+          ref={divRefs[1]}
+          className={`hidden md:flex flex-col justify-center transition-transform duration-1000 ease-in-out transform ${
+            isVisible[3] ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <p className="text-4xl p-12 text-center font-normal text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-blue-700">
+            From a simple landing page or a complex web application, I bring
+            your vision to life to meet your needs.
+          </p>
+        </div>
         <div
           ref={divRefs[3]}
           className={`hidden md:flex flex-col md:grid md:grid-cols-2 h-fit w-screen justify-center bg-gradient-to-tl from-blue-400 to-blue-300 transition-transform duration-1000 ease-in-out transform ${
             isVisible[3] ? "translate-x-0" : "translate-x-full"
           }`}
         >
+          <div
+            id="premium"
+            className="flex flex-col items-center justify-center"
+          >
+            <h2 className="p-4 text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
+              Premium Websites Starting at $1500
+            </h2>
+            <Accordion className="mb-2" type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  <p className="text-black text-2xl">
+                    Comprehensive, Functional & Scalable Solutions
+                  </p>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-l font-bold">
+                    Customized Features: E-commerce, User/Customer Portals, and
+                    More
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">
+                    Home Page and Up to 8 Additional Sections
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">
+                    Responsive Design (Adapts to All Screen Sizes)
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">SEO Optimization & SSL Security</p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">Hosting and Domain Included</p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l mb-8">
+                    Social Media Integration & Contact Options
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
 
- <div
-  id="premium"
-  className="flex flex-col items-center justify-center"
->
-  <h2 className="p-4 text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
-    Premium Websites Starting at $1500
-  </h2>
-  <Accordion className="mb-2" type="single" collapsible>
-    <AccordionItem value="item-1">
-      <AccordionTrigger>  
-        <p className="text-black text-2xl">
-          Comprehensive, Functional & Scalable Solutions
-         
-        </p>
-      </AccordionTrigger>
-      <AccordionContent>
-        <p className="text-l font-bold">
-          Customized Features: 
-          E-commerce, User/Customer Portals, and More
-         
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Home Page and Up to 8 Additional Sections
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Responsive Design (Adapts to All Screen Sizes)
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          SEO Optimization & SSL Security
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Hosting and Domain Included
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l mb-8">
-          Social Media Integration & Contact Options
-          
-        </p>
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>
-</div>
+          <div id="basic" className="flex flex-col items-center justify-center">
+            <h2 className="p-4 text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
+              Basic Websites Starting at $500
+            </h2>
 
+            <Accordion className="mb-2" type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  <p className="text-black text-2xl">
+                    Powerfull, simple & elegant.
+                  </p>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-l font-bold">
+                    Home Page and Up to 3 Additional Sections
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">
+                    Responsive Design (Adapts to All Screen Sizes)
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">Hosting and Domain Included</p>
+                </AccordionContent>
 
-<div id="basic" 
-className="flex flex-col items-center justify-center">
-  <h2 className="p-4 text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
-    Basic Websites Starting at $500
-  </h2>
- 
-
-  <Accordion className="mb-2" type="single" collapsible>
-    <AccordionItem value="item-1">
-      <AccordionTrigger>
-        <p className="text-black text-2xl">
-        Powerfull, simple & elegant. 
-           </p>
-      </AccordionTrigger>
-      <AccordionContent>
-        <p className="text-l font-bold">
-          Home Page and Up to 3 Additional Sections
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Responsive Design (Adapts to All Screen Sizes)
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Hosting and Domain Included
-          
-        </p>
-      </AccordionContent>
-
-      <AccordionContent>
-        <p className="text-l ">
-        Showcase text, images, and videos effortlessly.
-          
-        </p>
-      </AccordionContent>
-    
-    </AccordionItem>
-  </Accordion>
-</div>
+                <AccordionContent>
+                  <p className="text-l ">
+                    Showcase text, images, and videos effortlessly.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </div>
 
-
         <div
-          id="Hook1 SM"         
-          className='flex -translate-y-36 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300 transition-transform duration-1000 ease-in-out transform'
+          id="Hook1 SM"
+          className="flex -translate-y-36 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300 transition-transform duration-1000 ease-in-out transform"
         >
           <div className="w-screen flex grid grid-cols-5 items-center justify-center">
             <div className="flex flex-col justify-center items-center gap-4">
@@ -397,126 +377,105 @@ className="flex flex-col items-center justify-center">
 
         <div className="h-2" id="services"></div>
 
-      
         <div
-          id="Hook1 SM"         
-          className='flex -translate-y-36 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300'
+          id="Hook1 SM"
+          className="flex -translate-y-36 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300"
         >
-  <p className="text-xl p-12  text-center font-normal text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-blue-700">
-    From a simple landing page or a complex web application, I bring your vision to life to meet your needs.
-  </p>
-</div>
-        
-<div
-          id="Hook1 SM"         
-          className='flex flex-col gap-2 -translate-y-36 mt-4 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300'
+          <p className="text-xl p-12  text-center font-normal text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-blue-700">
+            From a simple landing page or a complex web application, I bring
+            your vision to life to meet your needs.
+          </p>
+        </div>
+
+        <div
+          id="Hook1 SM"
+          className="flex flex-col gap-2 -translate-y-36 mt-4 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300"
         >
+          <div
+            id="premium"
+            className="flex flex-col items-center justify-center mb-4"
+          >
+            <h2 className="p-4 text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
+              Premium Websites Starting at $1500
+            </h2>
+            <Accordion className="mb-12 text-center" type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  <p className="text-black text-l">
+                    Comprehensive, Functional & Scalable Solutions
+                  </p>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-l font-bold">
+                    Customized Features: E-commerce, User/Customer Portals, and
+                    More
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">
+                    Home Page and Up to 8 Additional Sections
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">
+                    Responsive Design (Adapts to All Screen Sizes)
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">SEO Optimization & SSL Security</p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">Hosting and Domain Included</p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l mb-8">
+                    Social Media Integration & Contact Options
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
 
- <div
-  id="premium"
-  className="flex flex-col items-center justify-center mb-4"
->
-  <h2 className="p-4 text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
-    Premium Websites Starting at $1500
-  </h2>
-  <Accordion className="mb-12 text-center" type="single" collapsible>
-    <AccordionItem value="item-1">
-      <AccordionTrigger>  
-        <p className="text-black text-l">
-          Comprehensive, Functional & Scalable Solutions
-         
-        </p>
-      </AccordionTrigger>
-      <AccordionContent>
-        <p className="text-l font-bold">
-          Customized Features: 
-          E-commerce, User/Customer Portals, and More
-         
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Home Page and Up to 8 Additional Sections
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Responsive Design (Adapts to All Screen Sizes)
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          SEO Optimization & SSL Security
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Hosting and Domain Included
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l mb-8">
-          Social Media Integration & Contact Options
-          
-        </p>
-      </AccordionContent>
-    </AccordionItem>
-  </Accordion>
-</div>
-</div>
-
-<div
-          id="Hook1 SM"         
-          className='flex flex-col -translate-y-36 mt-4 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300'
+        <div
+          id="Hook1 SM"
+          className="flex flex-col -translate-y-36 mt-4 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300"
         >
-<div id="basic" 
-className="flex flex-col items-center justify-center">
-  <h2 className="p-4 text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
-    Basic Websites Starting at $500
-  </h2>
- 
+          <div id="basic" className="flex flex-col items-center justify-center">
+            <h2 className="p-4 text-2xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
+              Basic Websites Starting at $500
+            </h2>
 
-  <Accordion className="mb-2 text-center" type="single" collapsible>
-    <AccordionItem value="item-1">
-      <AccordionTrigger>
-        <p className="text-black text-l">
-        Powerfull, simple & elegant. 
-           </p>
-      </AccordionTrigger>
-      <AccordionContent>
-        <p className="text-l font-bold">
-          Home Page and Up to 3 Additional Sections
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Responsive Design (Adapts to All Screen Sizes)
-          
-        </p>
-      </AccordionContent>
-      <AccordionContent>
-        <p className="text-l">
-          Hosting and Domain Included
-          
-        </p>
-      </AccordionContent>
+            <Accordion className="mb-2 text-center" type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  <p className="text-black text-l">
+                    Powerfull, simple & elegant.
+                  </p>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-l font-bold">
+                    Home Page and Up to 3 Additional Sections
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">
+                    Responsive Design (Adapts to All Screen Sizes)
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">Hosting and Domain Included</p>
+                </AccordionContent>
 
-      <AccordionContent>
-        <p className="text-l ">
-        Showcase text, images, and videos effortlessly.
-          
-        </p>
-      </AccordionContent>
-    
-    </AccordionItem>
-  </Accordion>
-</div></div>
-
+                <AccordionContent>
+                  <p className="text-l ">
+                    Showcase text, images, and videos effortlessly.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
 
         <div className="flex flex-col -translate-y-36 md:translate-y-0 items-center justify-center rounded-md mt-12 md:mt-24 md:mb-24 w-screen z-[10]">
           <p className="text-black  text-center text-3xl font-bold mb-4 bg-gradient-to-br from-blue-900 via-blue-700 to-blue-600 text-transparent bg-clip-text">
@@ -558,7 +517,9 @@ className="flex flex-col items-center justify-center">
 
           <div className="flex grid grid-cols-1 md:grid-cols-3 p-4 md:p-0 mb-12 mt-4 w-fit text-white">
             <div className="flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl font-light text-gray-700">Services provider</p>
+              <p className="text-2xl font-light text-gray-700">
+                Services provider
+              </p>
               <Link href="http://www.alarmascmm.com" target="_blank">
                 <button className="underline text-blue-700 flex flex-col justify-center items-center p-2">
                   www.alarmascmm.com
@@ -583,33 +544,38 @@ className="flex flex-col items-center justify-center">
                 </button>
               </Link>
             </div>
-
-          
-
           </div>
           <p className="text-xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
             Premium Websites
           </p>
 
           <div className="flex flex-col mb-8 mt-2 items-center justify-center gap-2">
-              <p className="text-2xl font-light text-gray-700">Social Media StartUp</p>
-              <Link href="http://www.emplearg.vercel.app/" target="_blank">
-                <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
-                www.emplearg.vercel.app <span className="text-black underline-none">(In progress)</span>
-                </button>
-              </Link>
-            </div>
+            <p className="text-2xl font-light text-gray-700">
+              Social Media StartUp
+            </p>
+            <Link href="http://www.emplearg.com/" target="_blank">
+              <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
+                www.emplearg.com{" "}
+                <span className="text-black underline-none">(In progress)</span>
+              </button>
+            </Link>
+          </div>
         </div>
-<div className="flex flex-col p-4  bg-gradient-to-tl from-blue-400 to-blue-300 mb-12">
-  <h1 className="text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700 mb-4">About me</h1>
-  <p className="text-l md:text-2xl text-gray-700 p-4 ">
-  I&apos;m a full-stack developer from Argentina with over 3 years of experience in web development. 
-  
-  <br className="md:hidden"></br>I bring a unique blend of skills to my projects, drawing on my background in customer service to not only deliver top-notch websites but also to ensure seamless communication with clients.
-   <br></br>
-   I handle all aspects of web development, so don&apos;t hesitate and share with me your ideas, I will put it online!. 
-  </p>
-</div>
+        <div className="flex flex-col p-4  bg-gradient-to-tl from-blue-400 to-blue-300 mb-12">
+          <h1 className="text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700 mb-4">
+            About me
+          </h1>
+          <p className="text-l md:text-2xl text-gray-700 p-4 ">
+            I&apos;m a full-stack developer from Argentina with over 3 years of
+            experience in web development.
+            <br className="md:hidden"></br>I bring a unique blend of skills to
+            my projects, drawing on my background in customer service to not
+            only deliver top-notch websites but also to ensure seamless
+            communication with clients.
+            <br></br>I handle all aspects of web development, so don&apos;t
+            hesitate and share with me your ideas, I will put it online!.
+          </p>
+        </div>
         <footer
           id="contact"
           className="w-full p-5 bg-gradient-to-tl from-blue-400 to-blue-300 text-center text-black"

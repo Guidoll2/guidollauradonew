@@ -142,11 +142,11 @@ export default function Home() {
 
         <div
           ref={iconsRef}
-          className={`transition-opacity duration-1000 ease-in-out ${
+          className={`transition-opacity duration-1000 ease-in-out bg-gray-100 ${
             isIconsVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <p className="text-2xl md:text-4xl mb-24  md:mb-0 p-12 text-center font-normal text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-blue-700">
+          <p className="text-2xl md:text-4xl mb-24  md:mb-0 p-12 text-center font-normal text-transparent bg-clip-text bg-gradient-to-l from-blue-700 to-blue-400">
             From a simple landing page to a complex web application, <br></br>I
             bring your vision to life to meet your needs.
           </p>
@@ -171,7 +171,7 @@ export default function Home() {
             <Accordion className="mb-2" type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>
-                  <p className="text-black text-3xl">
+                  <p className="text-black text-2xl">
                     Comprehensive, Functional & Scalable Solutions
                   </p>
                 </AccordionTrigger>
@@ -198,7 +198,7 @@ export default function Home() {
                   <p className="text-xl">Hosting and Domain Included</p>
                 </AccordionContent>
                 <AccordionContent>
-                  <p className="text-l mb-8">
+                  <p className="text-xl mb-8">
                     Social Media Integration & Contact Options
                   </p>
                 </AccordionContent>
@@ -217,7 +217,7 @@ export default function Home() {
             <Accordion className="mb-2" type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger>
-                  <p className="text-black text-3xl">
+                  <p className="text-black text-2xl">
                     Powerfull, simple & elegant.
                   </p>
                 </AccordionTrigger>
@@ -365,19 +365,15 @@ export default function Home() {
 
         <div
           id="portfolio"
-          className="z-[20] flex flex-col  -translate-y-24 bg-gradient-to-tl from-blue-400 to-blue-300 items-center justify-center mb-12"
+          className="z-[20] flex flex-col -translate-y-24 bg-gradient-to-tl from-blue-400 to-blue-300 items-center justify-center mb-12"
         >
           <p className="text-4xl p-2 text-gray-700 mb-2">Portfolio</p>
 
-          <p className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
-            Basics Websites
-          </p>
+          <p className="text-2xl text-gray-700">Basics Websites</p>
 
-          <div className="flex grid grid-cols-1 md:grid-cols-3 p-4 md:p-0 mb-12 mt-4 w-fit text-white">
-            <div className="flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl font-light text-gray-700">
-                Services provider
-              </p>
+          <div className="flex flex-col md:flex-row md:p-0 mb-12 mt-4 w-full justify-center gap-4">
+            <div className="mr-4 ml-4 md:ml-0 md:mr-0 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
+              <p className="text-2xl text-gray-700">Services provider</p>
               <Link href="http://www.alarmascmm.com" target="_blank">
                 <button className="underline text-blue-700 flex flex-col justify-center items-center p-2">
                   www.alarmascmm.com
@@ -385,8 +381,8 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl font-light text-gray-700">IT Company</p>
+            <div className="mr-4 ml-4 md:ml-0 md:mr-0  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
+              <p className="text-2xl text-gray-700">IT Company</p>
               <Link href="http://www.pidosoporte.com" target="_blank">
                 <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
                   www.pidosoporte.com
@@ -394,10 +390,8 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl font-light text-gray-700">
-                Int. Trader company
-              </p>
+            <div className="mr-4 ml-4 md:ml-0 md:mr-0  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
+              <p className="text-2xl text-gray-700">Int. Trader company</p>
               <Link href="http://www.bscustoms.com.ar" target="_blank">
                 <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
                   www.bscustoms.com.ar
@@ -405,8 +399,8 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl font-light text-gray-700">Proffesional</p>
+            <div className="mr-4 ml-4 md:ml-0 md:mr-0  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
+              <p className="text-2xl text-gray-700">Proffesional</p>
               <Link href="https://laureanogh.vercel.app/" target="_blank">
                 <button className="underline text-blue-700 flex flex-col justify-center items-center p-2">
                   www.laureanogherardi.org
@@ -414,14 +408,10 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <p className="text-xl text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-blue-700">
-            Premium Websites
-          </p>
+          <p className="text-2xl text-center text-gray-700">Premium Websites</p>
 
-          <div className="flex flex-col mb-8 mt-2 items-center justify-center gap-2">
-            <p className="text-2xl font-light text-gray-700">
-              Social Media StartUp
-            </p>
+          <div className="mt-2 mb-4  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
+            <p className="text-2xl text-gray-700">Social Media StartUp</p>
             <Link href="http://www.emplearg.com/" target="_blank">
               <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
                 www.emplearg.com{" "}
@@ -432,12 +422,11 @@ export default function Home() {
         <div className="flex flex-col p-4  bg-gradient-to-tl from-blue-400 to-blue-300 mb-12">
           <h1 className="text-4xl text-center text-gray-700 mb-4">About me</h1>
           <p className="text-l md:text-2xl text-gray-700 p-4 ">
-            I&apos;m a full-stack developer from Argentina with over 3 years of
+            I&apos;m a full-stack developer from Argentina with +3 years of
             experience in web development.
-            <br className="md:hidden"></br>I bring a unique blend of skills to
-            my projects, drawing on my background in customer service to not
-            only deliver top-notch websites but also to ensure seamless
-            communication with clients.
+            <br></br>Drawing on my background in customer service I bring a
+            unique blend of skills to my projects, to not only deliver top-notch
+            websites but also to ensure seamless communication with clients.
             <br></br>I handle all aspects of web development, so don&apos;t
             hesitate and share with me your ideas, I will put it online!.
           </p>
@@ -446,7 +435,7 @@ export default function Home() {
           id="contact"
           className="w-full p-5 bg-gradient-to-tl from-blue-400 to-blue-300 text-center text-black"
         >
-          <h1 className="text-xl bg-gradient-to-r from-gray-950 to-blue-950 text-transparent bg-clip-text md:text-3xl font-bold">
+          <h1 className="text-xl text-gray-700  md:text-3xl font-bold">
             Guido Llaurado
           </h1>
           <p className="text-sm md:text-lg">

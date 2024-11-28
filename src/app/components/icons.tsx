@@ -27,14 +27,14 @@ function Icons() {
       </div>
 
       <div className="flex flex-col items-center justify-center rounded-md">
-        <p className="text-center text-gray-800 text-xs md:text-3xl font-bold md:mb-4">
+        <p className="text-center text-gray-700 text-xs md:text-3xl font-bold md:mb-4">
           Book an Appointment!
         </p>
         <Link
           href="https://calendly.com/guido-llaurado/appointment-for-landinpage"
           target="_blank"
         >
-          <button className="bg-gray-800 mt-1 md:mt-4 text-gray-100 text-xs md:text-xl px-1 md:py-2 md:px-4 rounded hover:bg-gray-100 hover:text-black ease-in-out duration-700">
+          <button className="bg-orange-100 mt-1 md:mt-4 text-gray-700 text-xs md:text-xl px-1 md:py-2 md:px-4 rounded hover:bg-gray-100 hover:text-black ease-in-out duration-700">
             Schedule Now
           </button>
         </Link>

@@ -85,7 +85,7 @@ export default function Home() {
 
         <div
           id="nav"
-          className="z-0 flex flex-row hover:py-4  md:justify-start md:p-0 gap-8 h-[5px] bg-gradient-to-l from-blue-600 to-blue-300 w-screen hover:h-[4vw] ease-in-out duration-700 hover:text-slate-800 text-xl font-semibold md:font-bold text-transparent items-center "
+          className="z-0 flex flex-row hover:py-4 md:justify-start md:p-0 gap-8 h-[5px] bg-gradient-to-l from-blue-600 to-blue-300 w-screen hover:h-[4vw] ease-in-out duration-700 hover:text-slate-800 text-xs hover:text-xl font-semibold md:font-bold text-transparent items-center "
         >
           <div className="flex flex-row ml-8 gap-8 w-full justify-center md:justify-start ">
             <a href="#services">
@@ -146,7 +146,7 @@ export default function Home() {
             isIconsVisible ? "opacity-100" : "opacity-0"
           }`}
         >
-          <p className="text-2xl md:text-4xl mb-24  md:mb-0 p-12 text-center font-normal text-transparent bg-clip-text bg-gradient-to-l from-blue-700 to-blue-400">
+          <p className="text-2xl md:text-4xl mb-48 md:mb-12 mt-12 p-12 text-center font-normal text-transparent bg-clip-text bg-gradient-to-l from-blue-700 to-blue-400">
             From a simple landing page to a complex web application, <br></br>I
             bring your vision to life to meet your needs.
           </p>
@@ -369,7 +369,7 @@ export default function Home() {
         >
           <p className="text-4xl p-2 text-gray-700 mb-2">Portfolio</p>
 
-          <p className="text-2xl text-gray-700">Basics Websites</p>
+          <p className="text-3xl text-gray-700">Basics Websites</p>
 
           <div className="flex flex-col md:flex-row md:p-0 mb-12 mt-4 w-full justify-center gap-4">
             <div className="mr-4 ml-4 md:ml-0 md:mr-0 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
@@ -379,15 +379,37 @@ export default function Home() {
                   www.alarmascmm.com
                 </button>
               </Link>
+              <div className="w-full h-48 overflow-hidden">
+                <Image
+                  src="/cmm3.png"
+                  alt="logocmm"
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
             </div>
 
-            <div className="mr-4 ml-4 md:ml-0 md:mr-0  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl text-gray-700">IT Company</p>
-              <Link href="http://www.pidosoporte.com" target="_blank">
-                <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
-                  www.pidosoporte.com
-                </button>
-              </Link>
+            <div className="mr-4 ml-4 md:ml-0 md:mr-0 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-105 ease-in-out duration-500 p-2 flex flex-col gap-4">
+              <div className="flex flex-col items-center text-center gap-2 p-2">
+                <p className="text-2xl text-gray-700 font-semibold">
+                  IT Company
+                </p>
+                <Link href="http://www.pidosoporte.com" target="_blank">
+                  <button className="underline text-blue-700">
+                    www.pidosoporte.com
+                  </button>
+                </Link>
+              </div>
+              <div className="w-full h-48 overflow-hidden">
+                <Image
+                  src="/soporte.png"
+                  alt="logocmm"
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
             </div>
 
             <div className="mr-4 ml-4 md:ml-0 md:mr-0  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
@@ -397,26 +419,57 @@ export default function Home() {
                   www.bscustoms.com.ar
                 </button>
               </Link>
+              <div className="w-full h-48 overflow-hidden">
+                <Image
+                  src="/customs.png"
+                  alt="logocmm"
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
             </div>
 
-            <div className="mr-4 ml-4 md:ml-0 md:mr-0  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
+            <div className="mr-4 ml-4 md:ml-0 md:mr-0 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
               <p className="text-2xl text-gray-700">Proffesional</p>
               <Link href="https://laureanogh.vercel.app/" target="_blank">
                 <button className="underline text-blue-700 flex flex-col justify-center items-center p-2">
                   www.laureanogherardi.org
                 </button>
               </Link>
+              <div className="w-full h-48 overflow-hidden">
+                <Image
+                  src="/lau.png"
+                  alt="logocmm"
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
             </div>
           </div>
-          <p className="text-2xl text-center text-gray-700">Premium Websites</p>
+          <div className="flex flex-col md:p-0 mb-12 mt-4 w-full md:w-fit justify-center gap-4">
+            <p className="text-3xl text-center text-gray-700">
+              Premium Websites
+            </p>
 
-          <div className="mt-2 mb-4  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
-            <p className="text-2xl text-gray-700">Social Media StartUp</p>
-            <Link href="http://www.emplearg.com/" target="_blank">
-              <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
-                www.emplearg.com{" "}
-              </button>
-            </Link>
+            <div className=" mt-2 mb-4 mr-4 ml-4 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
+              <p className="text-2xl text-gray-700">Social Media StartUp</p>
+              <Link href="http://www.emplearg.com/" target="_blank">
+                <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
+                  www.emplearg.com{" "}
+                </button>
+              </Link>
+              <div className="w-full h-48 overflow-hidden">
+                <Image
+                  src="/emplearg.png"
+                  alt="logocmm"
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex flex-col p-4  bg-gradient-to-tl from-blue-400 to-blue-300 mb-12">

@@ -100,7 +100,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       <div
         id="language"
-        className="flex flex-row z-[100] cursor-pointer"
+        className="flex flex-row translate-y-96 -translate-x-  md:translate-y-0 z-[100] cursor-pointer"
         onClick={handleLanguageChange}
       >
         <span
@@ -345,7 +345,7 @@ export default function Home() {
               {language === "EN"
                 ? "Premium Websites Starting at"
                 : "Sitios web premium desde"}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-br from-gray-900 to-blue-700">
+              <span className="text-transparent bg-clip-text bg-gray-100">
                 $1500
               </span>
             </h2>
@@ -398,6 +398,57 @@ export default function Home() {
                     {language === "EN"
                       ? "Social Media Integration & Contact Options"
                       : "Integración con redes sociales y opciones de contacto"}
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+          <div id="basic" className="flex flex-col items-center justify-center">
+            <h2 className="p-4 text-2xl text-center text-gray-800">
+              {language === "EN"
+                ? "Basic Websites Starting at "
+                : "Sitios Web básicos desde "}
+              <span className="text-transparent bg-clip-text bg-gray-100">
+                {language === "EN" ? "$500" : "U$S500"}
+              </span>
+            </h2>
+
+            <Accordion className="mb-2" type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>
+                  <p className="text-black text-l">
+                    {language === "EN"
+                      ? "Powerfull, simple & elegant."
+                      : "Simple, elegante y eficiente"}
+                  </p>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <p className="text-l font-bold">
+                    {language === "EN"
+                      ? "Home Page and Up to 3 Additional Sections."
+                      : "Pagina principal y hasta 3 secciones adicionales"}
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">
+                    {language === "EN"
+                      ? "Responsive Design (Adapts to All Screen Sizes)"
+                      : "Diseño reactivo (Adaptado a todos los tamaños de pantallas"}
+                  </p>
+                </AccordionContent>
+                <AccordionContent>
+                  <p className="text-l">
+                    {language === "EN"
+                      ? "Hosting and Domain Included"
+                      : "Hosting y dominio incluído"}
+                  </p>
+                </AccordionContent>
+
+                <AccordionContent>
+                  <p className="text-l ">
+                    {language === "EN"
+                      ? "Showcase text, images, and videos effortlessly."
+                      : "Mostra texto, imágenes y videos de manera clara"}
                   </p>
                 </AccordionContent>
               </AccordionItem>

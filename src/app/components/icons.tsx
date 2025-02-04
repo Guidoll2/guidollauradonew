@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function Icons() {
+interface IconsProps {
+  language: string;
+}
+
+function Icons({ language }: IconsProps) {
   return (
     <div className="w-screen  md:p-8 flex grid grid-cols-5 items-center justify-center grow-from-center bg-gradient-to-tl from-blue-400 to-blue-300 ">
       <div className="flex flex-col justify-center items-center gap-4">
@@ -12,7 +16,9 @@ function Icons() {
           width={1000}
           height={1000}
         ></Image>
-        <h2 className="text-xs md:text-xl">Design</h2>
+        <h2 className="text-xs md:text-xl">
+          {language === "EN" ? "Design" : "Diseño"}
+        </h2>
       </div>
 
       <div className="flex flex-col justify-center items-center gap-4">
@@ -23,19 +29,21 @@ function Icons() {
           width={1000}
           height={1000}
         ></Image>
-        <h2 className="text-xs md:text-xl">Development</h2>
+        <h2 className="text-xs md:text-xl">
+          {language === "EN" ? "Development" : "Desarrollo"}
+        </h2>
       </div>
 
       <div className="flex flex-col items-center justify-center rounded-md">
         <p className="text-center text-gray-700 text-xs md:text-3xl font-bold md:mb-4">
-          Book an Appointment!
+          {language === "EN" ? "Book an Appointment!" : "Reserva una cita!"}
         </p>
         <Link
           href="https://calendly.com/guido-llaurado/appointment-for-landinpage"
           target="_blank"
         >
           <button className="bg-orange-100 mt-1 md:mt-4 text-gray-700 text-xs md:text-xl px-1 md:py-2 md:px-4 rounded hover:bg-gray-100 hover:text-black ease-in-out duration-700">
-            Schedule Now
+            {language === "EN" ? "Schedule Now" : "Agenda Ahora"}
           </button>
         </Link>
       </div>
@@ -48,7 +56,9 @@ function Icons() {
           width={1000}
           height={1000}
         ></Image>
-        <h2 className="text-xs md:text-xl text-center">SEO Optimization</h2>
+        <h2 className="text-xs md:text-xl text-center">
+          {language === "EN" ? " SEO Optimization" : "Optimización SEO"}
+        </h2>
       </div>
 
       <div className="flex flex-col justify-center items-center gap-4 mt-1">
@@ -59,7 +69,9 @@ function Icons() {
           width={1000}
           height={1000}
         ></Image>
-        <h2 className="text-xs md:text-xl text-center">Host and domain</h2>
+        <h2 className="text-xs md:text-xl text-center">
+          {language === "EN" ? "Host and domain" : "Hosting y dominio"}
+        </h2>
       </div>
     </div>
   );

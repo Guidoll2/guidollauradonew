@@ -237,7 +237,7 @@ export default function Home() {
           }`}
         >
           <div
-            id="premium"
+            id="services"
             className="bg-gradient-to-tl from-blue-50 to-blue-100 py-20 px-4 md:px-16"
           >
             {/* Título y descripción */}
@@ -420,7 +420,7 @@ export default function Home() {
 
         <div
           id="cta"
-          className="relative bg-gradient-to-r from-blue-50 to-blue-100 py-20 px-4 md:px-8 lg:px-16 overflow-hidden"
+          className="relative bg-gradient-to-r from-orange-50 to-blue-100 py-20 px-4 md:px-8 lg:px-16 overflow-hidden"
         >
           {/* Decoración sutil de fondo */}
           <div className="absolute inset-0 opacity-10">
@@ -439,7 +439,10 @@ export default function Home() {
           </div>
 
           {/* Contenido principal */}
-          <div className="relative max-w-2xl mx-auto text-center space-y-6">
+          <div
+            id="contact"
+            className="relative max-w-2xl mx-auto text-center space-y-6"
+          >
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
               {language === "EN" ? "Ready to Start?" : "¿Listo para empezar?"}
             </h2>

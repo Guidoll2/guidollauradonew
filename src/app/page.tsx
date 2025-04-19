@@ -5,12 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Cookies from "js-cookie";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Icons from "./components/icons";
 
@@ -98,53 +93,82 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      <div
-        id="language"
-        className="flex flex-row translate-y-96 -translate-x-  md:translate-y-0 z-[100] cursor-pointer"
-        onClick={handleLanguageChange}
-      >
-        <span
-          className={`absolute text-xs top-16 right-8 font-semibold text-gray-600 bg-blue-200 p-2 rounded-lg shadow-lg transition-all duration-700 ease-in-out transform ${
-            hover
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-2 pointer-events-none"
-          }`}
-        >
-          Change to {language === "EN" ? "Spanish" : "English"} site
-        </span>
-        <p
-          className="text-sm absolute top-2 md:top-5 border p-2 rounded-lg  right-2 md:right-14 font-semibold text-gray-100 bg-blue-500 hover:bg-blue-200 hover:text-gray-700 ease-in-out duration-700 shadow-lg"
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-        >
-          EN | ES
-        </p>
-      </div>
-
       <main className="flex-grow bg-gradient-to-b from-orange-100 to-pink-100 z-10">
         <Flechaup />
 
-        <div
+        <nav
           id="nav"
-          className="z-0 flex flex-row hover:py-4 md:justify-start md:p-0 gap-8 h-[5px] bg-gradient-to-l from-blue-600 to-blue-300 w-screen hover:h-[4vw] ease-in-out duration-700 hover:text-slate-800 text-xs hover:text-xl font-semibold md:font-bold text-transparent items-center "
+          className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 to-blue-300 bg-opacity-95 backdrop-blur-sm shadow-md z-50"
         >
-          <div className="flex flex-row ml-8 gap-8 w-full justify-center md:justify-start z-[100]">
-            <a href="#services">
-              <p className="">
-                {" "}
-                {language === "EN" ? "Services" : "Servicios"}
-              </p>
+          <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="#" className="text-white text-xl font-bold">
+              GL
             </a>
-            <Link href="#contact" className="">
-              <p className="">{language === "EN" ? "Contact" : "Contacto"}</p>
-            </Link>
-            <Link href="#portfolio">
-              <p className="">
-                {language === "EN" ? "Portfolio" : "Portfolio"}
-              </p>
-            </Link>
+
+            <ul className="hidden md:flex space-x-8">
+              <li>
+                <a
+                  href="#services"
+                  className="text-white text-sm font-medium hover:underline hover:text-gray-100 transition-colors"
+                >
+                  {language === "EN" ? "Services" : "Servicios"}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  className="text-white text-sm font-medium hover:underline hover:text-gray-100 transition-colors"
+                >
+                  {language === "EN" ? "Portfolio" : "Portfolio"}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-white text-sm font-medium hover:underline hover:text-gray-100 transition-colors"
+                >
+                  {language === "EN" ? "Contact" : "Contacto"}
+                </a>
+              </li>
+            </ul>
+
+            <div className="flex items-center space-x-4 relative">
+              <button
+                className="text-white text-sm font-medium bg-blue-500 p-2 rounded-lg hover:bg-orange-100 hover:text-gray-700 ease-in-out duration-700 shadow-lg"
+                onClick={handleLanguageChange}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+              >
+                EN | ES
+              </button>
+
+              {hover && (
+                <span className="absolute w-36 top-10 -right-8 text-xs font-semibold text-gray-600 bg-blue-200 p-2 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform">
+                  Change to {language === "EN" ? "Spanish" : "English"} site
+                </span>
+              )}
+
+              <button
+                aria-label="Toggle menu"
+                className="md:hidden text-white focus:outline-none"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
+        </nav>
 
         <div
           id="HeroMD"
@@ -187,499 +211,550 @@ export default function Home() {
         >
           <Icons language={language} />
         </div>
-
         <div
           ref={iconsRef}
-          className={`transition-opacity duration-1000 ease-in-out bg-gray-100 ${
-            isIconsVisible ? "opacity-100" : "opacity-0"
+          className={`py-24 px-4 md:px-8 lg:px-16 transition-all duration-1000 ease-out mb-12${
+            isIconsVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-2xl md:text-4xl mb-48 md:mb-12 mt-12 p-12 text-center font-normal text-transparent bg-clip-text bg-gradient-to-l from-blue-700 to-blue-400">
+          <h1 className="text-3xl md:text-5xl font-normal text-center bg-clip-text text-transparent bg-gradient-to-l from-blue-700 to-blue-400 leading-tight">
             {language === "EN"
-              ? " From a simple landing page to a complex web application,"
-              : "Ya sea una simple landig page o un sitio complejo."}
-            <br></br>
+              ? "From a simple landing page to a complex web application,"
+              : "Ya sea una simple landing page o un sitio complejo,"}
+            <br />
             {language === "EN"
               ? "I bring your vision to life to meet your needs."
               : "Puedo transformar tu idea en el sitio que necesitas."}
-          </p>
+          </h1>
         </div>
 
         <div
           ref={divRefs[3]}
-          className={`hidden md:flex flex-col md:grid md:grid-cols-2 h-fit w-screen justify-center bg-blue-400 transition-transform duration-1000 ease-in-out transform ${
+          className={`hidden md:flex flex-col md:grid md:grid-cols-1 h-fit w-screen justify-center bg-blue-400 transition-transform duration-1000 ease-in-out transform ${
             isVisible[3] ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div
             id="premium"
-            className="flex flex-col items-center justify-center"
+            className="bg-gradient-to-tl from-blue-50 to-blue-100 py-20 px-4 md:px-16"
           >
-            <h2 className="p-4 text-4xl text-gray-800 text-center">
-              {language === "EN"
-                ? "Premium Websites Starting at"
-                : "Sitios Premium desde"}{" "}
-              <span className=" text-transparent bg-clip-text bg-gray-100">
-                {language === "EN" ? "$1500" : "US$1500"}{" "}
-              </span>
-            </h2>
-            <Accordion className="mb-2" type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>
-                  <p className="text-black text-2xl">
-                    {language === "EN"
-                      ? "Comprehensive, Functional & Scalable Solutions"
-                      : "Soluciones integrales, funcionales y escalables"}{" "}
-                  </p>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-xl font-bold">
-                    {language === "EN"
-                      ? "Customized Features: E-commerce, User/Customer Portals, and More"
-                      : "Funciones personalizadas: Comercio electrónico, portales de usuarios/clientes y más"}{" "}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-xl">
-                    {language === "EN"
-                      ? "Home Page and Up to 8 Additional Sections"
-                      : "Pagina principal y hasta 8 secciones adicionales"}{" "}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-xl">
-                    {language === "EN"
-                      ? " Responsive Design (Adapts to All Screen Sizes)"
-                      : "Diseño reactivo (Adaptado a todos los tamaños de pantallas"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-xl">
-                    {language === "EN"
-                      ? "SEO Optimization & SSL Security"
-                      : "Optimización SEO & Seguridad SSL"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-xl">
-                    {language === "EN"
-                      ? "Hosting and domain included"
-                      : "Hosting y dominios incluídos"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-xl mb-8">
-                    {language === "EN"
-                      ? "Social Media Integration & Contact Options"
-                      : "Link con redes sociales & opciones de contacto"}
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-
-          <div id="basic" className="flex flex-col items-center justify-center">
-            <h2 className="p-4 text-4xl text-center text-gray-800">
-              {language === "EN"
-                ? "Basic Websites Starting at"
-                : "Sitios Web básicos desde "}
-              <span className="text-transparent bg-clip-text bg-gray-100">
-                {language === "EN" ? "$500" : "U$S500"}
-              </span>
-            </h2>
-
-            <Accordion className="mb-2" type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>
-                  <p className="text-black text-2xl">
-                    {language === "EN"
-                      ? "Powerfull, simple & elegant."
-                      : "Simple, elegante y eficiente"}
-                  </p>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-xl font-bold">
-                    {language === "EN"
-                      ? "Home Page and Up to 3 Additional Sections."
-                      : "Pagina principal y hasta 3 secciones adicionales"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-xl">
-                    {language === "EN"
-                      ? "Responsive Design (Adapts to All Screen Sizes)"
-                      : "Diseño reactivo (Adaptado a todos los tamaños de pantallas"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-xl">
-                    {language === "EN"
-                      ? "Hosting and Domain Included"
-                      : "Hosting y dominio incluído"}
-                  </p>
-                </AccordionContent>
-
-                <AccordionContent>
-                  <p className="text-xl ">
-                    {language === "EN"
-                      ? "Showcase text, images, and videos effortlessly."
-                      : "Mostra texto, imágenes y videos de manera clara"}
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-
-        <div className="h-2" id="services"></div>
-
-        <div
-          id="Hook1 SM"
-          className="flex flex-col gap-2 -translate-y-36 mt-4 md:hidden shadow-lg bg-gradient-to-tl from-blue-400 to-blue-300"
-        >
-          <div
-            id="premium"
-            className="flex flex-col items-center justify-center mb-4"
-          >
-            <h2 className="p-4 text-2xl text-center text-gray-700">
-              {language === "EN"
-                ? "Premium Websites Starting at"
-                : "Sitios web premium desde"}{" "}
-              <span className="text-transparent bg-clip-text bg-gray-100">
-                $1500
-              </span>
-            </h2>
-            <Accordion className="mb-12 text-center" type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>
-                  <p className="text-black text-l">
-                    {language === "EN"
-                      ? "Comprehensive, Functional & Scalable Solutions"
-                      : "Soluciones integrales, funcionales y escalables"}
-                  </p>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-l font-bold">
-                    {language === "EN"
-                      ? "Customized Features: E-commerce, User/Customer Portals, and More"
-                      : "Características personalizadas: Comercio electrónico, portales de usuario/cliente y más"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-l">
-                    {language === "EN"
-                      ? "Home Page and Up to 8 Additional Sections"
-                      : "Página de inicio y hasta 8 secciones adicionales"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-l">
-                    {language === "EN"
-                      ? "Responsive Design (Adapts to All Screen Sizes)"
-                      : "Diseño responsivo (se adapta a todos los tamaños de pantalla)"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-l">
-                    {language === "EN"
-                      ? "SEO Optimization & SSL Security"
-                      : "Optimización SEO y seguridad SSL"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-l">
-                    {language === "EN"
-                      ? "Hosting and Domain Included"
-                      : "Alojamiento y dominio incluidos"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-l mb-8">
-                    {language === "EN"
-                      ? "Social Media Integration & Contact Options"
-                      : "Integración con redes sociales y opciones de contacto"}
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-          <div id="basic" className="flex flex-col items-center justify-center">
-            <h2 className="p-4 text-2xl text-center text-gray-800">
-              {language === "EN"
-                ? "Basic Websites Starting at "
-                : "Sitios Web básicos desde "}
-              <span className="text-transparent bg-clip-text bg-gray-100">
-                {language === "EN" ? "$500" : "U$S500"}
-              </span>
-            </h2>
-
-            <Accordion className="mb-2" type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>
-                  <p className="text-black text-l">
-                    {language === "EN"
-                      ? "Powerfull, simple & elegant."
-                      : "Simple, elegante y eficiente"}
-                  </p>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-l font-bold">
-                    {language === "EN"
-                      ? "Home Page and Up to 3 Additional Sections."
-                      : "Pagina principal y hasta 3 secciones adicionales"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-l">
-                    {language === "EN"
-                      ? "Responsive Design (Adapts to All Screen Sizes)"
-                      : "Diseño reactivo (Adaptado a todos los tamaños de pantallas"}
-                  </p>
-                </AccordionContent>
-                <AccordionContent>
-                  <p className="text-l">
-                    {language === "EN"
-                      ? "Hosting and Domain Included"
-                      : "Hosting y dominio incluído"}
-                  </p>
-                </AccordionContent>
-
-                <AccordionContent>
-                  <p className="text-l ">
-                    {language === "EN"
-                      ? "Showcase text, images, and videos effortlessly."
-                      : "Mostra texto, imágenes y videos de manera clara"}
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-
-        <div className="flex flex-col -translate-y-36 md:translate-y-0 items-center justify-center rounded-md mt-12 md:mt-24 md:mb-48 w-screen z-[10]">
-          <p className="text-gray-700 text-center text-3xl font-bold mb-4">
-            {language === "EN" ? "Ready to start?" : "¿Listo para empezar?"}
-          </p>
-          <Link
-            href="https://calendly.com/guido-llaurado/appointment-for-landinpage"
-            target="_blank"
-          >
-            <button className="bg-gray-700 mt-4 text-gray-100 text-xl py-2 px-4 rounded hover:bg-gray-400">
-              {language === "EN" ? "Schedule Now" : "Agenda una cita"}
-            </button>
-          </Link>
-          <p className="text-gray-700 text-center text-3xl font-bold mt-8">
-            {language === "EN"
-              ? "Or keep scrolling to see my"
-              : "O segui scrolleando para ver mi"}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-400">
-              {language === "EN" ? "work." : "trabajo."}
-            </span>
-          </p>
-        </div>
-
-        <div
-          id="portfolio"
-          className="z-[20] flex flex-col -translate-y-24 bg-gradient-to-tl from-blue-400 to-blue-300 items-center justify-center mb-12"
-        >
-          <p className="text-4xl p-2 text-gray-700 mb-2">Portfolio</p>
-
-          <p className="text-3xl text-gray-700">
-            <span className="text-transparent bg-clip-text bg-gray-700">
-              {language === "EN" ? "Basics Websites" : "Sitios Web Basicos"}
-            </span>
-          </p>
-
-          <div className="flex flex-col md:flex-row md:p-0 mb-12 mt-4 w-full justify-center gap-4">
-            <div className="mr-4 ml-4 md:ml-0 md:mr-0 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl text-gray-700">
+            {/* Título y descripción */}
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-800">
+                {language === "EN" ? "Premium Websites" : "Sitios Premium"}
+              </h2>
+              <p className="mt-4 text-lg text-gray-600">
                 {language === "EN"
-                  ? "Services provider"
-                  : "Proveedor de servicios"}
+                  ? "Transform your online presence with tailor‑made solutions designed to grow your business and captivate your audience."
+                  : "Transforma tu presencia en línea con soluciones a medida diseñadas para impulsar tu negocio y cautivar a tu audiencia."}
               </p>
-              <Link href="http://www.alarmascmm.com" target="_blank">
-                <button className="underline text-blue-700 flex flex-col justify-center items-center p-2">
-                  www.alarmascmm.com
-                </button>
-              </Link>
-              <div className="w-full h-48 overflow-hidden">
-                <Image
-                  src="/cmm3.png"
-                  alt="logocmm"
-                  width={1000}
-                  height={1000}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
             </div>
 
-            <div className="mr-4 ml-4 md:ml-0 md:mr-0 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-105 ease-in-out duration-500 p-2 flex flex-col gap-4">
-              <div className="flex flex-col items-center text-center gap-2 p-2">
-                <p className="text-2xl text-gray-700">
-                  {language === "EN" ? "It Company" : "Empresa de tecnología"}
+            {/* Grid de servicios detallados */}
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-white rounded-2xl shadow-2xl p-6 hover:scale-105 transition-transform duration-300 hover:bg-orange-100">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {language === "EN"
+                    ? "Custom E‑commerce"
+                    : "Comercio Electrónico"}
+                </h3>
+                <p className="text-gray-600">
+                  {language === "EN"
+                    ? "Secure, scalable online stores with payment gateway integration and inventory management."
+                    : "Tiendas online seguras y escalables con pasarelas de pago y gestión de inventario."}
                 </p>
-                <Link href="http://www.pidosoporte.com" target="_blank">
-                  <button className="underline text-blue-700">
-                    www.pidosoporte.com
-                  </button>
-                </Link>
               </div>
-              <div className="w-full h-48 overflow-hidden">
-                <Image
-                  src="/soporte.png"
-                  alt="logocmm"
-                  width={1000}
-                  height={1000}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-            </div>
 
-            <div className="mr-4 ml-4 md:ml-0 md:mr-0  bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl text-gray-700">
-                {language === "EN"
-                  ? "International Trader Company"
-                  : "Empresa de comercio internacional"}
-              </p>
-              <Link href="http://www.bscustoms.com.ar" target="_blank">
-                <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
-                  www.bscustoms.com.ar
-                </button>
-              </Link>
-              <div className="w-full h-48 overflow-hidden">
-                <Image
-                  src="/customs.png"
-                  alt="logocmm"
-                  width={1000}
-                  height={1000}
-                  className="w-full h-full object-cover rounded-lg"
-                />
+              <div className="bg-white rounded-2xl shadow-2xl p-6 hover:scale-105 transition-transform duration-300 hover:bg-orange-100">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {language === "EN"
+                    ? "User & Admin Portals"
+                    : "Portales de Usuario y Admin"}
+                </h3>
+                <p className="text-gray-600">
+                  {language === "EN"
+                    ? "Custom dashboards for clients or team members to manage content, data, and reports."
+                    : "Dashboards personalizados para clientes o equipo, con gestión de contenido, datos e informes."}
+                </p>
               </div>
-            </div>
 
-            <div className="mr-4 ml-4 md:ml-0 md:mr-0 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl text-gray-700">
-                {language === "EN"
-                  ? "University proffesional "
-                  : "Profesional universitario"}
-              </p>
-              <Link href="https://laureanogh.vercel.app/" target="_blank">
-                <button className="underline text-blue-700 flex flex-col justify-center items-center p-2">
-                  www.laureanogherardi.org
-                </button>
-              </Link>
-              <div className="w-full h-48 overflow-hidden">
-                <Image
-                  src="/lau.png"
-                  alt="logocmm"
-                  width={1000}
-                  height={1000}
-                  className="w-full h-full object-cover rounded-lg"
-                />
+              <div className="bg-white rounded-2xl shadow-2xl p-6 hover:scale-105 transition-transform duration-300 hover:bg-orange-100">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {language === "EN"
+                    ? "API & Third‑Party Integrations"
+                    : "Integraciones API y Terceros"}
+                </h3>
+                <p className="text-gray-600">
+                  {language === "EN"
+                    ? "Connect your site to CRMs, marketing tools, or any external services for seamless workflows."
+                    : "Conecta tu sitio a CRMs, herramientas de marketing o servicios externos para flujos de trabajo integrados."}
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-2xl p-6 hover:scale-105 transition-transform duration-300 hover:bg-orange-100">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {language === "EN"
+                    ? "Performance Optimization"
+                    : "Optimización de Rendimiento"}
+                </h3>
+                <p className="text-gray-600">
+                  {language === "EN"
+                    ? "Fast load times, code splitting and caching strategies to keep users engaged."
+                    : "Velocidad de carga, code splitting y caching para mantener a tus usuarios comprometidos."}
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-2xl p-6 hover:scale-105 transition-transform duration-300 hover:bg-orange-100">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {language === "EN" ? "SEO & Security" : "SEO y Seguridad"}
+                </h3>
+                <p className="text-gray-600">
+                  {language === "EN"
+                    ? "On‑page SEO, metadata setup and SSL encryption for higher rankings and trust."
+                    : "SEO on‑page, configuración de metadatos y cifrado SSL para mejor posicionamiento y confianza."}
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-2xl p-6 hover:scale-105 transition-transform duration-300 hover:bg-orange-100">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {language === "EN" ? "Ongoing Support" : "Soporte Continuo"}
+                </h3>
+                <p className="text-gray-600">
+                  {language === "EN"
+                    ? "Maintenance plans, updates and performance monitoring to keep your site running smoothly."
+                    : "Planes de mantenimiento, actualizaciones y monitoreo para que tu sitio siempre funcione a la perfección."}
+                </p>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col md:p-0 mb-12 mt-4 w-full md:w-fit justify-center gap-4">
-            <p className="text-3xl text-center text-gray-700">
-              {language === "EN" ? "Premium Websites " : "Sitios Web Premium"}
+          </div>{" "}
+        </div>
+
+        <div id="basic" className="bg-orange-100 py-20 px-4 md:px-16">
+          {/* Encabezado y descripción */}
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800">
+              {language === "EN" ? "Basic Websites" : "Sitios Web Básicos"}
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              {language === "EN"
+                ? "Perfect for startups and personal brands that need a clean, modern online presence."
+                : "Perfecto para startups y marcas personales que necesitan una presencia online limpia y moderna."}
             </p>
+          </div>
 
-            <div className=" mt-2 mb-4 mr-4 ml-4 bg-orange-100 hover:bg-gray-100 rounded-lg shadow-2xl hover:scale-110 ease-in-out duration-700 p-2 flex flex-col items-center justify-center gap-2">
-              <p className="text-2xl text-gray-700">
+          {/* Grid de características */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl shadow-2xl  p-6 hover:scale-105 transition-transform duration-300 hover:bg-blue-100">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
                 {language === "EN"
-                  ? "Social Media StartUp"
-                  : "Startup de Red social"}
+                  ? "Home + 3 Sections"
+                  : "Página Principal + 3 Secciones"}
+              </h3>
+              <p className="text-gray-600">
+                {language === "EN"
+                  ? "Engaging homepage with up to 3 custom content sections (About, Services, Contact, etc.)."
+                  : "Página de inicio atractiva con hasta 3 secciones personalizadas (Quién soy, Servicios, Contacto, etc.)."}
               </p>
-              <Link href="http://www.emplearg.com/" target="_blank">
-                <button className="flex flex-col justify-center items-center p-2 underline text-blue-700">
-                  www.emplearg.com{" "}
-                </button>
-              </Link>
-              <div className="w-full h-48 overflow-hidden">
-                <Image
-                  src="/emplearg.png"
-                  alt="logocmm"
-                  width={1000}
-                  height={1000}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-2xl  p-6 hover:scale-105 transition-transform duration-300 hover:bg-blue-100">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {language === "EN" ? "Responsive Design" : "Diseño Responsivo"}
+              </h3>
+              <p className="text-gray-600">
+                {language === "EN"
+                  ? "Automatically adapts to all device sizes for a flawless user experience."
+                  : "Se adapta automáticamente a todas las pantallas para una experiencia perfecta."}
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-2xl  p-6 hover:scale-105 transition-transform duration-300 hover:bg-blue-100">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {language === "EN" ? "Hosting & Domain" : "Hosting y Dominio"}
+              </h3>
+              <p className="text-gray-600">
+                {language === "EN"
+                  ? "Secure hosting and a custom domain included so you can get online immediately."
+                  : "Hosting seguro y dominio personalizado incluidos para que estés en línea de inmediato."}
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-2xl  p-6 hover:scale-105 transition-transform duration-300 hover:bg-blue-100">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {language === "EN" ? "Media Showcase" : "Exhibición de Medios"}
+              </h3>
+              <p className="text-gray-600">
+                {language === "EN"
+                  ? "Effortlessly display images, videos and galleries in a sleek, organized layout."
+                  : "Muestra imágenes, videos y galerías de forma elegante y organizada."}
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-2xl  p-6 hover:scale-105 transition-transform duration-300 hover:bg-blue-100">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {language === "EN" ? "Basic SEO & SSL" : "SEO Básico y SSL"}
+              </h3>
+              <p className="text-gray-600">
+                {language === "EN"
+                  ? "On‑page SEO setup and SSL security to help your site rank and build trust."
+                  : "Configuración SEO básica y seguridad SSL para mejorar tu posicionamiento y confianza."}
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-2xl  p-6 hover:scale-105 transition-transform duration-300 hover:bg-blue-100">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                {language === "EN"
+                  ? "Contact Form Integration"
+                  : "Integración de Formulario"}
+              </h3>
+              <p className="text-gray-600">
+                {language === "EN"
+                  ? "Easy-to-use contact form with spam protection so you never miss a lead."
+                  : "Formulario de contacto fácil de usar con protección anti-spam para no perder ningún cliente potencial."}
+              </p>
             </div>
           </div>
         </div>
-        <div className="flex flex-col p-4  bg-gradient-to-tl from-blue-400 to-blue-300 mb-12">
-          <h1 className="text-4xl text-center text-gray-700 mb-4">
-            {language === "EN" ? "About Me" : "Sobre mí"}
-          </h1>
-          <p className="text-l md:text-2xl text-gray-700 p-4 ">
-            {language === "EN"
-              ? "Im a full-stack developer from Argentina with +3 years of experience. Drawing on my background in customer service I bring a unique blend of skills to my projects, to not only deliver top-notch websites but also to ensure seamless communication with clients. I handle all aspects of web development, so don't hesitate and share with me your ideas, I will put it online!"
-              : "Soy un desarrollador full-stack de Argentina con más de 3 años de experiencia. Gracias a mi experiencia en atención al cliente, aporto una combinación única de habilidades a mis proyectos, no solo para crear sitios web de alta calidad, sino también para garantizar una experiencia eficiente con los clientes. Me encargo de todos los aspectos del desarrollo, así que no dudes en compartir tus ideas conmigo para llevarlas a la web!"}
-          </p>
-        </div>
-        <footer
-          id="contact"
-          className="w-full p-5 bg-gradient-to-tl from-blue-400 to-blue-300 text-center text-black"
+
+        <div
+          id="cta"
+          className="relative bg-gradient-to-r from-blue-50 to-blue-100 py-20 px-4 md:px-8 lg:px-16 overflow-hidden"
         >
-          <h1 className="text-xl text-gray-700  md:text-3xl font-bold">
-            Guido Llaurado
-          </h1>
-          <p className="text-sm md:text-lg">
-            {language === "EN"
-              ? " Design and Development | All rights reserved | Built with"
-              : "Diseño y Desarrollo | Todos los derechos reservados | Construido con"}{" "}
-            <span className="bg-gradient-to-r from-gray-950 to-blue-950 text-transparent bg-clip-text">
-              Tailwind CSS
-            </span>
-          </p>
+          {/* Decoración sutil de fondo */}
+          <div className="absolute inset-0 opacity-10">
+            <svg
+              className="w-full h-full"
+              viewBox="0 0 800 400"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 200 C200 100 600 300 800 150 L800 400 L0 400 Z"
+                fill="currentColor"
+                className="text-blue-200"
+              />
+            </svg>
+          </div>
 
-          <div className="flex flex-col items-center mt-4">
-            <p className="p-4">
+          {/* Contenido principal */}
+          <div className="relative max-w-2xl mx-auto text-center space-y-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+              {language === "EN" ? "Ready to Start?" : "¿Listo para empezar?"}
+            </h2>
+            <p className="text-lg text-gray-700">
               {language === "EN"
-                ? "Open to new opportunities. Ready to contribute to your team or company."
-                : "Abierto a nuevas oportunidades. Listo para contribuir a tu equipo o empresa."}
+                ? "Let’s talk through your project and turn ideas into reality."
+                : "Hablemos de tu proyecto y hagamos tus ideas realidad."}
             </p>
-            <div className="flex flex-row gap-8">
-              <a href="mailto:guido.llaurado@gmail.com">
-                <Image
-                  className="w-8"
-                  src="/mail.png"
-                  width={1000}
-                  height={1000}
-                  alt="gmailicon"
-                />
-              </a>
-              <a href="https://wa.me/+5492226524466" target="_blank">
-                <Image
-                  className="w-8"
-                  src="/whatsapp.png"
-                  width={1000}
-                  height={1000}
-                  alt="wpicon"
-                />
-              </a>
+
+            <Link
+              href="https://calendly.com/guido-llaurado/appointment-for-landinpage"
+              target="_blank"
+            >
+              <button className="inline-flex items-center px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-500 transform hover:scale-105 transition  mt-8">
+                {language === "EN" ? "Schedule Now" : "Agenda una cita"}
+                <svg
+                  className="ml-2 w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </button>
+            </Link>
+
+            <p className="text-md md:text-lg text-gray-700">
+              {language === "EN"
+                ? "Or keep scrolling to see my "
+                : "O sigue scrolleando para ver mi "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-400">
+                {language === "EN" ? "work." : "trabajo."}
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <section
+          id="portfolio"
+          className="py-20 bg-gradient-to-b from-orange-100"
+        >
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-6xl font-extrabold text-center text-gray-900 mb-16">
+              Portfolio
+            </h2>
+
+            {/* Basic Websites */}
+            <div className="mb-12">
+              <h3 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
+                {language === "EN" ? "Basic Websites" : "Sitios Web Básicos"}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Services Provider */}
+                <div className="relative group overflow-hidden rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+                  <Image
+                    src="/cmm3.png"
+                    alt="Services provider"
+                    width={1000}
+                    height={1000}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h4 className="text-lg md:text-xl font-semibold text-white">
+                      {language === "EN"
+                        ? "Services Provider"
+                        : "Proveedor de Servicios"}
+                    </h4>
+                    <a
+                      href="http://www.alarmascmm.com"
+                      target="_blank"
+                      className="mt-1 block text-sm text-blue-200 underline"
+                    >
+                      alarmascmm.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* IT Company */}
+                <div className="relative group overflow-hidden rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+                  <Image
+                    src="/soporte.png"
+                    alt="IT Company"
+                    width={1000}
+                    height={1000}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h4 className="text-lg md:text-xl font-semibold text-white">
+                      {language === "EN"
+                        ? "IT Company"
+                        : "Empresa de Tecnología"}
+                    </h4>
+                    <a
+                      href="http://www.pidosoporte.com"
+                      target="_blank"
+                      className="mt-1 block text-sm text-blue-200 underline"
+                    >
+                      pidosoporte.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* International Trader */}
+                <div className="relative group overflow-hidden rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+                  <Image
+                    src="/customs.png"
+                    alt="International Trader Company"
+                    width={1000}
+                    height={1000}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h4 className="text-lg md:text-xl font-semibold text-white">
+                      {language === "EN"
+                        ? "International Trader Company"
+                        : "Empresa de Comercio Internacional"}
+                    </h4>
+                    <a
+                      href="http://www.bscustoms.com.ar"
+                      target="_blank"
+                      className="mt-1 block text-sm text-blue-200 underline"
+                    >
+                      bscustoms.com.ar
+                    </a>
+                  </div>
+                </div>
+
+                {/* University Professional */}
+                <div className="relative group overflow-hidden rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+                  <Image
+                    src="/lau.png"
+                    alt="University Professional"
+                    width={1000}
+                    height={1000}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h4 className="text-lg md:text-xl font-semibold text-white">
+                      {language === "EN"
+                        ? "University Professional"
+                        : "Profesional Universitario"}
+                    </h4>
+                    <a
+                      href="https://laureanogh.vercel.app/"
+                      target="_blank"
+                      className="mt-1 block text-sm text-blue-200 underline"
+                    >
+                      laureanogh.vercel.app
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Premium Websites */}
+            <div>
+              <h3 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
+                {language === "EN" ? "Premium Websites" : "Sitios Web Premium"}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Social Media Startup */}
+                <div className="relative group overflow-hidden rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+                  <Image
+                    src="/emplearg.png"
+                    alt="Social Media Startup"
+                    width={1000}
+                    height={1000}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h4 className="text-lg md:text-xl font-semibold text-white">
+                      {language === "EN"
+                        ? "Social Media Startup"
+                        : "Startup de Red Social"}
+                    </h4>
+                    <a
+                      href="http://www.emplearg.com/"
+                      target="_blank"
+                      className="mt-1 block text-sm text-blue-200 underline"
+                    >
+                      emplearg.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div
+          id="about"
+          className="bg-gradient-to-tr from-blue-50 to-blue-100 py-20 px-4 md:px-16"
+        >
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-l from-blue-700 to-blue-400">
+              {language === "EN" ? "About Me" : "Sobre mí"}
+            </h2>
+            <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
+              {language === "EN"
+                ? "I'm a passionate full‑stack developer from Argentina with over 3 years of professional experience. Combining strong technical skills with a background in customer service, I ensure that every project is not only robust and scalable but also delivered with clear, friendly communication."
+                : "Soy un desarrollador full‑stack de Argentina con más de 3 años de experiencia profesional. Combino sólidas habilidades técnicas con una formación en atención al cliente para asegurar que cada proyecto sea robusto y escalable, entregado siempre con comunicación clara y cercana."}
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+              <li className="flex items-start">
+                <span className="mr-3 text-2xl">💡</span>
+                <span>
+                  {language === "EN"
+                    ? "Innovative solutions tailored to your needs."
+                    : "Soluciones innovadoras diseñadas para tus necesidades."}
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3 text-2xl">⚙️</span>
+                <span>
+                  {language === "EN"
+                    ? "End‑to‑end development: front‑end, back‑end & deployment."
+                    : "Desarrollo integral: front‑end, back‑end y despliegue."}
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3 text-2xl">🤝</span>
+                <span>
+                  {language === "EN"
+                    ? "Clear communication & ongoing support."
+                    : "Comunicación transparente y soporte continuo."}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <footer id="contact" className="bg-gray-900 text-gray-300 py-12 px-4">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Branding */}
+            <div className="flex flex-col items-center md:items-start">
+              <h3 className="text-2xl font-bold text-white">Guido Llaurado</h3>
+              <p className="mt-2 text-sm">
+                {language === "EN"
+                  ? "Design & Development"
+                  : "Diseño y Desarrollo"}
+              </p>
+            </div>
+
+            {/* Call to Action & Socials */}
+            <div className="flex flex-col items-center">
+              <p className="text-center text-sm mb-4">
+                {language === "EN"
+                  ? "Open to new opportunities. Let’s build something great together."
+                  : "Abierto a nuevas oportunidades. Construyamos algo genial juntos."}
+              </p>
+              <div className="flex space-x-6">
+                <a
+                  href="mailto:guido.llaurado@gmail.com"
+                  className="hover:text-white transition"
+                >
+                  <Image src="/mail.png" alt="email" width={24} height={24} />
+                </a>
+                <a
+                  href="https://wa.me/+5492226524466"
+                  target="_blank"
+                  className="hover:text-white transition"
+                >
+                  <Image
+                    src="/whatsapp.png"
+                    alt="whatsapp"
+                    width={24}
+                    height={24}
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/guido-llaurado-381316118/"
+                  target="_blank"
+                  className="hover:text-white transition"
+                >
+                  <Image
+                    src="/linkedin.png"
+                    alt="linkedin"
+                    width={24}
+                    height={24}
+                  />
+                </a>
+              </div>
+            </div>
+
+            {/* Legal & Credits */}
+            <div className="flex flex-col items-center md:items-end text-center md:text-right space-y-2">
+              <p className="text-xs">
+                {language === "EN"
+                  ? "All rights reserved."
+                  : "Todos los derechos reservados."}
+              </p>
+              <p className="text-xs">
+                {language === "EN"
+                  ? "Built with Tailwind CSS"
+                  : "Construido con Tailwind CSS"}
+              </p>
               <a
-                href="https://www.linkedin.com/in/guido-llaurado-381316118/"
-                target="_blank"
+                href="https://www.flaticon.es/iconos-gratis/instagram"
+                title="iconos"
+                className="text-[10px] hover:text-white transition"
               >
-                <Image
-                  className="w-8"
-                  src="/linkedin.png"
-                  width={1000}
-                  height={1000}
-                  alt="linkedinicon"
-                />
+                {language === "EN"
+                  ? "Icons by Freepik - Flaticon"
+                  : "Iconos por Freepik - Flaticon"}
               </a>
             </div>
-            <a
-              href="https://www.flaticon.es/iconos-gratis/instagram"
-              title="iconos"
-              className="mt-5 text-xs"
-            >
-              {language === "EN"
-                ? "Icons created by Freepik - Flaticon"
-                : "Iconos descargados desde Freepik - Flaticon"}
-            </a>
           </div>
         </footer>
       </main>

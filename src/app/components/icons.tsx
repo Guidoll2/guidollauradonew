@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useMediaQuery } from "./useMediaQuery"; // Ajusta la ruta según tu proyecto
 
 interface IconsProps {
   language: string;
 }
 
 export default function Icons({ language }: IconsProps) {
+  const isSmallScreen = useMediaQuery("(max-width: 767px)");
+
   const items = [
     {
       src: "/diseño.png",
@@ -24,6 +27,45 @@ export default function Icons({ language }: IconsProps) {
       label: language === "EN" ? "Hosting & Domain" : "Hosting y dominio",
     },
   ];
+
+  if (isSmallScreen) {
+    return (
+      <section className="w-full py-4 px-2 bg-gradient-to-tl from-blue-50 to-blue-100">
+        <div className="max-w-md mx-auto grid grid-cols-2 gap-4">
+          {items.map(({ src, label }) => (
+            <div
+              key={label}
+              className="flex flex-col items-center p-3 bg-white rounded-xl shadow"
+            >
+              <Image
+                src={src}
+                alt={label}
+                width={40}
+                height={40}
+                className="mb-2"
+              />
+              <h2 className="text-xs font-medium text-gray-800">{label}</h2>
+            </div>
+          ))}
+          <div className="col-span-2 flex flex-col items-center p-3 bg-gradient-to-r from-orange-100 to-orange-200 rounded-xl shadow">
+            <p className="text-center font-semibold text-gray-800 text-sm mb-2">
+              {language === "EN"
+                ? "Book an Appointment!"
+                : "¡Reserva una cita!"}
+            </p>
+            <Link
+              href="https://calendly.com/guido-llaurado/appointment-for-landinpage"
+              target="_blank"
+            >
+              <button className="px-3 py-1 text-xs font-semibold bg-white rounded shadow hover:bg-gray-100 transition">
+                {language === "EN" ? "Schedule Now" : "Agenda Ahora"}
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full py-12 px-4 bg-gradient-to-tl from-blue-50 to-blue-100">
@@ -45,7 +87,6 @@ export default function Icons({ language }: IconsProps) {
             </h2>
           </div>
         ))}
-
         <div className="col-span-1 md:col-span-1 flex flex-col items-center p-6 bg-gradient-to-r from-orange-100 to-orange-200 rounded-2xl shadow-lg">
           <p className="text-center font-semibold text-gray-800 text-base md:text-xl mb-4">
             {language === "EN" ? "Book an Appointment!" : "¡Reserva una cita!"}

@@ -5,13 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Cookies from "js-cookie";
-
+import { FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { CiMail } from "react-icons/ci";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Icons from "./components/icons";
 
 export default function Home() {
   const [hover, setHover] = useState(false);
   const [language, setLanguage] = useState("EN");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const savedLanguage = Cookies.get("language");
@@ -96,20 +99,18 @@ export default function Home() {
       <main className="flex-grow bg-gradient-to-b from-orange-100 to-pink-100 z-10">
         <Flechaup />
 
-        <nav
-          id="nav"
-          className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 to-blue-300 bg-opacity-95 backdrop-blur-sm shadow-md z-50"
-        >
+        <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 to-blue-300 bg-opacity-95 backdrop-blur-sm shadow-md z-50">
           <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
             <a href="#" className="text-white text-xl font-bold">
               GL
             </a>
 
+            {/* Desktop menu */}
             <ul className="hidden md:flex space-x-8">
               <li>
                 <a
                   href="#services"
-                  className="text-white text-sm font-medium hover:underline hover:text-gray-100 transition-colors"
+                  className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
                 >
                   {language === "EN" ? "Services" : "Servicios"}
                 </a>
@@ -117,7 +118,7 @@ export default function Home() {
               <li>
                 <a
                   href="#portfolio"
-                  className="text-white text-sm font-medium hover:underline hover:text-gray-100 transition-colors"
+                  className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
                 >
                   {language === "EN" ? "Portfolio" : "Portfolio"}
                 </a>
@@ -125,13 +126,14 @@ export default function Home() {
               <li>
                 <a
                   href="#contact"
-                  className="text-white text-sm font-medium hover:underline hover:text-gray-100 transition-colors"
+                  className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
                 >
                   {language === "EN" ? "Contact" : "Contacto"}
                 </a>
               </li>
             </ul>
 
+            {/* Controls */}
             <div className="flex items-center space-x-4 relative">
               <button
                 className="text-white text-sm font-medium bg-blue-500 p-2 rounded-lg hover:bg-orange-100 hover:text-gray-700 ease-in-out duration-700 shadow-lg"
@@ -148,9 +150,11 @@ export default function Home() {
                 </span>
               )}
 
+              {/* Hamburger toggle for mobile */}
               <button
                 aria-label="Toggle menu"
                 className="md:hidden text-white focus:outline-none"
+                onClick={() => setIsOpen(!isOpen)}
               >
                 <svg
                   className="w-6 h-6"
@@ -168,10 +172,47 @@ export default function Home() {
               </button>
             </div>
           </div>
+
+          {/* Mobile menu panel */}
+          <div
+            className={`md:hidden overflow-hidden transform transition-all duration-300 ease-in-out ${
+              isOpen ? "max-h-60" : "max-h-0"
+            } bg-gradient-to-r from-blue-600 to-blue-300 bg-opacity-95 backdrop-blur-sm shadow-md`}
+          >
+            <ul className="flex flex-col space-y-4 px-6 pb-4 pt-2">
+              <li>
+                <a
+                  href="#services"
+                  className="block text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {language === "EN" ? "Services" : "Servicios"}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  className="block text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {language === "EN" ? "Portfolio" : "Portfolio"}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="block text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {language === "EN" ? "Contact" : "Contacto"}
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
 
         <div
-          id="HeroMD"
+          id="nav"
           className="flex flex-col md:flex-cols-2 w-screen gap-4 z-10 mb-24 md:mb-0"
         >
           <Image
@@ -182,7 +223,7 @@ export default function Home() {
             height={1000}
           ></Image>
 
-          <div className="flex flex-col p-2 md:-translate-y-24 items-start bg-gray-200 opacity-90 mt-2 md:mt-48">
+          <div className="flex flex-col p-2 md:-translate-y-24 items-start bg-gray-200 opacity-90 mt-24 md:mt-48">
             <h1 className="text-4xl md:text-6xl text-start font-normal text-gray-700">
               {language === "EN" ? "Custom" : "Sitios Web"}{" "}
               <span className="text-4xl md:text-6xl text-start font-normal text-transparent bg-clip-text bg-gradient-to-l from-blue-700 to-blue-400">
@@ -232,7 +273,7 @@ export default function Home() {
 
         <div
           ref={divRefs[3]}
-          className={`hidden md:flex flex-col md:grid md:grid-cols-1 h-fit w-screen justify-center bg-blue-400 transition-transform duration-1000 ease-in-out transform ${
+          className={`flex flex-col md:grid md:grid-cols-1 h-fit w-screen justify-center bg-blue-400 transition-transform duration-1000 ease-in-out transform ${
             isVisible[3] ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -441,11 +482,12 @@ export default function Home() {
           {/* Contenido principal */}
           <div
             id="contact"
-            className="relative max-w-2xl mx-auto text-center space-y-6"
+            className="relative max-w-2xl mx-auto text-center space-y-6 py-12"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
               {language === "EN" ? "Ready to Start?" : "¿Listo para empezar?"}
             </h2>
+
             <p className="text-lg text-gray-700">
               {language === "EN"
                 ? "Let’s talk through your project and turn ideas into reality."
@@ -456,7 +498,7 @@ export default function Home() {
               href="https://calendly.com/guido-llaurado/appointment-for-landinpage"
               target="_blank"
             >
-              <button className="inline-flex items-center px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-500 transform hover:scale-105 transition  mt-8">
+              <button className="inline-flex items-center px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-500 transform hover:scale-105 transition mt-4">
                 {language === "EN" ? "Schedule Now" : "Agenda una cita"}
                 <svg
                   className="ml-2 w-5 h-5"
@@ -474,15 +516,43 @@ export default function Home() {
               </button>
             </Link>
 
-            <p className="text-md md:text-lg text-gray-700">
-              {language === "EN"
-                ? "Or keep scrolling to see my "
-                : "O sigue scrolleando para ver mi "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-400">
-                {language === "EN" ? "work." : "trabajo."}
-              </span>
-            </p>
+            {/* Social Icons */}
+            <div className="flex justify-center space-x-6 mt-6">
+              <a
+                href="mailto:guido.llaurado@gmail.com"
+                className="text-gray-700 hover:text-gray-900 transition-transform transform hover:scale-110"
+                aria-label="Email"
+              >
+                <CiMail className="w-8 h-8" />
+              </a>
+              <a
+                href="https://wa.me/+5492226524466"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-gray-900 transition-transform transform hover:scale-110"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp className="w-8 h-8" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/guido-llaurado-381316118/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-gray-900 transition-transform transform hover:scale-110"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="w-8 h-8" />
+              </a>
+            </div>
           </div>
+          <p className="text-md text-center md:text-lg text-gray-700">
+            {language === "EN"
+              ? "Or keep scrolling to see my "
+              : "O sigue scrolleando para ver mi "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-300 to-orange-400 font-semibold">
+              {language === "EN" ? "work." : "trabajo."}
+            </span>
+          </p>
         </div>
 
         <section
@@ -700,38 +770,28 @@ export default function Home() {
               <p className="text-center text-sm mb-4">
                 {language === "EN"
                   ? "Open to new opportunities. Let’s build something great together."
-                  : "Abierto a nuevas oportunidades. Construyamos algo genial juntos."}
+                  : "Abierto a nuevas oportunidades laborales. Construyamos algo genial juntos."}
               </p>
               <div className="flex space-x-6">
                 <a
                   href="mailto:guido.llaurado@gmail.com"
                   className="hover:text-white transition"
                 >
-                  <Image src="/mail.png" alt="email" width={24} height={24} />
+                  <CiMail className="w-12 h-8" />
                 </a>
                 <a
                   href="https://wa.me/+5492226524466"
                   target="_blank"
                   className="hover:text-white transition"
                 >
-                  <Image
-                    src="/whatsapp.png"
-                    alt="whatsapp"
-                    width={24}
-                    height={24}
-                  />
+                  <FaWhatsapp className="w-12 h-8" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/guido-llaurado-381316118/"
                   target="_blank"
                   className="hover:text-white transition"
                 >
-                  <Image
-                    src="/linkedin.png"
-                    alt="linkedin"
-                    width={24}
-                    height={24}
-                  />
+                  <FaLinkedin className="w-12 h-8" />
                 </a>
               </div>
             </div>
@@ -748,15 +808,6 @@ export default function Home() {
                   ? "Built with Tailwind CSS"
                   : "Construido con Tailwind CSS"}
               </p>
-              <a
-                href="https://www.flaticon.es/iconos-gratis/instagram"
-                title="iconos"
-                className="text-[10px] hover:text-white transition"
-              >
-                {language === "EN"
-                  ? "Icons by Freepik - Flaticon"
-                  : "Iconos por Freepik - Flaticon"}
-              </a>
             </div>
           </div>
         </footer>

@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -39,42 +39,60 @@ const Navbar = () => {
 
 
 
-<nav className='flex grid grid-cols-1 w-full '> 
+<nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-700 to-blue-400 bg-opacity-95 backdrop-blur-md shadow-lg z-50">
+  <div className="flex items-center justify-between px-4 py-3">
+    {/* Logo o nombre */}
+    <a href="#" className="text-white font-bold text-xl tracking-wide">Guido Llaurado</a>
+    {/* Botón menú */}
+    <button
+      onClick={handleNav}
+      id="BOTONMENU"
+      aria-label={menuOpen ? "Close menu" : "Open menu"}
+      className="flex items-center justify-center p-2 rounded-full bg-white/10 hover:bg-white/20 transition z-[90]"
+    >
+      {menuOpen ? (
+        <FaTimes className="text-2xl text-white transition" />
+      ) : (
+        <FaBars className="text-2xl text-white transition" />
+      )}
+    </button>
+  </div>
 
+<div
+    className={`fixed inset-0 bg-black/40 transition-opacity duration-300 z-[49] ${
+      menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+    }`}
+    onClick={closeMenu}
+    aria-hidden="true"
+  />
 
-
-<button onClick={handleNav} id="BOTONMENU" className="flex cursor-pointer z-[90]">
-
-  <div className="h-[3px] bg-gradient-to-tl from-blue-900 from-20%  to-gray-800 w-screen hover:h-[4vw] ease-in-out duration-700"></div>
-
- 
-  </button>
-
-<div className={
-menuOpen
-? 'absolute top-0 left-0 w-screen bg-gradient-to-br from-sky-600 to-green-300 transition ease-in-out delay-150 duration-300 z-[100]'
-: 'absolute top-[-100%] h-screen w-full left-0 transition ease-in-out delay-150 duration-300 '
-}>
-
-
-
-<div id='MENUDESPLEGABLE' className='flex space-x-6 justify-center items-center h-16 md:py-3 md:space-x-24'>
-
-  <a href="#lite" className='text-gray-200 text-xs md:text-lg'>
-    <p>Lite website</p>
-  </a>
-
-  <a href="#premium"  className='text-gray-200 text-xs md:text-lg'>
-    <p>Premium website</p>
-  </a>
-
-  <a href='#containercontact' className='text-blue-300 text-xs md:text-lg text-blue-400 animate-[pulse_2s_ease-in-out_infinite]'>
-    <p>Contact</p>
-  </a>
-
-</div>
-
-</div>
+  {/* Menú desplegable */}
+  <div
+    className={`absolute top-0 left-0 w-full bg-gradient-to-br from-blue-600 to-orange-200 rounded-b-3xl shadow-2xl transition-transform duration-500 z-[100] ${
+      menuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+    }`}
+    style={{ transitionProperty: "transform, opacity" }}
+  >
+    <div
+      id="MENUDESPLEGABLE"
+      className="flex flex-col items-center py-8 space-y-6"
+      role="menu"
+    >
+      <a href="#lite" className="text-blue-900 text-lg font-semibold hover:text-orange-600 transition" role="menuitem">
+        Lite website
+      </a>
+      <a href="#premium" className="text-blue-900 text-lg font-semibold hover:text-orange-600 transition" role="menuitem">
+        Premium website
+      </a>
+      <a
+        href="#containercontact"
+        className="text-orange-600 text-lg font-bold animate-pulse"
+        role="menuitem"
+      >
+        Contact
+      </a>
+    </div>
+  </div>
 </nav>
 
 );

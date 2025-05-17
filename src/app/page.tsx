@@ -362,7 +362,7 @@ const basicServices = [
         </div>
         <div
           ref={iconsRef}
-          className={`py-32 px-4 md:px-8 lg:px-16 transition-all duration-1000 ease-out mb-12${
+          className={`py-32 px-4 md:px-8 lg:px-16 transition-all duration-1000 ease-out mb-12 h-full ${
             isIconsVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
@@ -426,11 +426,12 @@ const basicServices = [
   ))}
 </div>
        {/* Ejemplo Premium destacado */}
-    <div className="max-w-5xl mx-auto mb-16 mt-16">
+   
+   z <div className="max-w-5xl mx-auto mb-16 mt-16">
       <div className="p-4 mb-8">
         <p className="text-2xl md:text-5xl">{
             language === "EN"
-              ? "Wanna seen an example of a premium website?"
+              ? "Do you want to see an example of a premium website?"
               : "Te muestro un ejemplo de app web premium"
           }</p>
       </div>

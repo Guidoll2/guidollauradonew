@@ -31,8 +31,13 @@ export default function Home() {
       : "Transforma tu presencia en línea con soluciones a medida diseñadas para impulsar tu negocio y cautivar a tu audiencia.";
   const startingPrice =
     language === "EN"
-      ? "Prices starting at $500 USD"
-      : "Precios desde 500 USD";
+      ? "Prices starting at $700 USD"
+      : "Precios desde 700 USD";
+
+       const startingPrice2 =
+    language === "EN"
+      ? "Prices starting at $300 USD"
+      : "Precios desde 300 USD";
 
   const services = [
   {
@@ -372,7 +377,7 @@ const basicServices = [
             {language === "EN"
               ? "From a simple landing page to an App web application,"
               : "Ya sea una simple landing page o una App web compleja,"}
-            <br />
+            <br className=""/>
             {language === "EN"
               ? "I bring your vision to life to meet your needs."
               : "Puedo transformar tu idea en el sitio que necesitas."}
@@ -500,7 +505,11 @@ const basicServices = [
         ? "Perfect for startups and personal brands that need a clean, modern online presence."
         : "Perfecto para startups y marcas personales que necesitan una presencia online limpia y moderna."}
     </p>
+     <span className="inline-block mt-8 px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white text-lg font-bold rounded-full shadow-xl tracking-wide animate-pulse">
+        {startingPrice2}
+      </span>
   </div>
+  
 
   {/* Grid de características */}
   <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -19,11 +19,6 @@ export default function Home() {
   const [language, setLanguage] = useState("EN");
   const [isOpen, setIsOpen] = useState(false);
 
-   const exampleSrc = `/api/screenshot?url=${encodeURIComponent(
-    "https://www.emplearg.com"
-  )}`;
-
-
  const title = language === "EN" ? "Premium Websites" : "Sitios Premium";
   const subtitle =
     language === "EN"

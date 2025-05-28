@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 import './globals.css'
 import Head from 'next/head'
-import { HTMLAttributes } from 'react';
+import { ClerkProvider } from "@clerk/nextjs";
 
 
 const lato = Lato({
@@ -22,6 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+       <ClerkProvider>
     <html>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,6 +30,6 @@ export default function RootLayout({
         <meta name="language" content="en" />
       </Head>
       <body className={`${lato.className}`}>{children}</body>
-    </html>
+    </html></ClerkProvider>
   )
 }

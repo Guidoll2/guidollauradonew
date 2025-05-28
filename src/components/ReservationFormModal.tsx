@@ -21,12 +21,12 @@ export default function ReservationFormModal({
   selectedDay,
   language,
 }: ReservationFormModalProps) {
-  if (!show) return null;
-
   const t = useTranslations(language);
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
+
+  if (!show) return null;
 
   const dateFnsLocale = language === 'es' ? es : enUS;
 
@@ -38,10 +38,10 @@ export default function ReservationFormModal({
       setLastName('');
       setEmail('');
     } else {
-      // Puedes añadir un toast o mensaje de error aquí
       console.error("Por favor, completa todos los campos.");
     }
   };
+
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">

@@ -11,13 +11,17 @@ import { FaWhatsapp } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { FaShoppingCart, FaUserShield, FaPlug, FaRocket, FaLock, FaHandsHelping } from "react-icons/fa";
-import Icons from "../components/icons"; // Asegúrate de que esta sea la ruta correcta
+import Icons from "../components/icons"; 
 import { FaHome, FaMobileAlt, FaGlobe, FaImages, FaShieldAlt, FaEnvelopeOpenText } from "react-icons/fa";
-import CalendarComponent from "../components/calendar"; // ¡IMPORTA TU COMPONENTE DE CALENDARIO AQUÍ!
+import CalendarComponent from "../components/calendar"; 
+import PortfolioSection from "@/components/portfolioSection";
+import Footer from "@/components/footer";
+
+type Language = 'en' | 'es';
 
 export default function Home() {
   const [hover, setHover] = useState(false);
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState<Language>("en"); 
   const [isOpen, setIsOpen] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
 
@@ -128,15 +132,11 @@ export default function Home() {
   useEffect(() => {
     const savedLanguage = Cookies.get("language");
     if (savedLanguage) {
-      setLanguage(savedLanguage);
+   
+      setLanguage(savedLanguage as Language);
     }
   }, []);
 
-  const handleLanguageChange = () => {
-    const newLanguage = language === "es" ? "en" : "es";
-    setLanguage(newLanguage);
-    Cookies.set("language", newLanguage, { expires: 365 });
-  };
 
   const divRefs = [
     useRef<HTMLDivElement>(null),
@@ -212,6 +212,12 @@ export default function Home() {
   // Función para cerrar el calendario
   const handleCloseCalendar = () => {
     setShowCalendar(false);
+  };
+
+    const handleLanguageChange = () => {
+    const newLanguage: Language = language === "es" ? "en" : "es";
+    setLanguage(newLanguage);
+    Cookies.set("language", newLanguage, { expires: 365 });
   };
 
   return (
@@ -438,7 +444,7 @@ export default function Home() {
                   ? "Launch your next big idea with a custom, scalable, and high-impact website."
                   : "Lanza tu próxima gran idea con un sitio web a medida, escalable y de alto impacto."}
               </p>
-              <span className="inline-block mt-8 px-6 py-2 bg-gradient-to-r from-orange-500 to-orange-700 text-white text-lg font-bold rounded-full shadow-xl tracking-wide animate-pulse">
+              <span className="inline-block mt-8 px-6 py-2 bg-gradient-to-r from-orange-100 to-orange-200 text-gray-800 text-lg font-bold rounded-full shadow-xl tracking-wide hover:from-green-100 hover:to-green-200 ease-in-out duration-700 hover:scale-110">
                 {startingPrice}
               </span>
             </div>
@@ -447,7 +453,7 @@ export default function Home() {
               {services.map((svc) => (
                 <div
                   key={svc.key}
-                  className="bg-white/90 rounded-2xl shadow-xl p-8 flex flex-col items-start hover:scale-105 transition-transform duration-300 hover:bg-orange-50 border-t-4 border-orange-400"
+                  className="bg-white/90 rounded-2xl shadow-xl p-8 flex flex-col items-start hover:scale-105 transition-transform duration-300 hover:bg-orange-50 border-t-4 border-orange-100"
                 >
                   {svc.icon}
                   <h3 className="text-2xl font-bold text-blue-700 mb-2">
@@ -469,7 +475,7 @@ export default function Home() {
                   }</p>
               </div>
               <div className="relative group rounded-3xl shadow-2xl overflow-hidden transition-transform duration-500 hover:scale-105">
-                <Image
+                <img
                   src={"/image.png"}
                   alt={
                     language === "en"
@@ -478,9 +484,9 @@ export default function Home() {
                   }
                   width={1280}
                   height={800}
-                  quality={90}
-                  className="w-full h-80 object-cover"
-                  priority
+                className="w-full h-80 object-cover"
+                loading="lazy"
+                  
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
                 <div className="absolute bottom-8 left-8">
@@ -552,241 +558,88 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div
-          id="cta"
-          className="relative bg-gradient-to-r from-orange-50 to-blue-100 py-20 px-4 md:px-8 lg:px-16 overflow-hidden"
+       
+       
+       <div
+  id="cta"
+  className="relative bg-gradient-to-br from-orange-100 via-blue-200 to-blue-200 py-24 px-4 md:px-8 lg:px-16 overflow-hidden flex items-center justify-center min-h-[60vh]"
+>
+
+
+  <div
+    id="contact"
+    className="relative z-10 max-w-3xl mx-auto text-center space-y-8 p-8 bg-white/90 backdrop-blur-sm rounded-xl shadow-2xl border border-white border-opacity-30 transform hover:scale-[1.02] transition-all duration-500 ease-in-out"
+  >
+    <h2
+      className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight"
+    >
+      {language === "en" ? "Ready to Elevate Your Ideas?" : "¿Listo para llevar tus ideas al siguiente nivel?"}
+    </h2>
+
+    <p className="text-xl text-gray-700 max-w-prose mx-auto">
+      {language === "en"
+        ? "Let’s connect and transform your vision into a stunning digital reality. Whether it’s a captivating app or a powerful website, I'm here to build something amazing together."
+        : "Conectemos y transformemos tu visión en una impresionante realidad digital. Ya sea una app cautivadora o un sitio web potente, estoy aquí para construir algo asombroso juntos."}
+    </p>
+
+    <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mt-8">
+      <a
+        href="mailto:guido.llaurado@gmail.com"
+        className="group relative inline-flex items-center justify-center px-8 py-3 text-lg font-semibold text-gray-800 bg-gradient-to-r from-orange-100 to-orange-200 rounded-full shadow-lg overflow-hidden transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-300 animate-pulse-once"
+        aria-label="Email"
+      >
+        <span
+          className="absolute inset-0 w-full h-full border-2 border-orange-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        ></span>
+        <CiMail className="w-6 h-6 mr-3 text-gray-800" />
+        {language === "en" ? "Send an Email" : "Enviar un Email"}
+      </a>
+
+      <div className="flex space-x-4">
+        <a
+          href="https://wa.me/+5492226524466"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative text-gray-700 bg-white p-3 rounded-full shadow-md hover:text-green-500 transition-all duration-300 transform hover:scale-125 hover:shadow-lg tooltip"
+          aria-label="WhatsApp"
         >
-          <div className="absolute inset-0 opacity-10">
-            <svg
-              className="w-full h-full"
-              viewBox="0 0 800 400"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 200 C200 100 600 300 800 150 L800 400 L0 400 Z"
-                fill="currentColor"
-                className="text-blue-200"
-              />
-            </svg>
-          </div>
-
-          <div
-            id="contact"
-            className="relative max-w-2xl mx-auto text-center space-y-6 py-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
-              {language === "en" ? "Ready to Start?" : "¿Listo para empezar?"}
-            </h2>
-
-            <p className="text-lg text-gray-700">
-              {language === "en"
-                ? "Let’s talk through your project and turn ideas into reality."
-                : "Hablemos de tu proyecto y hagamos tus ideas realidad."}
-            </p>
-
-            <Link
-              href="https://calendly.com/guido-llaurado/appointment-for-landinpage"
-              target="_blank"
-            >
-              <button className="inline-flex items-center px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-500 transform hover:scale-105 transition mt-4">
-                {language === "en" ? "Schedule Now" : "Agenda una cita"}
-                <svg
-                  className="ml-2 w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </button>
-            </Link>
-
-            <div className="flex justify-center space-x-6 mt-6">
-              <a
-                href="mailto:guido.llaurado@gmail.com"
-                className="text-gray-700 hover:text-gray-900 transition-transform transform hover:scale-110"
-                aria-label="Email"
-              >
-                <CiMail className="w-8 h-8" />
-              </a>
-              <a
-                href="https://wa.me/+5492226524466"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-700 hover:text-gray-900 transition-transform transform hover:scale-110"
-                aria-label="WhatsApp"
-              >
-                <FaWhatsapp className="w-8 h-8" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/guido-llaurado-381316118/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-700 hover:text-gray-900 transition-transform transform hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="w-8 h-8" />
-              </a>
-            </div>
-          </div>
-          <p className="text-md text-center md:text-lg text-gray-700">
-            {language === "en"
-              ? "Or keep scrolling to see my "
-              : "O sigue scrolleando para ver mi "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-300 to-orange-400 font-semibold">
-              {language === "en" ? "work." : "trabajo."}
-            </span>
-          </p>
-        </div>
-
-        <section
-          id="portfolio"
-          className="py-20 bg-gradient-to-b from-orange-100"
+          <FaWhatsapp className="w-7 h-7" />
+          <span
+            className="tooltip-text absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >WhatsApp</span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/guido-llaurado-381316118/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative text-gray-700 bg-white p-3 rounded-full shadow-md hover:text-blue-700 transition-all duration-300 transform hover:scale-125 hover:shadow-lg tooltip"
+          aria-label="LinkedIn"
         >
-          <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-6xl font-extrabold text-center text-gray-900 mb-16">
-              Portfolio
-            </h2>
+          <FaLinkedin className="w-7 h-7" />
+          <span
+            className="tooltip-text absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-xs rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"
+            >LinkedIn</span>
+          
+        </a>
+      </div>
+    </div>
 
-            <div className="mb-16">
-              <h3 className="text-3xl font-semibold text-gray-800 mb-8 text-center">
-                {language === "en" ? "Basic Websites" : "Sitios Web Básicos"}
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div className="bg-white/90 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300 border-t-4 border-blue-400 group">
-                  <div className="relative">
-                    <Image
-                      src="/cmm3.png"
-                      alt="Services provider"
-                      width={1000}
-                      height={1000}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <a
-                        href="http://www.alarmascmm.com"
-                        target="_blank"
-                        className="inline-block px-4 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full shadow hover:bg-orange-500 transition"
-                      >
-                        alarmascmm.com
-                      </a>
-                    </div>
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h4 className="text-xl font-bold text-blue-700 mb-2">
-                      {language === "en" ? "Services Provider" : "Proveedor de Servicios"}
-                    </h4>
-                    <p className="text-gray-700 text-base flex-1">
-                      {language === "en"
-                        ? "A modern site for a security services company."
-                        : "Sitio moderno para empresa de servicios de seguridad."}
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white/90 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300 border-t-4 border-blue-400 group">
-                  <div className="relative">
-                    <Image
-                      src="/soporte.png"
-                      alt="IT Company"
-                      width={1000}
-                      height={1000}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <a
-                        href="http://www.pidosoporte.com"
-                        target="_blank"
-                        className="inline-block px-4 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full shadow hover:bg-orange-500 transition"
-                      >
-                        pidosoporte.com
-                      </a>
-                    </div>
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h4 className="text-xl font-bold text-blue-700 mb-2">
-                      {language === "en" ? "IT Company" : "Empresa de Tecnología"}
-                    </h4>
-                    <p className="text-gray-700 text-base flex-1">
-                      {language === "en"
-                        ? "Landing page for an IT support business."
-                        : "Landing page para empresa de soporte IT."}
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white/90 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300 border-t-4 border-blue-400 group">
-                  <div className="relative">
-                    <Image
-                      src="/customs.png"
-                      alt="International Trader Company"
-                      width={1000}
-                      height={1000}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <a
-                        href="http://www.bscustoms.com.ar"
-                        target="_blank"
-                        className="inline-block px-4 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full shadow hover:bg-orange-500 transition"
-                      >
-                        bscustoms.com.ar
-                      </a>
-                    </div>
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h4 className="text-xl font-bold text-blue-700 mb-2">
-                      {language === "en"
-                        ? "International Trader Company"
-                        : "Empresa de Comercio Internacional"}
-                    </h4>
-                    <p className="text-gray-700 text-base flex-1">
-                      {language === "en"
-                        ? "Corporate website for an international trade firm."
-                        : "Sitio corporativo para empresa de comercio exterior."}
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-white/90 rounded-2xl shadow-xl overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300 border-t-4 border-blue-400 group">
-                  <div className="relative">
-                    <Image
-                      src="/lau.png"
-                      alt="University Professional"
-                      width={1000}
-                      height={1000}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <a
-                        href="https://laureanogh.vercel.app/"
-                        target="_blank"
-                        className="inline-block px-4 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full shadow hover:bg-orange-500 transition"
-                      >
-                        laureanogh.vercel.app
-                      </a>
-                    </div>
-                  </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h4 className="text-xl font-bold text-blue-700 mb-2">
-                      {language === "en"
-                        ? "University Professional"
-                        : "Profesional Universitario"}
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <p className="text-lg md:text-xl text-gray-600 pt-8">
+      {language === "en"
+        ? "Or, if you prefer to explore first, keep scrolling to discover my"
+        : "O, si preferis explorar primero, sigue scrolleando para descubrir mi"}
+      <a
+        href="#portfolio"
+        className="ml-2 text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-blue-950 font-extrabold border-b-2 border-blue-500 hover:border-purple-600 transition-colors duration-300"
+      >
+        {language === "en" ? "Work." : "Trabajo."}
+      </a>
+    </p>
+  </div>
+</div>
+      <PortfolioSection language={language} />
       </main>
+        <Footer language={language} /> 
     </div>
   );
 }

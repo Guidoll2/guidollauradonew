@@ -123,3 +123,16 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+
+@keyframes pulse-once {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+.animate-pulse-once {
+  animation: pulse-once 1s ease-in-out 1; /* Corre una sola vez */
+}

@@ -67,7 +67,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
             </li>
             <li>
               <Link href="#portfolio" className="hover:text-blue-400 transition-colors duration-300">
-                {language === "en" ? "Portfolio" : "Portafolio"}
+                {language === "en" ? "Work" : "Trabajo"}
               </Link>
             </li>
             <li>

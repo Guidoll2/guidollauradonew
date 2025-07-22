@@ -225,125 +225,89 @@ export default function Home() {
       <main className="flex-grow bg-gradient-to-b from-orange-100 to-pink-100 z-10">
         <Flechaup />
 
-        <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 to-blue-300 bg-opacity-95 backdrop-blur-sm shadow-md z-50">
-          <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-            <a href="#" className="text-white text-xl font-bold">
-              GL
-            </a>
+<nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 to-blue-300 bg-opacity-95 backdrop-blur-sm shadow-md z-50">
+  <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+    <a href="#" className="text-white text-xl font-bold">
+      GL
+    </a>
 
-            {/* Desktop menu */}
-            <ul className="hidden md:flex space-x-8">
-              <li>
-                <a
-                  href="#services"
-                  className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
-                >
-                  {language === "en" ? "Services" : "Servicios"}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#portfolio"
-                  className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
-                >
-                  {language === "en" ? "Portfolio" : "Portfolio"}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
-                >
-                  {language === "en" ? "Contact" : "Contacto"}
-                </a>
-              </li>
-            </ul>
+    {/* Desktop menu alineado a la derecha */}
+    <ul className="hidden md:flex space-x-8 ml-auto">
+      <li>
+        <a
+          href="#services"
+          className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
+        >
+          {language === "en" ? "Services" : "Servicios"}
+        </a>
+      </li>
+      <li>
+        <a
+          href="#portfolio"
+          className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
+        >
+          {language === "en" ? "Portfolio" : "Portfolio"}
+        </a>
+      </li>
+      <li>
+        <a
+          href="#contact"
+          className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
+        >
+          {language === "en" ? "Contact" : "Contacto"}
+        </a>
+      </li>
+    </ul>
 
-            {/* Controls */}
-            <div className="flex items-center space-x-4 relative">
-              <button
-                className="text-white text-sm font-medium bg-blue-500 p-2 rounded-lg hover:bg-orange-100 hover:text-gray-700 ease-in-out duration-700 shadow-lg"
-                onClick={handleLanguageChange}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
-              >
-                EN | ES
-              </button>
+    {/* Controls alineados a la derecha */}
+    <div className="flex items-center space-x-4 relative ml-0 md:ml-4">
+      <button
+        className="text-white text-sm font-medium bg-blue-500 p-2 rounded-lg hover:bg-orange-100 hover:text-gray-700 ease-in-out duration-700 shadow-lg"
+        onClick={handleLanguageChange}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        EN | ES
+      </button>
 
-              {hover && (
-                <span className="absolute w-36 top-10 -right-8 text-xs font-semibold text-gray-600 bg-blue-200 p-2 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform">
-                  Change to {language === "en" ? "Spanish" : "English"} site
-                </span>
-              )}
+      {hover && (
+        <span className="absolute w-36 top-10 -right-8 text-xs font-semibold text-gray-600 bg-blue-200 p-2 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform">
+          Change to {language === "en" ? "Spanish" : "English"} site
+        </span>
+      )}
 
-              {/* Hamburger toggle for mobile */}
-              <button
-                aria-label="Toggle menu"
-                className="md:hidden text-white focus:outline-none"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile menu panel */}
-          <div
-            className={`md:hidden overflow-hidden transform transition-all duration-300 ease-in-out ${
-              isOpen ? "max-h-60" : "max-h-0"
-            } bg-gradient-to-r from-blue-600 to-blue-300 bg-opacity-95 backdrop-blur-sm shadow-md`}
-          >
-            <ul className="flex flex-col space-y-4 px-6 pb-4 pt-2">
-              <li>
-                <a
-                  href="#services"
-                  className="block text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {language === "en" ? "Services" : "Servicios"}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#portfolio"
-                  className="block text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {language === "en" ? "Portfolio" : "Portfolio"}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="block text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {language === "en" ? "Contact" : "Contacto"}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+      {/* Hamburger toggle for mobile */}
+      <button
+        aria-label="Toggle menu"
+        className="md:hidden text-white focus:outline-none"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  {/* ...resto del código... */}
+</nav>
 
         <div
           id="nav"
           className="flex flex-col md:flex-cols-2 w-screen gap-4 z-10 mb-24 md:mb-0"
         >
           <Image
-            className="-z-[10] order-2  md:-translate-y-60 rounded-r-full shadow-2xl md:w-1/3 opacity-70"
-            src={"/profesionest.jpg"}
+            className="-z-[10] order-2 rounded-r-full shadow-2xl opacity-80 md:-translate-y-24"
+            src={"/Sora1.png"}
             alt=""
             width={1000}
             height={1000}

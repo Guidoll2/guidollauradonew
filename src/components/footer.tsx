@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
     },
   };
 
-  const text = footerText[language];
+const text = footerText[language] || footerText['en'];
 
   return (
     <footer className="bg-gray-800 text-gray-300 py-12 px-6">

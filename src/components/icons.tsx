@@ -2,7 +2,7 @@
 'use client'; // Asegúrate de que esto esté al principio si usas App Router y el componente es interactivo
 
 import { useState } from "react";
-import Image from "next/image";
+
 // import Link from "next/link"; // ¡Eliminamos este import!
 import { useMediaQuery } from "./useMediaQuery";
 
@@ -85,7 +85,7 @@ export default function Icons({ language, onBookAppointment }: IconsProps) {
                 {isOpen ? "-" : "+"}
               </div>
 
-              <Image
+              <img
                 src={item.src}
                 alt={item.label}
                 width={64}

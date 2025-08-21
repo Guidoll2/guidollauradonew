@@ -6,7 +6,7 @@ export type Service = {
   priceUSD: number; // Precio en USD
   priceARS: number; // Precio en ARS
   features: string[];
-  image: string; // URL de la imagen generada con IA
+  img: string; // URL de la imagen generada con IA
 };
 
 export const services: Service[] = [
@@ -17,7 +17,7 @@ export const services: Service[] = [
     priceUSD: 500,
     priceARS: 450000, // Ejemplo, actualiza a valores reales
     features: ['1 página', 'Diseño responsive', 'SEO básico'],
-    image: '/images/web-design-basic.png',
+    img: '/images/web-design-basic.png',
   },
   {
     id: 'custom-calendar',
@@ -26,7 +26,7 @@ export const services: Service[] = [
     priceUSD: 800,
     priceARS: 720000, // Ejemplo
     features: ['Integración API', 'Gestión de eventos', 'Alertas'],
-    image: '/images/custom-calendar.png',
+    img: '/images/custom-calendar.png',
   },
   // Agrega más servicios
 ];

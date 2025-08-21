@@ -29,14 +29,19 @@
     "no_authentication": "Necesitas iniciar sesión para reservar un turno.",
     "select_date_first": "Por favor, selecciona una fecha primero.",
     "confirm_reservation": "¿Estás seguro de que quieres reservar el turno del {date} a las {time}?",
-    "reserving_slot_loading": "Reservando turno...",
-    "reservation_success": "Turno reservado con éxito. ¡Te esperamos!",
+    "reserving_slot_loading": "Procesando tu reserva y enviando confirmaciones...",
+    "reservation_success": "¡Turno reservado con éxito!",
     "reservation_error": "Error al reservar turno: {error}",
     "error_loading_appointments": "Error al cargar los turnos.",
     "error_loading_user_role": "Error al cargar el rol de usuario.",
     "admin_cannot_reserve": "Los administradores no pueden reservar turnos para sí mismos desde aquí.",
-    "loading_appointments": "Cargando horarios disponibles..."
-    
+    "loading_appointments": "Cargando horarios disponibles...",
+    "email_sent_both": "Se enviaron emails de confirmación a ambas partes.",
+    "email_sent_professional": "Se envió notificación al profesional.",
+    "email_sent_user": "Se envió confirmación a tu email.",
+    "email_warning_user": "No se pudo enviar el email de confirmación a tu correo.",
+    "email_warning_professional": "No se pudo notificar al profesional por email.",
+    "email_warning_both": "Cita confirmada pero hubo problemas con los emails."
   },
    "reservationForm": {
     "title": "Confirmar Reserva",
@@ -44,6 +49,7 @@
     "name_label": "Nombre",
     "lastName_label": "Apellido",
     "email_label": "Email",
+    "whatsapp_label": "WhatsApp",
     "cancel_button": "Cancelar",
     "confirm_button": "Confirmar Reserva"
   },

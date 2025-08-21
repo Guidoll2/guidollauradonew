@@ -1,8 +1,6 @@
 // components/portfolioSection.tsx
-
-import Image from 'next/image';
 import Link from 'next/link';
-import { FaExternalLinkAlt, FaTools, FaCode, FaPaintBrush, FaCalendarAlt, FaRobot, FaUsers, FaChartLine, FaBell } from 'react-icons/fa'; // Importa nuevos iconos para Emplearg
+import { FaExternalLinkAlt, FaTools, FaCode, FaPaintBrush, FaCalendarAlt, FaRobot, FaUsers, FaChartLine, FaBell, FaDatabase, FaWarehouse, FaUserMd, FaComments } from 'react-icons/fa'; // Importa nuevos iconos
 
 // Definición de tipos para los proyectos
 interface Project {
@@ -13,7 +11,7 @@ interface Project {
   imageUrl: string;
   projectUrl: string;
   domainName: string;
-  skills: ('responsive' | 'ux-ui' | 'ai-images' | 'custom-calendar' | 'nextjs' | 'typescript' | 'tailwind' | 'api-integration' | 'user-auth' | 'admin-panel' | 'real-time-notifications')[];
+  skills: ('responsive' | 'ux-ui' | 'ai-images' | 'custom-calendar' | 'nextjs' | 'typescript' | 'tailwind' | 'api-integration' | 'user-auth' | 'admin-panel' | 'real-time-notifications' | 'data-analytics' | 'inventory-management' | 'medical-portal' | 'forum-system')[];
 }
 
 // Datos de tus proyectos
@@ -69,10 +67,38 @@ const projects: Project[] = [
       en: 'A robust social media platform for job seekers, featuring user profiles, admin dashboards, real-time notifications, and advanced filtering for an intuitive job search experience.',
       es: 'Una robusta plataforma de red social para buscadores de empleo, que incluye perfiles de usuario, paneles de administración, notificaciones en tiempo real y filtrado avanzado para una experiencia de búsqueda de empleo intuitiva.'
     },
-    imageUrl: '/image.png', 
+    imageUrl: '/img.png', 
     projectUrl: 'https://www.emplearg.com/',
     domainName: 'emplearg.com',
     skills: ['responsive', 'ux-ui', 'nextjs', 'typescript', 'tailwind', 'api-integration', 'user-auth', 'admin-panel', 'real-time-notifications'], 
+  },
+
+  {
+    id: 'cuatro-granos',
+    category: 'advanced',
+    title: { en: 'Cuatro Granos - Agricultural Industry', es: 'Cuatro Granos - Industria Agropecuaria' },
+    description: {
+      en: 'Professional website for Cuatro Granos agricultural company featuring modern design, service showcase, product catalog, and comprehensive business information for optimized agricultural operations.',
+      es: 'Sitio web profesional para la empresa agropecuaria Cuatro Granos con diseño moderno, muestra de servicios, catálogo de productos e información empresarial integral para operaciones agrícolas optimizadas.'
+    },
+    imageUrl: '/screenshot web cg.png',
+    projectUrl: 'http://cuatrogranos.com/',
+    domainName: 'cuatrogranos.com',
+    skills: ['responsive', 'ux-ui', 'nextjs', 'typescript', 'tailwind', 'api-integration', 'admin-panel', 'data-analytics', 'inventory-management'],
+  },
+
+  {
+    id: 'dra-gherardi',
+    category: 'advanced',
+    title: { en: 'Dra. Gherardi - Medical Practice', es: 'Dra. Gherardi - Consultorio Médico' },
+    description: {
+      en: 'Professional medical website for Dr. Gherardi featuring appointment booking system, patient portal, medical services information, and comprehensive practice management tools for enhanced patient care.',
+      es: 'Sitio web médico profesional para la Dra. Gherardi con sistema de reserva de citas, portal de pacientes, información de servicios médicos y herramientas integrales de gestión de consultorios para atención médica mejorada.'
+    },
+    imageUrl: '/screenshot web.png',
+    projectUrl: 'https://dragherardi.vercel.app/',
+    domainName: 'dragherardi.vercel.app',
+    skills: ['responsive', 'ux-ui', 'nextjs', 'typescript', 'tailwind', 'custom-calendar', 'user-auth', 'api-integration', 'medical-portal', 'forum-system'],
   },
 ];
 
@@ -89,7 +115,11 @@ const getSkillIcon = (skill: Project['skills'][number]) => {
     case 'api-integration': return <FaTools className="inline-block mr-1 text-yellow-500" />;
     case 'user-auth': return <FaUsers className="inline-block mr-1 text-teal-500" />; 
     case 'admin-panel': return <FaChartLine className="inline-block mr-1 text-indigo-500" />;
-    case 'real-time-notifications': return <FaBell className="inline-block mr-1 text-pink-500" />; 
+    case 'real-time-notifications': return <FaBell className="inline-block mr-1 text-pink-500" />;
+    case 'data-analytics': return <FaDatabase className="inline-block mr-1 text-emerald-500" />;
+    case 'inventory-management': return <FaWarehouse className="inline-block mr-1 text-orange-500" />;
+    case 'medical-portal': return <FaUserMd className="inline-block mr-1 text-cyan-500" />;
+    case 'forum-system': return <FaComments className="inline-block mr-1 text-violet-500" />;
     default: return null;
   }
 };
@@ -129,7 +159,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
                   className="bg-white/90 rounded-2xl shadow-xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300 border-b-4 border-orange-500 group" // Border de color distinto
                 >
                   <div className="relative">
-                    <Image
+                    <img
                       src={project.imageUrl}
                       alt={project.title[language]}
                       width={1000}
@@ -200,7 +230,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
                 className="bg-white/90 rounded-2xl shadow-xl overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300 border-b-4 border-blue-500 group"
               >
                 <div className="relative">
-                  <Image
+                  <img
                     src={project.imageUrl}
                     alt={project.title[language]}
                     width={1000}

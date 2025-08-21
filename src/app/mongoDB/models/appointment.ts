@@ -6,6 +6,10 @@ interface IAppointment extends Document {
   timeSlot: string;
   // ahora guardamos el Clerk user ID como string
   userId?: string;
+  userName?: string;
+  userLastName?: string;
+  userEmail?: string;
+  userWhatsapp?: string;
   isBlocked: boolean;
   professionalId: string;
 }
@@ -14,6 +18,10 @@ const appointmentSchema = new mongoose.Schema<IAppointment>({
   date: { type: Date, required: true },
   timeSlot: { type: String, required: true },
   userId: { type: String }, // ← cambió de ObjectId a String
+  userName: { type: String },
+  userLastName: { type: String },
+  userEmail: { type: String },
+  userWhatsapp: { type: String },
   isBlocked: { type: Boolean, default: false },
   professionalId: { type: String, required: true },
 });

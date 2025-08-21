@@ -2,7 +2,6 @@
 'use client';
 
 import Flechaup from "../components/flechaup";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Cookies from "js-cookie";
@@ -16,6 +15,7 @@ import { FaHome, FaMobileAlt, FaGlobe, FaImages, FaShieldAlt, FaEnvelopeOpenText
 import CalendarComponent from "../components/calendar"; 
 import PortfolioSection from "@/components/portfolioSection";
 import Footer from "@/components/footer";
+import { useAutoEnableSlots } from "../hooks/useAutoEnableSlots";
 
 type Language = 'en' | 'es';
 
@@ -24,6 +24,9 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>("en"); 
   const [isOpen, setIsOpen] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
+
+  // Auto-habilitar slots de martes y jueves de 10-13h
+  const { isLoading: autoEnabling, isEnabled: autoEnabled, slotsCreated } = useAutoEnableSlots(true);
 
   const title = language === "en" ? "Premium Websites" : "Sitios Premium";
   const subtitle =
@@ -305,13 +308,13 @@ export default function Home() {
           id="nav"
           className="flex flex-col md:flex-cols-2 w-screen gap-4 z-10 mb-24 md:mb-0"
         >
-          <Image
+          <img
             className="-z-[10] order-2 rounded-r-full shadow-2xl opacity-80 md:-translate-y-24"
             src={"/Sora1.png"}
             alt=""
             width={1000}
             height={1000}
-          ></Image>
+          ></img>
 
           <div className="flex flex-col p-2 md:-translate-y-24 items-start bg-gray-200 opacity-90 mt-24 md:mt-48">
             <h1 className="text-4xl md:text-6xl text-start font-normal text-gray-700">
@@ -440,7 +443,7 @@ export default function Home() {
               </div>
               <div className="relative group rounded-3xl shadow-2xl overflow-hidden transition-transform duration-500 hover:scale-105">
                 <img
-                  src={"/image.png"}
+                  src={"/img.png"}
                   alt={
                     language === "en"
                       ? "Screenshot of emplearg.com"

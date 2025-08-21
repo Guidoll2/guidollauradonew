@@ -7,7 +7,7 @@ import useTranslations from './useTranslations'; // Asegúrate de que la ruta se
 interface ReservationFormModalProps {
   show: boolean;
   onClose: () => void;
-  onConfirm: (name: string, lastName: string, email: string) => void;
+  onConfirm: (name: string, lastName: string, email: string, whatsapp: string) => void;
   slotTime: string;
   selectedDay: Date | null;
   language: string;
@@ -25,6 +25,7 @@ export default function ReservationFormModal({
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
 
   if (!show) return null;
 
@@ -32,11 +33,12 @@ export default function ReservationFormModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name && lastName && email) {
-      onConfirm(name, lastName, email);
+    if (name && lastName && email && whatsapp) {
+      onConfirm(name, lastName, email, whatsapp);
       setName('');
       setLastName('');
       setEmail('');
+      setWhatsapp('');
     } else {
       console.error("Por favor, completa todos los campos.");
     }
@@ -93,6 +95,20 @@ export default function ReservationFormModal({
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700">
+              {t('reservationForm.whatsapp_label')}
+            </label>
+            <input
+              type="tel"
+              id="whatsapp"
+              placeholder="+54 9 11 1234-5678"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              value={whatsapp}
+              onChange={(e) => setWhatsapp(e.target.value)}
               required
             />
           </div>

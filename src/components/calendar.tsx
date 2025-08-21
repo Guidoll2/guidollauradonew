@@ -19,6 +19,7 @@ import useTranslations from './useTranslations';
 import { toast } from 'sonner';
 import ConfirmationModal from './confirmationModal';
 import ReservationFormModal from '../components/ReservationFormModal';
+import AdminCalendarControls from './AdminCalendarControls';
 
 interface Appointment {
   _id: string;
@@ -28,6 +29,7 @@ interface Appointment {
   userName: string | null;
   userLastName: string | null;
   userEmail: string | null;
+  userWhatsapp: string | null;
   isBlocked: boolean;
   professionalId: string;
 }
@@ -116,7 +118,7 @@ export default function CalendarComponent({ language }: CalendarComponentProps) 
 
   const allPossibleTimeSlots = useMemo(() => {
     const slots = [];
-    for (let i = 10; i <= 15; i++) {
+    for (let i = 10; i <= 14; i++) {
       slots.push(`${i}:00 - ${i + 1}:00`);
     }
     return slots;
@@ -133,7 +135,7 @@ export default function CalendarComponent({ language }: CalendarComponentProps) 
     const appt = selectedDayAppointments.find(a => a.timeSlot === timeSlot);
     if (!appt) return 'unavailable';
     if (appt.isBlocked) return 'blocked';
-    if (appt.userId || appt.userEmail) return 'reserved';
+    if (appt.userId || appt.userEmail || appt.userName) return 'reserved';
     return 'available';
   };
 
@@ -201,11 +203,13 @@ export default function CalendarComponent({ language }: CalendarComponentProps) 
     setShowReservationFormModal(true);
   };
 
-  const executeReservationWithDetails = async (name: string, lastName: string, email: string) => {
+  const executeReservationWithDetails = async (name: string, lastName: string, email: string, whatsapp: string) => {
     if (!selectedDay || !reservationFormSlot) return;
 
     setShowReservationFormModal(false);
-    const reserveLoadingToastId = toast.loading(t('messages.reserving_slot_loading'));
+    const reserveLoadingToastId = toast.loading('Procesando tu reserva y enviando confirmaciones...', {
+      description: 'Esto puede tomar unos segundos'
+    });
 
     try {
       const res = await fetch("/api/appointments/reserve", {
@@ -217,13 +221,50 @@ export default function CalendarComponent({ language }: CalendarComponentProps) 
           userName: name,
           userLastName: lastName,
           userEmail: email,
+          userWhatsapp: whatsapp,
           language: language,
         }),
       });
       const data = await res.json();
 
       if (res.ok) {
-        toast.success(t('messages.reservation_success'), { id: reserveLoadingToastId });
+        // Mensaje de éxito principal
+        let successMessage = t('messages.reservation_success');
+        
+        // Verificar el estado de los emails
+        if (data.emailStatus) {
+          const { professionalEmailSent, userEmailSent, errors } = data.emailStatus;
+          
+          if (professionalEmailSent && userEmailSent) {
+            successMessage += ' Se enviaron emails de confirmación a ambas partes.';
+          } else if (professionalEmailSent) {
+            successMessage += ' Se envió email de notificación al profesional.';
+            if (errors.length > 0) {
+              toast.warning('No se pudo enviar el email de confirmación a tu correo.', { 
+                duration: 6000,
+                description: 'Tu cita está confirmada, pero no recibiste email de confirmación.'
+              });
+            }
+          } else if (userEmailSent) {
+            successMessage += ' Se envió email de confirmación.';
+            if (errors.length > 0) {
+              toast.warning('No se pudo notificar al profesional por email.', { 
+                duration: 6000,
+                description: 'Tu cita está confirmada.'
+              });
+            }
+          } else if (errors.length > 0) {
+            toast.warning('Cita confirmada pero hubo problemas con los emails.', { 
+              duration: 8000,
+              description: 'Tu cita está guardada correctamente. Contacta al profesional directamente para confirmar.'
+            });
+          }
+        }
+        
+        toast.success(successMessage, { 
+          id: reserveLoadingToastId,
+          duration: 5000
+        });
         await fetchAppointments();
       } else {
         toast.error(t('messages.reservation_error', { error: data.error || 'unknown' }), { id: reserveLoadingToastId });
@@ -241,15 +282,25 @@ export default function CalendarComponent({ language }: CalendarComponentProps) 
       return allPossibleTimeSlots;
     } else {
       return selectedDayAppointments
-        .filter(appt => !appt.isBlocked && !appt.userId && !appt.userEmail)
+        .filter(appt => !appt.isBlocked && !appt.userId && !appt.userEmail && !appt.userName)
         .map(appt => appt.timeSlot);
     }
   }, [isAdmin, allPossibleTimeSlots, selectedDayAppointments]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 w-full px-4 md:px-8 py-6 bg-white rounded-2xl shadow-xl border border-gray-100 mx-auto">
-      {/* Columna Izquierda: Calendario */}
-      <div className="flex-1 min-w-[300px] p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg">
+    <div className="w-full px-4 md:px-8 py-6">
+      {/* Panel de Administración - Solo visible para admins */}
+      {isAdmin && (
+        <AdminCalendarControls 
+          onRefreshCalendar={fetchAppointments}
+          language={language}
+        />
+      )}
+      
+      {/* Calendario Principal */}
+      <div className="flex flex-col md:flex-row gap-8 w-full bg-white rounded-2xl shadow-xl border border-gray-100 mx-auto">
+        {/* Columna Izquierda: Calendario */}
+        <div className="flex-1 min-w-[300px] p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg">
         <div className="flex justify-between items-center mb-6">
           <button
             aria-label="Previous month"
@@ -443,6 +494,7 @@ export default function CalendarComponent({ language }: CalendarComponentProps) 
         selectedDay={selectedDay}
         language={language}
       />
+      </div>
     </div>
   );
 }

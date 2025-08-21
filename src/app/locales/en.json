@@ -1,4 +1,3 @@
-
 {
   "calendar": {
     "monday": "Monday",
@@ -21,7 +20,6 @@
     "cancel_button": "Cancel",
     "loading_appointments": "Loading available appointments..."
   },
-
   "messages": {
     "enabling_slots_loading": "Enabling slots...",
     "enable_success": "Slots enabled successfully.",
@@ -31,9 +29,15 @@
     "no_authentication": "You need to be logged in to book an appointment.",
     "select_date_first": "Please select a date first.",
     "confirm_reservation": "Are you sure you want to book the appointment on {date} at {time}?",
-    "reserving_slot_loading": "Reserving slot...",
-    "reservation_success": "Appointment booked successfully. See you soon!",
-    "reservation_error": "Error booking appointment: {error}"
+    "reserving_slot_loading": "Processing your booking and sending confirmations...",
+    "reservation_success": "Appointment booked successfully!",
+    "reservation_error": "Error booking appointment: {error}",
+    "email_sent_both": "Confirmation emails sent to both parties.",
+    "email_sent_professional": "Notification sent to professional.",
+    "email_sent_user": "Confirmation sent to your email.",
+    "email_warning_user": "Could not send confirmation email to you.",
+    "email_warning_professional": "Could not notify professional via email.",
+    "email_warning_both": "Appointment confirmed but there were email issues."
   },
   "email": {
     "professional_subject": "New Appointment Booked",
@@ -43,12 +47,13 @@
     "user_text_confirmation": "Hi {firstName}!\n\nYour appointment has been successfully confirmed.\n\nYour Reservation Details:\nDate: {date}\nTime: {time}\n\nWe look forward to seeing you!",
     "user_html_confirmation": "<p>Hi {firstName}!</p><p>Your appointment has been successfully confirmed.</p><p><strong>Your Reservation Details:</strong></p><ul><li><strong>Date:</strong> {date}</li><li><strong>Time:</strong> {time}</li></ul><p>We look forward to seeing you!</p>"
   },
-    "reservationForm": {
+  "reservationForm": {
     "title": "Confirm Reservation",
-    "confirm_details": "You’re about to book an appointment on {date} at {time}.",
+    "confirm_details": "You're about to book an appointment on {date} at {time}.",
     "name_label": "First Name",
     "lastName_label": "Last Name",
     "email_label": "Email",
+    "whatsapp_label": "WhatsApp",
     "cancel_button": "Cancel",
     "confirm_button": "Confirm Reservation"
   }

@@ -67,7 +67,7 @@ const projects: Project[] = [
       en: 'A robust social media platform for job seekers, featuring user profiles, admin dashboards, real-time notifications, and advanced filtering for an intuitive job search experience.',
       es: 'Una robusta plataforma de red social para buscadores de empleo, que incluye perfiles de usuario, paneles de administración, notificaciones en tiempo real y filtrado avanzado para una experiencia de búsqueda de empleo intuitiva.'
     },
-    imageUrl: '/img.png', 
+    imageUrl: '/empleC.jpg', 
     projectUrl: 'https://www.emplearg.com/',
     domainName: 'emplearg.com',
     skills: ['responsive', 'ux-ui', 'nextjs', 'typescript', 'tailwind', 'api-integration', 'user-auth', 'admin-panel', 'real-time-notifications'], 

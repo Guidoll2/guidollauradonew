@@ -1,0 +1,65 @@
+{
+  "calendar": {
+    "monday": "Dilluns",
+    "tuesday": "Dimarts",
+    "wednesday": "Dimecres",
+    "thursday": "Dijous",
+    "friday": "Divendres",
+    "saturday": "Dissabte",
+    "sunday": "Diumenge",
+    "today": "Avui",
+    "select_date": "Selecciona una data per veure les cites",
+    "blocked": "Bloquejat",
+    "reserved": "Reservat",
+    "available": "Reservar",
+    "past": "Passat",
+    "enable_slots": "Habilitar Cites Seleccionades",
+    "no_slots_to_enable": "No hi ha cites per habilitar en aquest dia.",
+    "no_appointments": "No hi ha cites disponibles per aquest dia.",
+    "confirm_button": "Confirmar",
+    "cancel_button": "Cancel·lar"
+  },
+
+ "messages": {
+    "enabling_slots_loading": "Habilitant cites...",
+    "enable_success": "Cites habilitades amb èxit.",
+    "enable_error": "Error al habilitar cites: {error}",
+    "not_authorized": "No estàs autoritzat per realitzar aquesta acció.",
+    "incomplete_data": "Dades incompletes per habilitar cites.",
+    "no_authentication": "Necessites iniciar sessió per reservar una cita.",
+    "select_date_first": "Si us plau, selecciona una data primer.",
+    "confirm_reservation": "Estàs segur que vols reservar la cita del {date} a les {time}?",
+    "reserving_slot_loading": "Processant la teva reserva i enviant confirmacions...",
+    "reservation_success": "Cita reservada amb èxit!",
+    "reservation_error": "Error al reservar cita: {error}",
+    "error_loading_appointments": "Error al carregar les cites.",
+    "error_loading_user_role": "Error al carregar el rol d'usuari.",
+    "admin_cannot_reserve": "Els administradors no poden reservar cites per a ells mateixos des d'aquí.",
+    "loading_appointments": "Carregant horaris disponibles...",
+    "email_sent_both": "S'han enviat emails de confirmació a ambdues parts.",
+    "email_sent_professional": "S'ha enviat notificació al professional.",
+    "email_sent_user": "S'ha enviat confirmació al teu email.",
+    "email_warning_user": "No s'ha pogut enviar l'email de confirmació al teu correu.",
+    "email_warning_professional": "No s'ha pogut notificar al professional per email.",
+    "email_warning_both": "Cita confirmada però hi ha hagut problemes amb els emails."
+  },
+   "reservationForm": {
+    "title": "Confirmar Reserva",
+    "confirm_details": "Estàs a punt de reservar una cita per al {date} a les {time}.",
+    "name_label": "Nom",
+    "lastName_label": "Cognom",
+    "email_label": "Email",
+    "whatsapp_label": "WhatsApp",
+    "cancel_button": "Cancel·lar",
+    "confirm_button": "Confirmar Reserva"
+  },
+  "email": {
+    "professional_subject": "Nova cita reservada",
+    "professional_text_details": "S'ha reservat una nova cita.\n\nDetalls de la cita:\nData: {date}\nHora: {time}\n\nInformació del reservant:\nNom: {firstName} {lastName}\nEmail: {email}\nID de Clerk: {clerkId}",
+    "professional_html_details": "<p>S'ha reservat una nova cita.</p><p><strong>Detalls de la cita:</strong></p><ul><li><strong>Data:</strong> {date}</li><li><strong>Hora:</strong> {time}</li></ul><p><strong>Informació del reservant:</strong></p><ul><li><strong>Nom:</strong> {firstName} {lastName}</li><li><strong>Email:</strong> {email}</li><li><strong>ID de Clerk:</strong> {clerkId}</li></ul>",
+    "user_subject": "Confirmació de la teva cita",
+    "user_text_confirmation": "Hola {firstName}!\n\nLa teva cita ha estat confirmada amb èxit.\n\nDetalls de la teva reserva:\nData: {date}\nHora: {time}\n\nT'esperem!",
+    "user_html_confirmation": "<p>Hola {firstName}!</p><p>La teva cita ha estat confirmada amb èxit.</p><p><strong>Detalls de la teva reserva:</strong></p><ul><li><strong>Data:</strong> {date}</li><li><strong>Hora:</strong> {time}</li></ul><p>T'esperem!</p>"
+  }
+  
+}

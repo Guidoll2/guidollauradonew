@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'; // Iconos para redes sociales
 
 interface FooterProps {
-  language: 'en' | 'es';
+  language: 'en' | 'es' | 'ca';
 }
 
 const Footer: React.FC<FooterProps> = ({ language }) => {
@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
     },
   };
 
-const text = footerText[language] || footerText['en'];
+const text = language === 'ca' ? footerText['en'] : (footerText[language] || footerText['en']);
 
   return (
     <footer className="bg-gray-800 text-gray-300 py-12 px-6">

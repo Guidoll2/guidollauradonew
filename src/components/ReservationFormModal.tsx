@@ -1,7 +1,8 @@
 // components/ReservationFormModal.tsx
 import React, { useState } from 'react';
 import { format } from 'date-fns';
-import { es, enUS } from 'date-fns/locale';
+// src/lib/i18n.ts
+import { es, enUS, ca } from 'date-fns/locale';
 import useTranslations from './useTranslations'; // Asegúrate de que la ruta sea correcta
 
 interface ReservationFormModalProps {
@@ -29,7 +30,7 @@ export default function ReservationFormModal({
 
   if (!show) return null;
 
-  const dateFnsLocale = language === 'es' ? es : enUS;
+  const dateFnsLocale = language === 'es' ? es : language === 'ca' ? ca : enUS;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

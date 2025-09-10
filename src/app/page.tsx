@@ -17,7 +17,7 @@ import PortfolioSection from "@/components/portfolioSection";
 import Footer from "@/components/footer";
 import { useAutoEnableSlots } from "../hooks/useAutoEnableSlots";
 
-type Language = 'en' | 'es';
+type Language = 'en' | 'es' | 'ca';
 
 export default function Home() {
   const [hover, setHover] = useState(false);
@@ -28,106 +28,124 @@ export default function Home() {
   // Auto-habilitar slots de martes y jueves de 10-13h
   const { isLoading: autoEnabling, isEnabled: autoEnabled, slotsCreated } = useAutoEnableSlots(true);
 
-  const title = language === "en" ? "Premium Websites" : "Sitios Premium";
+  const title = language === "en" ? "Premium Websites" : language === "ca" ? "Llocs Web Premium" : "Sitios Premium";
   const subtitle =
     language === "en"
       ? "Transform your online presence with tailor-made solutions designed to grow your business and captivate your audience."
+      : language === "ca"
+      ? "Transforma la teva presència en línia amb solucions a mida dissenyades per impulsar el teu negoci i captivar la teva audiència."
       : "Transforma tu presencia en línea con soluciones a medida diseñadas para impulsar tu negocio y cautivar a tu audiencia.";
   const startingPrice =
     language === "en"
       ? "Prices starting at $500 USD"
+      : language === "ca"
+      ? "Preus des de 500 USD"
       : "Precios desde 500 USD";
 
   const startingPrice2 =
     language === "en"
       ? "Prices starting at $250 USD"
+      : language === "ca"
+      ? "Preus des de 250 USD"
       : "Precios desde 250 USD";
 
   const services = [
     {
       key: "ecom",
-      title: language === "en" ? "Custom E-commerce" : "Comercio Electrónico",
+      title: language === "en" ? "Custom E-commerce" : language === "ca" ? "Comerç Electrònic Personalitzat" : "Comercio Electrónico",
       descEN: "Secure, scalable online stores with payment gateway integration and inventory management.",
       descES: "Tiendas online seguras y escalables con pasarelas de pago y gestión de inventario.",
+      descCA: "Botigues en línia segures i escalables amb integració de passarel·les de pagament i gestió d'inventari.",
       icon: <FaShoppingCart className="text-3xl text-orange-500 mb-4" />,
     },
     {
       key: "portal",
-      title: language === "en" ? "User & Admin Portals" : "Portales de Usuario y Admin",
+      title: language === "en" ? "User & Admin Portals" : language === "ca" ? "Portals d'Usuari i Admin" : "Portales de Usuario y Admin",
       descEN: "Custom dashboards for clients or team members to manage content, data, and reports.",
       descES: "Dashboards personalizados para clientes o equipo, con gestión de contenido, datos e informes.",
+      descCA: "Panells personalitzats per a clients o membres de l'equip per gestionar contingut, dades i informes.",
       icon: <FaUserShield className="text-3xl text-blue-500 mb-4" />,
     },
     {
       key: "api",
-      title: language === "en" ? "API & Third-Party Integrations" : "Integraciones API y Terceros",
+      title: language === "en" ? "API & Third-Party Integrations" : language === "ca" ? "Integracions d'API i Tercers" : "Integraciones API y Terceros",
       descEN: "Connect your site to CRMs, marketing tools, or any external services for seamless workflows.",
       descES: "Conecta tu sitio a CRMs, herramientas de marketing o servicios externos para flujos de trabajo integrados.",
+      descCA: "Connecta el teu lloc a CRMs, eines de màrqueting o qualsevol servei extern per a fluxos de treball integrats.",
       icon: <FaPlug className="text-3xl text-green-500 mb-4" />,
     },
     {
       key: "perf",
-      title: language === "en" ? "Performance Optimization" : "Optimización de Rendimiento",
+      title: language === "en" ? "Performance Optimization" : language === "ca" ? "Optimització de Rendiment" : "Optimización de Rendimiento",
       descEN: "Fast load times, code splitting and caching strategies to keep users engaged.",
       descES: "Velocidad de carga, code splitting y caching para mantener a tus usuarios comprometidos.",
+      descCA: "Velocitat de càrrega, divisió de codi i estratègies de caché per mantenir els usuaris compromesos.",
       icon: <FaRocket className="text-3xl text-pink-500 mb-4" />,
     },
     {
       key: "seo",
-      title: language === "en" ? "SEO & Security" : "SEO y Seguridad",
+      title: language === "en" ? "SEO & Security" : language === "ca" ? "SEO i Seguretat" : "SEO y Seguridad",
       descEN: "On-page SEO, metadata setup and SSL encryption for higher rankings and trust.",
       descES: "SEO on-page, configuración de metadatos y cifrado SSL para mejor posicionamiento y confianza.",
+      descCA: "SEO a la pàgina, configuració de metadades i xifratge SSL per a millor posicionament i confiança.",
       icon: <FaLock className="text-3xl text-yellow-500 mb-4" />,
     },
     {
       key: "support",
-      title: language === "en" ? "Ongoing Support" : "Soporte Continuo",
+      title: language === "en" ? "Ongoing Support" : language === "ca" ? "Suport Continu" : "Soporte Continuo",
       descEN: "Maintenance plans, updates and performance monitoring to keep your site running smoothly.",
       descES: "Planes de mantenimiento, actualizaciones y monitoreo para que tu sitio siempre funcione a la perfección.",
+      descCA: "Plans de manteniment, actualitzacions i monitoratge de rendiment per mantenir el teu lloc funcionant perfectament.",
       icon: <FaHandsHelping className="text-3xl text-purple-500 mb-4" />,
     },
   ];
   const basicServices = [
     {
       key: "home",
-      title: language === "en" ? "Home + 3 Sections" : "Página Principal + 3 Secciones",
+      title: language === "en" ? "Home + 3 Sections" : language === "ca" ? "Pàgina Principal + 3 Seccions" : "Página Principal + 3 Secciones",
       descEN: "Engaging homepage with up to 3 custom content sections (About, Services, Contact, etc.).",
       descES: "Página de inicio atractiva con hasta 3 secciones personalizadas (Quién soy, Servicios, Contacto, etc.).",
+      descCA: "Pàgina principal atractiva amb fins a 3 seccions de contingut personalitzat (Sobre nosaltres, Serveis, Contacte, etc.).",
       icon: <FaHome className="text-3xl text-blue-500 mb-4" />,
     },
     {
       key: "responsive",
-      title: language === "en" ? "Responsive Design" : "Diseño Responsivo",
+      title: language === "en" ? "Responsive Design" : language === "ca" ? "Disseny Responsiu" : "Diseño Responsivo",
       descEN: "Automatically adapts to all device sizes for a flawless user experience.",
       descES: "Se adapta automáticamente a todas las pantallas para una experiencia perfecta.",
+      descCA: "S'adapta automàticament a totes les pantalles per a una experiència perfecta.",
       icon: <FaMobileAlt className="text-3xl text-orange-500 mb-4" />,
     },
     {
       key: "hosting",
-      title: language === "en" ? "Hosting & Domain" : "Hosting y Dominio",
+      title: language === "en" ? "Hosting & Domain" : language === "ca" ? "Hosting i Domini" : "Hosting y Dominio",
       descEN: "Secure hosting and a custom domain included so you can get online immediately.",
       descES: "Hosting seguro y dominio personalizado incluidos para que estés en línea de inmediato.",
+      descCA: "Hosting segur i domini personalitzat inclosos perquè estiguis en línia de seguida.",
       icon: <FaGlobe className="text-3xl text-green-500 mb-4" />,
     },
     {
       key: "media",
-      title: language === "en" ? "Media Showcase" : "Exhibición de Medios",
+      title: language === "en" ? "Media Showcase" : language === "ca" ? "Exhibició de Mitjans" : "Exhibición de Medios",
       descEN: "Effortlessly display images, videos and galleries in a sleek, organized layout.",
       descES: "Muestra imágenes, videos y galerías de forma elegante y organizada.",
+      descCA: "Mostra imatges, vídeos i galeries de forma elegant i organitzada.",
       icon: <FaImages className="text-3xl text-pink-500 mb-4" />,
     },
     {
       key: "seo",
-      title: language === "en" ? "Basic SEO & SSL" : "SEO Básico y SSL",
+      title: language === "en" ? "Basic SEO & SSL" : language === "ca" ? "SEO Bàsic i SSL" : "SEO Básico y SSL",
       descEN: "On‑page SEO setup and SSL security to help your site rank and build trust.",
       descES: "Configuración SEO básica y seguridad SSL para mejorar tu posicionamiento y confianza.",
+      descCA: "Configuració SEO bàsica i seguretat SSL per millorar el teu posicionament i confiança.",
       icon: <FaShieldAlt className="text-3xl text-yellow-500 mb-4" />,
     },
     {
       key: "contact",
-      title: language === "en" ? "Contact Form Integration" : "Integración de Formulario",
+      title: language === "en" ? "Contact Form Integration" : language === "ca" ? "Integració de Formulari" : "Integración de Formulario",
       descEN: "Easy-to-use contact form with spam protection so you never miss a lead.",
       descES: "Formulario de contacto fácil de usar con protección anti-spam para no perder ningún cliente potencial.",
+      descCA: "Formulari de contacte fàcil d'usar amb protecció anti-spam per no perdre cap client potencial.",
       icon: <FaEnvelopeOpenText className="text-3xl text-purple-500 mb-4" />,
     },
   ];
@@ -218,7 +236,7 @@ export default function Home() {
   };
 
     const handleLanguageChange = () => {
-    const newLanguage: Language = language === "es" ? "en" : "es";
+    const newLanguage: Language = language === "es" ? "ca" : language === "ca" ? "en" : "es";
     setLanguage(newLanguage);
     Cookies.set("language", newLanguage, { expires: 365 });
   };
@@ -241,7 +259,7 @@ export default function Home() {
           href="#services"
           className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
         >
-          {language === "en" ? "Services" : "Servicios"}
+          {language === "en" ? "Services" : language === "ca" ? "Serveis" : "Servicios"}
         </a>
       </li>
       <li>
@@ -257,7 +275,7 @@ export default function Home() {
           href="#contact"
           className="text-white text-base font-medium hover:underline hover:text-gray-100 transition-colors"
         >
-          {language === "en" ? "Contact" : "Contacto"}
+          {language === "en" ? "Contact" : language === "ca" ? "Contacte" : "Contacto"}
         </a>
       </li>
     </ul>
@@ -270,12 +288,12 @@ export default function Home() {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        EN | ES
+        EN | ES | CA
       </button>
 
       {hover && (
         <span className="absolute w-36 top-10 -right-8 text-xs font-semibold text-gray-600 bg-blue-200 p-2 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform">
-          Change to {language === "en" ? "Spanish" : "English"} site
+          Change to {language === "en" ? "Español" : language === "es" ? "Català" : "English"} site
         </span>
       )}
 
@@ -318,20 +336,18 @@ export default function Home() {
 
           <div className="flex flex-col p-2 md:-translate-y-24 items-start bg-gray-200 opacity-90 mt-24 md:mt-48">
             <h1 className="text-4xl md:text-6xl text-start font-normal text-gray-700">
-              {language === "en" ? "Custom" : "Sitios Web"}{" "}
+              {language === "en" ? "Custom" : language === "ca" ? "Llocs Web" : "Sitios Web"}{" "}
               <span className="text-4xl md:text-6xl text-start font-normal text-transparent bg-clip-text bg-gradient-to-l from-blue-700 to-blue-400">
-                {language === "en" ? "Websites" : "Personalizados"}{" "}
+                {language === "en" ? "Websites" : language === "ca" ? "Personalitzats" : "Personalizados"}{" "}
               </span>{" "}
-              {language === "en" ? "for unique visions" : ""}
+          
             </h1>
             <div className="fade-in-up">
               <p className="text-xl md:text-4xl ml-1 text-gray-600">
                 {language === "en"
-                  ? "functional, elegant "
-                  : "funcionales, elegantes"}
-                <span className="text-xl md:text-4xl font- bg-gradient-to-l from-blue-700 to-blue-400 text-transparent bg-clip-text">
-                  {language === "en" ? "and results-driven." : " y efectivos."}
-                </span>
+                  ? "Your online presence, built with strategy and precision. "
+                  : "Tu presencia online, diseñada con estrategia y detalle."}
+           
               </p>
             </div>
           </div>
@@ -427,7 +443,7 @@ export default function Home() {
                     {svc.title}
                   </h3>
                   <p className="text-gray-700 text-base">
-                    {language === "en" ? svc.descEN : svc.descES}
+                    {language === "en" ? svc.descEN : language === "ca" ? svc.descCA : svc.descES}
                   </p>
                 </div>
               ))}
@@ -443,7 +459,7 @@ export default function Home() {
               </div>
               <div className="relative group rounded-3xl shadow-2xl overflow-hidden transition-transform duration-500 hover:scale-105">
                 <img
-                  src={"/img.png"}
+                  src={"/empleC.jpg"}
                   alt={
                     language === "en"
                       ? "Screenshot of emplearg.com"
@@ -495,7 +511,7 @@ export default function Home() {
         <div id="basic" className="bg-orange-100 py-20 px-4 md:px-16">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800">
-              {language === "en" ? "Basic Websites" : "Sitios Web Básicos"}
+              {language === "en" ? "Basic Websites" : language === "ca" ? "Llocs Web Bàsics" : "Sitios Web Básicos"}
             </h2>
             <p className="mt-4 text-lg text-gray-600">
               {language === "en"
@@ -519,7 +535,7 @@ export default function Home() {
                   {svc.title}
                 </h3>
                 <p className="text-gray-700 text-base">
-                  {language === "en" ? svc.descEN : svc.descES}
+                  {language === "en" ? svc.descEN : language === "ca" ? svc.descCA : svc.descES}
                 </p>
               </div>
             ))}

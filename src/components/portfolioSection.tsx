@@ -125,12 +125,18 @@ const getSkillIcon = (skill: Project['skills'][number]) => {
 };
 
 interface PortfolioSectionProps {
-  language: 'en' | 'es';
+  language: 'en' | 'es' | 'ca';
 }
 
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
   const basicWebsites = projects.filter(project => project.category === 'basic');
   const advancedProjects = projects.filter(project => project.category === 'advanced'); // Filtrar proyectos avanzados
+
+  // Helper function to get text based on language with fallback
+  const getText = (textObj: { en: string; es: string }, lang: 'en' | 'es' | 'ca') => {
+    if (lang === 'ca') return textObj.en; // Use English as fallback for Catalan
+    return textObj[lang];
+  };
 
   return (
     <section
@@ -142,7 +148,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
           {language === "en" ? "My Portfolio" : "Mi Portafolio"}
         </h2>
         <p className="text-xl text-center text-gray-700 mb-12 max-w-3xl mx-auto">
-          {language === "en" ? "A showcase of my recent work, highlighting responsive design, impeccable UX/UI, and advanced technical implementations." : "Una muestra de mi trabajo reciente, destacando el diseño responsivo, una UX/UI impecable e implementaciones técnicas avanzadas."}
+          {language === "en" ? "A showcase of my recent work, highlighting responsive design, impeccable UX/UI, and advanced technical implementations." : language === "ca" ? "Una mostra del meu treball recent, destacant el disseny responsiu, una UX/UI impecable i implementacions tècniques avançades." : "Una muestra de mi trabajo reciente, destacando el diseño responsivo, una UX/UI impecable e implementaciones técnicas avanzadas."}
         </p>
 
         {/* Sección de Proyectos Avanzados */}
@@ -161,7 +167,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
                   <div className="relative">
                     <img
                       src={project.imageUrl}
-                      alt={project.title[language]}
+                      alt={getText(project.title, language)}
                       width={1000}
                       height={700}
                       className="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-80"
@@ -179,7 +185,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
                     <h4 className="text-2xl font-bold text-gray-800 mb-2">
-                      {project.title[language]}
+                      {getText(project.title, language)}
                     </h4>
                     <Link
                       href={project.projectUrl}
@@ -190,7 +196,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
                       {project.domainName} <FaExternalLinkAlt className="ml-1 text-xs" />
                     </Link>
                     <p className="text-gray-700 text-base flex-1 mb-4">
-                      {project.description[language]}
+                      {getText(project.description, language)}
                     </p>
                     <div className="mt-auto pt-4 border-t border-gray-200">
                       <p className="text-sm font-semibold text-gray-600 mb-2">
@@ -232,7 +238,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
                 <div className="relative">
                   <img
                     src={project.imageUrl}
-                    alt={project.title[language]}
+                    alt={getText(project.title, language)}
                     width={1000}
                     height={700}
                     className="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-80"
@@ -250,7 +256,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <h4 className="text-2xl font-bold text-gray-800 mb-2">
-                    {project.title[language]}
+                    {getText(project.title, language)}
                   </h4>
                   <Link
                     href={project.projectUrl}
@@ -261,7 +267,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ language }) => {
                     {project.domainName} <FaExternalLinkAlt className="ml-1 text-xs" />
                   </Link>
                   <p className="text-gray-700 text-base flex-1 mb-4">
-                    {project.description[language]}
+                    {getText(project.description, language)}
                   </p>
                   <div className="mt-auto pt-4 border-t border-gray-200">
                     <p className="text-sm font-semibold text-gray-600 mb-2">

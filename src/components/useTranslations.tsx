@@ -10,18 +10,20 @@ export interface Translations {
 // Importa tus archivos JSON. TypeScript ahora sabe su estructura.
 import enTranslations from '../app/locales/en.json';
 import esTranslations from '../app/locales/es.json';
+import caTranslations from '../app/locales/ca.json';
 
 // Asegúrate de que 'translations' sea de tipo Record<string, Translations>
 const allTranslations: Record<string, Translations> = {
   en: enTranslations as Translations, // Castea para asegurar el tipo
   es: esTranslations as Translations, // Castea para asegurar el tipo
+  ca: caTranslations as Translations, // Castea para asegurar el tipo
 };
 
 /**
  * Un hook personalizado para manejar traducciones en una aplicación React.
  * Permite acceder a traducciones anidadas y reemplazar marcadores de posición.
  *
- * @param language El idioma actual para las traducciones (ej. 'en', 'es').
+ * @param language El idioma actual para las traducciones (ej. 'en', 'es', 'ca').
  * @returns Una función `translate` que toma una clave de traducción y reemplazos opcionales.
  */
 const useTranslations = (language: string) => {

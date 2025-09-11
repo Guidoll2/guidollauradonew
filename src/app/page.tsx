@@ -24,6 +24,7 @@ export default function Home() {
   const [language, setLanguage] = useState<Language>("en"); 
   const [isOpen, setIsOpen] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
+  const [hasScrolledEnough, setHasScrolledEnough] = useState(false);
 
   // Auto-habilitar slots de martes y jueves de 10-13h
   const { isLoading: autoEnabling, isEnabled: autoEnabled, slotsCreated } = useAutoEnableSlots(true);
@@ -177,7 +178,7 @@ export default function Home() {
   useEffect(() => {
     let animationFrameId: number;
     let lastScrollTime = 0;
-    const throttleDelay = 16; // ~60fps
+    const throttleDelay = 32; // Reducir frecuencia para mejor rendimiento
 
     const handleScroll = () => {
       const now = Date.now();
@@ -192,24 +193,57 @@ export default function Home() {
         const rect = ref.current.getBoundingClientRect();
         const windowHeight =
           window.innerHeight || document.documentElement.clientHeight;
-        // Activar animación cuando el elemento está al 80% de la vista en móviles, 70% en desktop
+        // Activar animación MUY temprano en móviles
         const isMobile = window.innerWidth <= 768;
-        const triggerPoint = isMobile ? 0.9 : 0.8;
-        return rect.top <= windowHeight * triggerPoint && rect.bottom >= 0;
+        const triggerPoint = isMobile ? 1.5 : 0.8; // En móviles, activa MUCHO antes
+        return rect.top <= windowHeight * triggerPoint && rect.bottom >= -windowHeight * 0.5;
       });
       setIsVisible(newVisibility);
-      animationFrameId = requestAnimationFrame(handleScroll);
     };
 
-    // Ejecutar inmediatamente para elementos ya visibles al cargar
+    // Ejecutar inmediatamente múltiples veces para asegurar detección
     handleScroll();
+    setTimeout(handleScroll, 100);
+    setTimeout(handleScroll, 300);
     
     // También escuchar eventos de scroll para actualizaciones
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const throttledScrollHandler = () => {
+      animationFrameId = requestAnimationFrame(handleScroll);
+    };
+    
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledScrollHandler);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  // Hook para activar animaciones después de scroll mínimo en móviles
+  useEffect(() => {
+    const handleScrollForMobile = () => {
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const viewportHeight = window.innerHeight;
+        // Activar después de hacer scroll de solo 30% de la altura de la ventana en móviles
+        if (scrollY > viewportHeight * 0.3) {
+          setHasScrolledEnough(true);
+          setIsIconsVisible(true);
+          window.removeEventListener('scroll', handleScrollForMobile);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScrollForMobile, { passive: true });
+    
+    // También verificar inicialmente
+    setTimeout(() => handleScrollForMobile(), 500);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollForMobile);
     };
   }, []);
 
@@ -217,11 +251,11 @@ export default function Home() {
   const [isIconsVisible, setIsIconsVisible] = useState(false);
 
   useEffect(() => {
-    // Configuración más sensible para móviles
+    // Configuración MUCHO más agresiva para móviles
     const isMobile = window.innerWidth <= 768;
     const observerOptions = {
-      threshold: isMobile ? 0.01 : 0.05, // Muy bajo threshold para activación temprana
-      rootMargin: isMobile ? '0px 0px -20% 0px' : '0px 0px -10% 0px' // Márgenes optimizados
+      threshold: 0, // Sin threshold - se activa inmediatamente
+      rootMargin: isMobile ? '0px 0px 50% 0px' : '0px 0px 20% 0px' // Márgenes muy agresivos - activa ANTES de ser visible
     };
 
     const observer = new IntersectionObserver(
@@ -240,22 +274,25 @@ export default function Home() {
       observer.observe(iconsRef.current);
     }
 
-    // Verificación adicional para elementos ya visibles al cargar la página
+    // Verificación inicial MUY agresiva
     const checkInitialVisibility = () => {
       if (iconsRef.current) {
         const rect = iconsRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        const triggerPoint = isMobile ? 0.95 : 0.85;
+        // En móviles, activa incluso cuando el elemento está por debajo de la pantalla
+        const triggerPoint = isMobile ? 1.5 : 1.0;
         
-        if (rect.top <= windowHeight * triggerPoint && rect.bottom >= 0) {
+        if (rect.top <= windowHeight * triggerPoint) {
           setIsIconsVisible(true);
           observer.disconnect();
         }
       }
     };
 
-    // Ejecutar verificación inicial después de un pequeño delay
-    setTimeout(checkInitialVisibility, 100);
+    // Ejecutar verificación inicial inmediatamente y después de cargar
+    checkInitialVisibility();
+    setTimeout(checkInitialVisibility, 50);
+    setTimeout(checkInitialVisibility, 200);
 
     return () => {
       if (iconsRef.current) {
@@ -397,7 +434,7 @@ export default function Home() {
         <div
           ref={iconsRef}
           className={`transition-opacity duration-1000 ease-in-out ${
-            isIconsVisible ? "opacity-100" : "opacity-0"
+            (isIconsVisible || hasScrolledEnough) ? "opacity-100" : "opacity-0"
           }`}
         >
           {/* 3. Pasa el prop 'onBookAppointment' al componente Icons */}

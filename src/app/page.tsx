@@ -176,23 +176,40 @@ export default function Home() {
 
   useEffect(() => {
     let animationFrameId: number;
+    let lastScrollTime = 0;
+    const throttleDelay = 16; // ~60fps
 
     const handleScroll = () => {
+      const now = Date.now();
+      if (now - lastScrollTime < throttleDelay) {
+        animationFrameId = requestAnimationFrame(handleScroll);
+        return;
+      }
+      lastScrollTime = now;
+
       const newVisibility = divRefs.map((ref) => {
         if (!ref.current) return false;
         const rect = ref.current.getBoundingClientRect();
         const windowHeight =
           window.innerHeight || document.documentElement.clientHeight;
-        return rect.top <= windowHeight * 1 && rect.bottom >= 0;
+        // Activar animación cuando el elemento está al 80% de la vista en móviles, 70% en desktop
+        const isMobile = window.innerWidth <= 768;
+        const triggerPoint = isMobile ? 0.9 : 0.8;
+        return rect.top <= windowHeight * triggerPoint && rect.bottom >= 0;
       });
       setIsVisible(newVisibility);
       animationFrameId = requestAnimationFrame(handleScroll);
     };
 
-    animationFrameId = requestAnimationFrame(handleScroll);
+    // Ejecutar inmediatamente para elementos ya visibles al cargar
+    handleScroll();
+    
+    // También escuchar eventos de scroll para actualizaciones
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -200,6 +217,13 @@ export default function Home() {
   const [isIconsVisible, setIsIconsVisible] = useState(false);
 
   useEffect(() => {
+    // Configuración más sensible para móviles
+    const isMobile = window.innerWidth <= 768;
+    const observerOptions = {
+      threshold: isMobile ? 0.01 : 0.05, // Muy bajo threshold para activación temprana
+      rootMargin: isMobile ? '0px 0px -20% 0px' : '0px 0px -10% 0px' // Márgenes optimizados
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -209,12 +233,29 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.1 }
+      observerOptions
     );
 
     if (iconsRef.current) {
       observer.observe(iconsRef.current);
     }
+
+    // Verificación adicional para elementos ya visibles al cargar la página
+    const checkInitialVisibility = () => {
+      if (iconsRef.current) {
+        const rect = iconsRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const triggerPoint = isMobile ? 0.95 : 0.85;
+        
+        if (rect.top <= windowHeight * triggerPoint && rect.bottom >= 0) {
+          setIsIconsVisible(true);
+          observer.disconnect();
+        }
+      }
+    };
+
+    // Ejecutar verificación inicial después de un pequeño delay
+    setTimeout(checkInitialVisibility, 100);
 
     return () => {
       if (iconsRef.current) {

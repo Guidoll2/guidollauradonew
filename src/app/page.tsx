@@ -327,10 +327,10 @@ export default function Home() {
           href="https://wa.me/+5492226524466"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative z-[100] text-gray-700 bg-white p-3 rounded-full shadow-md hover:text-green-500 transition-all duration-300 transform hover:scale-125 hover:shadow-lg tooltip"
+          className="z-[100] fixed bottom-8 left-6 text-gray-700 bg-white p-3 rounded-full shadow-md hover:text-green-500 transition-all duration-300 transform hover:scale-125 hover:shadow-lg tooltip"
           aria-label="WhatsApp"
         >
-          <FaWhatsapp className="fixed bottom-8  left-6 w-16 h-16 text-green-500 bg-white rounded-full p-3 shadow-lg hover:scale-110 transition-transform duration-300 z-50"></FaWhatsapp>
+          <FaWhatsapp className=" w-16 h-16 text-green-500"></FaWhatsapp>
         </a>
 
 <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 to-blue-300 bg-opacity-95 backdrop-blur-sm shadow-md z-50">

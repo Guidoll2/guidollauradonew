@@ -415,7 +415,7 @@ export default function Home() {
         >
           <img
             className="-z-[10] order-2 rounded-r-full shadow-2xl opacity-80 md:-translate-y-24"
-            src={"/Sora1.png"}
+            src={"/gemini.png"}
             alt=""
             width={1000}
             height={1000}

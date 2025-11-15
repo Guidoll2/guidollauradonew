@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverExternalPackages: ['mongodb'],
+  turbopack: {
+    // Empty config to silence the Turbopack warning
+  }
 };
 
 export default nextConfig;

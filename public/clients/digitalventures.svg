@@ -1,0 +1,10 @@
+<!-- Placeholder SVG for Digital Ventures -->
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f3f4f6"/>
+  <rect x="70" y="70" width="60" height="40" rx="5" fill="#10b981"/>
+  <circle cx="85" cy="85" r="5" fill="white"/>
+  <circle cx="115" cy="85" r="5" fill="white"/>
+  <rect x="80" y="95" width="40" height="3" fill="white"/>
+  <text x="100" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">Digital</text>
+  <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#374151">Ventures</text>
+</svg>

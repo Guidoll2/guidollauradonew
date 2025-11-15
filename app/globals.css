@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --salmon: #ffbba8;
 }
 
 @theme inline {
@@ -19,8 +20,346 @@
   }
 }
 
+/* Custom animations and styles */
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-size: 400% 400%;
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Custom utilities */
+.animate-gradient-x {
+  animation: gradient-x 15s ease infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 6s ease-in-out infinite 2s;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f5f5f5;
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(255, 187, 168, 0.6), inset 0 0 8px rgba(255, 187, 168, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ececec;
+  box-shadow: 0 0 16px rgba(255, 187, 168, 0.8), inset 0 0 10px rgba(255, 187, 168, 0.4);
+}
+
+/* Radial Glow Effect */
+.radial-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(52, 72, 154, 0.15) 0%,
+    rgba(18, 110, 156, 0.1) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Wave animation for hero */
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.wave-animate {
+  animation: wave 8s ease-in-out infinite;
+}
+
+
+/* Custom animations and effects */
+@keyframes gradient-x {
+  0%, 100% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-gradient-x {
+  background-size: 400% 400%;
+  animation: gradient-x 15s ease infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #fb923c, #3b82f6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #f97316, #2563eb);
+}
+
+/* Intersection Observer fade in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade in animation for notifications */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Button hover effects */
+.btn-gradient {
+  background: linear-gradient(45deg, #fb923c, #3b82f6);
+  background-size: 200% 200%;
+  transition: background-position 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background-position: right center;
+}
+
+/* Salmon color utilities */
+.text-salmon {
+  color: var(--salmon);
+}
+
+.bg-salmon {
+  background-color: var(--salmon);
+}
+
+/* Glow effect for cards */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(106, 17, 203, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::before {
+  opacity: 1;
+}
+
+.service-card {
+  position: relative;
+  box-shadow: 0 4px 15px rgba(52, 72, 154, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  box-shadow: 0 8px 30px rgba(250, 128, 114, 0.2);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Smooth animations for shop section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatSmooth {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(250, 187, 168, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(250, 187, 168, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes cartBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-slide-in-scale {
+  animation: slideInScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-float-smooth {
+  animation: floatSmooth 4s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.animate-cart-bounce {
+  animation: cartBounce 0.4s ease-in-out;
+}
+
+/* Salmon Glow Border */
+.salmon-glow-border {
+  position: relative;
+  border: 2px solid var(--salmon);
+  box-shadow: 0 0 20px rgba(255, 187, 168, 0.3), inset 0 0 20px rgba(255, 187, 168, 0.1);
+  animation: salmonGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes salmonGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 187, 168, 0.3), inset 0 0 20px rgba(255, 187, 168, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 187, 168, 0.5), inset 0 0 25px rgba(255, 187, 168, 0.15);
+  }
 }

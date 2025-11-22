@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { Language } from '@/lib/types';
-import { getTranslation } from '@/lib/translations';
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: ReturnType<typeof getTranslation>;
+  t: Record<string, string>;
+  isLoading: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -36,16 +36,41 @@ const getDefaultLanguage = (): Language => {
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('es');
+  const [t, setT] = useState<Record<string, string>>({});
+  const [isLoading, setIsLoading] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
 
-  // Detectar idioma cuando el componente se monta
+  // Detectar idioma inicial
   useEffect(() => {
     const defaultLang = getDefaultLanguage();
     setLanguage(defaultLang);
     setIsMounted(true);
   }, []);
 
-  // Guardar preferencia cuando cambia
+  // Cargar traducciones cuando cambia el idioma
+  useEffect(() => {
+    const loadTranslations = async () => {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`/locales/${language}.json`);
+        if (!res.ok) throw new Error('Failed to load translations');
+        const data = await res.json();
+        setT(data);
+      } catch (e) {
+        try {
+          const res = await fetch('/locales/es.json');
+          const data = await res.json();
+          setT(data);
+        } catch {
+          setT({});
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadTranslations();
+  }, [language]);
+
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
     if (typeof window !== 'undefined') {
@@ -53,10 +78,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const t = getTranslation(language);
-
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t, isLoading }}>
       {isMounted ? children : null}
     </LanguageContext.Provider>
   );

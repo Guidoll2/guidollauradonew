@@ -1,76 +1,76 @@
 'use client';
 
-import { useLanguage } from '@/lib/language-context';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import Image from 'next/image';
+import { useLanguage } from '@/lib/language-context';
 
-export default function AboutMe() {
+export default function AboutMeSection() {
   const { t } = useLanguage();
-  useScrollAnimation();
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-sky-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-smooth"></div>
-      <div className="absolute bottom-0 right-20 w-72 h-72 bg-salmon rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float-smooth" style={{ animationDelay: '2s' }}></div>
-
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-            {t.aboutTitle}
+    <section 
+      className="w-full py-24"
+      style={{
+        background: 'radial-gradient(circle at 30% 30%, #67e2f0, transparent 60%), radial-gradient(circle at 70% 70%, #ffbba8, transparent 60%), white'
+      }}
+    >
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
+            {t.aboutFocusTitle || t.aboutTitle || '¿Quién soy?'}
           </h2>
+    
         </div>
 
-        {/* Content with Image */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="animate-slide-in-scale">
-            <div className="relative rounded-3xl overflow-hidden h-96 md:h-[500px] border-4 border-salmon shadow-2xl">
+        <div className="grid lg:grid-cols-[0.9fr_1fr] gap-12 items-start">
+          <div className="flex justify-center lg:justify-start">
+            <div className="w-64 h-64 rounded-full overflow-hidden shadow-[0_18px_55px_rgba(15,23,42,0.20)] ring-1 ring-slate-200/70 bg-white/40 backdrop-blur">
               <Image
-                src="/Sagradabambula.png"
-                alt="Guido Llaurado"
-                fill
-                className="object-cover"
-                priority
+                src="/oficina.png"
+                alt="Guidoll.dev"
+                width={500}
+                height={500}
+                className="object-cover w-full h-full rounded-full"
               />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
           </div>
 
-          {/* Text Content */}
-          <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            {/* Intro */}
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-md border-2 border-salmon/20 hover:border-salmon transition-all duration-300 shadow-lg hover:shadow-xl">
-              <p className="text-lg text-gray-700 leading-relaxed">
+          <div className="space-y-6">
+            <div className="rounded-3xl p-6 bg-white shadow-lg shadow-slate-200/40 ring-1 ring-slate-100">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                {t.aboutFocusTitle || 'Mi Enfoque'}
+              </h3>
+              <p className="text-slate-700 leading-relaxed">
                 {t.aboutIntro}
               </p>
             </div>
 
-            {/* Technologies & Services */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 border-2 border-sky-300 hover:border-sky-500 transition-all duration-300 shadow-lg hover:shadow-xl">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {t.aboutTechnologies}
-              </p>
+            <div className="rounded-3xl p-6 bg-gradient-to-b from-sky-50 via-blue-50 to-indigo-50 shadow-lg shadow-slate-200/30 ring-1 ring-slate-100">
+              <h3 className="text-lg font-semibold text-sky-700 mb-3">
+                {t.aboutFocusSubtitle || '¿En qué me enfoco?'}
+              </h3>
+              <ul className="space-y-3 text-slate-700 text-sm">
+                <li className="flex gap-3">
+                  <span>💻</span>
+                  <span>{t.aboutFullCycle}</span>
+                </li>
+                <li className="flex gap-3">
+                  <span>🧩</span>
+                  <span>{t.aboutPaymentsSEO}</span>
+                </li>
+                <li className="flex gap-3">
+                  <span>🚀</span>
+                  <span>{t.aboutGoal}</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Closure */}
-            <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-md border-2 border-salmon/20 hover:border-salmon transition-all duration-300 shadow-lg hover:shadow-xl">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {t.aboutClosure}
-              </p>
-            </div>
-
-            {/* CTA Button */}
-            <div className="pt-4">
+            <div className="pt-2">
               <a
                 href="https://wa.me/34675497068"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block w-full text-center py-4 px-8 bg-gradient-to-b from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl active:scale-95"
+                className="block w-full text-center rounded-2xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-700 hover:to-blue-800 text-white font-semibold py-4 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 transition-all tracking-wide"
               >
-                {t.contactWhatsApp} 📱
+                {t.contactWhatsApp || 'Contáctame por WhatsApp'} 💬
               </a>
             </div>
           </div>

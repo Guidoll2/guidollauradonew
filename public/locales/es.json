@@ -3,6 +3,11 @@
   "heroTitle": "Diseño web profesional para tu proyecto",
   "heroSubtitle": "Transformo ideas en experiencias digitales excepcionales",
   "heroWelcome": "Bienvenidos",
+  "heroEyebrow": "Tiendas Online · Plataformas a medida",
+  "heroClear": "claros",
+  "heroFast": "rápidos",
+  "heroReady": "listos para vender",
+  "heroDescription": "Diseño centrado en tu negocio, performance y una experiencia de usuario que genera confianza desde el primer clic.",
   "servicesTitle": "Servicios",
   "service1": "Desarrollo web moderno",
   "service2": "Experiencia UI/UX",
@@ -73,4 +78,42 @@
   "footerEmail": "Email",
   "footerPhone": "WhatsApp",
   "footerSocial": "Sígueme"
+  ,"aboutFocusTitle": "Acerca de mí"
+  ,"aboutFocusSubtitle": " ¿Cómo trabajo para impulsar tu negocio?"
+  ,"aboutFullCycle": "Me encargo del ciclo completo: diseño, desarrollo, optimización y puesta en marcha."
+  ,"aboutPaymentsSEO": "Especializado en integración de pagos (Stripe, Mercado Pago) y SEO para atraer clientes."
+  ,"aboutGoal": "Mi objetivo es que tengas una web clara, efectiva y lista para funcionar desde el primer día."
+  ,"footerBuiltWith": "Diseñado y desarrollado con Next.js y Tailwind CSS."
+  ,"footerTagline": "Desarrollo web premium en Barcelona"
+  ,"footerProjectPrompt": "¿Tienes un proyecto en mente? Contacta por el medio que prefieras."
+  ,"chooseIdealPlan": "Elige tu Plan Ideal"
+  ,"landingPageIntro": "Comienza con una landing page diseñada para convertir. Simple, rápida y escalable."
+  ,"initialPackage": "Paquete Inicial"
+  ,"doubtsBeforeBuying": "¿Tienes dudas antes de comprar?"
+  ,"talkWhatsApp": "Hablemos por WhatsApp"
+  ,"businessSolution": "Solución Empresarial"
+  ,"completeWebsite": "Sitio Web Completo"
+  ,"businessSolutionDescription": "Ideal para marcas establecidas, catálogos de servicios o empresas que requieren una arquitectura de información robusta y escalable."
+  ,"oneTimePaymentFrom": "Pago único desde"
+  ,"hireProfessionalPack": "Contratar pack profesional"
+  ,"compareAllServices": "Comparar todos los servicios"
+  ,"customAppsOnlineStores": "Apps a Medida & Tiendas Online"
+  ,"powerfulSolutions": "Soluciones potentes para negocios que necesitan más que una web. Vende productos, gestiona usuarios y escala sin límites."
+  ,"ecommerce": "E-commerce"
+  ,"saas": "SaaS"
+  ,"customPlatform": "Plataforma a Medida"
+  ,"customPlatformDescription": "Desde tiendas online con miles de productos hasta paneles de administración complejos. Desarrollo robusto enfocado en la escalabilidad."
+  ,"completeOnlineStore": "Tienda Online Completa"
+  ,"paymentGateway": "Pasarela de Pagos (Stripe/MP)"
+  ,"scalableDatabase": "Base de Datos Escalable"
+  ,"adminPanel": "Panel de Administración"
+  ,"userAccountsLogin": "Cuentas de Usuario / Login"
+  ,"realStockManagement": "Gestión de Stock Real"
+  ,"apiIntegration": "Integración con APIs"
+  ,"deployVPS": "Deploy & Servidor VPS"
+  ,"mostCompleteOption": "Opción Más Completa"
+  ,"fullStackDevelopment": "Desarrollo Full Stack"
+  ,"seeHowItWorks": "Ver funcionamiento"
+  ,"talkExpertAboutApp": "Hablar con un Experto sobre mi App"
+  ,"technicalCapabilitiesSummary": "Un resumen de mis capacidades técnicas para llevar tu proyecto al siguiente nivel."
 }

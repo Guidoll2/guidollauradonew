@@ -3,6 +3,11 @@
   "heroTitle": "Disseny web professional per al teu projecte",
   "heroSubtitle": "Transformo idees en experiències digitals excepcionals",
   "heroWelcome": "Benvinguts",
+  "heroEyebrow": "Botigues Online · Plataformes a mida",
+  "heroClear": "clars",
+  "heroFast": "ràpids",
+  "heroReady": "llestos per vendre",
+  "heroDescription": "Disseny centrat en el teu negoci, performance i una experiència d'usuari que genera confiança des del primer clic.",
   "servicesTitle": "Serveis",
   "service1": "Desenvolupament web modern",
   "service2": "Experiència UI/UX",
@@ -73,4 +78,42 @@
   "footerEmail": "Email",
   "footerPhone": "WhatsApp",
   "footerSocial": "Segueix-me"
+  ,"aboutFocusTitle": "El Meu Enfoc"
+  ,"aboutFocusSubtitle": "Parlem de la meva experiència i com podem treballar junts per impulsar el teu negoci."
+  ,"aboutFullCycle": "M'encarrego del cicle complet: disseny, desenvolupament, optimització i posada en marxa."
+  ,"aboutPaymentsSEO": "Especialitzat en integració de pagaments (Stripe, Mercado Pago) i SEO per atraure clients."
+  ,"aboutGoal": "El meu objectiu és que tinguis una web clara, efectiva i llesta per funcionar des del primer dia."
+  ,"footerBuiltWith": "Dissenyat i desenvolupat amb Next.js i Tailwind CSS."
+  ,"footerTagline": "Desenvolupament web premium a Barcelona"
+  ,"footerProjectPrompt": "Tens un projecte en ment? Contacta pel mitjà que prefereixis."
+  ,"chooseIdealPlan": "Tria el teu Pla Ideal"
+  ,"landingPageIntro": "Comença amb una landing page dissenyada per convertir. Simple, ràpida i escalable."
+  ,"initialPackage": "Paquet Inicial"
+  ,"doubtsBeforeBuying": "Tens dubtes abans de comprar?"
+  ,"talkWhatsApp": "Parlem per WhatsApp"
+  ,"businessSolution": "Solució Empresarial"
+  ,"completeWebsite": "Lloc Web Complet"
+  ,"businessSolutionDescription": "Ideal per a marques establertes, catàlegs de serveis o empreses que requereixen una arquitectura d'informació robusta i escalable."
+  ,"oneTimePaymentFrom": "Pagament únic des de"
+  ,"hireProfessionalPack": "Contractar pack professional"
+  ,"compareAllServices": "Comparar tots els serveis"
+  ,"customAppsOnlineStores": "Apps a Mida & Botigues Online"
+  ,"powerfulSolutions": "Solucions potents per a negocis que necessiten més que una web. Ven productes, gestiona usuaris i escala sense límits."
+  ,"ecommerce": "E-commerce"
+  ,"saas": "SaaS"
+  ,"customPlatform": "Plataforma a Mida"
+  ,"customPlatformDescription": "Des de botigues online amb milers de productes fins a panells d'administració complexos. Desenvolupament robust enfocat en l'escalabilitat."
+  ,"completeOnlineStore": "Botiga Online Completa"
+  ,"paymentGateway": "Passarel·la de Pagaments (Stripe/MP)"
+  ,"scalableDatabase": "Base de Dades Escalable"
+  ,"adminPanel": "Panell d'Administració"
+  ,"userAccountsLogin": "Comptes d'Usuari / Login"
+  ,"realStockManagement": "Gestió d'Stock Real"
+  ,"apiIntegration": "Integració amb APIs"
+  ,"deployVPS": "Deploy & Servidor VPS"
+  ,"mostCompleteOption": "Opció Més Completa"
+  ,"fullStackDevelopment": "Desenvolupament Full Stack"
+  ,"seeHowItWorks": "Veure funcionament"
+  ,"talkExpertAboutApp": "Parlar amb un Expert sobre la meva App"
+  ,"technicalCapabilitiesSummary": "Un resum de les meves capacitats tècniques per portar el teu projecte al següent nivell."
 }

@@ -8,7 +8,7 @@ export default function FloatingCart() {
   return (
     <button
       onClick={() => setIsCheckoutOpen(true)}
-      className="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-salmon to-orange-300 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl font-bold hover:from-orange-300 hover:to-salmon transition-all duration-300 hover:scale-110 active:scale-95 z-40"
+      className="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-[#67e2f0] to-[#ffbba8] text-white rounded-full shadow-2xl flex items-center justify-center text-2xl font-bold hover:shadow-[0_0_30px_rgba(103,226,240,0.5)] transition-all duration-300 hover:scale-110 active:scale-95 z-40"
       title="Carrito de compras"
     >
       {totalItems > 0 ? (

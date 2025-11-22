@@ -53,6 +53,11 @@ export interface Translation {
   heroTitle: string;
   heroSubtitle: string;
   heroWelcome: string;
+  heroEyebrow: string;
+  heroClear: string;
+  heroFast: string;
+  heroReady: string;
+  heroDescription: string;
   
   // Services
   servicesTitle: string;

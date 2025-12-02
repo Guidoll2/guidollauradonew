@@ -1,7 +1,7 @@
 {
   "contact": "Contacte",
-  "heroTitle": "Disseny web professional per al teu projecte",
-  "heroSubtitle": "Transformo idees en experiències digitals excepcionals",
+  "heroTitle": "Desenvolupament web professional per al teu projecte",
+  "heroSubtitle": "Solucions integrals per a la teva presència digital",
   "heroWelcome": "Benvinguts",
   "heroEyebrow": "Botigues Online · Plataformes a mida",
   "heroClear": "clars",
@@ -9,9 +9,9 @@
   "heroReady": "llestos per vendre",
   "heroDescription": "Disseny centrat en el teu negoci, performance i una experiència d'usuari que genera confiança des del primer clic.",
   "servicesTitle": "Serveis",
-  "service1": "Desenvolupament web modern",
-  "service2": "Experiència UI/UX",
-  "service3": "Integracions personalitzades",
+  "service1": "Llocs Web",
+  "service2": "Programari Personalitzat",
+  "service3": "Botigues en línia",
   "service4": "Botigues en línia",
   "service5": "Sistemes administratius empresarials",
   "servicesShopTitle": "Els meus serveis",
@@ -116,4 +116,12 @@
   ,"seeHowItWorks": "Veure funcionament"
   ,"talkExpertAboutApp": "Parlar amb un Expert sobre la meva App"
   ,"technicalCapabilitiesSummary": "Un resum de les meves capacitats tècniques per portar el teu projecte al següent nivell."
+  ,"pricingSectionTitle": "Tria la Solució Web que Impulsarà el Teu Negoci"
+  ,"pricingSectionSubtitle": "Comença amb els nostres plans base, dissenyats per convertir. Ràpid, escalable i professional."
+  ,"initialPackageTitle": "Paquet Inicial: Landing Page"
+  ,"initialPackageDescription": "Una Landing Page professional optimitzada per generar leads. La teva eina més poderosa per a resultats ràpids."
+  ,"priceBaseLanding": "Preu Base: 750€"
+  ,"startMyProject": "Comença el Meu Projecte"
+  ,"needMoreFeatures": "Necessites més funcionalitats? Contacta'ns per a una cotització personalitzada"
+  ,"recommendedPackage": "PAQUET RECOMANAT"
 }

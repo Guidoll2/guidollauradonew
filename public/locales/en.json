@@ -1,7 +1,7 @@
 {
   "contact": "Contact",
   "heroTitle": "Premium web development for your project",
-  "heroSubtitle": "I transform ideas into exceptional digital experiences",
+  "heroSubtitle": "Comprehensive solutions for your digital presence",
   "heroWelcome": "Welcome",
   "heroEyebrow": "Online Stores · Custom Platforms",
   "heroClear": "clear",
@@ -9,9 +9,9 @@
   "heroReady": "ready to sell",
   "heroDescription": "Design focused on your business, performance and a user experience that builds trust from the first click.",
   "servicesTitle": "Services",
-  "service1": "Modern web development",
-  "service2": "UI/UX experience",
-  "service3": "Custom integrations",
+  "service1": "Web Sites",
+  "service2": "Custom software",
+  "service3": "Online stores",
   "service4": "Online stores",
   "service5": "Business admin systems",
   "servicesShopTitle": "My services",
@@ -116,5 +116,13 @@
   ,"seeHowItWorks": "See how it works"
   ,"talkExpertAboutApp": "Talk to an Expert about my App"
   ,"technicalCapabilitiesSummary": "A summary of my technical capabilities to take your project to the next level."
+  ,"pricingSectionTitle": "Choose the Web Solution That Will Drive Your Business"
+  ,"pricingSectionSubtitle": "Start with our base plans, designed to convert. Fast, scalable and professional."
+  ,"initialPackageTitle": "Initial Package: Landing Page"
+  ,"initialPackageDescription": "A professional Landing Page optimized for lead generation. Your most powerful tool for quick results."
+  ,"priceBaseLanding": "Base Price: 750€"
+  ,"startMyProject": "Start My Project"
+  ,"needMoreFeatures": "Need more features? Contact us for a custom quote"
+  ,"recommendedPackage": "RECOMMENDED PACKAGE"
 }
 

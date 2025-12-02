@@ -1,7 +1,7 @@
 {
   "contact": "Contacto",
-  "heroTitle": "Diseño web profesional para tu proyecto",
-  "heroSubtitle": "Transformo ideas en experiencias digitales excepcionales",
+  "heroTitle": "Desarrollo web profesional para tu proyecto",
+  "heroSubtitle": "Soluciones integrales para tu presencia digital",
   "heroWelcome": "Bienvenidos",
   "heroEyebrow": "Tiendas Online · Plataformas a medida",
   "heroClear": "claros",
@@ -9,9 +9,9 @@
   "heroReady": "listos para vender",
   "heroDescription": "Diseño centrado en tu negocio, performance y una experiencia de usuario que genera confianza desde el primer clic.",
   "servicesTitle": "Servicios",
-  "service1": "Desarrollo web moderno",
-  "service2": "Experiencia UI/UX",
-  "service3": "Integraciones personalizadas",
+  "service1": "Sitios Web",
+  "service2": "Software online",
+  "service3": "Tiendas online",
   "service4": "Tiendas online",
   "service5": "Sistemas administrativos empresariales",
   "servicesShopTitle": "Mis servicios",
@@ -72,7 +72,7 @@
   "aboutTechnologies": "Me encargo de todo: diseño, desarrollo, optimización, formularios, integración de pagos, SEO básico y soporte continuo. Mi objetivo es que tengas una web clara, efectiva y lista para funcionar desde el primer día.",
   "aboutClosure": "Si necesitás un sitio profesional para mostrar tus servicios, vender más o mejorar tu presencia online, puedo ayudarte a lograrlo de manera simple y rápida.",
   "projectsTitle": "Proyectos destacados",
-  "viewProject": "Ver proyecto",
+  "viewProject": "Ver portfolio",
   "clientsTitle": "Confían en mi trabajo",
   "footerContact": "Hablemos de tu proyecto",
   "footerEmail": "Email",
@@ -116,4 +116,12 @@
   ,"seeHowItWorks": "Ver funcionamiento"
   ,"talkExpertAboutApp": "Hablar con un Experto sobre mi App"
   ,"technicalCapabilitiesSummary": "Un resumen de mis capacidades técnicas para llevar tu proyecto al siguiente nivel."
+  ,"pricingSectionTitle": "Elige la Solución Web que Impulsará tu Negocio"
+  ,"pricingSectionSubtitle": "Comienza con nuestros planes base, diseñados para convertir. Rápido, escalable y profesional."
+  ,"initialPackageTitle": "Paquete Inicial: Landing Page"
+  ,"initialPackageDescription": "Una Landing Page profesional optimizada para generar leads. Tu herramienta más poderosa para resultados rápidos."
+  ,"priceBaseLanding": "Precio Base: 750€"
+  ,"startMyProject": "Empezar mi Proyecto"
+  ,"needMoreFeatures": "¿Necesitas más funcionalidades? Contáctanos para un presupuesto personalizado"
+  ,"recommendedPackage": "PAQUETE RECOMENDADO"
 }

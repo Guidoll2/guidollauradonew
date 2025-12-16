@@ -1,41 +1,64 @@
 'use client';
 
+import { useState } from 'react';
 import { useLanguage } from '@/lib/language-context';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { PricingCard } from './PricingCard';
 import { useTheme } from '@/lib/theme-context';
+import ContactModal from './ContactModal';
 
 export default function PricingSection() {
   const { t } = useLanguage();
   const { isLightMode } = useTheme();
   useScrollAnimation();
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
-  // Características base para el plan inicial
-  const baseFeatures = [
-    t.feature1 || 'Diseño profesional personalizado',
-    t.feature2 || 'Desarrollo web moderno',
-    t.feature3 || 'Hosting incluido',
-    t.feature4 || 'Dominio personalizado',
-    t.feature5 || 'Enlaces a redes sociales',
-    t.feature6 || 'Formularios de contacto',
-    t.feature7 || 'Botones de WhatsApp',
-    t.feature8 || 'Optimización SEO básica',
+  // Características para Web Profesional
+  const professionalFeatures = [
+    t.feature1 || 'Diseño Profesional Personalizado',
+    t.feature2 || 'Desarrollo Web Moderno',
+    t.feature3 || 'Integración Avanzada con Contactos',
+    t.feature4 || 'Optimización SEO y Análisis de Palabras Clave',
+    t.feature5 || 'Sitio Multi-Página',
+    t.feature6 || 'Hosting de Alto Rendimiento (1 año)',
+    t.feature7 || 'Galería de Proyectos y Testimonios',
+    t.feature8 || 'Integración de Google Analytics / Search Console',
+    t.feature9 || 'Integración de PIXEL (Meta y TikTok)',
+  ];
+
+  // Características para Landing Page
+  const landingFeatures = [
+    t.landingFeature1 || 'Diseño Estratégico y enfocado a un objetivo',
+    t.landingFeature2 || 'Optimización 100% para Publicidad',
+    t.landingFeature3 || 'Velocidad de Carga Garantizada',
+    t.landingFeature4 || 'Desarrollo Moderno y 100% Responsivo',
+    t.landingFeature5 || 'Formulario de Captación de Leads Integrado',
+    t.landingFeature6 || 'Botón de WhatsApp directo',
+    t.landingFeature7 || 'Integración con Google Analytics',
+    t.landingFeature8 || 'Soporte Técnico por 1 mes',
   ];
 
   // Definición de los 3 planes (Premium primero para efecto de anclaje)
   const pricingPlans = [
     // Plan 1: Premium / Ancla
     {
-      title: t.proPackageTitle || 'Paquete Pro: Web a Medida',
-      description: t.proPackageDescription || 'Desarrollo de aplicaciones online profesionales: Tiendas online completas, software empresarial, paneles administrativos, portales para profesionales (médicos, universitarios) y cualquier proyecto personalizado que necesites.',
-      price: '3.200€',
-      customizationText: t.personalCustomization || 'Personalizamos según tus necesidades',
+      title: t.proPackageTitle || 'Paquete Pro: Desarrollo a Medida',
+      description: t.proPackageDescription || 'Soluciones digitales avanzadas para empresas, profesionales y e-commerce.',
+      price: t.proPackagePrice || '3.200 €',
+      customizationText: t.personalCustomization || 'Proyectos personalizados según tus necesidades.',
       buttonText: t.startMyProject || 'Empezar mi Proyecto',
       features: [
-        ...baseFeatures,
-        t.featureDatabaseIntegration || 'Integración de Base de Datos',
-        t.featureBrandDesign || 'Diseño de Marca (Logo y Paleta)',
-        t.featurePrioritySupport || 'Soporte Prioritario 6 meses',
+        t.featureCustomDesign || 'Arquitectura y diseño profesional a medida',
+        t.featureModernDev || 'Desarrollo web moderno y escalable',
+        t.featureHosting || 'Hosting y dominio incluidos',
+        t.featureDatabase || 'Integración con bases de datos y APIs',
+        t.featureAdminPanel || 'Panel administrativo / Dashboard personalizado',
+        t.featureAdvancedForms || 'Formularios y flujos avanzados de contacto',
+        t.featureWhatsapp || 'Botones e integraciones con WhatsApp',
+        t.featureSeo || 'Optimización SEO técnica y de rendimiento',
+        t.featureBranding || 'Diseño de marca (logo, paleta y guía visual)',
+        t.featureSocial || 'Enlaces a redes sociales',
+        t.featureSupport || 'Soporte prioritario por 6 meses',
       ],
       includesLabel: t.includesLabel || 'Incluye:',
       noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
@@ -46,15 +69,10 @@ export default function PricingSection() {
     {
       title: t.businessPackageTitle || 'Paquete Negocio: Web Corporativa',
       description: t.businessPackageDescription || 'Web corporativa multi-página con galería y SEO avanzado. Ideal para negocios en crecimiento.',
-      price: '1.800€',
-      customizationText: t.personalCustomization || 'Personalizamos según tus necesidades',
+      price: t.businessPackagePrice || '1.800€',
+      customizationText: t.businessPackageSubtext || 'Diseño, desarrollo y un año de Hosting incluidos.',
       buttonText: t.startMyProject || 'Empezar mi Proyecto',
-      features: [
-        ...baseFeatures,
-        t.featureProductGallery || 'Galería de Productos',
-        t.featureMultiplePages || 'Múltiples Páginas (5-7)',
-        t.featureAdvancedSEO || 'SEO Avanzado',
-      ],
+      features: professionalFeatures,
       includesLabel: t.includesLabel || 'Incluye:',
       noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
       isRecommended: false,
@@ -64,10 +82,10 @@ export default function PricingSection() {
     {
       title: t.initialPackageTitle || 'Paquete Inicial: Landing Page',
       description: t.initialPackageDescription || 'Una Landing Page profesional optimizada para generar leads. Tu herramienta más poderosa para resultados rápidos.',
-      price: '750€',
-      customizationText: t.personalCustomization || 'Personalizamos según tus necesidades',
+      price: t.initialPackagePrice || '750€',
+      customizationText: t.initialPackageSubtext || 'Diseño estratégico y despliegue rápido.',
       buttonText: t.startMyProject || 'Empezar mi Proyecto',
-      features: baseFeatures,
+      features: landingFeatures,
       includesLabel: t.includesLabel || 'Incluye:',
       noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
       isRecommended: false,
@@ -109,6 +127,7 @@ export default function PricingSection() {
               noCommitmentText={plan.noCommitmentText}
               isRecommended={plan.isRecommended}
               badgeText={plan.badgeText}
+              onButtonClick={() => setIsContactModalOpen(true)}
             />
           ))}
         </div>
@@ -130,6 +149,10 @@ export default function PricingSection() {
           </a>
         </div>
       </div>
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </section>
   );
 }

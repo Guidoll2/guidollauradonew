@@ -146,4 +146,22 @@ export interface Translation {
   footerEmail: string;
   footerPhone: string;
   footerSocial: string;
+
+  // Pricing Section
+  mostPopular: string;
+  proPackageTitle: string;
+  proPackageDescription: string;
+  proPackagePrice: string;
+  featureCustomDesign: string;
+  featureModernDev: string;
+  featureHosting: string;
+  featureDatabase: string;
+  featureAdminPanel: string;
+  featureAdvancedForms: string;
+  featureWhatsapp: string;
+  featureSeo: string;
+  featureBranding: string;
+  featureSocial: string;
+  featureSupport: string;
+  startMyProject: string;
 }

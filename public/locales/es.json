@@ -1,6 +1,6 @@
 {
   "contact": "Contacto",
-  "heroTitle": "Desarrollo web profesional para tu proyecto",
+  "heroTitle": "Webs profesionales para tu proyecto",
   "heroSubtitle": "Soluciones integrales para tu presencia digital",
   "heroWelcome": "Bienvenidos",
   "heroEyebrow": "Tiendas Online · Plataformas a medida",
@@ -10,7 +10,7 @@
   "heroDescription": "Diseño centrado en tu negocio, performance y una experiencia de usuario que genera confianza desde el primer clic.",
   "servicesTitle": "Servicios",
   "service1": "Sitios Web",
-  "service2": "Software online",
+  "service2": "Software a medida",
   "service3": "Tiendas online",
   "service4": "Tiendas online",
   "service5": "Sistemas administrativos empresariales",
@@ -23,21 +23,29 @@
   "completedProjects": "Proyectos realizados",
   "includesLabel": "Incluye:",
   "priceFrom": "Precio desde",
-  "personalCustomization": "Personalizamos según tus necesidades",
   "noCommitment": "💳 Sin compromiso • Cotización gratuita",
   "questions": "¿Preguntas?",
   "contactWhatsApp": "Contáctame por WhatsApp",
   "consultationText": "para una consulta personalizada",
   "moreServices": "Ver más servicios",
   "visitSite": "Visitar:",
-  "feature1": "Diseño profesional personalizado",
-  "feature2": "Desarrollo web moderno",
-  "feature3": "Hosting incluido",
-  "feature4": "Dominio personalizado",
-  "feature5": "Enlaces a redes sociales",
-  "feature6": "Formularios de contacto",
-  "feature7": "Botones de WhatsApp",
-  "feature8": "Optimización SEO básica",
+  "feature1": "Diseño Profesional Personalizado (Basado en tu marca personal o corporativa).",
+  "feature2": "Desarrollo Web Moderno (Código limpio y velocidad de carga)",
+  "feature3": "Integración Avanzada con Contactos (CRM, WhatsApp, o Email Marketing).",
+  "feature4": "Optimización SEO y Análisis de Palabras Clave (Posicionamiento en tu nicho).",
+  "feature5": "Sitio Multi-Página (Home, Servicios, Acerca de, Contacto, Blog).",
+  "feature6": "Hosting de Alto Rendimiento (1 año).",
+  "feature7": "Galería de Proyectos y Testimonios.",
+  "feature8": "Integración de Google Analytics / Search Console.",
+  "feature9": "Integración de PIXEL (Meta y TikTok).",
+  "landingFeature1": "Diseño Estratégico y enfocado a un objetivo (Claro y sin distracciones)",
+  "landingFeature2": "Optimización 100% para Publicidad (Google Analytics, Meta Pixel, Tik Tok Pixel)",
+  "landingFeature3": "Velocidad de Carga Garantizada (Factor clave para el SEO y la conversión)",
+  "landingFeature4": "Desarrollo Moderno y 100% Responsivo (Perfecto en móvil y escritorio)",
+  "landingFeature5": "Formulario de Captación de Leads Integrado",
+  "landingFeature6": "Botón de WhatsApp directo",
+  "landingFeature7": "Integración con Google Analytics",
+  "landingFeature8": "Soporte Técnico por 1 mes",
   "addedToCart": "✓ Agregado al carrito",
   "prevImage": "Imagen anterior",
   "nextImage": "Siguiente imagen",
@@ -48,6 +56,33 @@
   "serviceDetails": "Detalles de servicios",
   "videoRendering": "Renderización de videos",
   "advancedFeatures": "Características avanzadas",
+  "mostPopular": "Para Empresas & Profesionales",
+  "proPackageTitle": "Desarrollo Integral / Software a Medida",
+  "proPackageDescription": "La solución definitiva para proyectos complejos. Ya sea un sitio con suscripciones, un E-commerce global o una herramienta de gestión interna. Desarrollo una plataforma robusta, multi-idioma y 100% personalizada para escalar tu productividad sin límites técnicos.",
+  "proPackagePrice": "Desde 2500€",
+  "businessPackageTitle": "Web Profesional de Autoridad y Captación",
+  "businessPackageDescription": "El cimiento digital para profesionales, consultores y empresas que buscan crecer. Desarrollo un sitio web corporativo, multi-página y optimizado, diseñado para establecer tu autoridad en el sector y generar un flujo constante de clientes potenciales (Leads).",
+  "businessPackagePrice": "1.800€",
+  "initialPackageTitle": "Landing Page de Alta Conversión",
+  "initialPackageDescription": "La solución más rápida para lanzar tu oferta y conseguir clientes inmediatamente. Diseño una página estratégica, enfocada en un único objetivo (Leads o Ventas), con una velocidad de carga máxima para asegurar el éxito de tus campañas de marketing.",
+  "initialPackagePrice": "750€",
+  "initialPackageSubtext": "Diseño estratégico y despliegue rápido.",
+  "businessPackageSubtext": "Diseño, desarrollo y un año de Hosting incluidos.",
+  "featureProductGallery": "Galería de Productos",
+  "featureMultiplePages": "Múltiples Páginas (5-7)",
+  "featureAdvancedSEO": "SEO Avanzado",
+  "personalCustomization": "Todo incluido: Diseño, Desarrollo y Despliegue.",
+  "featureCustomDesign": "Arquitectura de Software Personalizada",
+  "featureModernDev": "Sistema Multi-idioma (Detección automática)",
+  "featureHosting": "Funcionalidades Avanzadas (Suscripciones, E-commerce, SaaS)",
+  "featureDatabase": "Panel de Control Autoadministrable",
+  "featureAdminPanel": "Infraestructura: Hosting + Dominio (1 año incluido)",
+  "featureAdvancedForms": "Automatización de Emails y Notificaciones",
+  "featureWhatsapp": "Integración de Pasarelas de Pago & APIs",
+  "featureSeo": "SEO Técnico & Optimización de velocidad",
+  "featureBranding": "Kit de Identidad Visual (Logo y guía de estilos básica)",
+  "featureSocial": "Soporte Prioritario 6 meses",
+  "startMyProject": "Empezar mi Proyecto",
   "professionalDesign": "Diseño profesional completo",
   "contentManagement": "Gestor de contenidos",
   "analyticsIntegration": "Integración de análitica",
@@ -71,13 +106,54 @@
   "aboutIntro": "Soy Guido Llaurado, desarrollador web especializado en crear sitios modernos, rápidos y fáciles de usar para profesionales y pequeños negocios. Trabajo con tecnologías actuales como Next.js, React y Vercel para que tu página cargue rápido, se vea profesional y te ayude a conseguir más clientes.",
   "aboutTechnologies": "Me encargo de todo: diseño, desarrollo, optimización, formularios, integración de pagos, SEO básico y soporte continuo. Mi objetivo es que tengas una web clara, efectiva y lista para funcionar desde el primer día.",
   "aboutClosure": "Si necesitás un sitio profesional para mostrar tus servicios, vender más o mejorar tu presencia online, puedo ayudarte a lograrlo de manera simple y rápida.",
-  "projectsTitle": "Proyectos destacados",
   "viewProject": "Ver portfolio",
   "clientsTitle": "Confían en mi trabajo",
   "footerContact": "Hablemos de tu proyecto",
   "footerEmail": "Email",
   "footerPhone": "WhatsApp",
   "footerSocial": "Sígueme"
+  ,"authorityPill": "Autoridad, datos y diseño al servicio de tu negocio"
+  ,"authorityTitle": "No solo diseño. Construyo herramientas digitales que generan ingresos y optimizan tu negocio."
+  ,"authoritySubtitle": "Trabajo en la ingeniería de negocios digitales. Mi enfoque es crear una pieza clave para tu empresa: código limpio, estética cuidada, rendimiento superior y métricas claras para escalar tus operaciones y campañas."
+  ,"authorityBullet1": "Mi experiencia abarca desde E-commerce y plataformas B2B hasta Software a Medida, con integraciones clave como Stripe y otras APIs."
+  ,"authorityBullet2": "Implemento Analytics, eventos clave y píxeles publicitarios, asegurando que cada decisión en tu negocio esté respaldada por datos precisos."
+  ,"authorityBullet3": "Acompañamiento técnico directo. Siempre tendrás comunicación conmigo; elimino los intermediarios para una solución más ágil y personalizada."
+  ,"authority1Title": "UX/UI Centrado en la Conversión"
+  ,"authority1Desc": "Diseño interfaces limpias y rápidas. Guío a tu usuario a la acción principal, ya sea comprar, registrarse o contactar, maximizando tu tasa de conversión."
+  ,"authority2Title": "E-commerce Estratégico y Medible"
+  ,"authority2Desc": "Integro pasarelas de pago (Stripe, etc.) y automatizaciones. Aseguro que cada transacción sea trazada y medible, dándote el control total de tu embudo de ventas."
+  ,"authority3Title": "Analítica de Datos para Optimización"
+  ,"authority3Desc": "Configuro GA4 y los píxeles publicitarios (Meta, TikTok). Esto te permite optimizar tus campañas de marketing con datos 100% reales, eliminando las suposiciones."
+  ,"authority4Title": "Arquitectura Técnica Sólida y Escalable"
+  ,"authority4Desc": "Utilizo tecnologías modernas (Next.js, APIs) y creo integraciones estables. Garantizo que tu proyecto nunca tendrá límites técnicos a la hora de crecer o escalar."
+  ,"projectsPill": "Soluciones que ya están en el mercado"
+  ,"projectsTitle": "Proyectos que Impulsan el Negocio"
+  ,"projectsSubtitle": "Mi portafolio es la prueba de mi enfoque. Diseño y desarrollo soluciones complejas (SaaS, E-commerce, Software de Gestión), donde cada línea de código resuelve un problema real del negocio, no solo la estética."
+  ,"project1Label": "Plataforma tipo red social"
+  ,"project1Title": "EmpleArg: Red Social +2.800 Usuarios"
+  ,"project1Desc": "Plataforma para conectar talento y empresas. Incluye perfiles de usuario, sistema de auto-suscripción y panel administrador. Este proyecto demostró un crecimiento orgánico sólido gracias a su estabilidad, UX y analítica integrada."
+  ,"project1Result": "Crecimiento orgánico y validación del modelo gracias a un producto estable y fácil de usar."
+  ,"project2Label": "Software a medida"
+  ,"project2Title": "Software de Gestión y Trazabilidad"
+  ,"project2Desc": "Aplicación interna a medida para gestión de campos, tareas y producción. Su principal valor es mejorar la trazabilidad y la toma de decisiones en tiempo real, logrando mayor eficiencia operativa y menos errores."
+  ,"project2Result": "Información centralizada, menos errores operativos y mejor control del negocio."
+  ,"project3Label": "E-commerce optimizado"
+  ,"project3Title": "E-commerce de Alto Rendimiento"
+  ,"project3Desc": "Tienda online completa con integración de Stripe y mensajería (Sendcloud). El sistema automatiza el proceso de venta de punta a punta (pedido, pago, etiqueta de envío), logrando un funnel de compra totalmente medible."
+  ,"project3Result": "Proceso de venta automático: pedido, pago, generación de etiqueta de envío y notificaciones al cliente."
+  ,"showcasePill": "Soluciones que ya están en el mercado"
+  ,"showcaseTitle": "Proyectos que Impulsan el Negocio"
+  ,"showcaseSubtitle": "Mi portafolio es la prueba de mi enfoque. Diseño y desarrollo soluciones complejas (SaaS, E-commerce, Software de Gestión), donde cada línea de código resuelve un problema real del negocio, no solo la estética."
+  ,"showcase1Label": "Plataforma tipo red social"
+  ,"showcase1Title": "EmpleArg: Red Social con +2.800 Usuarios"
+  ,"showcase1Desc": "Plataforma para conectar talento y empresas. Incluye perfiles de usuario, publicaciones y panel administrador. Este proyecto demostró un crecimiento orgánico sólido gracias a su estabilidad, UX y analítica integrada."
+  ,"showcase2Label": "Software de gestión"
+  ,"showcase2Title": "CuatroGranos: Sistema de Gestión Agrícola"
+  ,"showcase2Desc": "Aplicación interna a medida para la administración de campos, lotes, campañas y tareas. Su principal valor es mejorar la trazabilidad y la toma de decisiones en tiempo real, logrando mayor eficiencia operativa y menos errores."
+  ,"showcase3Label": "E-commerce optimizado"
+  ,"showcase3Title": "OneMore: E-commerce de Alto Rendimiento"
+  ,"showcase3Desc": "Tienda online completa con integración de Stripe y mensajería (Sendcloud). El sistema automatiza el proceso de venta de punta a punta (pedido, pago, etiqueta de envío), logrando un funnel de compra totalmente medible."
+  ,"otherSitesLabel": "Otros sitios desarrollados"
   ,"aboutFocusTitle": "Acerca de mí"
   ,"aboutFocusSubtitle": " ¿Cómo trabajo para impulsar tu negocio?"
   ,"aboutFullCycle": "Me encargo del ciclo completo: diseño, desarrollo, optimización y puesta en marcha."
@@ -88,7 +164,7 @@
   ,"footerProjectPrompt": "¿Tienes un proyecto en mente? Contacta por el medio que prefieras."
   ,"chooseIdealPlan": "Elige tu Plan Ideal"
   ,"landingPageIntro": "Comienza con una landing page diseñada para convertir. Simple, rápida y escalable."
-  ,"initialPackage": "Paquete Inicial"
+  ,"initialPackage": "Landing Page de Alta Conversión"
   ,"doubtsBeforeBuying": "¿Tienes dudas antes de comprar?"
   ,"talkWhatsApp": "Hablemos por WhatsApp"
   ,"businessSolution": "Solución Empresarial"
@@ -116,12 +192,27 @@
   ,"seeHowItWorks": "Ver funcionamiento"
   ,"talkExpertAboutApp": "Hablar con un Experto sobre mi App"
   ,"technicalCapabilitiesSummary": "Un resumen de mis capacidades técnicas para llevar tu proyecto al siguiente nivel."
-  ,"pricingSectionTitle": "Elige la Solución Web que Impulsará tu Negocio"
-  ,"pricingSectionSubtitle": "Comienza con nuestros planes base, diseñados para convertir. Rápido, escalable y profesional."
-  ,"initialPackageTitle": "Paquete Inicial: Landing Page"
-  ,"initialPackageDescription": "Una Landing Page profesional optimizada para generar leads. Tu herramienta más poderosa para resultados rápidos."
+  ,"pricingSectionTitle": "Elige la solución digital que tu proyecto necesita"
+  ,"pricingSectionSubtitle": "Sin intermediarios. Obtén un desarrollo web optimizado, pensado para escalar y gestionado personalmente para garantizar la calidad."
   ,"priceBaseLanding": "Precio Base: 750€"
-  ,"startMyProject": "Empezar mi Proyecto"
   ,"needMoreFeatures": "¿Necesitas más funcionalidades? Contáctanos para un presupuesto personalizado"
   ,"recommendedPackage": "PAQUETE RECOMENDADO"
+  ,"modalTitle": "Hablemos de tu Proyecto"
+  ,"modalSubtitle": "Elige tu forma preferida de contacto"
+  ,"chatWhatsApp": "Chatear por WhatsApp"
+  ,"sendEmail": "Enviar un Email Directo"
+  ,"orDivider": "o"
+  ,"quickMessageTitle": "O déjanos un mensaje rápido y te contactamos"
+  ,"nameLabel": "Nombre"
+  ,"namePlaceholder": "Tu nombre"
+  ,"emailLabel": "Email"
+  ,"emailPlaceholder": "tu@email.com"
+  ,"messageLabel": "Mensaje"
+  ,"messagePlaceholder": "Cuéntanos sobre tu proyecto..."
+  ,"sendButton": "Enviar Mensaje"
+  ,"sendingButton": "Enviando..."
+  ,"successMessage": "✓ Mensaje enviado con éxito. Te contactaremos pronto."
+  ,"errorMessage": "✗ Hubo un error. Por favor, intenta de nuevo."
+  ,"closeModal": "Cerrar modal"
+  ,"changeTheme": "Cambiar tema"
 }

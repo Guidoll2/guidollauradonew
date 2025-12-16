@@ -1,10 +1,13 @@
 'use client';
 
 import { useLanguage } from '@/lib/language-context';
+import { useTheme } from '@/lib/theme-context';
 import Image from 'next/image';
+import { Mail, MessageCircle, Instagram, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   const { t } = useLanguage();
+  const { isLightMode } = useTheme();
 
   const contactInfo = {
     email: 'guido.llaurado@gmail.com',
@@ -25,108 +28,128 @@ export default function Footer() {
     window.open(contactInfo.instagram, '_blank');
   };
 
-  // Definición de las tarjetas de contacto con los gradientes de la sección de Servicios
-  const contactCards = [
-    {
-      title: t.footerEmail || 'Email',
-      value: contactInfo.email,
-      action: handleEmailClick,
-      color: 'from-sky-400 to-blue-500',
-      icon: (
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      )
-    },
-    {
-      title: t.footerPhone || 'WhatsApp',
-      value: contactInfo.whatsapp,
-      action: handleWhatsAppClick,
-      color: 'from-green-500 to-teal-600', // Verde de WhatsApp para mayor reconocimiento
-      icon: (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-        </svg>
-      )
-    },
-    {
-      title: t.footerSocial || 'Sígueme',
-      value: '@guidoll.dev',
-      action: handleInstagramClick,
-      color: 'from-pink-400 to-purple-500',
-      icon: (
-        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-      )
-    }
-  ];
-
   return (
-    // CAMBIO: Fondo Slate-950 para un oscuro más profundo y elegante
-    <footer id="contact" className="bg-slate-950 text-white py-20">
+    <footer id="contact" className={`py-20 transition-colors duration-500 ${
+      isLightMode ? 'bg-slate-950 text-white' : 'bg-white text-slate-900'
+    }`}>
       <div className="max-w-6xl mx-auto px-6">
         
-        {/* Header de Contacto */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-3">
-            {t.footerContact || 'Hablemos de tu proyecto'}
-          </h2>
-          <p className="text-gray-400 text-lg">
-            {t.footerProjectPrompt || '¿Tienes un proyecto en mente? Contacta por el medio que prefieras.'}
-          </p>
+        {/* Call to Action Section */}
+        <div className="flex flex-col md:flex-row items-center justify-between mb-20 gap-10">
+          <div className="text-center md:text-left max-w-2xl">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 tracking-tight ${
+              isLightMode ? 'text-white' : 'text-slate-900'
+            }`}>
+              {t.footerContact || 'Hablemos de tu proyecto'}
+            </h2>
+            <p className={`text-xl ${
+              isLightMode ? 'text-gray-400' : 'text-slate-600'
+            }`}>
+              {t.footerProjectPrompt || '¿Tienes una idea? Vamos a hacerla realidad. Contacta conmigo directamente.'}
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+            <button 
+              onClick={handleWhatsAppClick}
+              className={`group flex items-center justify-center gap-3 px-8 py-4 rounded-full font-semibold transition-all duration-300 ${
+                isLightMode 
+                  ? 'bg-white text-slate-900 hover:bg-gray-100' 
+                  : 'bg-slate-900 text-white hover:bg-slate-800'
+              }`}
+            >
+              <MessageCircle size={20} />
+              <span>WhatsApp</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+            
+            <button 
+              onClick={handleEmailClick}
+              className={`group flex items-center justify-center gap-3 px-8 py-4 rounded-full font-semibold border transition-all duration-300 ${
+                isLightMode 
+                  ? 'border-slate-700 text-white hover:bg-slate-800' 
+                  : 'border-slate-200 text-slate-900 hover:bg-slate-50'
+              }`}
+            >
+              <Mail size={20} />
+              <span>Email</span>
+            </button>
+          </div>
         </div>
 
-        {/* Tarjetas de Contacto */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {contactCards.map((card, index) => (
-            <div key={index} className="text-center group">
-              <button
-                onClick={card.action}
-                // CAMBIO: Tarjetas con diseño más profesional, sutilmente levantadas y con un ligero borde
-                className="w-full h-full p-8 bg-slate-900 rounded-2xl border border-slate-800 hover:border-sky-500/50 transition-all duration-300 transform hover:scale-[1.02] shadow-xl hover:shadow-sky-500/10"
-              >
-                {/* Contenedor del Icono */}
-                <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${card.color} rounded-xl mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-black/20`}>
-                  {card.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-white group-hover:text-sky-300 transition-colors">
-                  {card.title}
-                </h3>
-                {/* Texto de Contacto Sutil */}
-                <p className="text-gray-400 text-sm group-hover:text-white transition-colors">
-                  {card.value}
-                </p>
+        {/* Divider */}
+        <div className={`w-full h-px mb-12 ${
+          isLightMode ? 'bg-slate-800' : 'bg-slate-200'
+        }`}></div>
+
+        {/* Bottom Section */}
+        <div className="grid md:grid-cols-4 gap-12 mb-12">
+          {/* Brand Column */}
+          <div className="md:col-span-2 space-y-6">
+            <div className="flex items-center gap-3">
+              <div className={`relative w-10 h-10 rounded-full overflow-hidden border ${
+                isLightMode ? 'border-slate-700' : 'border-slate-200'
+              }`}>
+                <Image 
+                  src="/logoredondo.png" 
+                  alt="Logo" 
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <span className="font-bold text-xl">Guido.dev</span>
+            </div>
+            <p className={`max-w-sm ${
+              isLightMode ? 'text-gray-400' : 'text-slate-600'
+            }`}>
+              {t.footerTagline || 'Desarrollo web premium en Barcelona. Especializado en Next.js, React y experiencias digitales de alto rendimiento.'}
+            </p>
+            <div className="flex gap-4">
+              <button onClick={handleInstagramClick} className={`p-2 rounded-full transition-colors ${
+                isLightMode ? 'hover:bg-slate-800 text-gray-400 hover:text-white' : 'hover:bg-slate-100 text-slate-500 hover:text-slate-900'
+              }`}>
+                <Instagram size={20} />
+              </button>
+              <button onClick={handleEmailClick} className={`p-2 rounded-full transition-colors ${
+                isLightMode ? 'hover:bg-slate-800 text-gray-400 hover:text-white' : 'hover:bg-slate-100 text-slate-500 hover:text-slate-900'
+              }`}>
+                <Mail size={20} />
               </button>
             </div>
-          ))}
+          </div>
+
+          {/* Links Column 1 */}
+          <div>
+            <h3 className="font-semibold mb-4">Servicios</h3>
+            <ul className={`space-y-3 ${
+              isLightMode ? 'text-gray-400' : 'text-slate-600'
+            }`}>
+              <li><a href="#" className="hover:text-[#67e2f0] transition-colors">Web Development</a></li>
+              <li><a href="#" className="hover:text-[#67e2f0] transition-colors">E-commerce</a></li>
+              <li><a href="#" className="hover:text-[#67e2f0] transition-colors">SEO Optimization</a></li>
+              <li><a href="#" className="hover:text-[#67e2f0] transition-colors">UI/UX Design</a></li>
+            </ul>
+          </div>
+
+          {/* Links Column 2 */}
+          <div>
+            <h3 className="font-semibold mb-4">Legal</h3>
+            <ul className={`space-y-3 ${
+              isLightMode ? 'text-gray-400' : 'text-slate-600'
+            }`}>
+              <li><a href="#" className="hover:text-[#67e2f0] transition-colors">Privacidad</a></li>
+              <li><a href="#" className="hover:text-[#67e2f0] transition-colors">Términos</a></li>
+              <li><a href="#" className="hover:text-[#67e2f0] transition-colors">Cookies</a></li>
+            </ul>
+          </div>
         </div>
 
-        {/* --- Sección Inferior (Copyright y Logo) --- */}
-        <div className="border-t border-slate-800 pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            
-            {/* Logo y Texto de Copyright agrupados para dispositivos móviles */}
-            <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                <Image 
-                    src="/logoredondo.png" // Asumimos que esta imagen existe
-                    alt="Guidoll.dev Logo" 
-                    width={40} 
-                    height={40} 
-                    className="w-10 h-10 rounded-full border border-slate-800"
-                />
-                <div className="text-gray-400 text-sm font-medium">
-                    © 2025 Guido.dev
-                </div>
-            </div>
-
-            <div className="text-gray-500 text-sm text-center md:text-right">
-              {t.footerTagline || 'Desarrollo web premium en Barcelona'}
-            </div>
-          </div>
-          <p className="text-xs text-gray-600 mt-4 text-center">
-            {t.footerBuiltWith || 'Diseñado y desarrollado con Next.js y Tailwind CSS.'}
-          </p>
+        {/* Copyright */}
+        <div className={`pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-sm ${
+          isLightMode ? 'border-slate-800 text-gray-500' : 'border-slate-200 text-slate-500'
+        }`}>
+          <p>© 2025 Guido.dev. Todos los derechos reservados.</p>
+          <p>{t.footerBuiltWith || 'Diseñado y desarrollado con Next.js y Tailwind CSS.'}</p>
         </div>
       </div>
     </footer>

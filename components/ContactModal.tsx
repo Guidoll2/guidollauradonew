@@ -2,6 +2,8 @@
 
 import { X, MessageCircle, Mail, Sun, Moon } from 'lucide-react';
 import { useState } from 'react';
+import { useTheme } from '@/lib/theme-context';
+import { useLanguage } from '@/lib/language-context';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -9,6 +11,8 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+  const { isLightMode, toggleTheme } = useTheme();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,7 +21,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [isClosing, setIsClosing] = useState(false);
-  const [isLightMode, setIsLightMode] = useState(false);
 
   if (!isOpen && !isClosing) return null;
 
@@ -75,13 +78,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <div className="sticky top-0 flex justify-between items-center mb-4 z-10">
           {/* Botón de Theme Toggle */}
           <button
-            onClick={() => setIsLightMode(!isLightMode)}
+            onClick={toggleTheme}
             className={`p-2 rounded-full transition-all duration-200 ${
               isLightMode
                 ? 'bg-slate-200 text-slate-700 hover:bg-slate-300'
                 : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
             }`}
-            aria-label="Cambiar tema"
+            aria-label={t.changeTheme || 'Cambiar tema'}
           >
             {isLightMode ? <Moon size={20} /> : <Sun size={20} />}
           </button>
@@ -94,7 +97,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
                 : 'text-gray-400 hover:text-white hover:bg-slate-700'
             }`}
-            aria-label="Cerrar modal"
+            aria-label={t.closeModal || 'Cerrar modal'}
           >
             <X size={24} />
           </button>
@@ -106,12 +109,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <h2 className={`text-3xl font-bold mb-2 transition-colors duration-300 ${
           isLightMode ? 'text-slate-900' : 'text-white'
         }`}>
-          Hablemos de tu Proyecto
+          {t.modalTitle || 'Hablemos de tu Proyecto'}
         </h2>
         <p className={`mb-6 transition-colors duration-300 ${
           isLightMode ? 'text-slate-600' : 'text-gray-300'
         }`}>
-          Elige tu forma preferida de contacto
+          {t.modalSubtitle || 'Elige tu forma preferida de contacto'}
         </p>
 
         {/* Sección 1: Contacto Instantáneo - WhatsApp */}
@@ -123,7 +126,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl font-semibold text-white bg-gradient-to-r from-[#ffbba8] to-[#67e2f0] hover:opacity-90 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             <MessageCircle size={24} />
-            <span className="text-lg">Chatear por WhatsApp</span>
+            <span className="text-lg">{t.chatWhatsApp || 'Chatear por WhatsApp'}</span>
           </a>
         </div>
 
@@ -138,7 +141,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             }`}
           >
             <Mail size={20} />
-            <span>Enviar un Email Directo</span>
+            <span>{t.sendEmail || 'Enviar un Email Directo'}</span>
           </a>
         </div>
 
@@ -152,7 +155,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <div className="relative flex justify-center text-sm">
             <span className={`px-4 transition-colors duration-300 ${
               isLightMode ? 'bg-white text-slate-500' : 'bg-slate-800 text-gray-400'
-            }`}>o</span>
+            }`}>{t.orDivider || 'o'}</span>
           </div>
         </div>
 
@@ -161,7 +164,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <h3 className={`text-lg font-semibold mb-4 transition-colors duration-300 ${
             isLightMode ? 'text-slate-900' : 'text-white'
           }`}>
-            O déjanos un mensaje rápido y te contactamos
+            {t.quickMessageTitle || 'O déjanos un mensaje rápido y te contactamos'}
           </h3>
           
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -169,7 +172,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <label htmlFor="name" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${
                 isLightMode ? 'text-slate-700' : 'text-gray-300'
               }`}>
-                Nombre
+                {t.nameLabel || 'Nombre'}
               </label>
               <input
                 type="text"
@@ -182,7 +185,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     ? 'bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400'
                     : 'bg-slate-700 border-gray-600 text-white placeholder-gray-400'
                 }`}
-                placeholder="Tu nombre"
+                placeholder={t.namePlaceholder || 'Tu nombre'}
               />
             </div>
 
@@ -190,7 +193,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <label htmlFor="email" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${
                 isLightMode ? 'text-slate-700' : 'text-gray-300'
               }`}>
-                Email
+                {t.emailLabel || 'Email'}
               </label>
               <input
                 type="email"
@@ -203,7 +206,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     ? 'bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400'
                     : 'bg-slate-700 border-gray-600 text-white placeholder-gray-400'
                 }`}
-                placeholder="tu@email.com"
+                placeholder={t.emailPlaceholder || 'tu@email.com'}
               />
             </div>
 
@@ -211,7 +214,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <label htmlFor="message" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${
                 isLightMode ? 'text-slate-700' : 'text-gray-300'
               }`}>
-                Mensaje
+                {t.messageLabel || 'Mensaje'}
               </label>
               <textarea
                 id="message"
@@ -224,7 +227,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     ? 'bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400'
                     : 'bg-slate-700 border-gray-600 text-white placeholder-gray-400'
                 }`}
-                placeholder="Cuéntanos sobre tu proyecto..."
+                placeholder={t.messagePlaceholder || 'Cuéntanos sobre tu proyecto...'}
               />
             </div>
 
@@ -237,17 +240,17 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   : 'text-white bg-slate-700 hover:bg-slate-600'
               }`}
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+              {isSubmitting ? (t.sendingButton || 'Enviando...') : (t.sendButton || 'Enviar Mensaje')}
             </button>
 
             {submitStatus === 'success' && (
               <p className="text-green-400 text-center text-sm">
-                ✓ Mensaje enviado con éxito. Te contactaremos pronto.
+                {t.successMessage || '✓ Mensaje enviado con éxito. Te contactaremos pronto.'}
               </p>
             )}
             {submitStatus === 'error' && (
               <p className="text-red-400 text-center text-sm">
-                ✗ Hubo un error. Por favor, intenta de nuevo.
+                {t.errorMessage || '✗ Hubo un error. Por favor, intenta de nuevo.'}
               </p>
             )}
           </form>

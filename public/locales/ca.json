@@ -1,6 +1,6 @@
 {
   "contact": "Contacte",
-  "heroTitle": "Desenvolupament web professional per al teu projecte",
+  "heroTitle": "Webs professionals per al teu projecte",
   "heroSubtitle": "Solucions integrals per a la teva presència digital",
   "heroWelcome": "Benvinguts",
   "heroEyebrow": "Botigues Online · Plataformes a mida",
@@ -23,21 +23,29 @@
   "completedProjects": "Projectes realitzats",
   "includesLabel": "Inclou:",
   "priceFrom": "Preu des de",
-  "personalCustomization": "Personalitzem segons les teves necessitats",
   "noCommitment": "💳 Sense compromís • Cotització gratuïta",
   "questions": "¿Preguntes?",
   "contactWhatsApp": "Contacta'm per WhatsApp",
   "consultationText": "per a una consulta personalitzada",
   "moreServices": "Veure més serveis",
   "visitSite": "Visitar:",
-  "feature1": "Disseny professional personalitzat",
-  "feature2": "Desenvolupament web modern",
-  "feature3": "Hosting inclòs",
-  "feature4": "Domini personalitzat",
-  "feature5": "Enllaços a xarxes socials",
-  "feature6": "Formularis de contacte",
-  "feature7": "Botons de WhatsApp",
-  "feature8": "Optimització SEO bàsica",
+  "feature1": "Disseny Professional Personalitzat (Basat en la teva marca personal o corporativa)",
+  "feature2": "Desenvolupament Web Modern (Codi net i velocitat de càrrega)",
+  "feature3": "Integració Avançada amb Contactes (CRM, WhatsApp, o Email Marketing)",
+  "feature4": "Optimització SEO i Anàlisi de Paraules Clau (Posicionament al teu nínxol)",
+  "feature5": "Lloc Multi-Pàgina (Home, Serveis, Sobre Nosaltres, Contacte, Blog)",
+  "feature6": "Hosting d'Alt Rendiment (1 any)",
+  "feature7": "Galeria de Projectes i Testimonis",
+  "feature8": "Integració de Google Analytics / Search Console",
+  "feature9": "Integració de PIXEL (Meta i TikTok)",
+  "landingFeature1": "Disseny Estratègic i enfocat a un objectiu (Clar i sense distraccions)",
+  "landingFeature2": "Optimització 100% per a Publicitat (Google Ads, Meta Ads, etc.)",
+  "landingFeature3": "Velocitat de Càrrega Garantida (Factor clau per al SEO i la conversió)",
+  "landingFeature4": "Desenvolupament Modern i 100% Responsiu (Perfecte en mòbil i escriptori)",
+  "landingFeature5": "Formulari de Captació de Leads Integrat",
+  "landingFeature6": "Botó de WhatsApp directe",
+  "landingFeature7": "Integració amb Google Analytics",
+  "landingFeature8": "Suport Tècnic per 1 mes",
   "addedToCart": "✓ Afegit al carretó",
   "prevImage": "Imatge anterior",
   "nextImage": "Següent imatge",
@@ -48,6 +56,33 @@
   "serviceDetails": "Detalls de serveis",
   "videoRendering": "Renderització de vídeos",
   "advancedFeatures": "Características avançades",
+  "mostPopular": "Per a Empreses & Professionals",
+  "proPackageTitle": "Desenvolupament Integral / Programari a Mida",
+  "proPackageDescription": "La solució definitiva per a projectes complexos. Ja sigui un lloc amb subscripcions, un E-commerce global o una eina de gestió interna. Desenvolupo una plataforma robusta, multi-idioma i 100% personalitzada per escalar la teva productivitat sense límits tècnics.",
+  "proPackagePrice": "Des de 2500€",
+  "businessPackageTitle": "Web Professional d'Autoritat i Captació",
+  "businessPackageDescription": "El fonament digital per a professionals, consultors i empreses que busquen créixer. Desenvolupo un lloc web corporatiu, multi-pàgina i optimitzat, dissenyat per establir la teva autoritat al sector i generar un flux constant de clients potencials (Leads).",
+  "businessPackagePrice": "1.800€",
+  "initialPackageTitle": "Landing Page d'Alta Conversió",
+  "initialPackageDescription": "La solució més ràpida per llançar la teva oferta i aconseguir clients immediatament. Dissenyo una pàgina estratègica, enfocada en un únic objectiu (Leads o Vendes), amb una velocitat de càrrega màxima per assegurar l'èxit de les teves campanyes de màrqueting.",
+  "initialPackagePrice": "750€",
+  "initialPackageSubtext": "Disseny estratègic i desplegament ràpid.",
+  "businessPackageSubtext": "Disseny, desenvolupament i un any d'Hosting inclosos.",
+  "featureProductGallery": "Galeria de Productes",
+  "featureMultiplePages": "Múltiples Pàgines (5-7)",
+  "featureAdvancedSEO": "SEO Avançat",
+  "personalCustomization": "Tot inclòs: Disseny, Desenvolupament i Desplegament.",
+  "featureCustomDesign": "Arquitectura de Programari Personalitzada",
+  "featureModernDev": "Sistema Multi-idioma (Detecció automàtica)",
+  "featureHosting": "Funcionalitats Avançades (Subscripcions, E-commerce, SaaS)",
+  "featureDatabase": "Panell de Control Autoadministrable",
+  "featureAdminPanel": "Infraestructura: Hosting + Domini (1 any inclòs)",
+  "featureAdvancedForms": "Automatització d'Emails i Notificacions",
+  "featureWhatsapp": "Integració de Passarel·les de Pagament & APIs",
+  "featureSeo": "SEO Tècnic & Optimització de velocitat",
+  "featureBranding": "Kit d'Identitat Visual (Logo i guia d'estils bàsica)",
+  "featureSocial": "Suport Prioritari 6 mesos",
+  "startMyProject": "Començar el meu Projecte",
   "professionalDesign": "Disseny professional complet",
   "contentManagement": "Gestor de continguts",
   "analyticsIntegration": "Integració d'analítica",
@@ -71,15 +106,56 @@
   "aboutIntro": "Sóc Guido Llaurado, desenvolupador web especialitzat en crear llocs moderns, ràpids i fàcils d'usar per a professionals i petits negocis. Treballo amb tecnologies actuals com Next.js, React i Vercel perquè la teva pàgina es carregui ràpid, es vegi professional i t'ajudi a aconseguir més clients.",
   "aboutTechnologies": "M'encarrego de tot: disseny, desenvolupament, optimització, formularis, integració de pagaments, SEO bàsic i suport continu. El meu objectiu és que tinguis una web clara, efectiva i llista per funcionar des del primer dia.",
   "aboutClosure": "Si necessites un lloc professional per mostrar els teus serveis, vendre més o millorar la teva presència online, puc ajudar-te a aconseguir-ho de manera simple i ràpida.",
-  "projectsTitle": "Projectes destacats",
-  "viewProject": "Veure projecte",
+  "viewProject": "Veure portfolio",
   "clientsTitle": "Confien en la meva feina",
   "footerContact": "Parlem del teu projecte",
   "footerEmail": "Email",
   "footerPhone": "WhatsApp",
   "footerSocial": "Segueix-me"
-  ,"aboutFocusTitle": "El Meu Enfoc"
-  ,"aboutFocusSubtitle": "Parlem de la meva experiència i com podem treballar junts per impulsar el teu negoci."
+  ,"authorityPill": "Autoritat, dades i disseny al servei del teu negoci"
+  ,"authorityTitle": "No només disseny. Construeixo eines digitals que generen ingressos i optimitzen el teu negoci."
+  ,"authoritySubtitle": "Treballo en l'enginyeria de negocis digitals. El meu enfocament és crear una peça clau per a la teva empresa: codi net, estètica acurada, rendiment superior i mètriques clares per escalar les teves operacions i campanyes."
+  ,"authorityBullet1": "La meva experiència abasta des d'E-commerce i plataformes B2B fins a Programari a Mida, amb integracions clau com Stripe i altres APIs."
+  ,"authorityBullet2": "Implemento Analytics, esdeveniments clau i píxels publicitaris, assegurant que cada decisió al teu negoci estigui recolzada per dades precises."
+  ,"authorityBullet3": "Acompanyament tècnic directe. Sempre tindràs comunicació amb mi; elimino els intermediaris per a una solució més àgil i personalitzada."
+  ,"authority1Title": "UX/UI Centrat en la Conversió"
+  ,"authority1Desc": "Disseny interfícies netes i ràpides. Guio al teu usuari a l'acció principal, ja sigui comprar, registrar-se o contactar, maximitzant la teva taxa de conversió."
+  ,"authority2Title": "E-commerce Estratègic i Mesurable"
+  ,"authority2Desc": "Integro passarel·les de pagament (Stripe, etc.) i automatitzacions. Asseguro que cada transacció sigui traçada i mesurable, donant-te el control total del teu embut de vendes."
+  ,"authority3Title": "Analítica de Dades per a Optimització"
+  ,"authority3Desc": "Configuro GA4 i els píxels publicitaris (Meta, TikTok). Això et permet optimitzar les teves campanyes de màrqueting amb dades 100% reals, eliminant les suposicions."
+  ,"authority4Title": "Arquitectura Tècnica Sòlida i Escalable"
+  ,"authority4Desc": "Utilitzo tecnologies modernes (Next.js, APIs) i creo integracions estables. Garanteixo que el teu projecte mai tindrà límits tècnics a l'hora de créixer o escalar."
+  ,"projectsPill": "Solucions que ja són al mercat"
+  ,"projectsTitle": "Projectes que Impulsen el Negoci"
+  ,"projectsSubtitle": "El meu portafoli és la prova del meu enfocament. Disseny i desenvolupo solucions complexes (SaaS, E-commerce, Programari de Gestió), on cada línia de codi resol un problema real del negoci, no només l'estètica."
+  ,"project1Label": "Plataforma tipus xarxa social"
+  ,"project1Title": "EmpleArg: Xarxa Social +2.800 Usuaris"
+  ,"project1Desc": "Plataforma per connectar talent i empreses. Inclou perfils d'usuari, sistema d'auto-subscripció i panell administrador. Aquest projecte va demostrar un creixement orgànic sòlid gràcies a la seva estabilitat, UX i analítica integrada."
+  ,"project1Result": "Creixement orgànic i validació del model gràcies a un producte estable i fàcil d'utilitzar."
+  ,"project2Label": "Programari a mida"
+  ,"project2Title": "Programari de Gestió i Traçabilitat"
+  ,"project2Desc": "Aplicació interna a mida per a la gestió de camps, tasques i producció. El seu valor principal és millorar la traçabilitat i la presa de decisions en temps real, aconseguint major eficiència operativa i menys errors."
+  ,"project2Result": "Informació centralitzada, menys errors operatius i millor control del negoci."
+  ,"project3Label": "E-commerce optimitzat"
+  ,"project3Title": "E-commerce d'Alt Rendiment"
+  ,"project3Desc": "Botiga online completa amb integració de Stripe i missatgeria (Sendcloud). El sistema automatitza el procés de venda de punta a punta (comanda, pagament, etiqueta d'enviament), aconseguint un embut de compra totalment mesurable."
+  ,"project3Result": "Procés de venda automàtic: comanda, pagament, generació d'etiqueta d'enviament i notificacions al client."
+  ,"showcasePill": "Solucions que ja són al mercat"
+  ,"showcaseTitle": "Projectes que Impulsen el Negoci"
+  ,"showcaseSubtitle": "El meu portafoli és la prova del meu enfocament. Disseny i desenvolupo solucions complexes (SaaS, E-commerce, Programari de Gestió), on cada línia de codi resol un problema real del negoci, no només l'estètica."
+  ,"showcase1Label": "Plataforma tipus xarxa social"
+  ,"showcase1Title": "EmpleArg: Xarxa Social amb +2.800 Usuaris"
+  ,"showcase1Desc": "Plataforma per connectar talent i empreses. Inclou perfils d'usuari, publicacions i panell administrador. Aquest projecte va demostrar un creixement orgànic sòlid gràcies a la seva estabilitat, UX i analítica integrada."
+  ,"showcase2Label": "Programari de gestió"
+  ,"showcase2Title": "CuatroGranos: Sistema de Gestió Agrícola"
+  ,"showcase2Desc": "Aplicació interna a mida per a l'administració de camps, lots, campanyes i tasques. El seu valor principal és millorar la traçabilitat i la presa de decisions en temps real, aconseguint major eficiència operativa i menys errors."
+  ,"showcase3Label": "E-commerce optimitzat"
+  ,"showcase3Title": "OneMore: E-commerce d'Alt Rendiment"
+  ,"showcase3Desc": "Botiga online completa amb integració de Stripe i missatgeria (Sendcloud). El sistema automatitza el procés de venda de punta a punta (comanda, pagament, etiqueta d'enviament), aconseguint un embut de compra totalment mesurable."
+  ,"otherSitesLabel": "Altres llocs desenvolupats"
+  ,"aboutFocusTitle": "Sobre mi"
+  ,"aboutFocusSubtitle": " Com treballo per impulsar el teu negoci?"
   ,"aboutFullCycle": "M'encarrego del cicle complet: disseny, desenvolupament, optimització i posada en marxa."
   ,"aboutPaymentsSEO": "Especialitzat en integració de pagaments (Stripe, Mercado Pago) i SEO per atraure clients."
   ,"aboutGoal": "El meu objectiu és que tinguis una web clara, efectiva i llesta per funcionar des del primer dia."
@@ -116,12 +192,30 @@
   ,"seeHowItWorks": "Veure funcionament"
   ,"talkExpertAboutApp": "Parlar amb un Expert sobre la meva App"
   ,"technicalCapabilitiesSummary": "Un resum de les meves capacitats tècniques per portar el teu projecte al següent nivell."
-  ,"pricingSectionTitle": "Tria la Solució Web que Impulsarà el Teu Negoci"
-  ,"pricingSectionSubtitle": "Comença amb els nostres plans base, dissenyats per convertir. Ràpid, escalable i professional."
+  ,"pricingSectionTitle": "Tria la solució digital que el teu projecte necessita"
+  ,"pricingSectionSubtitle": "Sense intermediaris. Obté un desenvolupament web optimitzat, pensat per escalar i gestionat personalment per garantir la qualitat."
   ,"initialPackageTitle": "Paquet Inicial: Landing Page"
   ,"initialPackageDescription": "Una Landing Page professional optimitzada per generar leads. La teva eina més poderosa per a resultats ràpids."
   ,"priceBaseLanding": "Preu Base: 750€"
   ,"startMyProject": "Comença el Meu Projecte"
   ,"needMoreFeatures": "Necessites més funcionalitats? Contacta'ns per a una cotització personalitzada"
   ,"recommendedPackage": "PAQUET RECOMANAT"
+  ,"modalTitle": "Parlem del teu Projecte"
+  ,"modalSubtitle": "Tria la teva forma preferida de contacte"
+  ,"chatWhatsApp": "Xatejar per WhatsApp"
+  ,"sendEmail": "Enviar un Email Directe"
+  ,"orDivider": "o"
+  ,"quickMessageTitle": "O deixa'ns un missatge ràpid i et contactarem"
+  ,"nameLabel": "Nom"
+  ,"namePlaceholder": "El teu nom"
+  ,"emailLabel": "Email"
+  ,"emailPlaceholder": "el.teu@email.com"
+  ,"messageLabel": "Missatge"
+  ,"messagePlaceholder": "Explica'ns sobre el teu projecte..."
+  ,"sendButton": "Enviar Missatge"
+  ,"sendingButton": "Enviant..."
+  ,"successMessage": "✓ Missatge enviat amb èxit. Et contactarem aviat."
+  ,"errorMessage": "✗ Hi ha hagut un error. Si us plau, torna-ho a intentar."
+  ,"closeModal": "Tancar modal"
+  ,"changeTheme": "Canviar tema"
 }

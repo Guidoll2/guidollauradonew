@@ -1,6 +1,7 @@
 'use client';
 
 import { Check } from 'lucide-react';
+import { useTheme } from '@/lib/theme-context';
 
 interface PricingCardProps {
   title: string;
@@ -13,6 +14,7 @@ interface PricingCardProps {
   noCommitmentText: string;
   isRecommended?: boolean;
   badgeText?: string;
+  onButtonClick?: () => void;
 }
 
 export function PricingCard({
@@ -26,9 +28,16 @@ export function PricingCard({
   noCommitmentText,
   isRecommended = true,
   badgeText = 'PAQUETE RECOMENDADO',
+  onButtonClick,
 }: PricingCardProps) {
+  const { isLightMode } = useTheme();
+  
   return (
-    <div className="w-full max-w-md bg-gradient-to-b from-slate-900 to-slate-800 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden hover:shadow-2xl hover:shadow-cyan-500/10 transition-shadow duration-500">
+    <div className={`w-full max-w-md rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 ${
+      isLightMode
+        ? 'bg-gradient-to-b from-slate-900 to-slate-800 border border-slate-700 hover:shadow-2xl hover:shadow-cyan-500/10'
+        : 'bg-gradient-to-b from-white to-slate-50 border border-slate-200 hover:shadow-2xl hover:shadow-blue-500/10'
+    }`}>
       {/* Badge Premium */}
       {isRecommended && (
         <div className="bg-gradient-to-r from-[#ffbba8] to-[#67e2f0] px-4 py-2 text-center">
@@ -39,12 +48,16 @@ export function PricingCard({
       {/* Contenido de la Tarjeta */}
       <div className="p-8">
         {/* Título del Plan */}
-        <h3 className="text-2xl font-bold text-white mb-2">
+        <h3 className={`text-2xl font-bold mb-2 transition-colors duration-500 ${
+          isLightMode ? 'text-white' : 'text-slate-900'
+        }`}>
           {title}
         </h3>
 
         {/* Descripción */}
-        <p className="text-gray-300 text-sm mb-8">
+        <p className={`text-sm mb-8 transition-colors duration-500 ${
+          isLightMode ? 'text-gray-300' : 'text-slate-600'
+        }`}>
           {description}
         </p>
 
@@ -55,34 +68,52 @@ export function PricingCard({
               {price}
             </span>
           </div>
-          <p className="text-gray-500 text-xs mt-2">
+          <p className={`text-xs mt-2 transition-colors duration-500 ${
+            isLightMode ? 'text-gray-500' : 'text-slate-400'
+          }`}>
             {customizationText}
           </p>
         </div>
 
         {/* Botón CTA */}
-        <button className="w-full bg-gradient-to-r from-[#ffbba8] to-[#67e2f0] hover:shadow-lg hover:shadow-cyan-400/30 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 mb-8">
+        <button 
+          onClick={onButtonClick}
+          className={`w-full bg-gradient-to-r from-[#ffbba8] to-[#67e2f0] font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 mb-8 ${
+          isLightMode
+            ? 'hover:shadow-lg hover:shadow-cyan-400/30 text-slate-900'
+            : 'hover:shadow-lg hover:shadow-blue-400/30 text-slate-900'
+        }`}>
           {buttonText}
         </button>
 
         {/* Separador */}
-        <div className="border-t border-slate-700 mb-8"></div>
+        <div className={`border-t mb-8 transition-colors duration-500 ${
+          isLightMode ? 'border-slate-700' : 'border-slate-200'
+        }`}></div>
 
         {/* Lista de Inclusiones */}
         <div className="space-y-4">
-          <p className="text-sm font-semibold text-gray-300 mb-4">
+          <p className={`text-sm font-semibold mb-4 transition-colors duration-500 ${
+            isLightMode ? 'text-gray-300' : 'text-slate-700'
+          }`}>
             {includesLabel}
           </p>
           {features.map((feature, index) => (
             <div key={index} className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-[#67e2f0] flex-shrink-0 mt-0.5" />
-              <span className="text-gray-300 text-sm">{feature}</span>
+              <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 transition-colors duration-500 ${
+                isLightMode ? 'text-[#67e2f0]' : 'text-blue-600'
+              }`} />
+              <span className={`text-sm transition-colors duration-500 ${
+                isLightMode ? 'text-gray-300' : 'text-slate-600'
+              }`}>{feature}</span>
             </div>
           ))}
         </div>
 
         {/* Nota Final */}
-        <p className="text-gray-500 text-xs text-center mt-8">
+        <p className={`text-xs text-center mt-8 transition-colors duration-500 ${
+          isLightMode ? 'text-gray-500' : 'text-slate-400'
+        }`}>
           {noCommitmentText}
         </p>
       </div>

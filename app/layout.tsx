@@ -4,8 +4,6 @@ import "./globals.css";
 import { LanguageProvider } from "@/lib/language-context";
 import { CartProvider } from "@/lib/cart-context";
 import { ThemeProvider } from "@/lib/theme-context";
-import FloatingCart from "@/components/FloatingCart";
-import CheckoutModal from "@/components/CheckoutModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +54,7 @@ export default function RootLayout({
             <LanguageProvider>
               {children}
               
-              <CheckoutModal />
+            
             </LanguageProvider>
           </CartProvider>
         </ThemeProvider>

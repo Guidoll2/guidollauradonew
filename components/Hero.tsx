@@ -267,7 +267,7 @@ export default function Hero() {
               stack={false}
               className="inline-block"
             />
-          </h1>
+           </h1>
 
           {/* 3. SUBTÍTULO (Ajustado) */}
           {/* Bajamos de text-2xl a text-xl para mejor jerarquía visual */}

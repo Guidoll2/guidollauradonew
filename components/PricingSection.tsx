@@ -137,7 +137,7 @@ export default function PricingSection() {
           <p className={`mb-4 transition-colors duration-500 ${
             isLightMode ? 'text-gray-400' : 'text-slate-500'
           }`}>
-            {t.needMoreFeatures || '¿Necesitas más funcionalidades? Contáctanos para un presupuesto personalizado'}
+            {t.needMoreFeatures || '¿Necesitas más funcionalidades? Contáctame para un presupuesto personalizado'}
           </p>
           <a
             href="https://wa.me/34"

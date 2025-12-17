@@ -62,10 +62,10 @@
   "proPackageDescription": "La solució definitiva per a projectes complexos. Ja sigui un lloc amb subscripcions, un E-commerce global o una eina de gestió interna.",
   "proPackagePrice": "Des de 2500€",
   "businessPackageTitle": "Web Professional d'Autoritat i Captació",
-  "businessPackageDescription": "El fonament digital per a professionals, consultors i empreses que busquen créixer. Desenvolupo un lloc web corporatiu, multi-pàgina i optimitzat, dissenyat per establir la teva autoritat al sector i generar un flux constant de clients potencials (Leads).",
+  "businessPackageDescription": "El fonament digital per a professionals, consultors i empreses que busquen créixer. Lloc web multi-pàgina i optimitzat, dissenyat per establir la teva autoritat al sector.",
   "businessPackagePrice": "1.800€",
   "initialPackageTitle": "Landing Page d'Alta Conversió",
-  "initialPackageDescription": "La solució més ràpida per llançar la teva oferta i aconseguir clients immediatament. Dissenyo una pàgina estratègica, enfocada en un únic objectiu (Leads o Vendes), amb una velocitat de càrrega màxima per assegurar l'èxit de les teves campanyes de màrqueting.",
+  "initialPackageDescription": "La solució més ràpida per llançar la teva oferta i aconseguir clients immediatament. Pàgina estratègica, enfocada en un únic objectiu (Leads o Vendes), amb una velocitat de càrrega màxima per assegurar l'èxit de les teves campanyes de màrqueting.",
   "initialPackagePrice": "750€",
   "initialPackageSubtext": "Disseny estratègic i desplegament ràpid.",
   "businessPackageSubtext": "Disseny, desenvolupament i un any d'Hosting inclosos.",
@@ -199,7 +199,7 @@
   ,"initialPackageDescription": "Una Landing Page professional optimitzada per generar leads. La teva eina més poderosa per a resultats ràpids."
   ,"priceBaseLanding": "Preu Base: 750€"
   ,"startMyProject": "Comença el Meu Projecte"
-  ,"needMoreFeatures": "Necessites més funcionalitats? Contacta'ns per a una cotització personalitzada"
+  ,"needMoreFeatures": "Necessites més funcionalitats? Contacta per a una cotització personalitzada"
   ,"recommendedPackage": "PAQUET RECOMANAT"
   ,"modalTitle": "Parlem del teu Projecte"
   ,"modalSubtitle": "Tria la teva forma preferida de contacte"

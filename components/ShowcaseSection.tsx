@@ -253,7 +253,7 @@ export default function ShowcaseSection() {
                     }`}
                   >
                     {/* notch */}
-                    <div className={`absolute left-1/2 top-1 z-10 h-4 w-12 -translate-x-1/2 rounded-full ${
+                    <div className={`absolute left-1/2 top-1 z-10 h-2 w-12 -translate-x-1/2 rounded-full ${
                       isLightMode ? 'bg-slate-800' : 'bg-slate-950'
                     }`} />
                     

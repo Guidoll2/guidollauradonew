@@ -1,5 +1,6 @@
 {
   "contact": "Contact",
+  "contactMe": "Contact me",
   "heroTitle": "Professional webs for your project",
   "heroSubtitle": "Comprehensive solutions for your digital presence",
   "heroWelcome": "Welcome",
@@ -206,7 +207,7 @@
   ,"chatWhatsApp": "Chat on WhatsApp"
   ,"sendEmail": "Send a Direct Email"
   ,"orDivider": "or"
-  ,"quickMessageTitle": "Or leave us a quick message and we'll contact you"
+  ,"quickMessageTitle": "Or leave me a quick message and I'll contact you"
   ,"nameLabel": "Name"
   ,"namePlaceholder": "Your name"
   ,"emailLabel": "Email"

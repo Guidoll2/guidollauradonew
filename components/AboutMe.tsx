@@ -1,13 +1,16 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/lib/language-context';
 import { useTheme } from '@/lib/theme-context';
 import { Target, CheckCircle, Briefcase, Code, Zap, Layout } from 'lucide-react';
+import ContactModal from './ContactModal';
 
 export default function AboutMeSection() {
   const { t } = useLanguage();
   const { isLightMode } = useTheme();
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
     <section 
@@ -80,17 +83,16 @@ export default function AboutMeSection() {
             </p>
 
             <div className="mt-auto w-full">
-              <a
-                href="https://wa.me/34675497068"
-                target="_blank"
+              <button
+                onClick={() => setIsContactModalOpen(true)}
                 className={`block w-full py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300 transform hover:scale-[1.02] ${
                   isLightMode
                     ? 'bg-slate-900 text-white hover:bg-slate-800'
                     : 'bg-white text-slate-900 hover:bg-slate-100'
                 }`}
               >
-                {t.contactMe || 'Solicitar Mi CV/Portafolio'}
-              </a>
+                {t.contactMe || 'Contáctame'}
+              </button>
             </div>
           </div>
 
@@ -181,6 +183,11 @@ export default function AboutMeSection() {
 
         </div>
       </div>
+
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </section>
   );
 }

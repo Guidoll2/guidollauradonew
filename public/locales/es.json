@@ -1,5 +1,6 @@
 {
   "contact": "Contacto",
+  "contactMe": "Contáctame",
   "heroTitle": "Webs profesionales para tu proyecto",
   "heroSubtitle": "Soluciones integrales para tu presencia digital",
   "heroWelcome": "Bienvenidos",
@@ -58,7 +59,7 @@
   "advancedFeatures": "Características avanzadas",
   "mostPopular": "Para Empresas & Profesionales",
   "proPackageTitle": "Desarrollo Integral / Software a Medida",
-  "proPackageDescription": "La solución definitiva para proyectos complejos. Ya sea un sitio con suscripciones, un E-commerce global o una herramienta de gestión interna. Desarrollo una plataforma robusta, multi-idioma y 100% personalizada para escalar tu productividad sin límites técnicos.",
+  "proPackageDescription": "La solución definitiva para proyectos complejos. Ya sea un sitio con suscripciones, un E-commerce global o una herramienta de gestión interna.",
   "proPackagePrice": "Desde 2500€",
   "businessPackageTitle": "Web Profesional de Autoridad y Captación",
   "businessPackageDescription": "El cimiento digital para profesionales, consultores y empresas que buscan crecer. Desarrollo un sitio web corporativo, multi-página y optimizado, diseñado para establecer tu autoridad en el sector y generar un flujo constante de clientes potenciales (Leads).",
@@ -202,7 +203,7 @@
   ,"chatWhatsApp": "Chatear por WhatsApp"
   ,"sendEmail": "Enviar un Email Directo"
   ,"orDivider": "o"
-  ,"quickMessageTitle": "O déjanos un mensaje rápido y te contactamos"
+  ,"quickMessageTitle": "O déjame un mensaje rápido y te contacto"
   ,"nameLabel": "Nombre"
   ,"namePlaceholder": "Tu nombre"
   ,"emailLabel": "Email"

@@ -38,15 +38,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setSubmitStatus('idle');
 
     try {
-      // Simular envío del formulario
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => {
-        handleClose();
-        setSubmitStatus('idle');
-      }, 2000);
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => {
+          handleClose();
+          setSubmitStatus('idle');
+        }, 2000);
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('Error al enviar el mensaje:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

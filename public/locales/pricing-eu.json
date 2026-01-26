@@ -1,0 +1,17 @@
+{
+  "region": "EU",
+  "currency": "EUR",
+  "currencySymbol": "€",
+  "prices": {
+    "express": "199",
+    "landing": "550",
+    "professional": "1200",
+    "custom": "2500"
+  },
+  "priceLabels": {
+    "express": "199€",
+    "landing": "550€",
+    "professional": "1.200€",
+    "custom": "Desde 2.500€"
+  }
+}

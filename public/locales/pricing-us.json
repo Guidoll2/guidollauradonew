@@ -1,0 +1,17 @@
+{
+  "region": "US",
+  "currency": "USD",
+  "currencySymbol": "$",
+  "prices": {
+    "express": "240",
+    "landing": "660",
+    "professional": "1425",
+    "custom": "2970"
+  },
+  "priceLabels": {
+    "express": "$240 USD",
+    "landing": "$660 USD",
+    "professional": "$1,425 USD",
+    "custom": "From $2,970 USD"
+  }
+}

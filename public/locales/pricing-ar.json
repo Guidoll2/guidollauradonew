@@ -1,0 +1,17 @@
+{
+  "region": "AR",
+  "currency": "ARS",
+  "currencySymbol": "$",
+  "prices": {
+    "express": "350.000",
+    "landing": "950.000",
+    "professional": "2.000.000",
+    "custom": "4.000.000"
+  },
+  "priceLabels": {
+    "express": "$350.000 ARS",
+    "landing": "$950.000 ARS",
+    "professional": "$2.000.000 ARS",
+    "custom": "Desde $4.000.000 ARS"
+  }
+}

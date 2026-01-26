@@ -30,23 +30,34 @@
   "consultationText": "per a una consulta personalitzada",
   "moreServices": "Veure més serveis",
   "visitSite": "Visitar:",
-  "feature1": "Disseny Professional Personalitzat (Basat en la teva marca personal o corporativa)",
-  "feature2": "Desenvolupament Web Modern (Codi net i velocitat de càrrega)",
-  "feature3": "Integració Avançada amb Contactes (CRM, WhatsApp, o Email Marketing)",
-  "feature4": "Optimització SEO i Anàlisi de Paraules Clau (Posicionament al teu nínxol)",
-  "feature5": "Lloc Multi-Pàgina (Home, Serveis, Sobre Nosaltres, Contacte, Blog)",
-  "feature6": "Hosting d'Alt Rendiment (1 any)",
-  "feature7": "Galeria de Projectes i Testimonis",
-  "feature8": "Integració de Google Analytics / Search Console",
-  "feature9": "Integració de PIXEL (Meta i TikTok)",
-  "landingFeature1": "Disseny Estratègic i enfocat a un objectiu (Clar i sense distraccions)",
-  "landingFeature2": "Optimització 100% per a Publicitat (Google Ads, Meta Ads, etc.)",
-  "landingFeature3": "Velocitat de Càrrega Garantida (Factor clau per al SEO i la conversió)",
-  "landingFeature4": "Desenvolupament Modern i 100% Responsiu (Perfecte en mòbil i escriptori)",
-  "landingFeature5": "Formulari de Captació de Leads Integrat",
-  "landingFeature6": "Botó de WhatsApp directe",
-  "landingFeature7": "Integració amb Google Analytics",
-  "landingFeature8": "Suport Tècnic per 1 mes",
+  "feature1": "Disseny Professional Personalitzat",
+  "feature2": "Multi-pàgina (fins a 5)",
+  "feature3": "Blog/Notícies",
+  "feature4": "Disseny 100% personalitzat",
+  "feature5": "Panell de gestió",
+  "feature6": "Optimització SEO avançat",
+  "feature7": "Hosting d'Alt Rendiment (1 any)",
+  "feature8": "Galeria de Projectes i Testimonis",
+  "feature9": "Integració de Google Analytics / Search Console",
+  "expressFeature1": "Landing Page One-Page",
+  "expressFeature2": "Optimització per a Google Maps",
+  "expressFeature3": "Botó de WhatsApp directe",
+  "expressFeature4": "Hosting bonificat (1r mes)",
+  "expressFeature5": "Disseny net i professional",
+  "expressFeature6": "Responsive (mòbil i desktop)",
+  "expressFeature7": "Entrega en 3-5 dies",
+  "expressPackageTitle": "Pack Presència Express",
+  "expressPackageDescription": "La solució ràpida per tenir presència avui mateix. Ideal per a negocis locals.",
+  "expressPackagePrice": "199€",
+  "expressPackageSubtext": "Disseny minimalista i professional.",
+  "landingFeature1": "Disseny Estratègic i enfocat a un objectiu",
+  "landingFeature2": "Copywriting persuasiu",
+  "landingFeature3": "SEO On-page bàsic",
+  "landingFeature4": "Integració amb CRM/Email Marketing",
+  "landingFeature5": "Alta velocitat de càrrega",
+  "landingFeature6": "Formulari de Captació de Leads",
+  "landingFeature7": "Botó de WhatsApp directe",
+  "landingFeature8": "Integració amb Google Analytics",
   "addedToCart": "✓ Afegit al carretó",
   "prevImage": "Imatge anterior",
   "nextImage": "Següent imatge",
@@ -59,14 +70,14 @@
   "advancedFeatures": "Características avançades",
   "mostPopular": "Per a Empreses & Professionals",
   "proPackageTitle": "Desenvolupament Integral / Programari a Mida",
-  "proPackageDescription": "La solució definitiva per a projectes complexos. Ja sigui un lloc amb subscripcions, un E-commerce global o una eina de gestió interna.",
-  "proPackagePrice": "Des de 2500€",
+  "proPackageDescription": "Solucions complexes i escalables per a projectes únics.",
+  "proPackagePrice": "Des de 2.500€",
   "businessPackageTitle": "Web Professional d'Autoritat i Captació",
-  "businessPackageDescription": "El fonament digital per a professionals, consultors i empreses que busquen créixer. Lloc web multi-pàgina i optimitzat, dissenyat per establir la teva autoritat al sector.",
-  "businessPackagePrice": "1.800€",
+  "businessPackageDescription": "El fonament digital per a professionals i empreses que busquen escalar.",
+  "businessPackagePrice": "1.200€",
   "initialPackageTitle": "Landing Page d'Alta Conversió",
   "initialPackageDescription": "La solució més ràpida per llançar la teva oferta i aconseguir clients immediatament. Pàgina estratègica, enfocada en un únic objectiu (Leads o Vendes), amb una velocitat de càrrega màxima per assegurar l'èxit de les teves campanyes de màrqueting.",
-  "initialPackagePrice": "750€",
+  "initialPackagePrice": "550€",
   "initialPackageSubtext": "Disseny estratègic i desplegament ràpid.",
   "businessPackageSubtext": "Disseny, desenvolupament i un any d'Hosting inclosos.",
   "featureProductGallery": "Galeria de Productes",
@@ -196,12 +207,11 @@
   ,"pricingSectionTitle": "Tria la solució digital que el teu projecte necessita"
   ,"pricingSectionSubtitle": "Sense intermediaris. Obté un desenvolupament web optimitzat, pensat per escalar i gestionat personalment per garantir la qualitat."
   ,"initialPackageTitle": "Paquet Inicial: Landing Page"
-  ,"initialPackageDescription": "Una Landing Page professional optimitzada per generar leads. La teva eina més poderosa per a resultats ràpids."
+  ,"initialPackageDescription": "Disseny estratègic enfocat en vendre un producte o servei específic."
   ,"priceBaseLanding": "Preu Base: 750€"
   ,"startMyProject": "Comença el Meu Projecte"
   ,"needMoreFeatures": "Necessites més funcionalitats? Contacta per a una cotització personalitzada"
-  ,"recommendedPackage": "PAQUET RECOMANAT"
-  ,"modalTitle": "Parlem del teu Projecte"
+  ,"recommendedPackage": "PAQUET RECOMANAT"  ,"premiumBadge": "Premium"  ,"modalTitle": "Parlem del teu Projecte"
   ,"modalSubtitle": "Tria la teva forma preferida de contacte"
   ,"chatWhatsApp": "Xatejar per WhatsApp"
   ,"sendEmail": "Enviar un Email Directe"

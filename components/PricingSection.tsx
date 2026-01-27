@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useLanguage } from '@/lib/language-context';
+import { useRegion } from '@/lib/region-context';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { PricingCard } from './PricingCard';
 import { useTheme } from '@/lib/theme-context';
@@ -9,42 +10,93 @@ import ContactModal from './ContactModal';
 
 export default function PricingSection() {
   const { t } = useLanguage();
+  const { pricing } = useRegion();
   const { isLightMode } = useTheme();
   useScrollAnimation();
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
-  // Características para Web Profesional
-  const professionalFeatures = [
-    t.feature1 || 'Diseño Profesional Personalizado',
-    t.feature2 || 'Desarrollo Web Moderno',
-    t.feature3 || 'Integración Avanzada con Contactos',
-    t.feature4 || 'Optimización SEO y Análisis de Palabras Clave',
-    t.feature5 || 'Sitio Multi-Página',
-    t.feature6 || 'Hosting de Alto Rendimiento (1 año)',
-    t.feature7 || 'Galería de Proyectos y Testimonios',
-    t.feature8 || 'Integración de Google Analytics / Search Console',
-    t.feature9 || 'Integración de PIXEL (Meta y TikTok)',
+  // Características para Pack Presencia Express
+  const expressFeatures = [
+    t.expressFeature1 || 'Landing Page One-Page',
+    t.expressFeature2 || 'Optimización para Google Maps',
+    t.expressFeature3 || 'Botón de WhatsApp directo',
+    t.expressFeature4 || 'Hosting bonificado (1er mes)',
+    t.expressFeature5 || 'Diseño limpio y profesional',
+    t.expressFeature6 || 'Responsive (móvil y desktop)',
+    t.expressFeature7 || 'Entrega en 3-5 días',
   ];
 
   // Características para Landing Page
   const landingFeatures = [
     t.landingFeature1 || 'Diseño Estratégico y enfocado a un objetivo',
-    t.landingFeature2 || 'Optimización 100% para Publicidad',
-    t.landingFeature3 || 'Velocidad de Carga Garantizada',
-    t.landingFeature4 || 'Desarrollo Moderno y 100% Responsivo',
-    t.landingFeature5 || 'Formulario de Captación de Leads Integrado',
-    t.landingFeature6 || 'Botón de WhatsApp directo',
-    t.landingFeature7 || 'Integración con Google Analytics',
-    t.landingFeature8 || 'Soporte Técnico por 1 mes',
+    t.landingFeature2 || 'Copywriting persuasivo',
+    t.landingFeature3 || 'SEO On-page básico',
+    t.landingFeature4 || 'Integración con CRM/Email Marketing',
+    t.landingFeature5 || 'Alta velocidad de carga',
+    t.landingFeature6 || 'Formulario de Captación de Leads',
+    t.landingFeature7 || 'Botón de WhatsApp directo',
+    t.landingFeature8 || 'Integración con Google Analytics',
   ];
 
-  // Definición de los 3 planes (Premium primero para efecto de anclaje)
+  // Características para Web Profesional
+  const professionalFeatures = [
+    t.feature1 || 'Diseño Profesional Personalizado',
+    t.feature2 || 'Multi-página (hasta 5)',
+    t.feature3 || 'Blog/Noticias',
+    t.feature4 || 'Diseño 100% personalizado',
+    t.feature5 || 'Panel de gestión',
+    t.feature6 || 'Optimización SEO avanzado',
+    t.feature7 || 'Hosting de Alto Rendimiento (1 año)',
+    t.feature8 || 'Galería de Proyectos y Testimonios',
+    t.feature9 || 'Integración de Google Analytics / Search Console',
+  ];
+
+  // Definición de los 4 planes (De menor a mayor precio para crear escalón de entrada suave)
   const pricingPlans = [
-    // Plan 1: Premium / Ancla
+    // Plan 1: Pack Presencia Express - Punto de entrada
     {
-      title: t.proPackageTitle || 'Paquete Pro: Desarrollo a Medida',
-      description: t.proPackageDescription || 'Soluciones digitales avanzadas para empresas, profesionales y e-commerce.',
-      price: t.proPackagePrice || '3.200 €',
+      title: t.expressPackageTitle || 'Pack Presencia Express',
+      description: t.expressPackageDescription || 'La solución rápida para tener presencia hoy mismo. Ideal para negocios locales.',
+      price: pricing?.priceLabels.express || '199€',
+      customizationText: t.expressPackageSubtext || 'Diseño minimalista y profesional.',
+      buttonText: t.startMyProject || 'Empezar mi Proyecto',
+      features: expressFeatures,
+      includesLabel: t.includesLabel || 'Incluye:',
+      noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
+      isRecommended: false,
+      badgeText: '',
+    },
+    // Plan 2: Landing Page de Alta Conversión - Actualizado
+    {
+      title: t.initialPackageTitle || 'Landing Page de Alta Conversión',
+      description: t.initialPackageDescription || 'Diseño estratégico enfocado en vender un producto o servicio específico.',
+      price: pricing?.priceLabels.landing || '550€',
+      customizationText: t.initialPackageSubtext || 'Diseño estratégico y despliegue rápido.',
+      buttonText: t.startMyProject || 'Empezar mi Proyecto',
+      features: landingFeatures,
+      includesLabel: t.includesLabel || 'Incluye:',
+      noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
+      isRecommended: true,
+      badgeText: t.mostPopular || 'El más Popular',
+    },
+    // Plan 3: Web Profesional - Ajustado
+    {
+      title: t.businessPackageTitle || 'Web Profesional de Autoridad',
+      description: t.businessPackageDescription || 'El cimiento digital para profesionales y empresas que buscan escalar.',
+      price: pricing?.priceLabels.professional || '1.200€',
+      customizationText: t.businessPackageSubtext || 'Diseño, desarrollo y un año de Hosting incluidos.',
+      buttonText: t.startMyProject || 'Empezar mi Proyecto',
+      features: professionalFeatures,
+      includesLabel: t.includesLabel || 'Incluye:',
+      noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
+      isRecommended: false,
+      badgeText: '',
+    },
+    // Plan 4: Premium - Desarrollo Integral
+    {
+      title: t.proPackageTitle || 'Desarrollo Integral / Software a Medida',
+      description: t.proPackageDescription || 'Soluciones complejas y escalables para proyectos únicos.',
+      price: pricing?.priceLabels.custom || 'Desde 2.500€',
       customizationText: t.personalCustomization || 'Proyectos personalizados según tus necesidades.',
       buttonText: t.startMyProject || 'Empezar mi Proyecto',
       features: [
@@ -62,34 +114,8 @@ export default function PricingSection() {
       ],
       includesLabel: t.includesLabel || 'Incluye:',
       noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
-      isRecommended: true,
-      badgeText: t.mostPopular || 'El más Popular',
-    },
-    // Plan 2: Intermedio
-    {
-      title: t.businessPackageTitle || 'Paquete Negocio: Web Corporativa',
-      description: t.businessPackageDescription || 'Web corporativa multi-página con galería y SEO avanzado. Ideal para negocios en crecimiento.',
-      price: t.businessPackagePrice || '1.800€',
-      customizationText: t.businessPackageSubtext || 'Diseño, desarrollo y un año de Hosting incluidos.',
-      buttonText: t.startMyProject || 'Empezar mi Proyecto',
-      features: professionalFeatures,
-      includesLabel: t.includesLabel || 'Incluye:',
-      noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
       isRecommended: false,
-      badgeText: '',
-    },
-    // Plan 3: Inicial / Entrada
-    {
-      title: t.initialPackageTitle || 'Paquete Inicial: Landing Page',
-      description: t.initialPackageDescription || 'Una Landing Page profesional optimizada para generar leads. Tu herramienta más poderosa para resultados rápidos.',
-      price: t.initialPackagePrice || '750€',
-      customizationText: t.initialPackageSubtext || 'Diseño estratégico y despliegue rápido.',
-      buttonText: t.startMyProject || 'Empezar mi Proyecto',
-      features: landingFeatures,
-      includesLabel: t.includesLabel || 'Incluye:',
-      noCommitmentText: t.noCommitment || '💳 Sin compromiso • Cotización gratuita',
-      isRecommended: false,
-      badgeText: '',
+      badgeText: t.premiumBadge || 'Premium',
     },
   ];
 
@@ -112,8 +138,8 @@ export default function PricingSection() {
           </p>
         </div>
 
-        {/* Cuadrícula de Tarjetas de Precios */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        {/* Cuadrícula de Tarjetas de Precios - Ahora con 4 columnas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
           {pricingPlans.map((plan, index) => (
             <PricingCard
               key={index}

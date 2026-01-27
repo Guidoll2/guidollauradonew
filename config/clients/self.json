@@ -1,0 +1,58 @@
+{
+  "clientId": "self",
+  "businessName": "Guido's Development Services",
+  "businessDescription": "Full-stack web development services specializing in Next.js, React, and modern web technologies. Personal portfolio and client work.",
+  "allowedPhoneNumbers": [
+    "+1234567890"
+  ],
+  "rules": [
+    {
+      "keywords": ["pricing", "price", "cost", "how much"],
+      "response": "Thanks for asking about pricing! My rates vary by project complexity. For a detailed quote, please visit my website or send me your project requirements. Standard web development starts at $X per hour or fixed-price packages available.",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "keywords": ["hours", "availability", "available", "schedule"],
+      "response": "I'm typically available Monday-Friday, 9 AM - 6 PM EST. For urgent requests, I'll do my best to respond within 24 hours. What can I help you with?",
+      "priority": 9,
+      "enabled": true
+    },
+    {
+      "keywords": ["portfolio", "work", "examples", "projects"],
+      "response": "You can view my portfolio at https://guidoll.dev - it showcases my recent projects including web apps, landing pages, and full-stack solutions. Is there a specific type of project you're interested in?",
+      "priority": 8,
+      "enabled": true
+    },
+    {
+      "keywords": ["hello", "hi", "hey"],
+      "response": "Hi! 👋 Thanks for reaching out. I'm Guido's AI assistant. How can I help you today?",
+      "priority": 5,
+      "enabled": true
+    }
+  ],
+  "ai": {
+    "enabled": true,
+    "systemPrompt": "You are a professional AI assistant representing Guido, a full-stack web developer. Your role is to:\n\n1. Answer questions about web development services\n2. Qualify potential clients by understanding their needs\n3. Provide helpful information about technologies (Next.js, React, TypeScript, etc.)\n4. Be professional, concise, and friendly\n5. When appropriate, encourage them to schedule a consultation\n\nKey facts about Guido:\n- Specializes in Next.js, React, TypeScript, and modern web technologies\n- Offers both fixed-price projects and hourly consulting\n- Based in [your location/timezone]\n- Portfolio: https://guidoll.dev\n\nGuidelines:\n- Keep responses concise (2-3 sentences when possible)\n- Don't make up pricing - direct them to request a quote\n- Don't make commitments on Guido's behalf\n- If technical requirements are complex, suggest scheduling a call\n- Be warm but professional",
+    "model": "gpt-4",
+    "temperature": 0.7,
+    "maxTokens": 500
+  },
+  "handoff": {
+    "enabled": true,
+    "triggers": [
+      "speak to human",
+      "talk to real person",
+      "not helpful",
+      "escalate",
+      "urgent"
+    ],
+    "fallbackMessage": "I understand you'd like to speak with Guido directly. I'm notifying him now, and he'll get back to you as soon as possible - typically within a few hours during business hours.",
+    "notificationWebhook": ""
+  },
+  "metadata": {
+    "createdAt": "2026-01-27",
+    "tier": "owner",
+    "notes": "This is the owner's personal assistant configuration"
+  }
+}

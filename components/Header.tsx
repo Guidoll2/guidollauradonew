@@ -3,19 +3,28 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useLanguage } from '@/lib/language-context';
+import { useRegion, regionNames, type Region } from '@/lib/region-context';
 import { Language } from '@/lib/types';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/lib/theme-context';
 
 export default function Header() {
   const { language, setLanguage, t } = useLanguage();
+  const { region, setRegion } = useRegion();
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [isRegionMenuOpen, setIsRegionMenuOpen] = useState(false);
   const { isLightMode, toggleTheme } = useTheme();
 
   const languages: { code: Language; label: string }[] = [
     { code: 'es', label: 'ES' },
     { code: 'ca', label: 'CA' },
     { code: 'en', label: 'EN' }
+  ];
+
+  const regions: { code: Region; label: string }[] = [
+    { code: 'AR', label: regionNames.AR },
+    { code: 'US', label: regionNames.US },
+    { code: 'EU', label: regionNames.EU }
   ];
 
   const handleContactClick = () => {
@@ -49,7 +58,7 @@ export default function Header() {
           </button>
 
           {/* Navigation */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-4">
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -63,6 +72,58 @@ export default function Header() {
             >
               {isLightMode ? <Moon size={22} /> : <Sun size={22} />}
             </button>
+
+            {/* Region Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setIsRegionMenuOpen(!isRegionMenuOpen)}
+                className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  isLightMode
+                    ? 'text-gray-700 hover:bg-gray-100'
+                    : 'text-gray-300 hover:bg-slate-800'
+                }`}
+              >
+                <span>{regions.find(r => r.code === region)?.label.split(' ')[0] || '🌎'}</span>
+                <svg 
+                  className={`w-4 h-4 transition-transform ${isRegionMenuOpen ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Region Dropdown */}
+              {isRegionMenuOpen && (
+                <div className={`absolute top-full right-0 mt-1 rounded-lg shadow-lg border py-1 min-w-[160px] transition-colors ${
+                  isLightMode
+                    ? 'bg-white border-gray-200'
+                    : 'bg-slate-800 border-slate-700'
+                }`}>
+                  {regions.map((reg) => (
+                    <button
+                      key={reg.code}
+                      onClick={() => {
+                        setRegion(reg.code);
+                        setIsRegionMenuOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                        region === reg.code 
+                          ? isLightMode
+                            ? 'bg-gray-50 text-blue-600 font-medium'
+                            : 'bg-slate-700 text-blue-400 font-medium'
+                          : isLightMode
+                            ? 'text-gray-700 hover:bg-gray-100'
+                            : 'text-gray-300 hover:bg-slate-700'
+                      }`}
+                    >
+                      {reg.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Language Selector */}
             <div className="relative">

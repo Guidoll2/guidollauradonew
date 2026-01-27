@@ -11,16 +11,32 @@ export default function ProjectsSection() {
 
   const projects = [
     {
-      label: t.project1Label || 'Plataforma tipo red social',
-      title: t.project1Title || 'EmpleArg: red de empleo con +2.600 usuarios',
+      label: t.project3Label || 'E-commerce optimizado',
+      title:
+        t.project3Title ||
+        'Tienda online con pagos y envíos automatizados',
       description:
-        t.project1Desc ||
-        'Plataforma creada para conectar personas desempleadas con empresas. Incluye perfiles, panel administrador, publicaciones, sistema de autenticación y analítica integrada.',
+        t.project3Desc ||
+        'Desarrollo de tienda online con Stripe, integración con mensajería (Sendcloud) y eventos de Analytics para medir todo el funnel de compra.',
       result:
-        t.project1Result ||
-        'Crecimiento orgánico y validación del modelo gracias a un producto estable y fácil de usar.',
-      tags: ['Next.js', 'Auth', 'Panel admin', 'MongoDB'],
-      link: t.project1Link || null, // puedes poner acá la URL real si quieres
+        t.project3Result ||
+        'Proceso de venta automático: pedido, pago, generación de etiqueta de envío y notificaciones al cliente.',
+      tags: ['Stripe', 'Sendcloud', 'Conversion tracking', 'SEO'],
+      link: t.project3Link || null,
+    },
+    {
+      label: t.project4Label || 'Tienda online',
+      title:
+        t.project4Title ||
+        'Kalmi: E-commerce con IA y Mercado Pago',
+      description:
+        t.project4Desc ||
+        'Tienda online para cliente en Buenos Aires, Argentina. Implementamos Mercado Pago, API de correos, dashboard de administrador y edición de imágenes con IA.',
+      result:
+        t.project4Result ||
+        'Plataforma completa de e-commerce con gestión administrativa y procesamiento de imágenes con inteligencia artificial.',
+      tags: ['Mercado Pago', 'Admin Dashboard', 'Email API', 'IA'],
+      link: t.project4Link || 'https://www.kalmi.com.ar',
     },
     {
       label: t.project2Label || 'Software a medida',
@@ -37,18 +53,58 @@ export default function ProjectsSection() {
       link: t.project2Link || null,
     },
     {
-      label: t.project3Label || 'E-commerce optimizado',
-      title:
-        t.project3Title ||
-        'Tienda online con pagos y envíos automatizados',
+      label: t.project1Label || 'Plataforma tipo red social',
+      title: t.project1Title || 'EmpleArg: red de empleo con +2.600 usuarios',
       description:
-        t.project3Desc ||
-        'Desarrollo de tienda online con Stripe, integración con mensajería (Sendcloud) y eventos de Analytics para medir todo el funnel de compra.',
+        t.project1Desc ||
+        'Plataforma creada para conectar personas desempleadas con empresas. Incluye perfiles, panel administrador, publicaciones, sistema de autenticación y analítica integrada.',
       result:
-        t.project3Result ||
-        'Proceso de venta automático: pedido, pago, generación de etiqueta de envío y notificaciones al cliente.',
-      tags: ['Stripe', 'Sendcloud', 'Conversion tracking', 'SEO'],
-      link: t.project3Link || null,
+        t.project1Result ||
+        'Crecimiento orgánico y validación del modelo gracias a un producto estable y fácil de usar.',
+      tags: ['Next.js', 'Auth', 'Panel admin', 'MongoDB'],
+      link: t.project1Link || null,
+    },
+    {
+      label: t.project5Label || 'Web con marketing digital',
+      title:
+        t.project5Title ||
+        'Fontanería i Piscinas: Web + Google Business + Publicidad',
+      description:
+        t.project5Desc ||
+        'Sitio web profesional con diseño optimizado. Incluye alta en Google Business para aparecer en maps, integración de Google Analytics y gestión completa de campaña publicitaria.',
+      result:
+        t.project5Result ||
+        'Presencia digital completa: web optimizada, visibilidad en Google Maps y campañas publicitarias con seguimiento de conversiones.',
+      tags: ['Google Business', 'Analytics', 'SEO Local', 'Google Ads'],
+      link: t.project5Link || 'https://www.fontaneriaipiscinas.com',
+    },
+    {
+      label: t.project6Label || 'Web empresarial',
+      title:
+        t.project6Title ||
+        'Eventos en Barcelona: Plataforma de eventos nocturnos',
+      description:
+        t.project6Desc ||
+        'Sitio web empresarial para eventos nocturnos en Barcelona. Desarrollo completo de interfaz con secciones, galería, sistema multiidioma, formulario de reservas con MailerSend y optimización SEO.',
+      result:
+        t.project6Result ||
+        'Plataforma profesional multiidioma con reservas automatizadas y posicionamiento SEO para captar clientes internacionales.',
+      tags: ['Multiidioma', 'MailerSend', 'SEO', 'Galería'],
+      link: t.project6Link || 'https://www.eventosenbarcelona.com',
+    },
+    {
+      label: t.project7Label || 'Web corporativa',
+      title:
+        t.project7Title ||
+        'Pido Soporte: Empresa de IT en Argentina',
+      description:
+        t.project7Desc ||
+        'Sitio web profesional para empresa de IT en Argentina. Diseño tech moderno, funcional y sencillo con enlaces a redes sociales, WhatsApp y presentación de servicios.',
+      result:
+        t.project7Result ||
+        'Landing page profesional con diseño moderno que transmite confianza y facilita el contacto directo con clientes.',
+      tags: ['Landing', 'IT', 'WhatsApp', 'Diseño moderno'],
+      link: t.project7Link || 'https://www.pidosoporte.com',
     },
   ];
 

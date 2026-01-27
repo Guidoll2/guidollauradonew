@@ -12,16 +12,32 @@ export default function ShowcaseSection() {
 
   const mainProjects = [
     {
-      id: 'emplearg',
-      label: t.showcase1Label || 'Plataforma tipo red social',
-      title: t.showcase1Title || 'EmpleArg – Red de empleo con +2.600 usuarios',
+      id: 'onemore',
+      label: t.showcase3Label || 'E-commerce optimizado',
+      title:
+        t.showcase3Title ||
+        'OneMore – Tienda online con pagos y envíos automatizados',
       description:
-        t.showcase1Desc ||
-        'Plataforma para conectar personas desempleadas con empresas, con perfiles, publicaciones, panel administrador y autenticación completa.',
-      url: 'https://www.emplearg.com',
-      desktopSrc: '/emplearg.png',
-      mobileSrc: '/empleargsm.png',
-      tags: ['Next.js', 'Auth', 'Panel admin', 'MongoDB'],
+        t.showcase3Desc ||
+        'E-commerce integrado con Stripe y Sendcloud, pensado para medir todo el funnel de compra y automatizar el proceso de venta.',
+      url: 'https://www.one-more.es',
+      desktopSrc: '/onemore.png',
+      mobileSrc: '/onemoresm.png',
+      tags: ['Stripe', 'Sendcloud', 'Conversion tracking', 'SEO'],
+    },
+    {
+      id: 'kalmi',
+      label: t.showcase4Label || 'Tienda online',
+      title:
+        t.showcase4Title ||
+        'Kalmi – E-commerce con IA y Mercado Pago',
+      description:
+        t.showcase4Desc ||
+        'Tienda online para cliente en Buenos Aires, Argentina. Con integración de Mercado Pago, API de correos, dashboard de administrador y edición de imágenes con IA.',
+      url: 'https://www.kalmi.com.ar',
+      desktopSrc: '/kalmi.png',
+      mobileSrc: '/kalmism.png',
+      tags: ['Mercado Pago', 'Admin Dashboard', 'Email API', 'IA'],
     },
     {
       id: 'cuatrogranos',
@@ -36,18 +52,58 @@ export default function ShowcaseSection() {
       tags: ['SaaS', 'Dashboards', 'Reporting', 'APIs'],
     },
     {
-      id: 'onemore',
-      label: t.showcase3Label || 'E-commerce optimizado',
-      title:
-        t.showcase3Title ||
-        'OneMore – Tienda online con pagos y envíos automatizados',
+      id: 'emplearg',
+      label: t.showcase1Label || 'Plataforma tipo red social',
+      title: t.showcase1Title || 'EmpleArg – Red de empleo con +2.600 usuarios',
       description:
-        t.showcase3Desc ||
-        'E-commerce integrado con Stripe y Sendcloud, pensado para medir todo el funnel de compra y automatizar el proceso de venta.',
-      url: 'https://www.one-more.es',
-      desktopSrc: '/onemore.png',
-      mobileSrc: '/onemoresm.png',
-      tags: ['Stripe', 'Sendcloud', 'Conversion tracking', 'SEO'],
+        t.showcase1Desc ||
+        'Plataforma para conectar personas desempleadas con empresas, con perfiles, publicaciones, panel administrador y autenticación completa.',
+      url: 'https://www.emplearg.com',
+      desktopSrc: '/emplearg.png',
+      mobileSrc: '/empleargsm.png',
+      tags: ['Next.js', 'Auth', 'Panel admin', 'MongoDB'],
+    },
+    {
+      id: 'fontaneria',
+      label: t.showcase5Label || 'Web con marketing digital',
+      title:
+        t.showcase5Title ||
+        'Fontanería i Piscinas – Web + Google Business + Publicidad',
+      description:
+        t.showcase5Desc ||
+        'Sitio web profesional con diseño optimizado. Incluye alta en Google Business para aparecer en maps, integración de Google Analytics y gestión completa de campaña publicitaria.',
+      url: 'https://www.fontaneriaipiscinas.com',
+      desktopSrc: '/fontaneria.png',
+      mobileSrc: '/fontaneriasm.png',
+      tags: ['Google Business', 'Analytics', 'SEO Local', 'Google Ads'],
+    },
+    {
+      id: 'eventosenbarcelona',
+      label: t.showcase6Label || 'Web empresarial',
+      title:
+        t.showcase6Title ||
+        'Eventos en Barcelona – Plataforma de eventos nocturnos',
+      description:
+        t.showcase6Desc ||
+        'Sitio web empresarial para eventos nocturnos en Barcelona. Desarrollo completo de interfaz con secciones, galería, sistema multiidioma, formulario de reservas con MailerSend y optimización SEO.',
+      url: 'https://www.eventosenbarcelona.com',
+      desktopSrc: '/eventosenbarcelona.png',
+      mobileSrc: '/eventossm.png',
+      tags: ['Multiidioma', 'MailerSend', 'SEO', 'Galería'],
+    },
+    {
+      id: 'pidosoporte',
+      label: t.showcase7Label || 'Web corporativa',
+      title:
+        t.showcase7Title ||
+        'Pido Soporte – Empresa de IT en Argentina',
+      description:
+        t.showcase7Desc ||
+        'Sitio web profesional para empresa de IT en Argentina. Diseño tech moderno, funcional y sencillo con enlaces a redes sociales, WhatsApp y presentación de servicios.',
+      url: 'https://www.pidosoporte.com',
+      desktopSrc: '/pidosoporte.png',
+      mobileSrc: '/pidosoportesm.png',
+      tags: ['Landing', 'IT', 'WhatsApp', 'Diseño moderno'],
     },
   ];
 
@@ -271,47 +327,6 @@ export default function ShowcaseSection() {
               </div>
             </article>
           ))}
-        </div>
-
-        {/* otros sitios */}
-        <div className="mt-14 fade-in">
-          <p
-            className={`mb-3 text-xs font-medium uppercase tracking-wide transition-colors duration-500 ${
-              isLightMode ? 'text-slate-500' : 'text-slate-400'
-            }`}
-          >
-            {t.otherSitesLabel || 'Otros sitios desarrollados'}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {otherSites.map((site) => (
-              <a
-                key={site.url}
-                href={site.url}
-                target="_blank"
-                rel="noreferrer"
-                className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors duration-300 ${
-                  isLightMode
-                    ? 'border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:bg-white'
-                    : 'border-slate-700 bg-slate-900 text-slate-300 hover:border-slate-500'
-                }`}
-              >
-                {site.name}
-                <svg
-                  className="ml-1 h-3 w-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.7}
-                    d="M9 5h10M19 5v10M19 5L5 19"
-                  />
-                </svg>
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </section>

@@ -383,23 +383,19 @@ export async function POST(request: NextRequest) {
     // 2. Ya llegamos a 6 mensajes (límite máximo)
     const shouldSendEmail = hasContactInfo || messageCount >= 6;
     
+    // Si necesitamos enviar email, hacerlo ANTES de generar la respuesta
+    // Esto asegura que en Vercel serverless el email se envíe completamente
     if (shouldSendEmail) {
       const reason = hasContactInfo ? '📱 Cliente proporcionó datos de contacto' : '📊 Límite de 6 mensajes alcanzado';
-      console.log(`📧 Analizando conversación y enviando email... (${reason})`);
+      console.log(`📧 ENVIANDO EMAIL AHORA (antes de respuesta)... (${reason})`);
       console.log('📝 Total de mensajes:', messages.length);
-      console.log('🔍 Iniciando análisis en background...');
       
-      // Ejecutar análisis en background (no bloquear la respuesta)
-      analyzeConversationAndSendEmail(messages)
-        .then(result => {
-          console.log('✅✅✅ Análisis completado exitosamente:', JSON.stringify(result, null, 2));
-        })
-        .catch(error => {
-          console.error('❌❌❌ Error FATAL en análisis:', error);
-          if (error instanceof Error) {
-            console.error('❌ Stack completo:', error.stack);
-          }
-        });
+      try {
+        const emailResult = await analyzeConversationAndSendEmail(messages);
+        console.log('✅✅✅ Email procesado:', JSON.stringify(emailResult, null, 2));
+      } catch (emailError) {
+        console.error('❌❌❌ Error en email (continuando de todas formas):', emailError);
+      }
     }
 
     // Preparar mensajes con el system prompt dinámico

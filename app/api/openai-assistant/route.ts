@@ -127,21 +127,34 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}`;
       console.log('🔧 Configurando transporter...');
       console.log('📧 Email destino:', process.env.ADMIN_EMAIL);
       console.log('📤 Email origen:', process.env.SMTP_USER);
+      console.log('🔑 SMTP_HOST:', process.env.SMTP_HOST);
+      console.log('🔑 SMTP_PORT:', process.env.SMTP_PORT);
+      console.log('🔑 SMTP_USER exists:', !!process.env.SMTP_USER);
+      console.log('🔑 SMTP_PASS exists:', !!process.env.SMTP_PASS);
+      
+      if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+        throw new Error('❌ Variables de entorno SMTP no configuradas correctamente');
+      }
       
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST || 'smtp.mailersend.net',
+        host: process.env.SMTP_HOST,
         port: parseInt(process.env.SMTP_PORT || '587'),
         secure: false,
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
         },
+        tls: {
+          rejectUnauthorized: false
+        },
+        debug: true, // Habilitar debug de SMTP
+        logger: true // Habilitar logging detallado
       });
 
       // Verificar la conexión SMTP
       console.log('🔍 Verificando conexión SMTP...');
       await transporter.verify();
-      console.log('✅ Conexión SMTP verificada');
+      console.log('✅ Conexión SMTP verificada exitosamente');
 
       const mailOptions = {
         from: `"Asistente IA - GuidoDev" <${process.env.SMTP_USER}>`,
@@ -288,22 +301,36 @@ ${messages
       };
 
       console.log('📤 Enviando email...');
+      console.log('📧 Destinatario final:', process.env.ADMIN_EMAIL);
       const info = await transporter.sendMail(mailOptions);
       console.log('✅ Email enviado correctamente');
       console.log('📬 Message ID:', info.messageId);
       console.log('📨 Response:', info.response);
+      console.log('📮 Accepted:', info.accepted);
+      console.log('🚫 Rejected:', info.rejected);
+      
+      return { success: true, messageId: info.messageId };
     } catch (emailError) {
-      console.error('❌ Error enviando email:', emailError);
+      console.error('❌ ERROR CRÍTICO enviando email:', emailError);
       if (emailError instanceof Error) {
-        console.error('Error message:', emailError.message);
-        console.error('Error stack:', emailError.stack);
+        console.error('❌ Error message:', emailError.message);
+        console.error('❌ Error name:', emailError.name);
+        console.error('❌ Error stack:', emailError.stack);
       }
-      throw emailError;
+      // No lanzar el error, solo loguear para que no interrumpa el flujo
+      return { success: false, error: emailError };
     }
 
     return analysisResult;
   } catch (error) {
-    console.error('Error in conversation analysis:', error);
+    console.error('❌ ERROR CRÍTICO en análisis de conversación:', error);
+    if (error instanceof Error) {
+      console.error('❌ Error completo:', {
+        message: error.message,
+        name: error.name,
+        stack: error.stack
+      });
+    }
     return null;
   }
 }
@@ -360,16 +387,17 @@ export async function POST(request: NextRequest) {
       const reason = hasContactInfo ? '📱 Cliente proporcionó datos de contacto' : '📊 Límite de 6 mensajes alcanzado';
       console.log(`📧 Analizando conversación y enviando email... (${reason})`);
       console.log('📝 Total de mensajes:', messages.length);
+      console.log('🔍 Iniciando análisis en background...');
       
       // Ejecutar análisis en background (no bloquear la respuesta)
       analyzeConversationAndSendEmail(messages)
         .then(result => {
-          console.log('✅ Análisis completado exitosamente:', result);
+          console.log('✅✅✅ Análisis completado exitosamente:', JSON.stringify(result, null, 2));
         })
         .catch(error => {
-          console.error('❌ Error en análisis:', error);
+          console.error('❌❌❌ Error FATAL en análisis:', error);
           if (error instanceof Error) {
-            console.error('Stack:', error.stack);
+            console.error('❌ Stack completo:', error.stack);
           }
         });
     }

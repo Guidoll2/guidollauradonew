@@ -47,26 +47,38 @@ export interface AIResponse {
  */
 export async function generateAIResponse(request: AIRequest): Promise<AIResponse> {
   // ========================================================================
-  // PLACEHOLDER IMPLEMENTATION
+  // OpenAI Integration
   // ========================================================================
-  // This simulates an AI response. Replace this entire function body with
-  // your chosen LLM provider's API call.
-  // ========================================================================
-
   try {
-    // Simulate API latency
-    await new Promise(resolve => setTimeout(resolve, 100));
+    const OpenAI = (await import('openai')).default;
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-    // Mock response that shows the system prompt is being "used"
-    const mockResponse = `[AI Response - Model: ${request.config.model || 'mock'}]\n\n` +
-      `I received your message: "${request.message}"\n\n` +
-      `My role is: ${request.systemPrompt.substring(0, 100)}...\n\n` +
-      `This is a placeholder response. Integrate OpenAI/Anthropic/etc. in generateAIResponse().`;
+    const messages: any[] = [
+      { role: 'system', content: request.systemPrompt },
+    ];
+
+    // Add conversation history if available
+    if (request.conversationHistory) {
+      messages.push(...request.conversationHistory.map(msg => ({
+        role: msg.role,
+        content: msg.content,
+      })));
+    }
+
+    // Add current user message
+    messages.push({ role: 'user', content: request.message });
+
+    const completion = await openai.chat.completions.create({
+      model: request.config.model || 'gpt-4',
+      messages,
+      temperature: request.config.temperature ?? 0.7,
+      max_tokens: request.config.maxTokens ?? 500,
+    });
 
     return {
-      text: mockResponse,
-      model: request.config.model || 'mock-gpt-4',
-      tokensUsed: 50, // Mock token count
+      text: completion.choices[0].message.content || 'No response generated',
+      model: completion.model,
+      tokensUsed: completion.usage?.total_tokens,
     };
 
     // ========================================================================

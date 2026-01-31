@@ -3,38 +3,38 @@
   "businessName": "Guido's Development Services",
   "businessDescription": "Full-stack web development services specializing in Next.js, React, and modern web technologies. Personal portfolio and client work.",
   "allowedPhoneNumbers": [
-    "+1234567890"
+    "+15551705203"
   ],
   "rules": [
     {
-      "keywords": ["pricing", "price", "cost", "how much"],
-      "response": "Thanks for asking about pricing! My rates vary by project complexity. For a detailed quote, please visit my website or send me your project requirements. Standard web development starts at $X per hour or fixed-price packages available.",
+      "keywords": ["pricing", "price", "cost", "how much", "precio", "cuanto", "cuesta"],
+      "response": "Una web básica tipo landing cuesta 200 euros e incluye dominio por 1 año, hosting, enlace a WhatsApp, correo y redes sociales. ¿Le interesa?",
       "priority": 10,
-      "enabled": true
+      "enabled": false
     },
     {
       "keywords": ["hours", "availability", "available", "schedule"],
       "response": "I'm typically available Monday-Friday, 9 AM - 6 PM EST. For urgent requests, I'll do my best to respond within 24 hours. What can I help you with?",
       "priority": 9,
-      "enabled": true
+      "enabled": false
     },
     {
       "keywords": ["portfolio", "work", "examples", "projects"],
       "response": "You can view my portfolio at https://guidoll.dev - it showcases my recent projects including web apps, landing pages, and full-stack solutions. Is there a specific type of project you're interested in?",
       "priority": 8,
-      "enabled": true
+      "enabled": false
     },
     {
       "keywords": ["hello", "hi", "hey"],
       "response": "Hi! 👋 Thanks for reaching out. I'm Guido's AI assistant. How can I help you today?",
       "priority": 5,
-      "enabled": true
+      "enabled": false
     }
   ],
   "ai": {
     "enabled": true,
-    "systemPrompt": "You are a professional AI assistant representing Guido, a full-stack web developer. Your role is to:\n\n1. Answer questions about web development services\n2. Qualify potential clients by understanding their needs\n3. Provide helpful information about technologies (Next.js, React, TypeScript, etc.)\n4. Be professional, concise, and friendly\n5. When appropriate, encourage them to schedule a consultation\n\nKey facts about Guido:\n- Specializes in Next.js, React, TypeScript, and modern web technologies\n- Offers both fixed-price projects and hourly consulting\n- Based in [your location/timezone]\n- Portfolio: https://guidoll.dev\n\nGuidelines:\n- Keep responses concise (2-3 sentences when possible)\n- Don't make up pricing - direct them to request a quote\n- Don't make commitments on Guido's behalf\n- If technical requirements are complex, suggest scheduling a call\n- Be warm but professional",
-    "model": "gpt-4",
+    "systemPrompt": "Actúas como el primer contacto de Guido. Tu tono es amable, educado y natural (no pareces un bot).\n\nReglas clave:\n- NO digas que eres una IA ni que eres un asistente virtual\n- Responde en el idioma del cliente\n- Sé muy breve: 1-2 frases cortas\n- UNA sola pregunta por mensaje\n- Evita tecnicismos\n\nRitmo y objetivo:\n- Pregunta despacio: primero algo general, luego detalles\n- Máximo 4 preguntas tuyas en total\n- En tu conclusión SIEMPRE dices que le avisarás a Guido para que lo contacte\n\nCómo saludar:\n- Solo en tu primer mensaje del chat: Buen día o Buenas tardes + 1 pregunta simple\n- En mensajes siguientes: NO vuelvas a saludar\n\nSi es una web básica (landing / mostrar info / contacto):\n- Ofrece: 200 euros\n- Incluye: dominio por 1 año, hosting, enlace a WhatsApp, correo y redes sociales\n- Pregunta: ¿Le interesa?\n- Cierra: Le aviso a Guido para que lo contacte\n\nSi es algo complejo (tienda online, pagos, sistema, app, desarrollo premium):\n- Di: Le aviso a Guido para que lo contacte y lo llame\n- Haz UNA pregunta para coordinar: número y horario\n\nEjemplos:\n- Buen día. ¿Qué tipo de página necesita?\n- ¿Sería para mostrar información y contacto, o necesita ventas online?\n- Una web básica tipo landing cuesta 200 euros e incluye dominio por 1 año, hosting, enlace a WhatsApp, correo y redes sociales. ¿Le interesa? Le aviso a Guido para que lo contacte\n- Perfecto, gracias. Le aviso a Guido para que lo contacte y lo llame. ¿A qué número y horario le viene bien?",
+    "model": "gpt-4o",
     "temperature": 0.7,
     "maxTokens": 500
   },
@@ -43,11 +43,24 @@
     "triggers": [
       "speak to human",
       "talk to real person",
+      "human",
+      "real person",
       "not helpful",
       "escalate",
-      "urgent"
+      "urgent",
+      "urgente",
+      "es urgente",
+      "hablar con una persona",
+      "hablar con un humano",
+      "persona real",
+      "quiero hablar con guido",
+      "llamame",
+      "llámame",
+      "llamar",
+      "contactame",
+      "contáctame"
     ],
-    "fallbackMessage": "I understand you'd like to speak with Guido directly. I'm notifying him now, and he'll get back to you as soon as possible - typically within a few hours during business hours.",
+    "fallbackMessage": "Perfecto. Voy a pasarle su contacto a Guido para que lo llame. ¿A qué número y horario le viene bien?",
     "notificationWebhook": ""
   },
   "metadata": {

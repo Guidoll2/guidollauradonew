@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import AuthoritySection from '@/components/AuthoritySection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ShowcaseSection from '@/components/ShowcaseSection';
+import FloatingAssistant from '@/components/FloatingAssistant';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <ShowcaseSection />
       <AboutMe />
       <Footer />
+      <FloatingAssistant />
     </main>
   );
 }

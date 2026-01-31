@@ -15,6 +15,87 @@
 import { ClientConfig, IncomingMessage, ProcessedResponse } from './types';
 import { processRules, shouldHandoff } from './rules-engine';
 import { generateAIResponse, isAIEnabled } from './ai-engine';
+import {
+  getConversationHistory,
+  getConversationState,
+  recordAssistantMessage,
+  recordUserMessage,
+} from './conversation-store';
+
+function enforceSingleQuestion(text: string): string {
+  const first = text.indexOf('?');
+  if (first === -1) return text.trim();
+  const second = text.indexOf('?', first + 1);
+  if (second === -1) return text.trim();
+  return text.slice(0, first + 1).trim();
+}
+
+function askedAQuestion(text: string): boolean {
+  return text.includes('?');
+}
+
+function looksComplex(userText: string): boolean {
+  const t = userText.toLowerCase();
+  const keywords = [
+    'tienda online',
+    'tienda en linea',
+    'ecommerce',
+    'e-commerce',
+    'carrito',
+    'pagos',
+    'pasarela',
+    'mercadopago',
+    'stripe',
+    'suscripcion',
+    'suscripción',
+    'login',
+    'usuarios',
+    'panel',
+    'admin',
+    'app',
+    'sistema',
+    'integracion',
+    'integración',
+    'api',
+    'crm',
+  ];
+  return keywords.some(k => t.includes(k));
+}
+
+function isAffirmative(userText: string): boolean {
+  const t = userText.toLowerCase().trim();
+  const yesPhrases = [
+    'si',
+    'sí',
+    'dale',
+    'ok',
+    'okay',
+    'perfecto',
+    'me interesa',
+    'me sirve',
+    'de acuerdo',
+    'vamos',
+    'adelante',
+    'yes',
+    'sure',
+    'sounds good',
+  ];
+  return yesPhrases.some(p => t === p || t.startsWith(p + ' ') || t.includes(' ' + p + ' '));
+}
+
+function basicOfferText(): string {
+  return (
+    'Una web básica tipo landing cuesta 200 euros e incluye dominio por 1 año, hosting, enlace a WhatsApp, correo y redes sociales. ¿Le interesa?'
+  );
+}
+
+function complexHandoffText(): string {
+  return 'Perfecto, gracias. Le aviso a Guido para que lo contacte y lo llame. ¿A qué número y horario le viene bien?';
+}
+
+function acceptedOfferCloseText(): string {
+  return 'Perfecto, gracias. Le aviso a Guido para coordinarlo. ¿A qué número y horario le viene bien?';
+}
 
 /**
  * Main entry point for message processing
@@ -35,6 +116,26 @@ export async function routeMessage(
 ): Promise<ProcessedResponse> {
   
   const { text, from } = message;
+
+  // Record the inbound user message for context/stateful behavior.
+  recordUserMessage(client.clientId, from, text, message.timestamp);
+
+  // If the request is clearly complex, escalate early.
+  if (looksComplex(text)) {
+    const msg = complexHandoffText();
+    recordAssistantMessage(client.clientId, from, msg, {
+      askedQuestion: askedAQuestion(msg),
+    });
+
+    return {
+      text: msg,
+      source: 'ai',
+      clientId: client.clientId,
+      metadata: {
+        earlyHandoff: true,
+      },
+    };
+  }
   
   // ============================================================================
   // 1. CHECK FOR HANDOFF TO HUMAN AGENT
@@ -68,9 +169,14 @@ export async function routeMessage(
   
   if (ruleMatch.matched && ruleMatch.response) {
     console.log(`[Router] Rule matched for client: ${client.clientId}`);
+
+    const ruleResponse = enforceSingleQuestion(ruleMatch.response);
+    recordAssistantMessage(client.clientId, from, ruleResponse, {
+      askedQuestion: askedAQuestion(ruleResponse),
+    });
     
     return {
-      text: ruleMatch.response,
+      text: ruleResponse,
       source: 'rule',
       matchedRule: ruleMatch.matchedRule,
       clientId: client.clientId,
@@ -84,16 +190,81 @@ export async function routeMessage(
     console.log(`[Router] Attempting AI response for client: ${client.clientId}`);
     
     try {
+      const state = getConversationState(client.clientId, from);
+      const history = getConversationHistory(client.clientId, from);
+
+      // If user accepted the basic offer, close and collect contact/time.
+      const lastAssistant = [...history].reverse().find(m => m.role === 'assistant');
+      const lastAssistantText = lastAssistant?.content?.toLowerCase() || '';
+      const lastWasOffer = lastAssistantText.includes('200') || lastAssistantText.includes('200 euros');
+      if (lastWasOffer && isAffirmative(text)) {
+        const close = acceptedOfferCloseText();
+        recordAssistantMessage(client.clientId, from, close, {
+          askedQuestion: askedAQuestion(close),
+        });
+
+        return {
+          text: close,
+          source: 'ai',
+          clientId: client.clientId,
+          metadata: {
+            offerAccepted: true,
+          },
+        };
+      }
+
+      // Hard guard: after 4 questions, never ask more. Conclude instead.
+      if (state.assistantQuestionCount >= 4) {
+        const combinedUserText = history
+          .filter(m => m.role === 'user')
+          .map(m => m.content)
+          .join('\n');
+
+        const forced = looksComplex(combinedUserText) ? complexHandoffText() : basicOfferText();
+        recordAssistantMessage(client.clientId, from, forced, {
+          askedQuestion: askedAQuestion(forced),
+        });
+
+        return {
+          text: forced,
+          source: 'ai',
+          clientId: client.clientId,
+          metadata: {
+            forcedConclusion: true,
+          },
+        };
+      }
+
+      const stateHint =
+        `\n\nESTADO (no lo menciones):\n` +
+        `- saludo_ya_hecho: ${state.greeted ? 'sí' : 'no'}\n` +
+        `- preguntas_hechas: ${state.assistantQuestionCount} (máx 4)\n` +
+        `REGLA CLAVE: Una sola pregunta por mensaje. Si saludo_ya_hecho=no, abre con "Buen día" o "Buenas tardes" (no digas solo "Hola."). ` +
+        `Si preguntas_hechas es 3 o más, ahora debes concluir (oferta 200€ para web básica o derivación a Guido si es complejo) y cerrar siempre con que le avisarás a Guido para que lo contacte; haz SOLO una pregunta final.`;
+
       const aiResponse = await generateAIResponse({
         message: text,
-        systemPrompt: client.ai.systemPrompt,
+        systemPrompt: client.ai.systemPrompt + stateHint,
         config: client.ai,
-        // Future: Add conversation history here
+        conversationHistory: history,
       });
 
       if (aiResponse.text && !aiResponse.error) {
+        const cleaned = enforceSingleQuestion(aiResponse.text);
+        // Ensure that conclusions always end with notifying Guido.
+        const needsNotify =
+          (cleaned.toLowerCase().includes('200') || cleaned.toLowerCase().includes('landing') || cleaned.toLowerCase().includes('tienda')) &&
+          !cleaned.toLowerCase().includes('guido');
+        const finalText = needsNotify
+          ? `${cleaned} Le aviso a Guido para que lo contacte.`
+          : cleaned;
+
+        recordAssistantMessage(client.clientId, from, finalText, {
+          askedQuestion: askedAQuestion(finalText),
+        });
+
         return {
-          text: aiResponse.text,
+          text: finalText,
           source: 'ai',
           clientId: client.clientId,
           metadata: {

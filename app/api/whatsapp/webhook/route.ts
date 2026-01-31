@@ -57,7 +57,13 @@ export async function POST(request: NextRequest) {
     const body: WhatsAppWebhookPayload = await request.json();
 
     // Log incoming webhook (useful for debugging)
-    console.log('[Webhook] Received:', JSON.stringify(body, null, 2));
+    console.log('\n=== [Webhook] RECEIVED MESSAGE ===');
+    console.log('[Webhook] Full body:', JSON.stringify(body, null, 2));
+    console.log('[Webhook] Environment check:', {
+      hasToken: !!process.env.WHATSAPP_ACCESS_TOKEN,
+      hasPhoneId: !!process.env.WHATSAPP_PHONE_NUMBER_ID,
+      hasOpenAI: !!process.env.OPENAI_API_KEY
+    });
 
     // WhatsApp sends different types of events - we only care about messages
     if (body.object !== 'whatsapp_business_account') {
@@ -95,6 +101,12 @@ export async function POST(request: NextRequest) {
             timestamp: parseInt(msg.timestamp),
             messageId: msg.id,
           };
+
+          console.log('[Webhook] Processing message:', {
+            from: incomingMessage.from,
+            to: incomingMessage.to,
+            text: incomingMessage.text
+          });
 
           // Process the message
           await processIncomingMessage(incomingMessage);
@@ -174,46 +186,56 @@ async function sendWhatsAppMessage(
   text: string,
   fromPhoneNumberId: string
 ): Promise<void> {
-  // TODO: Implement actual WhatsApp API call
-  // This requires:
-  // 1. WhatsApp Business API access token
-  // 2. Phone number ID from Meta Business Manager
-  
-  console.log('[Webhook] Sending message:', { to, text: text.substring(0, 50) + '...' });
+  console.log('\n=== [Webhook] SENDING MESSAGE ===');
+  console.log('[Webhook] To:', to);
+  console.log('[Webhook] Text:', text);
+  console.log('[Webhook] Phone Number ID:', fromPhoneNumberId);
 
   // ========================================================================
-  // EXAMPLE: WhatsApp Cloud API Integration (commented out)
+  // WhatsApp Cloud API Integration
   // ========================================================================
-  /*
-  const WHATSAPP_TOKEN = process.env.WHATSAPP_ACCESS_TOKEN;
-  const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
+  try {
+    const WHATSAPP_TOKEN = process.env.WHATSAPP_ACCESS_TOKEN;
+    const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
 
-  const response = await fetch(
-    `https://graph.facebook.com/v18.0/${PHONE_NUMBER_ID}/messages`,
-    {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${WHATSAPP_TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        messaging_product: 'whatsapp',
-        to: to,
-        type: 'text',
-        text: { body: text },
-      }),
+    console.log('[Webhook] Credentials check:', {
+      hasToken: !!WHATSAPP_TOKEN,
+      tokenLength: WHATSAPP_TOKEN?.length,
+      hasPhoneId: !!PHONE_NUMBER_ID,
+      phoneId: PHONE_NUMBER_ID
+    });
+
+    if (!WHATSAPP_TOKEN || !PHONE_NUMBER_ID) {
+      console.error('[Webhook] Missing WhatsApp credentials');
+      throw new Error('WhatsApp credentials not configured');
     }
-  );
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(`WhatsApp API error: ${JSON.stringify(error)}`);
+    const response = await fetch(
+      `https://graph.facebook.com/v18.0/${PHONE_NUMBER_ID}/messages`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${WHATSAPP_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messaging_product: 'whatsapp',
+          to: to,
+          type: 'text',
+          text: { body: text },
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(`WhatsApp API error: ${JSON.stringify(error)}`);
+    }
+
+    const result = await response.json();
+    console.log('[Webhook] Message sent successfully:', result.messages[0].id);
+  } catch (error) {
+    console.error('[Webhook] Error sending WhatsApp message:', error);
+    throw error;
   }
-
-  const result = await response.json();
-  console.log('[Webhook] Message sent successfully:', result.messages[0].id);
-  */
-  
-  // For now, just log the intended message
-  console.log(`[Webhook] Would send to ${to}: "${text}"`);
 }

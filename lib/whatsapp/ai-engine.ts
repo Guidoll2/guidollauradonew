@@ -47,45 +47,59 @@ export interface AIResponse {
  */
 export async function generateAIResponse(request: AIRequest): Promise<AIResponse> {
   // ========================================================================
-  // OpenAI Integration
+  // Google Gemini Integration
   // ========================================================================
   try {
-    const OpenAI = (await import('openai')).default;
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
-    const messages: any[] = [
-      { role: 'system', content: request.systemPrompt },
-    ];
-
-    // Add conversation history if available
-    if (request.conversationHistory) {
-      messages.push(...request.conversationHistory.map(msg => ({
-        role: msg.role,
-        content: msg.content,
-      })));
-    }
-
-    // Add current user message
-    messages.push({ role: 'user', content: request.message });
-
-    const completion = await openai.chat.completions.create({
-      model: request.config.model || 'gpt-4',
-      messages,
-      temperature: request.config.temperature ?? 0.7,
-      max_tokens: request.config.maxTokens ?? 500,
+    const { GoogleGenerativeAI } = await import('@google/generative-ai');
+    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY || '');
+    const model = genAI.getGenerativeModel({ 
+      model: request.config.model || 'gemini-1.5-flash' 
     });
 
+    // Preparar el historial de conversación para Gemini
+    const history: any[] = [];
+    
+    if (request.conversationHistory && request.conversationHistory.length > 0) {
+      for (const msg of request.conversationHistory) {
+        history.push({
+          role: msg.role === 'user' ? 'user' : 'model',
+          parts: [{ text: msg.content }],
+        });
+      }
+    }
+
+    // Crear sesión de chat con historial y system prompt
+    const chat = model.startChat({
+      history: [
+        {
+          role: 'user',
+          parts: [{ text: request.systemPrompt }],
+        },
+        {
+          role: 'model',
+          parts: [{ text: 'Entendido. Responderé siguiendo estas instrucciones.' }],
+        },
+        ...history,
+      ],
+      generationConfig: {
+        temperature: request.config.temperature ?? 0.7,
+        maxOutputTokens: request.config.maxTokens ?? 500,
+      },
+    });
+
+    const result = await chat.sendMessage(request.message);
+    const response = result.response;
+
     return {
-      text: completion.choices[0].message.content || 'No response generated',
-      model: completion.model,
-      tokensUsed: completion.usage?.total_tokens,
+      text: response.text() || 'No response generated',
+      model: request.config.model || 'gemini-1.5-flash',
     };
 
     // ========================================================================
     // EXAMPLE: OpenAI Integration (commented out)
     // ========================================================================
     /*
-    import OpenAI from 'openai';
+    const OpenAI = (await import('openai')).default;
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
     const messages: any[] = [

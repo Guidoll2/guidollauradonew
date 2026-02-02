@@ -1,10 +1,9 @@
 import { NextRequest } from 'next/server';
-import OpenAI from 'openai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import nodemailer from 'nodemailer';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY || '');
+const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
 
 interface Message {
   role: 'user' | 'assistant' | 'system';
@@ -104,18 +103,14 @@ async function analyzeConversationAndSendEmail(messages: Message[]) {
 Conversación:
 ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}`;
 
-    const analysis = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [{ role: 'user', content: analysisPrompt }],
-      temperature: 0.3,
-      response_format: { type: 'json_object' },
-    });
+    const result = await model.generateContent(analysisPrompt);
+    const response = result.response;
+    const text = response.text();
 
     let analysisResult;
     try {
-      const content = analysis.choices[0].message.content || '{}';
       // Limpiar posibles caracteres de markdown
-      const cleanContent = content.replace(/```json\n?|```\n?/g, '').trim();
+      const cleanContent = text.replace(/```json\n?|```\n?/g, '').trim();
       analysisResult = JSON.parse(cleanContent);
     } catch (e) {
       console.error('Error parsing analysis:', e);
@@ -398,31 +393,44 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Preparar mensajes con el system prompt dinámico
-    const apiMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
-      { role: 'system', content: getSystemPrompt(messageCount, language) },
-      ...messages.map(m => ({
-        role: m.role as 'user' | 'assistant',
-        content: m.content,
-      })),
-    ];
+    // Preparar el historial de mensajes para Gemini
+    const chatHistory = messages.slice(0, -1).map(m => ({
+      role: m.role === 'user' ? 'user' : 'model',
+      parts: [{ text: m.content }],
+    }));
 
-    // Crear stream de respuesta
-    const stream = await openai.chat.completions.create({
-      model: 'gpt-4o-mini', // Modelo rápido y económico, puedes cambiar a gpt-4o para mejor calidad
-      messages: apiMessages,
-      temperature: 0.8, // Más creatividad y naturalidad
-      max_tokens: 500,
-      stream: true,
+    // Obtener el último mensaje del usuario
+    const lastMessage = messages[messages.length - 1].content;
+
+    // Crear sesión de chat con historial y system prompt
+    const chat = model.startChat({
+      history: [
+        {
+          role: 'user',
+          parts: [{ text: getSystemPrompt(messageCount, language) }],
+        },
+        {
+          role: 'model',
+          parts: [{ text: 'Entendido. Actuaré como el asistente virtual de Guido siguiendo estas instrucciones.' }],
+        },
+        ...chatHistory,
+      ],
+      generationConfig: {
+        temperature: 0.8,
+        maxOutputTokens: 500,
+      },
     });
+
+    // Generar respuesta con streaming
+    const result = await chat.sendMessageStream(lastMessage);
 
     // Crear un ReadableStream para enviar la respuesta en chunks
     const encoder = new TextEncoder();
     const readableStream = new ReadableStream({
       async start(controller) {
         try {
-          for await (const chunk of stream) {
-            const text = chunk.choices[0]?.delta?.content || '';
+          for await (const chunk of result.stream) {
+            const text = chunk.text();
             if (text) {
               controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
             }
@@ -443,7 +451,7 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('Error in OpenAI Assistant:', error);
+    console.error('Error in Google AI Assistant:', error);
     return new Response(
       JSON.stringify({ error: 'Error processing your request' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }

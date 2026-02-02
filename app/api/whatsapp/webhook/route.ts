@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
     console.log('[Webhook] Environment check:', {
       hasToken: !!process.env.WHATSAPP_ACCESS_TOKEN,
       hasPhoneId: !!process.env.WHATSAPP_PHONE_NUMBER_ID,
-      hasOpenAI: !!process.env.OPENAI_API_KEY
+      hasGoogleAI: !!process.env.GOOGLE_AI_API_KEY
     });
 
     // WhatsApp sends different types of events - we only care about messages

@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Send, X } from 'lucide-react';
 import { useTheme } from '@/lib/theme-context';
 import { useLanguage } from '@/lib/language-context';
+import PalantirOrb from './PalantirOrb';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -186,52 +187,15 @@ export default function FloatingAssistant() {
 
   return (
     <>
-      {/* Orbe flotante estilo Siri - minimalista y técnico */}
+      {/* Palantír Orb - Orbe vivo flotante */}
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 group"
-          aria-label="Abrir asistente virtual"
-        >
-          {/* Resplandor exterior suave */}
-          <div 
-            className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-700"
-            style={{ 
-              background: colors.orbGlow,
-              transform: 'scale(1.5)'
-            }}
+        <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 group">
+          <PalantirOrb
+            size={56}
+            isLightMode={isLightMode}
+            onClick={() => setIsOpen(true)}
+            className="md:w-16 md:h-16"
           />
-          
-          {/* Orbe principal - blurred circle sin iconos */}
-          <div 
-            className="relative w-12 h-12 md:w-14 md:h-14 rounded-full transition-all duration-300 group-hover:scale-105"
-            style={{
-              background: colors.orbBase,
-              boxShadow: `0 12px 40px ${colors.orbShadow}`,
-              backdropFilter: 'blur(20px)',
-              border: isLightMode ? '1px solid rgba(255, 255, 255, 0.3)' : 'none'
-            }}
-          >
-            {/* Capa de difuminado interno - glass effect */}
-            <div 
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: isLightMode 
-                  ? 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), transparent 70%)'
-                  : 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent 60%)',
-                backdropFilter: 'blur(10px)'
-              }}
-            />
-            
-            {/* Animación de pulso muy sutil */}
-            <div 
-              className="absolute inset-0 rounded-full animate-ping opacity-20"
-              style={{ 
-                background: isLightMode ? '#3b82f6' : '#ffbba8',
-                animationDuration: '4s'
-              }}
-            />
-          </div>
 
           {/* Tooltip minimalista */}
           <div className="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none transform group-hover:translate-y-0 translate-y-1">
@@ -247,7 +211,7 @@ export default function FloatingAssistant() {
               {t.assistantTooltip || '¿Necesitas ayuda?'}
             </div>
           </div>
-        </button>
+        </div>
       )}
 
       {/* Modal del chat */}

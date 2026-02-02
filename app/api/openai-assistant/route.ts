@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import nodemailer from 'nodemailer';
 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY || '');
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
 interface Message {
   role: 'user' | 'assistant' | 'system';
@@ -22,6 +22,35 @@ const LANGUAGE_INSTRUCTIONS = {
   es: 'RESPONDE EN ESPAÑOL. Estás hablando con un cliente hispanohablante.',
   ca: 'RESPON EN CATALÀ. Estàs parlant amb un client catalanoparlant.'
 };
+
+// System prompt especial para Candelaria - Profesor de Catalán
+const CATALAN_TEACHER_PROMPT = `RESPON SEMPRE EN CATALÀ. Ets un professor de català amable, pacient i entusiasta.
+
+LA TEVA PERSONALITAT:
+- Ets càlid, proper i motivador
+- T'encanta ajudar els estudiants a millorar el seu català
+- Ets pacient i celebres cada progrés
+- Utilitzes un llenguatge natural i col·loquial
+- De vegades comparteixes curiositats culturals catalanes
+
+LA TEVA MISSIÓ:
+- Conversar de qualsevol tema que Cande vulgui per practicar català
+- Parlar naturalment, com en una conversa real
+- Corregir errors de forma amable si en veus
+- Fer preguntes per mantenir la conversa fluida
+- Compartir expressions catalanes útils quan sigui rellevant
+- Adaptar-te als interessos de Cande
+
+IMPORTANT:
+- NO parlis de desenvolupament web (això és només per a clients)
+- Pots parlar de QUALSEVOL tema: cultura, viatges, cuina, vida diària, hobbies, etc.
+- Sigues natural i conversacional
+- Si Cande et pregunta per Guido, pots dir que és el teu creador
+- Mantén sempre un to positiu i motivador
+
+EXEMPLE DE CONVERSA:
+Cande: "Hola, què tal?"
+Tu: "Hola Cande! Molt bé, gràcies! Com estàs tu? Què has fet avui?"`;
 
 // System prompt que define el comportamiento del asistente
 const SYSTEM_PROMPT_BASE = `Eres un asistente virtual cálido y amigable para Guido Llauradó, un desarrollador web full-stack especializado en crear sitios web modernos y profesionales.
@@ -49,7 +78,32 @@ IMPORTANTE:
 - Sé conversacional, no robótico
 - Haz preguntas para entender las necesidades del cliente`;
 
-const getSystemPrompt = (messageCount: number, language: string = 'es') => {
+// Función para detectar si el usuario es Candelaria
+function isCandelaria(messages: Message[]): boolean {
+  const allText = messages
+    .filter(m => m.role === 'user')
+    .map(m => m.content.toLowerCase())
+    .join(' ');
+  
+  // Detectar variaciones del nombre
+  const patterns = [
+    /candelaria\s+gherardi/i,
+    /cande\s+gherardi/i,
+    /candelaria/i,
+    /soy\s+cande/i,
+    /me\s+llamo\s+candelaria/i,
+    /mi\s+nombre\s+es\s+candelaria/i
+  ];
+  
+  return patterns.some(pattern => pattern.test(allText));
+}
+
+const getSystemPrompt = (messageCount: number, language: string = 'es', isCande: boolean = false) => {
+  // Si es Candelaria, usar el prompt del profesor de catalán
+  if (isCande) {
+    return CATALAN_TEACHER_PROMPT;
+  }
+  
   const languageInstruction = LANGUAGE_INSTRUCTIONS[language as keyof typeof LANGUAGE_INSTRUCTIONS] || LANGUAGE_INSTRUCTIONS.es;
   
   if (messageCount >= 5) {
@@ -362,10 +416,24 @@ function detectContactInfo(lastUserMessage: string): boolean {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('🚀 ===== INICIO DE REQUEST =====');
+    console.log('🔑 API Key presente:', !!process.env.GOOGLE_AI_API_KEY);
+    console.log('🔑 Primeros 10 chars de API Key:', process.env.GOOGLE_AI_API_KEY?.substring(0, 10));
+    
     const body: RequestBody = await request.json();
     const { messages, messageCount, language = 'es' } = body;
 
     console.log(`📨 Mensaje #${messageCount} del cliente (Idioma: ${language})`);
+    console.log('📊 Total mensajes recibidos:', messages.length);
+
+    // Detectar si es Candelaria
+    const isCande = isCandelaria(messages);
+    console.log('👤 ¿Es Candelaria?:', isCande);
+
+    // Si es Candelaria, NO enviar emails ni cerrar conversación
+    if (isCande) {
+      console.log('🎓 Modo profesor de catalán activado para Cande');
+    }
 
     // Obtener el último mensaje del usuario
     const lastUserMessage = messages.filter(m => m.role === 'user').pop()?.content || '';
@@ -374,9 +442,9 @@ export async function POST(request: NextRequest) {
     const hasContactInfo = detectContactInfo(lastUserMessage);
     
     // Enviar email si:
-    // 1. Detectamos datos de contacto O
-    // 2. Ya llegamos a 6 mensajes (límite máximo)
-    const shouldSendEmail = hasContactInfo || messageCount >= 6;
+    // 1. NO es Candelaria Y
+    // 2. (Detectamos datos de contacto O llegamos a 6 mensajes)
+    const shouldSendEmail = !isCande && (hasContactInfo || messageCount >= 6);
     
     // Si necesitamos enviar email, hacerlo ANTES de generar la respuesta
     // Esto asegura que en Vercel serverless el email se envíe completamente
@@ -393,67 +461,117 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    console.log('🤖 Preparando chat con Gemini...');
+    console.log('📝 Modelo configurado:', 'gemini-pro');
+    
     // Preparar el historial de mensajes para Gemini
     const chatHistory = messages.slice(0, -1).map(m => ({
       role: m.role === 'user' ? 'user' : 'model',
       parts: [{ text: m.content }],
     }));
 
+    console.log('📚 Historial preparado:', chatHistory.length, 'mensajes');
+
     // Obtener el último mensaje del usuario
     const lastMessage = messages[messages.length - 1].content;
+    console.log('💬 Último mensaje del usuario:', lastMessage.substring(0, 50) + '...');
 
-    // Crear sesión de chat con historial y system prompt
-    const chat = model.startChat({
-      history: [
-        {
-          role: 'user',
-          parts: [{ text: getSystemPrompt(messageCount, language) }],
+    try {
+      console.log('🔧 Creando sesión de chat...');
+      // Crear sesión de chat con historial y system prompt
+      const chat = model.startChat({
+        history: [
+          {
+            role: 'user',
+            parts: [{ text: getSystemPrompt(messageCount, language, isCande) }],
+          },
+          {
+            role: 'model',
+            parts: [{ text: isCande ? 'Hola Cande! Estic aquí per ajudar-te a practicar català. De què vols parlar avui?' : 'Entendido. Actuaré como el asistente virtual de Guido siguiendo estas instrucciones.' }],
+          },
+          ...chatHistory,
+        ],
+        generationConfig: {
+          temperature: 0.8,
+          maxOutputTokens: 500,
         },
-        {
-          role: 'model',
-          parts: [{ text: 'Entendido. Actuaré como el asistente virtual de Guido siguiendo estas instrucciones.' }],
-        },
-        ...chatHistory,
-      ],
-      generationConfig: {
-        temperature: 0.8,
-        maxOutputTokens: 500,
-      },
-    });
+      });
 
-    // Generar respuesta con streaming
-    const result = await chat.sendMessageStream(lastMessage);
+      console.log('✅ Sesión de chat creada exitosamente');
+      console.log('📤 Enviando mensaje a Gemini...');
 
-    // Crear un ReadableStream para enviar la respuesta en chunks
-    const encoder = new TextEncoder();
-    const readableStream = new ReadableStream({
-      async start(controller) {
-        try {
-          for await (const chunk of result.stream) {
-            const text = chunk.text();
-            if (text) {
-              controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
+      // Generar respuesta con streaming
+      const result = await chat.sendMessageStream(lastMessage);
+      console.log('✅ Respuesta recibida de Gemini, iniciando streaming...');
+
+      // Crear un ReadableStream para enviar la respuesta en chunks
+      const encoder = new TextEncoder();
+      const readableStream = new ReadableStream({
+        async start(controller) {
+          try {
+            console.log('🌊 Iniciando stream...');
+            for await (const chunk of result.stream) {
+              const text = chunk.text();
+              if (text) {
+                console.log('📦 Chunk recibido:', text.substring(0, 30) + '...');
+                controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
+              }
             }
+            console.log('✅ Stream completado');
+            controller.enqueue(encoder.encode('data: [DONE]\n\n'));
+            controller.close();
+          } catch (streamError) {
+            console.error('❌ ERROR EN STREAMING:', streamError);
+            if (streamError instanceof Error) {
+              console.error('❌ Error name:', streamError.name);
+              console.error('❌ Error message:', streamError.message);
+              console.error('❌ Error stack:', streamError.stack);
+            }
+            controller.error(streamError);
           }
-          controller.enqueue(encoder.encode('data: [DONE]\n\n'));
-          controller.close();
-        } catch (error) {
-          controller.error(error);
-        }
-      },
-    });
+        },
+      });
 
-    return new Response(readableStream, {
-      headers: {
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive',
-      },
-    });
+      return new Response(readableStream, {
+        headers: {
+          'Content-Type': 'text/event-stream',
+          'Cache-Control': 'no-cache',
+          'Connection': 'keep-alive',
+        },
+      });
+    } catch (geminiError) {
+      console.error('❌❌❌ ERROR AL LLAMAR A GEMINI:', geminiError);
+      if (geminiError instanceof Error) {
+        console.error('❌ Error type:', geminiError.constructor.name);
+        console.error('❌ Error name:', geminiError.name);
+        console.error('❌ Error message:', geminiError.message);
+        console.error('❌ Error stack:', geminiError.stack);
+        console.error('❌ Error completo:', JSON.stringify(geminiError, Object.getOwnPropertyNames(geminiError), 2));
+      }
+      throw geminiError;
+    }
   } catch (error) {
-    console.error('Error in Google AI Assistant:', error);
+    console.error('❌❌❌ ERROR GENERAL EN POST:', error);
+    if (error instanceof Error) {
+      console.error('❌ Error type:', error.constructor.name);
+      console.error('❌ Error name:', error.name);
+      console.error('❌ Error message:', error.message);
+      console.error('❌ Error stack:', error.stack);
+      console.error('❌ Error props:', Object.keys(error));
+      
+      // Intentar extraer información adicional del error de Google
+      const errorObj = error as any;
+      if (errorObj.status) console.error('❌ HTTP Status:', errorObj.status);
+      if (errorObj.statusText) console.error('❌ Status Text:', errorObj.statusText);
+      if (errorObj.errorDetails) console.error('❌ Error Details:', errorObj.errorDetails);
+      if (errorObj.response) console.error('❌ Response:', errorObj.response);
+    }
+    
     return new Response(
-      JSON.stringify({ error: 'Error processing your request' }),
+      JSON.stringify({ 
+        error: 'Error processing your request',
+        details: error instanceof Error ? error.message : String(error)
+      }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }

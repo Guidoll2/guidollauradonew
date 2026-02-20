@@ -52,6 +52,41 @@ EXEMPLE DE CONVERSA:
 Cande: "Hola, què tal?"
 Tu: "Hola Cande! Molt bé, gràcies! Com estàs tu? Què has fet avui?"`;
 
+// System prompt especial para Mariano - Profesor de Next.js
+const NEXTJS_TEACHER_PROMPT = `Eres un profesor experto en desarrollo web con Next.js, amable, paciente y entusiasta.
+
+TU PERSONALIDAD:
+- Eres cálido, cercano y motivador
+- Te encanta enseñar y explicar conceptos de programación
+- Eres paciente y celebras cada progreso del estudiante
+- Utilizas ejemplos prácticos y código real
+- Adaptas tus explicaciones al nivel del estudiante
+
+TU MISIÓN:
+- Responder cualquier pregunta sobre desarrollo web con Next.js
+- Explicar conceptos de React, TypeScript, y el ecosistema de Next.js
+- Ayudar con debugging, arquitectura y mejores prácticas
+- Proporcionar ejemplos de código cuando sea útil
+- Recomendar recursos y documentación oficial
+
+TEMAS QUE DOMINAS:
+- Next.js (App Router, Pages Router, Server Components, Server Actions)
+- React (hooks, componentes, estado, contexto)
+- TypeScript
+- Tailwind CSS
+- APIs y fetching de datos
+- Autenticación y seguridad
+- Deployment (Vercel, etc.)
+- Base de datos (Prisma, MongoDB, etc.)
+- Testing
+
+IMPORTANTE:
+- Responde siempre en español
+- Si Mariano pregunta por Guido, puedes decir que es tu creador
+- Mantén un tono positivo y educativo
+- Si no sabes algo, sé honesto y sugiere dónde buscar
+- Fomenta las buenas prácticas de desarrollo`;
+
 // System prompt que define el comportamiento del asistente
 const SYSTEM_PROMPT_BASE = `Eres un asistente virtual cálido y amigable para Guido Llauradó, un desarrollador web full-stack especializado en crear sitios web modernos y profesionales.
 
@@ -98,10 +133,39 @@ function isCandelaria(messages: Message[]): boolean {
   return patterns.some(pattern => pattern.test(allText));
 }
 
-const getSystemPrompt = (messageCount: number, language: string = 'es', isCande: boolean = false) => {
+// Función para detectar si el usuario es Mariano
+function isMariano(messages: Message[]): boolean {
+  const allText = messages
+    .filter(m => m.role === 'user')
+    .map(m => m.content.toLowerCase())
+    .join(' ');
+  
+  // Detectar variaciones del nombre
+  const patterns = [
+    /mariano\s+fernandez/i,
+    /mariano\s+fern[aá]ndez/i,
+    /soy\s+mariano/i,
+    /soy\s+marian\b/i,
+    /me\s+llamo\s+mariano/i,
+    /me\s+llamo\s+marian\b/i,
+    /mi\s+nombre\s+es\s+mariano/i,
+    /mi\s+nombre\s+es\s+marian\b/i,
+    /\bmarian\b/i,
+    /\bmariano\b/i
+  ];
+  
+  return patterns.some(pattern => pattern.test(allText));
+}
+
+const getSystemPrompt = (messageCount: number, language: string = 'es', isCande: boolean = false, isMarian: boolean = false) => {
   // Si es Candelaria, usar el prompt del profesor de catalán
   if (isCande) {
     return CATALAN_TEACHER_PROMPT;
+  }
+  
+  // Si es Mariano, usar el prompt del profesor de Next.js
+  if (isMarian) {
+    return NEXTJS_TEACHER_PROMPT;
   }
   
   const languageInstruction = LANGUAGE_INSTRUCTIONS[language as keyof typeof LANGUAGE_INSTRUCTIONS] || LANGUAGE_INSTRUCTIONS.es;
@@ -426,13 +490,20 @@ export async function POST(request: NextRequest) {
     console.log(`📨 Mensaje #${messageCount} del cliente (Idioma: ${language})`);
     console.log('📊 Total mensajes recibidos:', messages.length);
 
-    // Detectar si es Candelaria
+    // Detectar si es Candelaria o Mariano
     const isCande = isCandelaria(messages);
+    const isMarian = isMariano(messages);
     console.log('👤 ¿Es Candelaria?:', isCande);
+    console.log('👤 ¿Es Mariano?:', isMarian);
 
     // Si es Candelaria, NO enviar emails ni cerrar conversación
     if (isCande) {
       console.log('🎓 Modo profesor de catalán activado para Cande');
+    }
+    
+    // Si es Mariano, NO enviar emails ni cerrar conversación
+    if (isMarian) {
+      console.log('💻 Modo profesor de Next.js activado para Mariano');
     }
 
     // Obtener el último mensaje del usuario
@@ -442,9 +513,9 @@ export async function POST(request: NextRequest) {
     const hasContactInfo = detectContactInfo(lastUserMessage);
     
     // Enviar email si:
-    // 1. NO es Candelaria Y
+    // 1. NO es Candelaria Y NO es Mariano Y
     // 2. (Detectamos datos de contacto O llegamos a 6 mensajes)
-    const shouldSendEmail = !isCande && (hasContactInfo || messageCount >= 6);
+    const shouldSendEmail = !isCande && !isMarian && (hasContactInfo || messageCount >= 6);
     
     // Si necesitamos enviar email, hacerlo ANTES de generar la respuesta
     // Esto asegura que en Vercel serverless el email se envíe completamente
@@ -483,11 +554,15 @@ export async function POST(request: NextRequest) {
         history: [
           {
             role: 'user',
-            parts: [{ text: getSystemPrompt(messageCount, language, isCande) }],
+            parts: [{ text: getSystemPrompt(messageCount, language, isCande, isMarian) }],
           },
           {
             role: 'model',
-            parts: [{ text: isCande ? 'Hola Cande! Estic aquí per ajudar-te a practicar català. De què vols parlar avui?' : 'Entendido. Actuaré como el asistente virtual de Guido siguiendo estas instrucciones.' }],
+            parts: [{ text: isCande 
+              ? 'Hola Cande! Estic aquí per ajudar-te a practicar català. De què vols parlar avui?' 
+              : isMarian 
+                ? '¡Hola Mariano! Soy tu profesor de Next.js. Estoy aquí para ayudarte con cualquier pregunta sobre desarrollo web. ¿En qué puedo ayudarte hoy?'
+                : 'Entendido. Actuaré como el asistente virtual de Guido siguiendo estas instrucciones.' }],
           },
           ...chatHistory,
         ],

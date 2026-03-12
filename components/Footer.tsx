@@ -3,7 +3,7 @@
 import { useLanguage } from '@/lib/language-context';
 import { useTheme } from '@/lib/theme-context';
 import Image from 'next/image';
-import { Mail, MessageCircle, Instagram, ArrowRight } from 'lucide-react';
+import { Mail, MessageCircle, Instagram, ArrowRight, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -11,7 +11,7 @@ export default function Footer() {
 
   const contactInfo = {
     email: 'guido.llaurado@gmail.com',
-    instagram: 'https://www.instagram.com/guidoll.dev/',
+    linkedin: 'https://www.linkedin.com/in/guidoll/',
     whatsapp: '+34675497068'
   };
 
@@ -24,8 +24,8 @@ export default function Footer() {
     window.open(`https://wa.me/${contactInfo.whatsapp.replace('+', '')}?text=${message}`, '_blank');
   };
 
-  const handleInstagramClick = () => {
-    window.open(contactInfo.instagram, '_blank');
+  const handleLinkedInClick = () => {
+    window.open(contactInfo.linkedin, '_blank');
   };
 
   return (
@@ -105,10 +105,10 @@ export default function Footer() {
               {t.footerTagline || 'Desarrollo web premium en Barcelona. Especializado en Next.js, React y experiencias digitales de alto rendimiento.'}
             </p>
             <div className="flex gap-4">
-              <button onClick={handleInstagramClick} className={`p-2 rounded-full transition-colors ${
+              <button onClick={handleLinkedInClick} className={`p-2 rounded-full transition-colors ${
                 isLightMode ? 'hover:bg-slate-800 text-gray-400 hover:text-white' : 'hover:bg-slate-100 text-slate-500 hover:text-slate-900'
               }`}>
-                <Instagram size={20} />
+                <Linkedin size={20} />
               </button>
               <button onClick={handleEmailClick} className={`p-2 rounded-full transition-colors ${
                 isLightMode ? 'hover:bg-slate-800 text-gray-400 hover:text-white' : 'hover:bg-slate-100 text-slate-500 hover:text-slate-900'

@@ -59,7 +59,7 @@ export default function AboutMeSection() {
                 isLightMode ? 'border-white' : 'border-slate-700'
               }`}>
                 <Image
-                  src="/oficina.png"
+                  src="/profilepro.png"
                   alt="Guido Llaurado"
                   fill
                   className="object-cover"
